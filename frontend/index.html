@@ -133,6 +133,39 @@
   .btn-save { background: #1a73e8; color: #fff; }
   .btn-cancel { background: #f0f0f0; color: #333; }
 
+  /* Live Transactions mobile style */
+  .ltx-header { margin-bottom: 20px; }
+  .ltx-title { font-size: 26px; font-weight: 300; color: #333; }
+  .ltx-sub { font-size: 14px; color: #999; margin-top: 4px; }
+  .ltx-datebar { display: flex; justify-content: space-between; align-items: center; background: #fff; border-radius: 10px; padding: 12px 16px; margin-bottom: 16px; border: 1px solid #e8eaed; }
+  .ltx-datebar strong { font-size: 14px; color: #333; }
+  .ltx-search { border: 1px solid #d0d5dd; border-radius: 8px; padding: 8px 12px; font-size: 13px; width: 120px; }
+  .ltx-list { background: #fff; border-radius: 10px; border: 1px solid #e8eaed; overflow: hidden; }
+  .ltx-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-bottom: 1px solid #f0f0f0; cursor: pointer; transition: background 0.1s; }
+  .ltx-row:last-child { border-bottom: none; }
+  .ltx-row:hover { background: #f8f9fa; }
+  .ltx-row.flagged .ltx-store { color: #e74c3c; }
+  .ltx-store { font-size: 15px; font-weight: 500; color: #333; }
+  .ltx-time { font-size: 12px; color: #999; margin-top: 2px; }
+  .ltx-amount { padding: 4px 14px; border-radius: 20px; font-size: 14px; font-weight: 600; color: #fff; min-width: 70px; text-align: center; }
+  .ltx-amount.normal { background: #adb5bd; }
+  .ltx-amount.flagged { background: #e74c3c; }
+  .ltx-arrow { color: #ccc; font-size: 18px; margin-left: 8px; }
+  .ltx-flag { color: #e74c3c; margin-right: 6px; font-size: 14px; }
+
+  /* Receipt detail */
+  .receipt { background: #fff; border-radius: 12px; border: 1px solid #e8eaed; padding: 28px 24px; max-width: 500px; margin: 0 auto; }
+  .receipt-store { text-align: center; font-size: 22px; color: #999; font-weight: 300; }
+  .receipt-date { text-align: center; font-size: 13px; color: #aaa; margin-top: 4px; margin-bottom: 20px; }
+  .receipt-hdr { display: flex; justify-content: space-between; font-size: 12px; color: #999; font-weight: 600; padding-bottom: 6px; border-bottom: 1px dashed #ddd; margin-bottom: 8px; }
+  .receipt-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 14px; }
+  .receipt-item-name { color: #555; flex: 1; font-family: 'Courier New', monospace; }
+  .receipt-item-qty { color: #999; min-width: 50px; text-align: center; font-family: 'Courier New', monospace; }
+  .receipt-item-amt { color: #333; min-width: 60px; text-align: right; font-family: 'Courier New', monospace; }
+  .receipt-total { margin-top: 16px; border-top: 1px dashed #ddd; padding-top: 12px; text-align: right; }
+  .receipt-total-label { font-size: 14px; color: #6ca0dc; font-weight: 600; }
+  .receipt-total-line { font-size: 14px; color: #555; margin-top: 4px; font-family: 'Courier New', monospace; }
+
   .pdi-badge { position: fixed; bottom: 16px; right: 16px; width: 44px; height: 44px; background: #00bcd4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 50; }
 
   @media (max-width: 1100px) { .cards-row { grid-template-columns: repeat(3, 1fr); } .live-summary-cards { grid-template-columns: repeat(2, 1fr); } }
@@ -205,6 +238,7 @@
     <a class="sidebar-item active" data-page="tasks" onclick="navigateTo('tasks')">Basic Tasks</a>
     <a class="sidebar-item" data-page="livedata" onclick="navigateTo('livedata')">Live Data</a>
     <a class="sidebar-item" data-page="items" onclick="navigateTo('items')">All Items</a>
+    <a class="sidebar-item" data-page="livetxn" onclick="navigateTo('livetxn')">Live Transactions</a>
     <a class="sidebar-item" data-page="history" onclick="navigateTo('history')">Day Closing <span class="arrow">&#9656;</span></a>
     <a class="sidebar-item" onclick="navigateTo('items')">Grocery <span class="arrow">&#9656;</span></a>
     <a class="sidebar-item" onclick="navigateTo('livedata')">Gas <span class="arrow">&#9656;</span></a>
@@ -292,6 +326,7 @@ function navigateTo(page) {
 function loadPage() {
   if (currentPage === 'tasks') loadTasks();
   else if (currentPage === 'livedata') loadLiveData();
+  else if (currentPage === 'livetxn') loadLiveTxn();
   else if (currentPage === 'history') loadHistory();
   else if (currentPage === 'items') loadItems();
   else if (currentPage === 'reports') loadHistory();
@@ -747,6 +782,149 @@ async function loadDateTxns(storeId, scanCode, onDate, itemName) {
     }
     pc.innerHTML = h;
   } catch(e) { pc.innerHTML = `<div style="color:red">Error: ${e.message}</div>`; }
+}
+
+// ==================== LIVE TRANSACTIONS PAGE ====================
+let ltxDate = '';
+
+async function loadLiveTxn() {
+  const pc = $('pageContent');
+  if (!ltxDate) {
+    // Find most recent date with data
+    try {
+      const d = await (await fetch(`${API}/api/transactions?limit=1`)).json();
+      ltxDate = d.date || new Date().toISOString().split('T')[0];
+    } catch(e) { ltxDate = new Date().toISOString().split('T')[0]; }
+  }
+
+  pc.innerHTML = `<div class="ltx-header">
+    <div class="ltx-title">Live Transactions</div>
+    <div class="ltx-sub">From your store's POS Register. Pull page down to refresh</div>
+  </div>
+  <div class="ltx-datebar">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="filter-btn" onclick="changeLtxDate(-1)" style="padding:4px 10px;">&#9664;</button>
+      <strong>As of <input type="date" id="ltxDatePicker" value="${ltxDate}" onchange="ltxDate=this.value;fetchLtxList()" style="border:1px solid #d0d5dd;border-radius:6px;padding:4px 8px;font-size:13px;"></strong>
+      <button class="filter-btn" onclick="changeLtxDate(1)" style="padding:4px 10px;">&#9654;</button>
+    </div>
+    <input type="text" class="ltx-search" id="ltxSearch" placeholder="Search..." oninput="filterLtxList()">
+  </div>
+  <div id="ltxContent">Loading...</div>`;
+
+  fetchLtxList();
+}
+
+function changeLtxDate(delta) {
+  const d = new Date(ltxDate + 'T00:00:00');
+  d.setDate(d.getDate() + delta);
+  ltxDate = d.toISOString().split('T')[0];
+  if ($('ltxDatePicker')) $('ltxDatePicker').value = ltxDate;
+  fetchLtxList();
+}
+
+let ltxAllTxns = [];
+
+async function fetchLtxList() {
+  try {
+    const data = await (await fetch(`${API}/api/transactions?on_date=${ltxDate}&limit=200`)).json();
+    ltxAllTxns = data.transactions || [];
+    ltxDate = data.date;
+    if ($('ltxDatePicker')) $('ltxDatePicker').value = ltxDate;
+    renderLtxList(ltxAllTxns);
+  } catch(e) { $('ltxContent').innerHTML = `<div style="color:red">${e.message}</div>`; }
+}
+
+function filterLtxList() {
+  const q = ($('ltxSearch')?.value || '').toLowerCase();
+  const filtered = q ? ltxAllTxns.filter(t => t.store_name.toLowerCase().includes(q) || t.items_desc.toLowerCase().includes(q) || t.tender.toLowerCase().includes(q) || String(t.total).includes(q)) : ltxAllTxns;
+  renderLtxList(filtered);
+}
+
+function renderLtxList(txns) {
+  if (txns.length === 0) {
+    $('ltxContent').innerHTML = '<div style="color:#999;text-align:center;padding:40px;">No transactions for this date</div>';
+    return;
+  }
+  let h = '<div class="ltx-list">';
+  for (const t of txns) {
+    const isFlagged = t.event_type === 'void' || t.event_type === 'refund' || t.total >= 25;
+    const flagCls = (t.event_type === 'void' || t.event_type === 'refund') ? ' flagged' : '';
+    const amtCls = (t.event_type === 'void' || t.event_type === 'refund') ? 'flagged' : 'normal';
+    const flagIcon = (t.event_type === 'void' || t.event_type === 'refund') ? '<span class="ltx-flag">&#9888;</span>' : '';
+    h += `<div class="ltx-row${flagCls}" onclick="showReceipt(${t.id})">
+      <div>
+        <div class="ltx-store">${flagIcon}${t.store_name}</div>
+        <div class="ltx-time">@${t.time || 'N/A'}</div>
+      </div>
+      <div style="display:flex;align-items:center;">
+        <span class="ltx-amount ${amtCls}">$${t.total.toFixed(2)}</span>
+        <span class="ltx-arrow">&#9656;</span>
+      </div>
+    </div>`;
+  }
+  h += '</div>';
+  $('ltxContent').innerHTML = h;
+}
+
+async function showReceipt(txnId) {
+  const pc = $('pageContent');
+  pc.innerHTML = '<div style="padding:20px;color:#999;text-align:center;">Loading receipt...</div>';
+  try {
+    const t = await (await fetch(`${API}/api/transaction/${txnId}`)).json();
+
+    let h = `<div style="margin-bottom:14px;">
+      <button class="filter-btn" onclick="loadLiveTxn()" style="cursor:pointer;">&#8592; Back to Transactions</button>
+    </div>`;
+
+    h += '<div class="receipt">';
+    h += `<div class="receipt-store">${t.store_name}</div>`;
+    h += `<div class="receipt-date">${t.date} ${t.time || ''}</div>`;
+
+    // Items header
+    h += `<div class="receipt-hdr"><span>Item</span><span>Quantity</span><span>Amount</span></div>`;
+
+    // Items
+    let gross = 0;
+    if (t.items && t.items.length > 0) {
+      for (const i of t.items) {
+        gross += i.amount;
+        h += `<div class="receipt-item">
+          <span class="receipt-item-name">${i.description || i.scan_code}</span>
+          <span class="receipt-item-qty">x ${Math.round(i.qty)}</span>
+          <span class="receipt-item-amt">${i.amount.toFixed(2)}</span>
+        </div>`;
+      }
+    }
+
+    // Fuel
+    if (t.fuel && t.fuel.length > 0) {
+      for (const f of t.fuel) {
+        gross += f.amount;
+        h += `<div class="receipt-item">
+          <span class="receipt-item-name">${f.grade}</span>
+          <span class="receipt-item-qty">${f.gallons.toFixed(3)} gal</span>
+          <span class="receipt-item-amt">${f.amount.toFixed(2)}</span>
+        </div>`;
+      }
+    }
+
+    // Totals
+    const tax = Math.max(0, t.total - gross);
+    h += `<div class="receipt-total">
+      <div class="receipt-total-label">TOTAL</div>
+      <div class="receipt-total-line">GROSS $${gross.toFixed(2)}</div>
+      ${tax > 0.01 ? `<div class="receipt-total-line">Tax $${tax.toFixed(2)}</div>` : ''}
+      <div class="receipt-total-line" style="font-weight:700;">Net $${t.total.toFixed(2)}</div>
+    </div>`;
+
+    // Tender
+    h += `<div style="margin-top:12px;padding-top:12px;border-top:1px dashed #ddd;font-size:13px;color:#6ca0dc;">
+      ${t.tender || 'Cash'}
+    </div>`;
+
+    h += '</div>';
+    pc.innerHTML = h;
+  } catch(e) { pc.innerHTML = `<div style="color:red;padding:20px;">${e.message}</div>`; }
 }
 
 // ==================== EDIT TASK MODAL ====================
