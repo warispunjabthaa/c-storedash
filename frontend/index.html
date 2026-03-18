@@ -11,11 +11,10 @@
   /* === TOP HEADER BAR === */
   .topbar { background: #fff; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border-bottom: 1px solid #e0e0e0; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
   .topbar-left { display: flex; align-items: center; gap: 24px; }
-  .topbar-logo { height: 28px; }
-  .topbar-logo svg { height: 28px; }
   .topbar-nav { display: flex; gap: 20px; }
-  .topbar-nav a { color: #1a73e8; text-decoration: none; font-size: 14px; font-weight: 500; }
+  .topbar-nav a { color: #1a73e8; text-decoration: none; font-size: 14px; font-weight: 500; cursor: pointer; }
   .topbar-nav a:hover { text-decoration: underline; }
+  .topbar-nav a.active-nav { color: #333; font-weight: 700; }
   .topbar-right { display: flex; align-items: center; gap: 16px; }
   .topbar-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: #666; cursor: pointer; border-radius: 50%; font-size: 16px; }
   .topbar-icon:hover { background: #f0f0f0; }
@@ -37,14 +36,11 @@
   /* === MAIN CONTENT === */
   .main { margin-left: 185px; margin-top: 50px; padding: 24px 28px; min-height: calc(100vh - 50px); }
   .page-title { font-size: 20px; font-weight: 600; color: #333; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-  .page-title-icon { font-size: 18px; color: #999; }
-
-  /* Store selector dropdown (our addition) */
   .store-select-bar { margin-bottom: 16px; }
   .store-select-bar select { padding: 8px 14px; border: 1px solid #d0d5dd; border-radius: 8px; font-size: 14px; background: #fff; color: #333; min-width: 220px; cursor: pointer; }
   .store-select-bar select:focus { outline: none; border-color: #1a73e8; }
 
-  /* === TASK CARDS (Row 1 & Row 2) === */
+  /* === TASK CARDS === */
   .cards-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 14px; }
   .task-card { background: #fff; border-radius: 10px; padding: 20px; border: 1px solid #e8eaed; display: flex; flex-direction: column; min-height: 160px; cursor: pointer; transition: box-shadow 0.2s; }
   .task-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
@@ -57,30 +53,71 @@
   .tc-msg { font-size: 12px; color: #999; margin-top: 4px; line-height: 1.5; }
   .tc-action { margin-top: auto; padding-top: 14px; text-align: center; }
   .tc-action a { color: #1a73e8; font-size: 13px; text-decoration: none; font-weight: 500; }
-  .tc-action a:hover { text-decoration: underline; }
 
   /* === BOTTOM SECTIONS === */
   .bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
   .section-box { background: #fff; border-radius: 10px; padding: 20px 24px; border: 1px solid #e8eaed; }
   .section-title { font-size: 16px; font-weight: 600; color: #333; margin-bottom: 16px; }
-
-  /* Settlements */
   .settle-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
   .settle-row:last-child { border-bottom: none; }
   .settle-name { font-size: 14px; color: #333; font-weight: 500; }
   .settle-status { font-size: 12px; color: #999; margin-top: 2px; }
   .settle-btn { padding: 6px 20px; border-radius: 20px; border: 1px solid #1a73e8; background: #fff; color: #1a73e8; font-size: 13px; cursor: pointer; font-weight: 500; }
   .settle-btn:hover { background: #1a73e8; color: #fff; }
-
-  /* Reports */
   .report-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
   .report-row:last-child { border-bottom: none; }
   .report-label { font-size: 14px; color: #333; }
   .report-btns { display: flex; gap: 8px; }
   .report-pill { padding: 5px 14px; border-radius: 20px; border: 1px solid #1a73e8; background: #fff; color: #1a73e8; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
-  .report-pill:hover { background: rgba(26,115,232,0.05); }
   .report-view-btn { padding: 5px 16px; border-radius: 20px; border: 1px solid #ccc; background: #fff; color: #333; font-size: 12px; cursor: pointer; }
-  .report-view-btn:hover { background: #f5f5f5; }
+
+  /* === LIVE DATA PAGE === */
+  .live-summary-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
+  .summary-card { background: #fff; border-radius: 10px; padding: 20px; border: 1px solid #e8eaed; text-align: center; }
+  .summary-card .sc-value { font-size: 28px; font-weight: 700; color: #1a73e8; }
+  .summary-card .sc-value.green { color: #27ae60; }
+  .summary-card .sc-value.orange { color: #e67e22; }
+  .summary-card .sc-label { font-size: 12px; color: #999; text-transform: uppercase; margin-top: 4px; letter-spacing: 0.5px; }
+
+  .live-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+  .live-box { background: #fff; border-radius: 10px; padding: 20px; border: 1px solid #e8eaed; }
+  .live-box-title { font-size: 15px; font-weight: 600; color: #333; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+
+  .txn-list { max-height: 400px; overflow-y: auto; }
+  .txn-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; align-items: center; }
+  .txn-row:last-child { border-bottom: none; }
+  .txn-time { color: #999; min-width: 65px; }
+  .txn-items { color: #555; flex: 1; margin: 0 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .txn-amount { color: #27ae60; font-weight: 600; min-width: 65px; text-align: right; }
+  .txn-tender { font-size: 11px; color: #999; min-width: 50px; text-align: right; }
+
+  .item-list { max-height: 400px; overflow-y: auto; }
+  .item-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
+  .item-rank { color: #999; min-width: 28px; }
+  .item-desc { color: #333; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .item-qty { color: #1a73e8; min-width: 45px; text-align: right; margin: 0 8px; font-weight: 600; }
+  .item-amt { color: #27ae60; min-width: 65px; text-align: right; }
+
+  /* History table */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .data-table th { text-align: left; padding: 10px 8px; color: #999; border-bottom: 2px solid #e8eaed; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+  .data-table td { padding: 10px 8px; border-bottom: 1px solid #f0f0f0; }
+  .data-table tr:hover { background: #f8f9fa; }
+  .data-table .num { text-align: right; }
+
+  /* Date range bar */
+  .filter-bar { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
+  .filter-btn { padding: 6px 14px; border-radius: 6px; border: 1px solid #d0d5dd; background: #fff; color: #555; cursor: pointer; font-size: 12px; }
+  .filter-btn.active { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+  .filter-input { padding: 6px 10px; border: 1px solid #d0d5dd; border-radius: 6px; font-size: 12px; }
+  .filter-label { font-size: 12px; color: #999; }
+
+  /* Fuel section */
+  .fuel-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
+  .fuel-grade { color: #333; flex: 1; }
+  .fuel-gal { color: #1a73e8; min-width: 80px; text-align: right; font-weight: 500; }
+  .fuel-amt { color: #27ae60; min-width: 70px; text-align: right; font-weight: 600; }
+  .fuel-ppg { color: #999; min-width: 70px; text-align: right; }
 
   /* === MODAL === */
   .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; z-index: 200; }
@@ -94,20 +131,17 @@
   .modal-btns { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
   .modal-btns button { padding: 9px 20px; border-radius: 8px; border: none; font-size: 14px; cursor: pointer; font-weight: 600; }
   .btn-save { background: #1a73e8; color: #fff; }
-  .btn-save:hover { background: #1557b0; }
   .btn-cancel { background: #f0f0f0; color: #333; }
-  .btn-cancel:hover { background: #e0e0e0; }
 
-  /* PDI badge */
   .pdi-badge { position: fixed; bottom: 16px; right: 16px; width: 44px; height: 44px; background: #00bcd4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 50; }
 
-  /* Responsive */
-  @media (max-width: 1100px) { .cards-row { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 1100px) { .cards-row { grid-template-columns: repeat(3, 1fr); } .live-summary-cards { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 768px) {
     .sidebar { width: 0; overflow: hidden; }
     .main { margin-left: 0; }
     .cards-row { grid-template-columns: repeat(2, 1fr); }
-    .bottom-grid { grid-template-columns: 1fr; }
+    .bottom-grid, .live-grid { grid-template-columns: 1fr; }
+    .live-summary-cards { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -116,59 +150,54 @@
 <!-- TOP HEADER BAR -->
 <div class="topbar">
   <div class="topbar-left">
-    <svg class="topbar-logo" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
-      <text x="4" y="24" font-family="Arial" font-weight="900" font-size="22" fill="#1a73e8">PDI</text>
+    <svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg" style="height:26px;">
+      <text x="2" y="22" font-family="Arial" font-weight="900" font-size="20" fill="#1a73e8">PDI</text>
     </svg>
     <div class="topbar-nav">
-      <a href="#" onclick="return false;">Live Data</a>
-      <a href="#" onclick="return false;">All Store Reports &#9662;</a>
+      <a id="navLiveData" onclick="navigateTo('livedata')">Live Data</a>
+      <a id="navReports" onclick="navigateTo('reports')">All Store Reports &#9662;</a>
     </div>
   </div>
   <div class="topbar-right">
-    <span class="topbar-icon" title="Feedback">&#9786;</span>
-    <span class="topbar-icon" title="Notifications">&#128276;</span>
-    <span class="topbar-icon" title="Info">&#9432;</span>
-    <span class="topbar-icon" title="Help">&#63;</span>
-    <span class="topbar-icon" title="Apps">&#9783;</span>
-    <span class="topbar-icon" title="Profile" onclick="window.location='/logout'">&#128100;</span>
+    <span class="topbar-icon">&#9786;</span>
+    <span class="topbar-icon">&#128276;</span>
+    <span class="topbar-icon">&#9432;</span>
+    <span class="topbar-icon">?</span>
+    <span class="topbar-icon">&#9783;</span>
+    <span class="topbar-icon" onclick="window.location='/logout'">&#128100;</span>
   </div>
 </div>
 
 <!-- LEFT SIDEBAR -->
 <div class="sidebar">
-  <div class="sidebar-store" id="sidebarStore" onclick="document.getElementById('storeDropdown').click()">
+  <div class="sidebar-store" onclick="document.getElementById('storeDropdown').click()">
     <div class="store-circle" id="storeCircle">AM</div>
     <div class="store-info">
       <strong id="storeNameDisplay">Amiya Express 2</strong>
       <small id="storeAccountDisplay">Account #: 864109</small>
     </div>
   </div>
-  <div class="sidebar-menu">
-    <a class="sidebar-item active" href="#" onclick="return false;">Basic Tasks</a>
-    <a class="sidebar-item" href="#" onclick="return false;">Day Closing <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Grocery <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Gas <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Lottery/Lotto <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Services <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Tender Types <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Bank <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Other Entries <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Report Center <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Scan Data Loyalty & Offers <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Price Book <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Payroll <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" href="#" onclick="return false;">Store Settings</a>
+  <div class="sidebar-menu" id="sidebarMenu">
+    <a class="sidebar-item active" data-page="tasks" onclick="navigateTo('tasks')">Basic Tasks</a>
+    <a class="sidebar-item" data-page="livedata" onclick="navigateTo('livedata')">Live Data</a>
+    <a class="sidebar-item" data-page="history" onclick="navigateTo('history')">Day Closing <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" data-page="items" onclick="navigateTo('items')">Grocery <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="navigateTo('livedata')">Gas <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="return false;">Lottery/Lotto <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="return false;">Services <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="return false;">Tender Types <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="return false;">Bank <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="return false;">Other Entries <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" data-page="reports" onclick="navigateTo('reports')">Report Center <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="return false;">Scan Data Loyalty & Offers <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="return false;">Price Book <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="return false;">Payroll <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="return false;">Store Settings</a>
   </div>
 </div>
 
 <!-- MAIN CONTENT -->
-<div class="main" id="mainContent">
-  <div class="page-title">
-    <span class="page-title-icon">&#127968;</span>
-    Critical Tasks Dashboard
-  </div>
-
-  <!-- Hidden store selector -->
+<div class="main">
   <div class="store-select-bar">
     <select id="storeDropdown" onchange="switchStore(this.value)">
       <option value="77573764">Amiya Express 2</option>
@@ -176,10 +205,7 @@
       <option value="7413">Amiya Express</option>
     </select>
   </div>
-
-  <div id="dashboardContent">
-    <div style="text-align:center;padding:40px;color:#999;">Loading...</div>
-  </div>
+  <div id="pageContent"></div>
 </div>
 
 <div class="pdi-badge">PDI</div>
@@ -192,228 +218,355 @@ const STORES = {
   '7413': {name: 'Amiya Express', account: '516334', initials: 'AM'},
 };
 let currentStore = '77573764';
+let currentPage = 'tasks';
+let selectedRange = 7;
+
+function $(id) { return document.getElementById(id); }
+function fmt(n) { return '$' + Number(n||0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+function fmtN(n) { return Number(n||0).toLocaleString(); }
+function fmtD(d) { if (!d) return ''; const dt=new Date(d+'T00:00:00'); const m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; return m[dt.getMonth()]+' '+dt.getDate(); }
+function fmtFull(d) { if (!d) return ''; const dt=new Date(d+'T00:00:00'); return (dt.getMonth()+1)+'/'+dt.getDate()+'/'+dt.getFullYear(); }
+function daysSince(d) { if (!d) return null; const t=new Date();t.setHours(0,0,0,0); return Math.floor((t-new Date(d+'T00:00:00'))/864e5); }
+function dateCls(days,w,c) { if(days===null)return''; return days<=w?'':days<=c?'warn':'critical'; }
 
 function switchStore(sid) {
   currentStore = sid;
   const s = STORES[sid];
-  document.getElementById('storeCircle').textContent = s.initials;
-  document.getElementById('storeNameDisplay').textContent = s.name;
-  document.getElementById('storeAccountDisplay').textContent = 'Account #: ' + s.account;
-  document.getElementById('storeDropdown').value = sid;
-  loadDashboard();
+  $('storeCircle').textContent = s.initials;
+  $('storeNameDisplay').textContent = s.name;
+  $('storeAccountDisplay').textContent = 'Account #: ' + s.account;
+  $('storeDropdown').value = sid;
+  loadPage();
 }
 
-function fmtD(d) {
-  if (!d) return '';
-  const dt = new Date(d + 'T00:00:00');
-  const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  return m[dt.getMonth()] + '  ' + dt.getDate();
+function navigateTo(page) {
+  currentPage = page;
+  // Update sidebar active
+  document.querySelectorAll('.sidebar-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.page === page);
+  });
+  // Update topbar nav
+  $('navLiveData').className = page === 'livedata' ? 'active-nav' : '';
+  $('navReports').className = page === 'reports' ? 'active-nav' : '';
+  loadPage();
 }
 
-function fmtFullDate(d) {
-  if (!d) return '';
-  const dt = new Date(d + 'T00:00:00');
-  return (dt.getMonth()+1) + '/' + dt.getDate() + '/' + dt.getFullYear();
+function loadPage() {
+  if (currentPage === 'tasks') loadTasks();
+  else if (currentPage === 'livedata') loadLiveData();
+  else if (currentPage === 'history') loadHistory();
+  else if (currentPage === 'items') loadItems();
+  else if (currentPage === 'reports') loadHistory();
 }
 
-function daysSince(d) {
-  if (!d) return null;
-  const today = new Date(); today.setHours(0,0,0,0);
-  return Math.floor((today - new Date(d+'T00:00:00')) / 86400000);
-}
-
-function dateClass(days, warn, crit) {
-  if (days === null) return '';
-  if (days <= warn) return '';
-  if (days <= crit) return 'warn';
-  return 'critical';
-}
-
-async function loadDashboard() {
-  const dc = document.getElementById('dashboardContent');
+// ==================== TASKS PAGE ====================
+async function loadTasks() {
+  const pc = $('pageContent');
+  pc.innerHTML = '<div class="page-title">&#127968; Critical Tasks Dashboard</div><div id="dc"><div style="text-align:center;padding:40px;color:#999;">Loading...</div></div>';
   try {
-    const resp = await fetch(`${API}/api/tasks`);
-    const data = await resp.json();
+    const data = await (await fetch(`${API}/api/tasks`)).json();
     const store = data[currentStore];
-    if (!store) { dc.innerHTML = '<div style="text-align:center;padding:40px;color:#999;">No data for this store</div>'; return; }
-
-    let html = '';
-
-    // === ROW 1: Day Report, Scratch Off, Gas, Grocery, Bank ===
-    const row1 = [
-      {key:'day_report', label:'Day Report', sub:'Last Daily Entry', action:'Enter Daily Reports'},
-      {key:'scratch_off', label:'Scratch Off', sub:'Last scratch off', action:'Enter Lottery Data'},
-      {key:'gas', label:'Gas', sub:'Last Gas Delivery', action:'Enter Gas Info'},
-      {key:'grocery', label:'Grocery', sub:'Last Purchase', action:'Enter Purchase Info'},
-      {key:'bank', label:'Bank', sub:'Last Reconciled', action:'Enter Bank Entries'},
-    ];
-    html += '<div class="cards-row">';
-    for (const r of row1) {
-      const t = store.tasks[r.key] || {};
-      const days = daysSince(t.last_date);
-      const cls = dateClass(days, t.warn_days||2, t.critical_days||5);
-      html += `<div class="task-card" onclick="editTask('${currentStore}','${r.key}','${r.label}','${t.last_date||''}','${t.last_value||''}')">
-        <div class="tc-title">${r.label}</div>
-        <div class="tc-date ${cls}">${fmtD(t.last_date) || ''}</div>
-        <div class="tc-sub">${t.last_date ? r.sub : r.sub}</div>
-        <div class="tc-action"><a href="#" onclick="return false;">${r.action} &#9662;</a></div>
-      </div>`;
+    if (!store) { $('dc').innerHTML = '<div style="text-align:center;padding:40px;color:#999;">No data</div>'; return; }
+    let h = '';
+    const r1 = [{k:'day_report',l:'Day Report',s:'Last Daily Entry',a:'Enter Daily Reports'},{k:'scratch_off',l:'Scratch Off',s:'Last scratch off',a:'Enter Lottery Data'},{k:'gas',l:'Gas',s:'Last Gas Delivery',a:'Enter Gas Info'},{k:'grocery',l:'Grocery',s:'Last Purchase',a:'Enter Purchase Info'},{k:'bank',l:'Bank',s:'Last Reconciled',a:'Enter Bank Entries'}];
+    h += '<div class="cards-row">';
+    for (const r of r1) { const t=store.tasks[r.k]||{}; const d=daysSince(t.last_date); const c=dateCls(d,t.warn_days||2,t.critical_days||5); h+=`<div class="task-card" onclick="editTask('${currentStore}','${r.k}','${r.l}','${t.last_date||''}','${t.last_value||''}')"><div class="tc-title">${r.l}</div><div class="tc-date ${c}">${fmtD(t.last_date)}</div><div class="tc-sub">${r.s}</div><div class="tc-action"><a href="#" onclick="return false">${r.a} &#9662;</a></div></div>`; }
+    h += '</div><div class="cards-row">';
+    const pb=store.tasks.price_book||{}; h+=`<div class="task-card" onclick="editTask('${currentStore}','price_book','Price Book Items','${pb.last_date||''}','${pb.last_value||''}')"><div class="tc-title">Price Book Items</div><div class="tc-date ${dateCls(daysSince(pb.last_date),7,30)}">${fmtD(pb.last_date)}</div><div class="tc-sub">${pb.last_value?'@ '+pb.last_value:''}</div><div class="tc-sub">Last change requested</div><div class="tc-action"><a href="#">Add/Update Items</a></div></div>`;
+    const pc2=store.tasks.price_changes||{}; h+=`<div class="task-card" onclick="editTask('${currentStore}','price_changes','Price Changes','${pc2.last_date||''}','${pc2.last_value||'0'}')"><div class="tc-title">Price Changes not sent</div><div class="tc-count">${pc2.last_value||'0'}</div><div class="tc-msg">Items waiting to be sent</div><div class="tc-action"><a href="#">Send To POS</a></div></div>`;
+    const pr=store.tasks.promotions||{}; h+=`<div class="task-card" onclick="editTask('${currentStore}','promotions','Promotions','${pr.last_date||''}','${pr.last_value||'0'}')"><div class="tc-title">Promotions</div><div class="tc-count">${pr.last_value||'0'}</div><div class="tc-msg">Active promotions</div><div class="tc-action"><a href="#">View Promotions</a></div></div>`;
+    const ub=store.tasks.unprocessed_batch||{}; h+=`<div class="task-card" onclick="editTask('${currentStore}','unprocessed_batch','Unprocessed Batch','${ub.last_date||''}','${ub.last_value||''}')"><div class="tc-title">Unprocessed Batch</div><div class="tc-msg" style="margin-top:10px">${ub.last_value||'It looks like you do not have any unprocessed batches.'}</div><div class="tc-action"><a href="#">View Batches</a></div></div>`;
+    const gp=store.tasks.gas_price||{}; h+=`<div class="task-card" onclick="editTask('${currentStore}','gas_price','Gas Price','${gp.last_date||''}','${gp.last_value||''}')"><div class="tc-title">Gas Price</div><div class="tc-date ${dateCls(daysSince(gp.last_date),7,14)}">${fmtD(gp.last_date)}</div><div class="tc-sub">Last Gas Price Change</div><div class="tc-action"><a href="#">Update Gas Price</a></div></div>`;
+    h += '</div><div class="bottom-grid"><div class="section-box"><div class="section-title">Enter Settlements</div>';
+    for (const s of [{k:'settle_credit',l:'Credit card 2'},{k:'settle_food',l:'Food stamps'},{k:'settle_lottery',l:'Lottery lotto'}]) {
+      const st=store.tasks[s.k]||{}; h+=`<div class="settle-row"><div><div class="settle-name">${s.l}</div><div class="settle-status">${st.last_date?'Last Settled On '+fmtD(st.last_date):'Last Settled On Never'}</div></div><button class="settle-btn" onclick="editTask('${currentStore}','${s.k}','${s.l}','${st.last_date||''}','')">Settle</button></div>`;
     }
-    html += '</div>';
-
-    // === ROW 2: Price Book, Price Changes, Promotions, Unprocessed Batch, Gas Price ===
-    html += '<div class="cards-row">';
-
-    // Price Book Items
-    const pb = store.tasks['price_book'] || {};
-    const pbCls = dateClass(daysSince(pb.last_date), pb.warn_days||7, pb.critical_days||30);
-    html += `<div class="task-card" onclick="editTask('${currentStore}','price_book','Price Book Items','${pb.last_date||''}','${pb.last_value||''}')">
-      <div class="tc-title">Price Book Items</div>
-      <div class="tc-date ${pbCls}">${fmtD(pb.last_date)}</div>
-      <div class="tc-sub">${pb.last_value ? '@ '+pb.last_value : ''}</div>
-      <div class="tc-sub">Last change requested</div>
-      <div class="tc-action"><a href="#" onclick="return false;">Add/Update Items</a></div>
-    </div>`;
-
-    // Price Changes not sent
-    const pc = store.tasks['price_changes'] || {};
-    html += `<div class="task-card" onclick="editTask('${currentStore}','price_changes','Price Changes not sent','${pc.last_date||''}','${pc.last_value||'0'}')">
-      <div class="tc-title">Price Changes not sent</div>
-      <div class="tc-count">${pc.last_value || '0'}</div>
-      <div class="tc-msg">Items waiting to be sent</div>
-      <div class="tc-action"><a href="#" onclick="return false;">Send To POS</a></div>
-    </div>`;
-
-    // Promotions
-    const pr = store.tasks['promotions'] || {};
-    html += `<div class="task-card" onclick="editTask('${currentStore}','promotions','Promotions','${pr.last_date||''}','${pr.last_value||'0'}')">
-      <div class="tc-title">Promotions</div>
-      <div class="tc-count">${pr.last_value || '0'}</div>
-      <div class="tc-msg">Active promotions</div>
-      <div class="tc-action"><a href="#" onclick="return false;">View Promotions</a></div>
-    </div>`;
-
-    // Unprocessed Batch
-    const ub = store.tasks['unprocessed_batch'] || {};
-    html += `<div class="task-card" onclick="editTask('${currentStore}','unprocessed_batch','Unprocessed Batch','${ub.last_date||''}','${ub.last_value||''}')">
-      <div class="tc-title">Unprocessed Batch</div>
-      <div class="tc-msg" style="margin-top:10px;">${ub.last_value || 'It looks like you do not have any unprocessed batches.'}</div>
-      <div class="tc-action"><a href="#" onclick="return false;">View Batches</a></div>
-    </div>`;
-
-    // Gas Price
-    const gp = store.tasks['gas_price'] || {};
-    const gpCls = dateClass(daysSince(gp.last_date), gp.warn_days||7, gp.critical_days||14);
-    html += `<div class="task-card" onclick="editTask('${currentStore}','gas_price','Gas Price','${gp.last_date||''}','${gp.last_value||''}')">
-      <div class="tc-title">Gas Price</div>
-      <div class="tc-date ${gpCls}">${fmtD(gp.last_date)}</div>
-      <div class="tc-sub">Last Gas Price Change</div>
-      <div class="tc-action"><a href="#" onclick="return false;">Update Gas Price</a></div>
-    </div>`;
-
-    html += '</div>';
-
-    // === BOTTOM: Settlements + Reports ===
-    html += '<div class="bottom-grid">';
-
-    // Enter Settlements
-    html += '<div class="section-box"><div class="section-title">Enter Settlements</div>';
-    const settlements = [
-      {key:'settle_credit', label:'Credit card 2'},
-      {key:'settle_food', label:'Food stamps'},
-      {key:'settle_lottery', label:'Lottery lotto'},
-    ];
-    for (const s of settlements) {
-      const st = store.tasks[s.key] || {};
-      const settledText = st.last_date ? 'Last Settled On ' + fmtD(st.last_date) : 'Last Settled On Never';
-      html += `<div class="settle-row">
-        <div>
-          <div class="settle-name">${s.label}</div>
-          <div class="settle-status">${settledText}</div>
-        </div>
-        <button class="settle-btn" onclick="editTask('${currentStore}','${s.key}','${s.label}','${st.last_date||''}','${st.last_value||''}')">Settle</button>
-      </div>`;
-    }
-    html += '</div>';
-
-    // Reports
-    html += '<div class="section-box"><div class="section-title">Reports</div>';
-
-    const dr = store.tasks['day_report'] || {};
-    html += `<div class="report-row"><div class="report-label">Recent Day Reports</div><div class="report-btns">`;
-    if (dr.last_date) {
-      const d1 = new Date(dr.last_date+'T00:00:00');
-      const d2 = new Date(d1); d2.setDate(d2.getDate()-1);
-      html += `<span class="report-pill">&#128229; ${fmtFullDate(dr.last_date)}</span>`;
-      const d2s = d2.getFullYear()+'-'+String(d2.getMonth()+1).padStart(2,'0')+'-'+String(d2.getDate()).padStart(2,'0');
-      html += `<span class="report-pill">&#128229; ${fmtFullDate(d2s)}</span>`;
-    }
-    html += `</div></div>`;
-
-    const so = store.tasks['scratch_off'] || {};
-    html += `<div class="report-row"><div class="report-label">Recent Scratch Off Reports</div><div class="report-btns">`;
-    if (so.last_date) {
-      const s1 = new Date(so.last_date+'T00:00:00');
-      const s2 = new Date(s1); s2.setDate(s2.getDate()-1);
-      html += `<span class="report-pill">&#128229; ${fmtFullDate(so.last_date)}</span>`;
-      const s2s = s2.getFullYear()+'-'+String(s2.getMonth()+1).padStart(2,'0')+'-'+String(s2.getDate()).padStart(2,'0');
-      html += `<span class="report-pill">&#128229; ${fmtFullDate(s2s)}</span>`;
-    }
-    html += `</div></div>`;
-
-    html += `<div class="report-row"><div class="report-label">Tank Reports</div><div class="report-btns"><button class="report-view-btn">View Report</button></div></div>`;
-    html += `<div class="report-row"><div class="report-label">Local customer accounts</div><div class="report-btns"><button class="report-view-btn">View Report</button></div></div>`;
-
-    html += '</div></div>';
-
-    dc.innerHTML = html;
-  } catch (e) {
-    dc.innerHTML = `<div style="color:#e74c3c;padding:20px;">Error: ${e.message}</div>`;
-  }
+    h += '</div><div class="section-box"><div class="section-title">Reports</div>';
+    const dr=store.tasks.day_report||{}; h+=`<div class="report-row"><div class="report-label">Recent Day Reports</div><div class="report-btns">`;
+    if(dr.last_date){const d1=new Date(dr.last_date+'T00:00:00'),d2=new Date(d1);d2.setDate(d2.getDate()-1);h+=`<span class="report-pill">&#128229; ${fmtFull(dr.last_date)}</span>`;const d2s=d2.getFullYear()+'-'+String(d2.getMonth()+1).padStart(2,'0')+'-'+String(d2.getDate()).padStart(2,'0');h+=`<span class="report-pill">&#128229; ${fmtFull(d2s)}</span>`;}
+    h+=`</div></div>`;
+    const so=store.tasks.scratch_off||{}; h+=`<div class="report-row"><div class="report-label">Recent Scratch Off Reports</div><div class="report-btns">`;
+    if(so.last_date){const s1=new Date(so.last_date+'T00:00:00'),s2=new Date(s1);s2.setDate(s2.getDate()-1);h+=`<span class="report-pill">&#128229; ${fmtFull(so.last_date)}</span>`;const s2s=s2.getFullYear()+'-'+String(s2.getMonth()+1).padStart(2,'0')+'-'+String(s2.getDate()).padStart(2,'0');h+=`<span class="report-pill">&#128229; ${fmtFull(s2s)}</span>`;}
+    h+=`</div></div><div class="report-row"><div class="report-label">Tank Reports</div><div class="report-btns"><button class="report-view-btn">View Report</button></div></div><div class="report-row"><div class="report-label">Local customer accounts</div><div class="report-btns"><button class="report-view-btn">View Report</button></div></div></div></div>`;
+    $('dc').innerHTML = h;
+  } catch(e) { $('dc').innerHTML = `<div style="color:red;padding:20px;">Error: ${e.message}</div>`; }
 }
 
+// ==================== LIVE DATA PAGE ====================
+let liveDate = '';
+let liveTxns = [];
+
+async function loadLiveData() {
+  const pc = $('pageContent');
+  pc.innerHTML = `<div class="page-title" style="display:flex;justify-content:space-between;align-items:center;">
+    <span>&#128202; Transactions from today</span>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <button class="filter-btn" onclick="changeDate(-1)" style="padding:4px 10px;font-size:16px;">&lt;</button>
+      <input type="date" id="liveDatePicker" class="filter-input" value="${liveDate}" onchange="liveDate=this.value;fetchLiveData()">
+      <button class="filter-btn" onclick="changeDate(1)" style="padding:4px 10px;font-size:16px;">&gt;</button>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+    <div class="section-box" style="max-height:500px;display:flex;flex-direction:column;">
+      <div class="section-title" style="display:flex;justify-content:space-between;align-items:center;">Transaction Summary
+        <div style="display:flex;gap:6px;">
+          <select id="liveStoreFilter" class="filter-input" style="font-size:11px;padding:4px 8px;" onchange="fetchLiveData()">
+            <option value="">All Store</option>
+            <option value="77573764">Amiya Express 2</option>
+            <option value="10064461">801 S Main St</option>
+            <option value="7413">Amiya Express</option>
+          </select>
+          <select id="liveTypeFilter" class="filter-input" style="font-size:11px;padding:4px 8px;" onchange="fetchLiveData()">
+            <option value="">All Type</option>
+            <option value="sale">Sale</option>
+            <option value="refund">Refund</option>
+            <option value="void">Void</option>
+            <option value="financial">Financial</option>
+          </select>
+          <select id="liveLimitFilter" class="filter-input" style="font-size:11px;padding:4px 8px;" onchange="fetchLiveData()">
+            <option value="50">Last 50</option>
+            <option value="100">Last 100</option>
+            <option value="200">Last 200</option>
+          </select>
+        </div>
+      </div>
+      <div id="txnList" style="flex:1;overflow-y:auto;">Loading...</div>
+    </div>
+    <div class="section-box" id="txnDetail" style="max-height:500px;overflow-y:auto;">
+      <div class="section-title">Transaction Detail</div>
+      <div style="color:#999;text-align:center;padding:40px;">Click a transaction to view details</div>
+    </div>
+  </div>
+  <div id="salesSummary">Loading summary...</div>`;
+  fetchLiveData();
+}
+
+function changeDate(delta) {
+  const picker = $('liveDatePicker');
+  const d = new Date((picker.value || new Date().toISOString().split('T')[0]) + 'T00:00:00');
+  d.setDate(d.getDate() + delta);
+  liveDate = d.toISOString().split('T')[0];
+  picker.value = liveDate;
+  fetchLiveData();
+}
+
+async function fetchLiveData() {
+  const storeFilter = $('liveStoreFilter')?.value || '';
+  const typeFilter = $('liveTypeFilter')?.value || '';
+  const limitFilter = $('liveLimitFilter')?.value || '50';
+
+  let url = `${API}/api/transactions?limit=${limitFilter}`;
+  if (liveDate) url += `&on_date=${liveDate}`;
+  if (storeFilter) url += `&store_id=${storeFilter}`;
+  if (typeFilter) url += `&event_type=${typeFilter}`;
+
+  try {
+    const data = await (await fetch(url)).json();
+    liveTxns = data.transactions || [];
+    liveDate = data.date;
+    if ($('liveDatePicker')) $('liveDatePicker').value = liveDate;
+
+    let h = '';
+    if (liveTxns.length === 0) {
+      h = '<div style="color:#999;text-align:center;padding:40px;">No transactions</div>';
+    } else {
+      for (const t of liveTxns) {
+        h += `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 4px;border-bottom:1px solid #f0f0f0;cursor:pointer;" onclick="showTxnDetail(${t.id})" onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background=''">
+          <div style="flex:1;">
+            <div style="color:#1a73e8;font-size:13px;font-weight:500;">${t.store_name}</div>
+            <div style="color:#999;font-size:11px;">${t.time || ''}</div>
+          </div>
+          <div style="text-align:right;min-width:80px;">
+            <div style="color:#27ae60;font-weight:600;font-size:14px;">$ ${t.total.toFixed(2)}</div>
+            <div style="color:#999;font-size:11px;">${t.tender}</div>
+          </div>
+          <div style="color:#ccc;margin-left:8px;font-size:14px;">&#9656;</div>
+        </div>`;
+      }
+    }
+    $('txnList').innerHTML = h;
+
+    // Load sales summary
+    const sumData = await (await fetch(`${API}/api/sales-summary?on_date=${liveDate}`)).json();
+    let s = '<div class="section-box"><div class="section-title">Sales and Inventory Summary</div>';
+    s += '<table class="data-table"><thead><tr><th>Store Name</th><th class="num">Total Sales</th><th class="num">Grocery Sales</th><th class="num">Gas (Vol)</th><th class="num">No Sale</th><th class="num">Void</th><th class="num">Refunds</th></tr></thead><tbody>';
+    for (const st of sumData.stores) {
+      const noSaleCls = st.no_sale > 0 ? 'style="background:#f39c12;color:#fff;border-radius:10px;padding:2px 8px;font-size:11px;"' : 'style="background:#27ae60;color:#fff;border-radius:10px;padding:2px 8px;font-size:11px;"';
+      const voidCls = st.voids > 0 ? 'style="background:#f39c12;color:#fff;border-radius:10px;padding:2px 8px;font-size:11px;"' : 'style="background:#27ae60;color:#fff;border-radius:10px;padding:2px 8px;font-size:11px;"';
+      const refCls = st.refunds > 0 ? 'style="background:#e74c3c;color:#fff;border-radius:10px;padding:2px 8px;font-size:11px;"' : 'style="background:#27ae60;color:#fff;border-radius:10px;padding:2px 8px;font-size:11px;"';
+      s += `<tr><td>${st.store_name}${st.updated?'<br><span style="color:#999;font-size:10px;">Updated: '+new Date(st.updated).toLocaleTimeString()+'</span>':''}</td><td class="num">${fmt(st.total_sales)}</td><td class="num">${fmt(st.grocery_sales)}</td><td class="num">${fmtN(Math.round(st.gas_vol))}</td><td class="num"><span ${noSaleCls}>${st.no_sale}</span></td><td class="num"><span ${voidCls}>${st.voids}</span></td><td class="num"><span ${refCls}>${st.refunds}</span></td></tr>`;
+    }
+    s += '</tbody></table></div>';
+    $('salesSummary').innerHTML = s;
+
+    // Auto-select first transaction
+    if (liveTxns.length > 0) showTxnDetail(liveTxns[0].id);
+  } catch(e) { $('txnList').innerHTML = `<div style="color:red;padding:10px;">${e.message}</div>`; }
+}
+
+async function showTxnDetail(txnId) {
+  const panel = $('txnDetail');
+  panel.innerHTML = '<div class="section-title">Transaction Detail</div><div style="color:#999;padding:20px;text-align:center;">Loading...</div>';
+  try {
+    const t = await (await fetch(`${API}/api/transaction/${txnId}`)).json();
+    let h = '<div class="section-title">Transaction Detail</div>';
+    h += `<div style="text-align:center;margin-bottom:16px;">
+      <div style="font-size:16px;font-weight:600;">${t.store_name}</div>
+      <div style="color:#999;font-size:13px;">${t.date} ${t.time||''}</div>
+    </div>`;
+    h += `<div style="display:flex;justify-content:space-between;margin-bottom:14px;font-size:13px;color:#666;">
+      <span>Employee: ${t.cashier||'N/A'}</span>
+      <span>Station: ${t.register||'N/A'}</span>
+    </div>`;
+
+    // Items
+    if (t.items && t.items.length > 0) {
+      h += '<table style="width:100%;font-size:13px;margin-bottom:12px;">';
+      for (const i of t.items) {
+        h += `<tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:6px 0;color:#333;">${i.description||i.scan_code}</td><td style="padding:6px 4px;color:#999;text-align:center;">x${Math.round(i.qty)}</td><td style="padding:6px 0;text-align:right;color:#333;">${fmt(i.amount)}</td></tr>`;
+      }
+      h += '</table>';
+    }
+
+    // Fuel
+    if (t.fuel && t.fuel.length > 0) {
+      for (const f of t.fuel) {
+        h += `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0f0f0;font-size:13px;"><span>${f.grade}</span><span>${f.gallons.toFixed(3)} gal</span><span>${fmt(f.amount)}</span></div>`;
+      }
+    }
+
+    // Total
+    h += `<div style="border-top:2px solid #e0e0e0;margin-top:12px;padding-top:12px;text-align:right;">
+      <div style="font-size:12px;color:#1a73e8;font-weight:600;text-transform:uppercase;">TOTAL</div>
+      <div style="display:flex;justify-content:space-between;margin-top:6px;">
+        <div><span style="color:#1a73e8;font-weight:500;">${t.tender||'Cash'}</span></div>
+        <div>
+          <div style="font-size:13px;">Gross <strong>${fmt(t.total)}</strong></div>
+        </div>
+      </div>
+    </div>`;
+
+    panel.innerHTML = h;
+  } catch(e) { panel.innerHTML = `<div class="section-title">Transaction Detail</div><div style="color:red;padding:10px;">${e.message}</div>`; }
+}
+
+// ==================== HISTORY / DAY CLOSING PAGE ====================
+async function loadHistory() {
+  const pc = $('pageContent');
+  let h = '<div class="page-title">&#128197; Daily Sales History</div>';
+  h += `<div class="filter-bar">`;
+  for (const d of [7,14,30,90]) { h += `<button class="filter-btn ${selectedRange===d?'active':''}" onclick="selectedRange=${d};loadHistory()">${d}d</button>`; }
+  h += `<input type="date" class="filter-input" id="hFrom" onchange="loadHistoryRange()"> <span class="filter-label">to</span> <input type="date" class="filter-input" id="hTo" onchange="loadHistoryRange()">`;
+  h += '</div><div id="hTable">Loading...</div>';
+  pc.innerHTML = h;
+
+  try {
+    const data = await (await fetch(`${API}/api/dashboard?days=${selectedRange}`)).json();
+    const store = data[currentStore];
+    if (!store || !store.days || store.days.length === 0) { $('hTable').innerHTML = '<div style="color:#999;padding:20px;text-align:center;">No data for selected range</div>'; return; }
+
+    let t = '<div class="section-box"><table class="data-table"><thead><tr><th>Date</th><th class="num">Transactions</th><th class="num">Items</th><th class="num">Merch $</th><th class="num">Fuel Gal</th><th class="num">Fuel $</th><th class="num">Total $</th></tr></thead><tbody>';
+    let totTxn=0,totItems=0,totMerch=0,totFuelG=0,totFuel$=0,totRev=0;
+    for (const d of store.days) {
+      totTxn+=d.transactions; totItems+=d.items; totMerch+=d.item_revenue; totFuelG+=d.fuel_gallons; totFuel$+=d.fuel_revenue; totRev+=d.total_revenue;
+      t += `<tr><td>${d.date}</td><td class="num">${fmtN(d.transactions)}</td><td class="num">${fmtN(d.items)}</td><td class="num">${fmt(d.item_revenue)}</td><td class="num">${fmtN(Math.round(d.fuel_gallons))}</td><td class="num">${fmt(d.fuel_revenue)}</td><td class="num" style="font-weight:600">${fmt(d.total_revenue)}</td></tr>`;
+    }
+    t += `</tbody><tfoot><tr style="font-weight:700;border-top:2px solid #333;"><td>TOTAL (${store.days.length} days)</td><td class="num">${fmtN(totTxn)}</td><td class="num">${fmtN(totItems)}</td><td class="num">${fmt(totMerch)}</td><td class="num">${fmtN(Math.round(totFuelG))}</td><td class="num">${fmt(totFuel$)}</td><td class="num">${fmt(totRev)}</td></tr></tfoot></table></div>`;
+    $('hTable').innerHTML = t;
+  } catch(e) { $('hTable').innerHTML = `<div style="color:red">Error: ${e.message}</div>`; }
+}
+
+async function loadHistoryRange() {
+  const from=$('hFrom')?.value, to=$('hTo')?.value;
+  if (!from||!to) return;
+  try {
+    const data = await (await fetch(`${API}/api/dashboard?from_date=${from}&to_date=${to}`)).json();
+    const store = data[currentStore];
+    if (!store||!store.days.length) { $('hTable').innerHTML='<div style="color:#999;padding:20px;text-align:center;">No data</div>'; return; }
+    let t='<div class="section-box"><table class="data-table"><thead><tr><th>Date</th><th class="num">Txns</th><th class="num">Items</th><th class="num">Merch $</th><th class="num">Fuel Gal</th><th class="num">Fuel $</th><th class="num">Total $</th></tr></thead><tbody>';
+    for (const d of store.days) { t+=`<tr><td>${d.date}</td><td class="num">${fmtN(d.transactions)}</td><td class="num">${fmtN(d.items)}</td><td class="num">${fmt(d.item_revenue)}</td><td class="num">${fmtN(Math.round(d.fuel_gallons))}</td><td class="num">${fmt(d.fuel_revenue)}</td><td class="num" style="font-weight:600">${fmt(d.total_revenue)}</td></tr>`; }
+    t+='</tbody></table></div>';
+    $('hTable').innerHTML=t;
+  } catch(e) { $('hTable').innerHTML=`<div style="color:red">Error: ${e.message}</div>`; }
+}
+
+// ==================== ITEMS / GROCERY PAGE ====================
+async function loadItems() {
+  const pc = $('pageContent');
+  let h = '<div class="page-title">&#128722; Item Sales</div>';
+  h += `<div class="filter-bar">`;
+  for (const d of [1,7,14,30,90]) { h += `<button class="filter-btn ${selectedRange===d?'active':''}" onclick="selectedRange=${d};loadItems()">${d===1?'Today':d+'d'}</button>`; }
+  h += `<input type="text" class="filter-input" id="itemSearch" placeholder="Search items..." oninput="filterItems()" style="min-width:200px;margin-left:8px;">`;
+  h += '</div><div id="iTable">Loading...</div>';
+  pc.innerHTML = h;
+
+  try {
+    const today = new Date().toISOString().split('T')[0];
+    const items = await (await fetch(`${API}/api/store/${currentStore}/items?date_str=${today}&days=${selectedRange}`)).json();
+    window._allItems = items;
+    renderItems(items);
+  } catch(e) { $('iTable').innerHTML=`<div style="color:red">Error: ${e.message}</div>`; }
+}
+
+function renderItems(items) {
+  if (!items.length) { $('iTable').innerHTML='<div style="color:#999;padding:20px;text-align:center;">No items for this period</div>'; return; }
+  let t = `<div style="color:#999;font-size:12px;margin-bottom:8px;">${items.length} items</div>`;
+  t += '<div class="section-box"><table class="data-table"><thead><tr><th>#</th><th>UPC</th><th>Description</th><th class="num">Qty</th><th class="num">Revenue</th><th class="num">Avg Price</th></tr></thead><tbody>';
+  items.forEach((item,i) => {
+    t += `<tr style="cursor:pointer" onclick="loadItemDetail('${currentStore}','${item.scan_code}')"><td>${i+1}</td><td>${item.scan_code}</td><td>${item.description}</td><td class="num">${fmtN(item.qty)}</td><td class="num">${fmt(item.amount)}</td><td class="num">${fmt(item.avg_price)}</td></tr>`;
+  });
+  t += '</tbody></table></div>';
+  $('iTable').innerHTML = t;
+}
+
+function filterItems() {
+  const q = ($('itemSearch')?.value||'').toLowerCase();
+  if (!window._allItems) return;
+  const filtered = q ? window._allItems.filter(i => i.description.toLowerCase().includes(q) || i.scan_code.includes(q)) : window._allItems;
+  renderItems(filtered);
+}
+
+async function loadItemDetail(storeId, scanCode) {
+  const pc = $('pageContent');
+  pc.innerHTML = '<div style="padding:20px;color:#999;">Loading item detail...</div>';
+  try {
+    const data = await (await fetch(`${API}/api/store/${storeId}/item/${scanCode}?days=365`)).json();
+    let h = `<div style="margin-bottom:12px"><button class="filter-btn" onclick="loadItems()" style="cursor:pointer">&#8592; Back to Items</button></div>`;
+    h += `<div class="section-box" style="margin-bottom:16px"><div style="font-size:20px;font-weight:700;color:#333">${data.description}</div><div style="color:#999;margin-top:4px">UPC: ${data.scan_code} | ${STORES[storeId]?.name||storeId}</div>`;
+    h += `<div style="display:flex;gap:28px;margin-top:16px;flex-wrap:wrap">`;
+    h += `<div><div style="color:#999;font-size:12px">Total Sold</div><div style="font-size:22px;font-weight:700;color:#1a73e8">${fmtN(data.total_qty)}</div></div>`;
+    h += `<div><div style="color:#999;font-size:12px">Revenue</div><div style="font-size:22px;font-weight:700;color:#27ae60">${fmt(data.total_revenue)}</div></div>`;
+    h += `<div><div style="color:#999;font-size:12px">Avg Price</div><div style="font-size:22px;font-weight:700;color:#333">${fmt(data.avg_price)}</div></div>`;
+    h += `<div><div style="color:#999;font-size:12px">Avg/Day</div><div style="font-size:22px;font-weight:700;color:#1a73e8">${data.avg_daily}</div></div>`;
+    h += `<div><div style="color:#999;font-size:12px">Days Sold</div><div style="font-size:22px;font-weight:700;color:#333">${data.days_sold}</div></div>`;
+    h += `</div></div>`;
+    h += '<div class="section-box"><div class="section-title">Daily Sales History</div><table class="data-table"><thead><tr><th>Date</th><th class="num">Qty</th><th class="num">Revenue</th><th class="num">Avg Price</th><th class="num">Txns</th></tr></thead><tbody>';
+    for (const d of data.daily) { h += `<tr><td>${d.date}</td><td class="num">${fmtN(d.qty)}</td><td class="num">${fmt(d.revenue)}</td><td class="num">${fmt(d.avg_price)}</td><td class="num">${d.transactions}</td></tr>`; }
+    h += '</tbody></table></div>';
+    pc.innerHTML = h;
+  } catch(e) { pc.innerHTML = `<div style="color:red">Error: ${e.message}</div>`; }
+}
+
+// ==================== EDIT TASK MODAL ====================
 function editTask(storeId, taskKey, label, currentDate, currentValue) {
   const today = new Date().toISOString().split('T')[0];
-  const storeName = STORES[storeId]?.name || storeId;
   const modal = document.createElement('div');
   modal.className = 'modal-overlay';
-  modal.innerHTML = `<div class="modal-box">
-    <h3>${label}</h3>
-    <div class="modal-store">${storeName}</div>
-    <label>Date</label>
-    <input type="date" id="taskDate" value="${currentDate || today}">
-    <label>Value</label>
-    <input type="text" id="taskValue" value="${currentValue}" placeholder="Count, time, notes...">
-    <label>Notes</label>
-    <textarea id="taskNotes" placeholder="Optional notes..."></textarea>
-    <div class="modal-btns">
-      <button class="btn-cancel" onclick="this.closest('.modal-overlay').remove()">Cancel</button>
-      <button class="btn-save" onclick="saveTask('${storeId}','${taskKey}')">Save</button>
-    </div>
-  </div>`;
-  modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+  modal.innerHTML = `<div class="modal-box"><h3>${label}</h3><div class="modal-store">${STORES[storeId]?.name||storeId}</div><label>Date</label><input type="date" id="taskDate" value="${currentDate||today}"><label>Value</label><input type="text" id="taskValue" value="${currentValue}" placeholder="Count, time, notes..."><label>Notes</label><textarea id="taskNotes" placeholder="Optional notes..."></textarea><div class="modal-btns"><button class="btn-cancel" onclick="this.closest('.modal-overlay').remove()">Cancel</button><button class="btn-save" onclick="saveTask('${storeId}','${taskKey}')">Save</button></div></div>`;
+  modal.addEventListener('click', e => { if(e.target===modal) modal.remove(); });
   document.body.appendChild(modal);
 }
 
 async function saveTask(storeId, taskKey) {
-  const dateVal = document.getElementById('taskDate').value;
-  const value = document.getElementById('taskValue').value;
-  const notes = document.getElementById('taskNotes').value;
   try {
-    await fetch(`${API}/api/tasks/update`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ store_id: storeId, task_key: taskKey, last_date: dateVal || null, last_value: value, notes: notes }),
-    });
+    await fetch(`${API}/api/tasks/update`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({store_id:storeId, task_key:taskKey, last_date:$('taskDate').value||null, last_value:$('taskValue').value, notes:$('taskNotes').value}) });
     document.querySelector('.modal-overlay')?.remove();
-    loadDashboard();
-  } catch (e) {
-    alert('Error: ' + e.message);
-  }
+    loadTasks();
+  } catch(e) { alert('Error: '+e.message); }
 }
 
 // Start
-loadDashboard();
+loadPage();
 </script>
 </body>
 </html>

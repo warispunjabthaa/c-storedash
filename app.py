@@ -338,21 +338,36 @@ async def dashboard_data(request: Request, days: int = 7, from_date: str = None,
 
 @app.get("/api/today")
 async def today_data():
-    """Get today's live data for all stores."""
+    """Get today's (or most recent day's) live data for all stores."""
     p = await get_pool()
     today_date = date.today()
 
     async with p.acquire() as conn:
-        # Get today's summary per store
-        summaries = await conn.fetch("""
-            SELECT store_id, total_transactions, total_items, total_item_revenue,
-                   unique_upcs, total_fuel_gallons, total_fuel_revenue, total_revenue, updated_at
-            FROM daily_summary WHERE business_date = $1
-        """, today_date)
+        # For each store, find the most recent date with data (today or latest)
+        store_dates = {}
+        for sid in STORE_NAMES:
+            row = await conn.fetchrow("""
+                SELECT business_date FROM daily_summary
+                WHERE store_id = $1 ORDER BY business_date DESC LIMIT 1
+            """, sid)
+            store_dates[sid] = row['business_date'] if row else today_date
+
+        # Get summary per store for its target date
+        summaries = []
+        for sid, target_date in store_dates.items():
+            row = await conn.fetchrow("""
+                SELECT store_id, total_transactions, total_items, total_item_revenue,
+                       unique_upcs, total_fuel_gallons, total_fuel_revenue, total_revenue, updated_at,
+                       business_date
+                FROM daily_summary WHERE store_id = $1 AND business_date = $2
+            """, sid, target_date)
+            if row:
+                summaries.append(row)
 
         # Get last 10 transactions per store
         recent = {}
         for sid in STORE_NAMES:
+            target_date = store_dates[sid]
             txns = await conn.fetch("""
                 SELECT t.event_time, t.total, t.tender, t.register_id,
                        (SELECT string_agg(ti.description || ' x' || ti.qty::text, ', ')
@@ -360,12 +375,13 @@ async def today_data():
                 FROM transactions t
                 WHERE t.store_id = $1 AND t.business_date = $2
                 ORDER BY t.id DESC LIMIT 10
-            """, sid, today_date)
+            """, sid, target_date)
             recent[sid] = [dict(t) for t in txns]
 
-        # Get top items today per store
+        # Get top items per store
         top_items = {}
         for sid in STORE_NAMES:
+            target_date = store_dates[sid]
             items = await conn.fetch("""
                 SELECT ti.scan_code, ti.description, SUM(ti.qty) as total_qty,
                        SUM(ti.amount) as total_amount
@@ -374,14 +390,16 @@ async def today_data():
                 WHERE t.store_id = $1 AND t.business_date = $2
                 GROUP BY ti.scan_code, ti.description
                 ORDER BY total_qty DESC LIMIT 20
-            """, sid, today_date)
+            """, sid, target_date)
             top_items[sid] = [dict(i) for i in items]
 
     result = {}
     for row in summaries:
         sid = row['store_id']
+        bdate = row['business_date'] if 'business_date' in row.keys() else store_dates.get(sid, today_date)
         result[sid] = {
             'name': STORE_NAMES.get(sid, sid),
+            'date': bdate.isoformat() if bdate else today_date.isoformat(),
             'transactions': row['total_transactions'],
             'items': row['total_items'],
             'item_revenue': float(row['total_item_revenue']),
@@ -552,6 +570,152 @@ async def item_transactions(store_id: str, scan_code: str, on_date: str = None):
         'tender': t['tender'],
         'all_items': t['all_items'] or '',
     } for t in txns]
+
+
+@app.get("/api/transactions")
+async def transactions_list(request: Request, store_id: str = None, on_date: str = None, event_type: str = None, limit: int = 50):
+    """Get transaction list for Live Data page."""
+    p = await get_pool()
+    target = date.fromisoformat(on_date) if on_date else date.today()
+
+    async with p.acquire() as conn:
+        # If no data for target date, find most recent date
+        if not on_date:
+            row = await conn.fetchrow("""
+                SELECT MAX(business_date) as latest FROM daily_summary
+                WHERE ($1::text IS NULL OR store_id = $1)
+            """, store_id)
+            if row and row['latest']:
+                target = row['latest']
+
+        conditions = ["t.business_date = $1"]
+        params = [target]
+        idx = 2
+
+        if store_id:
+            conditions.append(f"t.store_id = ${idx}")
+            params.append(store_id)
+            idx += 1
+
+        if event_type:
+            conditions.append(f"t.event_type = ${idx}")
+            params.append(event_type)
+            idx += 1
+
+        where = " AND ".join(conditions)
+
+        txns = await conn.fetch(f"""
+            SELECT t.id, t.store_id, t.business_date, t.event_time, t.transaction_id,
+                   t.register_id, t.cashier_id, t.total, t.tender, t.event_type,
+                   (SELECT string_agg(ti.description || ' x' || ti.qty::text, ', ')
+                    FROM transaction_items ti WHERE ti.transaction_id = t.id) as items_desc
+            FROM transactions t
+            WHERE {where}
+            ORDER BY t.id DESC LIMIT {min(limit, 200)}
+        """, *params)
+
+    return {
+        'date': target.isoformat(),
+        'transactions': [{
+            'id': t['id'],
+            'store_id': t['store_id'],
+            'store_name': STORE_NAMES.get(t['store_id'], t['store_id']),
+            'time': t['event_time'],
+            'transaction_id': t['transaction_id'],
+            'register_id': t['register_id'],
+            'cashier_id': t['cashier_id'],
+            'total': float(t['total'] or 0),
+            'tender': t['tender'],
+            'event_type': t['event_type'] or 'sale',
+            'items_desc': t['items_desc'] or '',
+        } for t in txns],
+    }
+
+
+@app.get("/api/transaction/{txn_id}")
+async def transaction_detail(txn_id: int):
+    """Get full detail for a single transaction."""
+    p = await get_pool()
+    async with p.acquire() as conn:
+        txn = await conn.fetchrow("""
+            SELECT t.id, t.store_id, t.business_date, t.event_time, t.transaction_id,
+                   t.register_id, t.cashier_id, t.total, t.tender, t.event_type
+            FROM transactions t WHERE t.id = $1
+        """, txn_id)
+        if not txn:
+            raise HTTPException(status_code=404, detail="Transaction not found")
+
+        items = await conn.fetch("""
+            SELECT scan_code, description, qty, amount, price
+            FROM transaction_items WHERE transaction_id = $1
+        """, txn_id)
+
+        fuel = await conn.fetch("""
+            SELECT grade, gallons, amount, price_per_gallon
+            FROM transaction_fuel WHERE transaction_id = $1
+        """, txn_id)
+
+    return {
+        'id': txn['id'],
+        'store_id': txn['store_id'],
+        'store_name': STORE_NAMES.get(txn['store_id'], txn['store_id']),
+        'date': txn['business_date'].isoformat(),
+        'time': txn['event_time'],
+        'transaction_id': txn['transaction_id'],
+        'register': txn['register_id'],
+        'cashier': txn['cashier_id'],
+        'total': float(txn['total'] or 0),
+        'tender': txn['tender'],
+        'event_type': txn['event_type'] or 'sale',
+        'items': [{'scan_code': i['scan_code'], 'description': i['description'],
+                    'qty': float(i['qty']), 'amount': float(i['amount']), 'price': float(i['price'])} for i in items],
+        'fuel': [{'grade': f['grade'], 'gallons': float(f['gallons']),
+                   'amount': float(f['amount']), 'ppg': float(f['price_per_gallon'])} for f in fuel],
+    }
+
+
+@app.get("/api/sales-summary")
+async def sales_summary(on_date: str = None):
+    """Get sales and inventory summary for all stores on a date."""
+    p = await get_pool()
+    target = date.fromisoformat(on_date) if on_date else date.today()
+
+    async with p.acquire() as conn:
+        # Find most recent date with data if target has none
+        row = await conn.fetchrow("SELECT MAX(business_date) as latest FROM daily_summary")
+        if row and row['latest'] and not on_date:
+            target = row['latest']
+
+        result = []
+        for sid, name in STORE_NAMES.items():
+            summary = await conn.fetchrow("""
+                SELECT total_transactions, total_items, total_item_revenue,
+                       total_fuel_gallons, total_fuel_revenue, total_revenue, updated_at
+                FROM daily_summary WHERE store_id = $1 AND business_date = $2
+            """, sid, target)
+
+            # Count voids, refunds, no-sales
+            counts = await conn.fetchrow("""
+                SELECT
+                    COUNT(*) FILTER (WHERE event_type = 'void') as voids,
+                    COUNT(*) FILTER (WHERE event_type = 'refund') as refunds,
+                    COUNT(*) FILTER (WHERE event_type = 'other') as no_sales
+                FROM transactions WHERE store_id = $1 AND business_date = $2
+            """, sid, target)
+
+            result.append({
+                'store_id': sid,
+                'store_name': name,
+                'total_sales': float(summary['total_revenue']) if summary else 0,
+                'grocery_sales': float(summary['total_item_revenue']) if summary else 0,
+                'gas_vol': float(summary['total_fuel_gallons']) if summary else 0,
+                'no_sale': counts['no_sales'] if counts else 0,
+                'voids': counts['voids'] if counts else 0,
+                'refunds': counts['refunds'] if counts else 0,
+                'updated': summary['updated_at'].isoformat() if summary and summary['updated_at'] else '',
+            })
+
+    return {'date': target.isoformat(), 'stores': result}
 
 
 @app.get("/api/status")
