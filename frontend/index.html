@@ -137,12 +137,34 @@
 
   @media (max-width: 1100px) { .cards-row { grid-template-columns: repeat(3, 1fr); } .live-summary-cards { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 768px) {
-    .sidebar { width: 0; overflow: hidden; }
-    .main { margin-left: 0; }
-    .cards-row { grid-template-columns: repeat(2, 1fr); }
-    .bottom-grid, .live-grid { grid-template-columns: 1fr; }
-    .live-summary-cards { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .sidebar.open { display: block; width: 220px; z-index: 200; }
+    .main { margin-left: 0; padding: 16px 12px; }
+    .topbar { padding: 0 10px; }
+    .topbar-nav { gap: 10px; }
+    .topbar-nav a { font-size: 12px; }
+    .cards-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .task-card { padding: 14px; min-height: 120px; }
+    .tc-date { font-size: 18px; }
+    .tc-count { font-size: 22px; }
+    .bottom-grid { grid-template-columns: 1fr; }
+    .live-summary-cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .summary-card { padding: 14px; }
+    .summary-card .sc-value { font-size: 20px; }
+    .live-grid { grid-template-columns: 1fr; }
+    .section-box { padding: 14px; }
+    .data-table { font-size: 11px; }
+    .data-table th, .data-table td { padding: 6px 4px; }
+    .store-select-bar select { width: 100%; }
+    .filter-bar { gap: 4px; }
+    .filter-btn { padding: 5px 10px; font-size: 11px; }
+    .page-title { font-size: 16px; flex-wrap: wrap; }
+    .hamburger { display: flex !important; }
   }
+  .hamburger { display: none; width: 36px; height: 36px; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; color: #333; border-radius: 6px; }
+  .hamburger:hover { background: #f0f0f0; }
+  .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); z-index: 190; }
+  .sidebar-overlay.open { display: block; }
 </style>
 </head>
 <body>
@@ -150,6 +172,7 @@
 <!-- TOP HEADER BAR -->
 <div class="topbar">
   <div class="topbar-left">
+    <div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
     <svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg" style="height:26px;">
       <text x="2" y="22" font-family="Arial" font-weight="900" font-size="20" fill="#1a73e8">PDI</text>
     </svg>
@@ -210,6 +233,7 @@
   <div id="pageContent"></div>
 </div>
 
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 <div class="pdi-badge">PDI</div>
 
 <script>
@@ -231,6 +255,16 @@ function fmtFull(d) { if (!d) return ''; const dt=new Date(d+'T00:00:00'); retur
 function daysSince(d) { if (!d) return null; const t=new Date();t.setHours(0,0,0,0); return Math.floor((t-new Date(d+'T00:00:00'))/864e5); }
 function dateCls(days,w,c) { if(days===null)return''; return days<=w?'':days<=c?'warn':'critical'; }
 
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+  $('sidebarOverlay').classList.toggle('open');
+}
+
+function closeSidebar() {
+  document.querySelector('.sidebar').classList.remove('open');
+  $('sidebarOverlay').classList.remove('open');
+}
+
 function switchStore(sid) {
   currentStore = sid;
   const s = STORES[sid];
@@ -251,6 +285,7 @@ function navigateTo(page) {
   $('navLiveData').className = page === 'livedata' ? 'active-nav' : '';
   $('navAllItems').className = page === 'items' ? 'active-nav' : '';
   $('navReports').className = page === 'reports' ? 'active-nav' : '';
+  closeSidebar();
   loadPage();
 }
 
