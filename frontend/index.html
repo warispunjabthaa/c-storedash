@@ -306,6 +306,7 @@ function switchStore(sid) {
   $('storeNameDisplay').textContent = s.name;
   $('storeAccountDisplay').textContent = 'Account #: ' + s.account;
   $('storeDropdown').value = sid;
+  ltxDate = '';
   loadPage();
 }
 
@@ -792,7 +793,7 @@ async function loadLiveTxn() {
   if (!ltxDate) {
     // Find most recent date with data
     try {
-      const d = await (await fetch(`${API}/api/transactions?limit=1`)).json();
+      const d = await (await fetch(`${API}/api/transactions?limit=1&store_id=${currentStore}`)).json();
       ltxDate = d.date || new Date().toISOString().split('T')[0];
     } catch(e) { ltxDate = new Date().toISOString().split('T')[0]; }
   }
@@ -826,7 +827,7 @@ let ltxAllTxns = [];
 
 async function fetchLtxList() {
   try {
-    const data = await (await fetch(`${API}/api/transactions?on_date=${ltxDate}&limit=200`)).json();
+    const data = await (await fetch(`${API}/api/transactions?on_date=${ltxDate}&limit=200&store_id=${currentStore}`)).json();
     ltxAllTxns = data.transactions || [];
     ltxDate = data.date;
     if ($('ltxDatePicker')) $('ltxDatePicker').value = ltxDate;
