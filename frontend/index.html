@@ -534,8 +534,9 @@ async function loadItems() {
   let h = '<div class="page-title">&#128722; All Items</div>';
   h += `<div class="filter-bar">`;
   for (const d of [1,7,14,30,90,365]) { h += `<button class="filter-btn ${selectedRange===d?'active':''}" onclick="selectedRange=${d};loadItems()">${d===1?'Today':d===365?'1 Year':d+'d'}</button>`; }
-  h += `<input type="text" class="filter-input" id="itemSearch" placeholder="Search by name or UPC..." oninput="filterItems()" style="min-width:240px;margin-left:8px;">`;
-  h += '</div><div id="iTable">Loading...</div>';
+  h += `<input type="text" class="filter-input" id="itemSearch" placeholder="Search by name or UPC..." oninput="filterItems()" style="min-width:200px;margin-left:8px;">`;
+  h += `<button class="filter-btn" onclick="startScanner()" style="background:#1a73e8;color:#fff;border-color:#1a73e8;margin-left:4px;">&#128247; Scan Barcode</button>`;
+  h += '</div><div id="scannerArea"></div><div id="iTable">Loading...</div>';
   pc.innerHTML = h;
 
   try {
@@ -555,6 +556,106 @@ function renderItems(items) {
   });
   t += '</tbody></table></div>';
   $('iTable').innerHTML = t;
+}
+
+let scannerStream = null;
+
+function startScanner() {
+  const area = $('scannerArea');
+  if (scannerStream) { stopScanner(); return; }
+
+  area.innerHTML = `<div class="section-box" style="margin-bottom:14px;text-align:center;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <span style="font-weight:600;">Scan Barcode</span>
+      <button class="filter-btn" onclick="stopScanner()">&#10005; Close</button>
+    </div>
+    <video id="scanVideo" autoplay playsinline style="width:100%;max-width:400px;border-radius:8px;border:2px solid #1a73e8;"></video>
+    <div style="margin-top:8px;">
+      <input type="text" id="manualUpc" class="filter-input" placeholder="Or type/paste UPC here..." style="width:200px;" onkeydown="if(event.key==='Enter')lookupUpc(this.value)">
+      <button class="filter-btn" onclick="lookupUpc($('manualUpc').value)" style="background:#1a73e8;color:#fff;border-color:#1a73e8;">Look Up</button>
+    </div>
+    <div id="scanStatus" style="color:#999;font-size:12px;margin-top:6px;">Point camera at barcode...</div>
+  </div>`;
+
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+    .then(stream => {
+      scannerStream = stream;
+      const video = $('scanVideo');
+      video.srcObject = stream;
+      // Use BarcodeDetector API if available
+      if ('BarcodeDetector' in window) {
+        const detector = new BarcodeDetector({ formats: ['ean_13','ean_8','upc_a','upc_e','code_128','code_39'] });
+        const scanLoop = async () => {
+          if (!scannerStream) return;
+          try {
+            const barcodes = await detector.detect(video);
+            if (barcodes.length > 0) {
+              const code = barcodes[0].rawValue;
+              $('scanStatus').innerHTML = `<span style="color:#27ae60;font-weight:600;">Found: ${code}</span>`;
+              stopScanner();
+              lookupUpc(code);
+              return;
+            }
+          } catch(e) {}
+          requestAnimationFrame(scanLoop);
+        };
+        video.onloadeddata = () => scanLoop();
+      } else {
+        $('scanStatus').textContent = 'Camera ready — BarcodeDetector not supported in this browser. Type UPC manually.';
+      }
+    })
+    .catch(err => {
+      area.innerHTML = `<div class="section-box" style="margin-bottom:14px;">
+        <div style="color:#e74c3c;margin-bottom:8px;">Camera access denied: ${err.message}</div>
+        <input type="text" id="manualUpc" class="filter-input" placeholder="Type or paste UPC..." style="width:200px;" onkeydown="if(event.key==='Enter')lookupUpc(this.value)">
+        <button class="filter-btn" onclick="lookupUpc($('manualUpc').value)" style="background:#1a73e8;color:#fff;border-color:#1a73e8;">Look Up</button>
+        <button class="filter-btn" onclick="stopScanner()" style="margin-left:4px;">Close</button>
+      </div>`;
+    });
+}
+
+function stopScanner() {
+  if (scannerStream) {
+    scannerStream.getTracks().forEach(t => t.stop());
+    scannerStream = null;
+  }
+  $('scannerArea').innerHTML = '';
+}
+
+async function lookupUpc(upc) {
+  upc = upc.trim();
+  if (!upc) return;
+  stopScanner();
+
+  // Try exact match first, then try without check digit (C-Store strips it)
+  const variations = [upc];
+  if (upc.length === 12) variations.push(upc.substring(0, 11));
+  if (upc.length === 13) variations.push(upc.substring(0, 12), upc.substring(0, 11));
+  if (upc.length === 11) variations.push('0' + upc);
+
+  for (const code of variations) {
+    try {
+      const resp = await fetch(`${API}/api/store/${currentStore}/item/${code}?days=365`);
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data && data.days_sold > 0) {
+          loadItemDetail(currentStore, code);
+          return;
+        }
+      }
+    } catch(e) {}
+  }
+
+  // Not found — search in current items list
+  if (window._allItems) {
+    const match = window._allItems.find(i => variations.some(v => i.scan_code === v || i.scan_code.includes(v) || v.includes(i.scan_code)));
+    if (match) {
+      loadItemDetail(currentStore, match.scan_code);
+      return;
+    }
+  }
+
+  alert('UPC not found: ' + upc + '\nTried: ' + variations.join(', '));
 }
 
 function filterItems() {
