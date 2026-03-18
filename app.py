@@ -203,8 +203,8 @@ STORE_NAMES = {
 
 
 @app.post("/api/ingest")
-async def ingest(request: Request):
-    """Receive batch of transactions from a store watcher."""
+async def ingest(request: Request, _=Depends(check_api_or_session)):
+    """Receive batch of transactions from a store watcher. Requires API key."""
     body = await request.json()
     store_id = body['store_id']
     transactions = body['transactions']
