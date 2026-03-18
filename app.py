@@ -681,6 +681,15 @@ async def seed_tasks(request: Request, _=Depends(check_auth)):
         ('10064461', 'price_changes', None, '15', ''),
         ('10064461', 'promotions', None, '27', ''),
         ('10064461', 'gas_price', '2026-03-16', '', ''),
+        # Amiya Express (7413) — listed as "Amya Express" in C-Store
+        ('7413', 'day_report', '2026-03-01', '', ''),
+        ('7413', 'scratch_off', '2025-07-02', '', ''),
+        ('7413', 'gas', '2025-06-01', '', ''),
+        ('7413', 'grocery', '2026-03-11', '', ''),
+        ('7413', 'price_book', '2026-03-17', '6:17PM', ''),
+        ('7413', 'price_changes', None, '1', ''),
+        ('7413', 'promotions', None, '17', ''),
+        ('7413', 'gas_price', '2026-03-10', '', ''),
     ]
     async with p.acquire() as conn:
         for sid, key, dt, val, notes in seed_data:
