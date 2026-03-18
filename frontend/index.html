@@ -155,6 +155,7 @@
     </svg>
     <div class="topbar-nav">
       <a id="navLiveData" onclick="navigateTo('livedata')">Live Data</a>
+      <a id="navAllItems" onclick="navigateTo('items')">All Items</a>
       <a id="navReports" onclick="navigateTo('reports')">All Store Reports &#9662;</a>
     </div>
   </div>
@@ -180,8 +181,9 @@
   <div class="sidebar-menu" id="sidebarMenu">
     <a class="sidebar-item active" data-page="tasks" onclick="navigateTo('tasks')">Basic Tasks</a>
     <a class="sidebar-item" data-page="livedata" onclick="navigateTo('livedata')">Live Data</a>
+    <a class="sidebar-item" data-page="items" onclick="navigateTo('items')">All Items</a>
     <a class="sidebar-item" data-page="history" onclick="navigateTo('history')">Day Closing <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" data-page="items" onclick="navigateTo('items')">Grocery <span class="arrow">&#9656;</span></a>
+    <a class="sidebar-item" onclick="navigateTo('items')">Grocery <span class="arrow">&#9656;</span></a>
     <a class="sidebar-item" onclick="navigateTo('livedata')">Gas <span class="arrow">&#9656;</span></a>
     <a class="sidebar-item" onclick="return false;">Lottery/Lotto <span class="arrow">&#9656;</span></a>
     <a class="sidebar-item" onclick="return false;">Services <span class="arrow">&#9656;</span></a>
@@ -247,6 +249,7 @@ function navigateTo(page) {
   });
   // Update topbar nav
   $('navLiveData').className = page === 'livedata' ? 'active-nav' : '';
+  $('navAllItems').className = page === 'items' ? 'active-nav' : '';
   $('navReports').className = page === 'reports' ? 'active-nav' : '';
   loadPage();
 }
@@ -490,13 +493,13 @@ async function loadHistoryRange() {
   } catch(e) { $('hTable').innerHTML=`<div style="color:red">Error: ${e.message}</div>`; }
 }
 
-// ==================== ITEMS / GROCERY PAGE ====================
+// ==================== ALL ITEMS PAGE ====================
 async function loadItems() {
   const pc = $('pageContent');
-  let h = '<div class="page-title">&#128722; Item Sales</div>';
+  let h = '<div class="page-title">&#128722; All Items</div>';
   h += `<div class="filter-bar">`;
-  for (const d of [1,7,14,30,90]) { h += `<button class="filter-btn ${selectedRange===d?'active':''}" onclick="selectedRange=${d};loadItems()">${d===1?'Today':d+'d'}</button>`; }
-  h += `<input type="text" class="filter-input" id="itemSearch" placeholder="Search items..." oninput="filterItems()" style="min-width:200px;margin-left:8px;">`;
+  for (const d of [1,7,14,30,90,365]) { h += `<button class="filter-btn ${selectedRange===d?'active':''}" onclick="selectedRange=${d};loadItems()">${d===1?'Today':d===365?'1 Year':d+'d'}</button>`; }
+  h += `<input type="text" class="filter-input" id="itemSearch" placeholder="Search by name or UPC..." oninput="filterItems()" style="min-width:240px;margin-left:8px;">`;
   h += '</div><div id="iTable">Loading...</div>';
   pc.innerHTML = h;
 
@@ -510,10 +513,10 @@ async function loadItems() {
 
 function renderItems(items) {
   if (!items.length) { $('iTable').innerHTML='<div style="color:#999;padding:20px;text-align:center;">No items for this period</div>'; return; }
-  let t = `<div style="color:#999;font-size:12px;margin-bottom:8px;">${items.length} items</div>`;
-  t += '<div class="section-box"><table class="data-table"><thead><tr><th>#</th><th>UPC</th><th>Description</th><th class="num">Qty</th><th class="num">Revenue</th><th class="num">Avg Price</th></tr></thead><tbody>';
+  let t = `<div style="color:#999;font-size:12px;margin-bottom:8px;">${items.length} items found</div>`;
+  t += '<div class="section-box"><table class="data-table"><thead><tr><th>#</th><th>UPC</th><th>Description</th><th class="num">Total Qty Sold</th><th class="num">Total Revenue</th><th class="num">Avg Price</th></tr></thead><tbody>';
   items.forEach((item,i) => {
-    t += `<tr style="cursor:pointer" onclick="loadItemDetail('${currentStore}','${item.scan_code}')"><td>${i+1}</td><td>${item.scan_code}</td><td>${item.description}</td><td class="num">${fmtN(item.qty)}</td><td class="num">${fmt(item.amount)}</td><td class="num">${fmt(item.avg_price)}</td></tr>`;
+    t += `<tr style="cursor:pointer" onclick="loadItemDetail('${currentStore}','${item.scan_code}')" onmouseover="this.style.background='#eef4ff'" onmouseout="this.style.background=''"><td>${i+1}</td><td style="color:#1a73e8;font-weight:500;">${item.scan_code}</td><td>${item.description}</td><td class="num" style="font-weight:600;color:#1a73e8;">${fmtN(item.qty)}</td><td class="num" style="font-weight:600;color:#27ae60;">${fmt(item.amount)}</td><td class="num">${fmt(item.avg_price)}</td></tr>`;
   });
   t += '</tbody></table></div>';
   $('iTable').innerHTML = t;
@@ -531,18 +534,81 @@ async function loadItemDetail(storeId, scanCode) {
   pc.innerHTML = '<div style="padding:20px;color:#999;">Loading item detail...</div>';
   try {
     const data = await (await fetch(`${API}/api/store/${storeId}/item/${scanCode}?days=365`)).json();
-    let h = `<div style="margin-bottom:12px"><button class="filter-btn" onclick="loadItems()" style="cursor:pointer">&#8592; Back to Items</button></div>`;
-    h += `<div class="section-box" style="margin-bottom:16px"><div style="font-size:20px;font-weight:700;color:#333">${data.description}</div><div style="color:#999;margin-top:4px">UPC: ${data.scan_code} | ${STORES[storeId]?.name||storeId}</div>`;
-    h += `<div style="display:flex;gap:28px;margin-top:16px;flex-wrap:wrap">`;
-    h += `<div><div style="color:#999;font-size:12px">Total Sold</div><div style="font-size:22px;font-weight:700;color:#1a73e8">${fmtN(data.total_qty)}</div></div>`;
-    h += `<div><div style="color:#999;font-size:12px">Revenue</div><div style="font-size:22px;font-weight:700;color:#27ae60">${fmt(data.total_revenue)}</div></div>`;
-    h += `<div><div style="color:#999;font-size:12px">Avg Price</div><div style="font-size:22px;font-weight:700;color:#333">${fmt(data.avg_price)}</div></div>`;
-    h += `<div><div style="color:#999;font-size:12px">Avg/Day</div><div style="font-size:22px;font-weight:700;color:#1a73e8">${data.avg_daily}</div></div>`;
-    h += `<div><div style="color:#999;font-size:12px">Days Sold</div><div style="font-size:22px;font-weight:700;color:#333">${data.days_sold}</div></div>`;
-    h += `</div></div>`;
-    h += '<div class="section-box"><div class="section-title">Daily Sales History</div><table class="data-table"><thead><tr><th>Date</th><th class="num">Qty</th><th class="num">Revenue</th><th class="num">Avg Price</th><th class="num">Txns</th></tr></thead><tbody>';
-    for (const d of data.daily) { h += `<tr><td>${d.date}</td><td class="num">${fmtN(d.qty)}</td><td class="num">${fmt(d.revenue)}</td><td class="num">${fmt(d.avg_price)}</td><td class="num">${d.transactions}</td></tr>`; }
+    let h = `<div style="margin-bottom:12px"><button class="filter-btn" onclick="loadItems()" style="cursor:pointer">&#8592; Back to All Items</button></div>`;
+
+    // Item summary card
+    h += `<div class="section-box" style="margin-bottom:16px">
+      <div style="font-size:22px;font-weight:700;color:#333">${data.description}</div>
+      <div style="color:#999;margin-top:4px;font-size:14px;">UPC: <span style="color:#1a73e8;font-weight:500;">${data.scan_code}</span> &nbsp;|&nbsp; ${STORES[storeId]?.name||storeId}</div>
+      <div style="display:flex;gap:32px;margin-top:20px;flex-wrap:wrap">
+        <div><div style="color:#999;font-size:11px;text-transform:uppercase;">Total Sold</div><div style="font-size:26px;font-weight:700;color:#1a73e8">${fmtN(data.total_qty)}</div></div>
+        <div><div style="color:#999;font-size:11px;text-transform:uppercase;">Revenue</div><div style="font-size:26px;font-weight:700;color:#27ae60">${fmt(data.total_revenue)}</div></div>
+        <div><div style="color:#999;font-size:11px;text-transform:uppercase;">Avg Price</div><div style="font-size:26px;font-weight:700;color:#333">${fmt(data.avg_price)}</div></div>
+        <div><div style="color:#999;font-size:11px;text-transform:uppercase;">Avg / Day</div><div style="font-size:26px;font-weight:700;color:#1a73e8">${data.avg_daily}</div></div>
+        <div><div style="color:#999;font-size:11px;text-transform:uppercase;">Days Sold</div><div style="font-size:26px;font-weight:700;color:#333">${data.days_sold}</div></div>
+        <div><div style="color:#999;font-size:11px;text-transform:uppercase;">First Sold</div><div style="font-size:16px;font-weight:600;color:#555">${data.first_sold||'N/A'}</div></div>
+        <div><div style="color:#999;font-size:11px;text-transform:uppercase;">Last Sold</div><div style="font-size:16px;font-weight:600;color:#555">${data.last_sold||'N/A'}</div></div>
+      </div>
+    </div>`;
+
+    // Daily history — click date to see transactions
+    h += '<div class="section-box"><div class="section-title">Daily Sales History <span style="font-size:12px;color:#999;font-weight:400;">(click date to see transactions)</span></div>';
+    h += '<table class="data-table"><thead><tr><th>Date</th><th class="num">Qty Sold</th><th class="num">Revenue</th><th class="num">Avg Price</th><th class="num">Transactions</th></tr></thead><tbody>';
+    for (const d of data.daily) {
+      h += `<tr style="cursor:pointer" onclick="loadDateTxns('${storeId}','${scanCode}','${d.date}','${data.description.replace(/'/g,"\\'")}')" onmouseover="this.style.background='#eef4ff'" onmouseout="this.style.background=''">
+        <td style="color:#1a73e8;font-weight:500;">${d.date}</td><td class="num" style="font-weight:600;">${fmtN(d.qty)}</td><td class="num" style="color:#27ae60;">${fmt(d.revenue)}</td><td class="num">${fmt(d.avg_price)}</td><td class="num">${d.transactions}</td></tr>`;
+    }
     h += '</tbody></table></div>';
+    pc.innerHTML = h;
+  } catch(e) { pc.innerHTML = `<div style="color:red">Error: ${e.message}</div>`; }
+}
+
+async function loadDateTxns(storeId, scanCode, onDate, itemName) {
+  const pc = $('pageContent');
+  pc.innerHTML = '<div style="padding:20px;color:#999;">Loading transactions...</div>';
+  try {
+    const txns = await (await fetch(`${API}/api/store/${storeId}/item/${scanCode}/transactions?on_date=${onDate}`)).json();
+    let h = `<div style="margin-bottom:12px;display:flex;gap:8px;">
+      <button class="filter-btn" onclick="loadItemDetail('${storeId}','${scanCode}')" style="cursor:pointer">&#8592; Back to ${itemName}</button>
+      <button class="filter-btn" onclick="loadItems()" style="cursor:pointer">&#8592; All Items</button>
+    </div>`;
+
+    h += `<div class="section-box" style="margin-bottom:16px">
+      <div style="font-size:18px;font-weight:700;color:#333">${itemName}</div>
+      <div style="color:#999;margin-top:4px;">UPC: ${scanCode} &nbsp;|&nbsp; ${onDate} &nbsp;|&nbsp; ${txns.length} transactions</div>
+    </div>`;
+
+    if (txns.length === 0) {
+      h += '<div style="color:#999;padding:20px;text-align:center;">No transactions found</div>';
+    } else {
+      for (const t of txns) {
+        const otherItems = (t.all_items||'').split(', ').filter(i => i.trim() && !i.includes(itemName));
+        h += `<div class="section-box" style="margin-bottom:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <div style="font-size:16px;font-weight:600;color:#1a73e8;">${t.time||'N/A'}</div>
+            <div style="font-size:18px;font-weight:700;color:#27ae60;">${fmt(t.txn_total)}</div>
+          </div>
+          <div style="display:flex;gap:16px;font-size:12px;color:#999;margin-bottom:10px;">
+            <span>Tender: ${t.tender}</span>
+            <span>Register: ${t.register}</span>
+            <span>Cashier: ${t.cashier||'N/A'}</span>
+          </div>
+          <div style="background:#f8f9fa;border-radius:8px;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:15px;font-weight:600;color:#333;">${itemName} x ${Math.round(t.item_qty)}</div>
+            <div style="font-size:13px;color:#999;margin-top:2px;">${fmt(t.item_amount)} (${fmt(t.item_price)} each)</div>
+          </div>`;
+
+        if (otherItems.length > 0) {
+          h += `<div style="margin-top:8px;"><div style="font-size:11px;color:#999;text-transform:uppercase;margin-bottom:4px;">Also in basket (${otherItems.length} items)</div>`;
+          for (const oi of otherItems) {
+            const parts = oi.split(' x');
+            h += `<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:13px;border-bottom:1px solid #f0f0f0;"><span style="color:#555;">${parts[0]||oi}</span><span style="color:#999;">x${parts[1]||''}</span></div>`;
+          }
+          h += '</div>';
+        }
+        h += '</div>';
+      }
+    }
     pc.innerHTML = h;
   } catch(e) { pc.innerHTML = `<div style="color:red">Error: ${e.message}</div>`; }
 }
