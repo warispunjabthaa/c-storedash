@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POS Live</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; }
+
+  .header { background: #1e293b; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; }
+  .header h1 { font-size: 20px; color: #38bdf8; }
+  .header .status { font-size: 12px; color: #64748b; }
+  .header .live-dot { display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; margin-right: 6px; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .tabs { display: flex; background: #1e293b; border-bottom: 1px solid #334155; overflow-x: auto; }
+  .tab { padding: 12px 20px; cursor: pointer; font-size: 14px; color: #94a3b8; border-bottom: 2px solid transparent; white-space: nowrap; }
+  .tab.active { color: #38bdf8; border-bottom-color: #38bdf8; }
+
+  .content { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+  /* Store cards */
+  .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .store-card { background: #1e293b; border-radius: 12px; padding: 20px; border: 1px solid #334155; }
+  .store-card h2 { font-size: 16px; color: #f8fafc; margin-bottom: 12px; display: flex; justify-content: space-between; }
+  .store-card h2 .updated { font-size: 11px; color: #64748b; font-weight: normal; }
+
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+  .metric { text-align: center; }
+  .metric .value { font-size: 24px; font-weight: 700; color: #38bdf8; }
+  .metric .value.green { color: #22c55e; }
+  .metric .value.amber { color: #f59e0b; }
+  .metric .label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Recent transactions */
+  .recent { margin-top: 12px; }
+  .recent h3 { font-size: 13px; color: #94a3b8; margin-bottom: 8px; }
+  .txn { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #1e293b; font-size: 13px; }
+  .txn .time { color: #64748b; min-width: 60px; }
+  .txn .items { color: #cbd5e1; flex: 1; margin: 0 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .txn .amount { color: #22c55e; font-weight: 600; min-width: 60px; text-align: right; }
+
+  /* Top items */
+  .top-items { margin-top: 12px; }
+  .top-items h3 { font-size: 13px; color: #94a3b8; margin-bottom: 8px; }
+  .item-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(51,65,85,0.5); font-size: 13px; }
+  .item-row .rank { color: #64748b; min-width: 24px; }
+  .item-row .desc { color: #cbd5e1; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .item-row .qty { color: #38bdf8; min-width: 40px; text-align: right; margin: 0 10px; }
+  .item-row .amt { color: #22c55e; min-width: 60px; text-align: right; }
+
+  /* History tab */
+  .history-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .history-table th { text-align: left; padding: 12px 10px; color: #94a3b8; border-bottom: 1px solid #334155; font-size: 13px; text-transform: uppercase; }
+  .history-table td { padding: 10px; border-bottom: 1px solid #1e293b; }
+  .history-table tr:hover { background: rgba(56,189,248,0.05); cursor: pointer; }
+
+  .store-filter { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .store-btn { padding: 8px 16px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: #94a3b8; cursor: pointer; font-size: 13px; }
+  .store-btn.active { background: #38bdf8; color: #0f172a; border-color: #38bdf8; }
+
+  .range-btns { display: flex; gap: 6px; margin-bottom: 16px; }
+  .range-btn { padding: 6px 12px; border-radius: 6px; border: 1px solid #334155; background: transparent; color: #94a3b8; cursor: pointer; font-size: 12px; }
+  .range-btn.active { background: #334155; color: #e2e8f0; }
+
+  .no-data { text-align: center; padding: 40px; color: #64748b; }
+
+  /* Transaction cards */
+  .txn-card { background: #1e293b; border-radius: 10px; padding: 16px; margin-bottom: 12px; border: 1px solid #334155; }
+  .txn-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .txn-card-time { font-size: 16px; font-weight: 700; color: #38bdf8; }
+  .txn-card-total { font-size: 18px; font-weight: 700; color: #22c55e; }
+  .txn-card-meta { display: flex; gap: 16px; font-size: 13px; color: #94a3b8; margin-bottom: 10px; }
+  .txn-card-meta span { display: flex; align-items: center; gap: 4px; }
+  .txn-card-item-highlight { background: #0f172a; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; }
+  .txn-card-item-highlight .item-name { font-size: 16px; font-weight: 600; color: #f1f5f9; }
+  .txn-card-item-highlight .item-detail { font-size: 13px; color: #94a3b8; margin-top: 2px; }
+  .txn-card-basket { margin-top: 8px; }
+  .txn-card-basket-title { font-size: 12px; color: #64748b; text-transform: uppercase; margin-bottom: 6px; }
+  .txn-card-basket-item { display: flex; justify-content: space-between; padding: 4px 0; font-size: 14px; border-bottom: 1px solid rgba(51,65,85,0.3); }
+  .txn-card-basket-item .name { color: #cbd5e1; }
+  .txn-card-basket-item .qty-price { color: #94a3b8; }
+
+  /* Item detail card */
+  .item-detail-card { background: #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+  .item-detail-name { font-size: 22px; font-weight: 700; color: #f1f5f9; }
+  .item-detail-sub { color: #64748b; margin-top: 4px; font-size: 14px; }
+  .item-stats { display: flex; gap: 28px; margin-top: 16px; flex-wrap: wrap; }
+  .item-stat-label { color: #64748b; font-size: 12px; }
+  .item-stat-value { font-weight: 700; font-size: 20px; color: #38bdf8; }
+  .item-stat-value.green { color: #22c55e; }
+
+  /* Tasks tab — C-Store replica */
+  .tasks-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .tasks-title { font-size: 20px; font-weight: 700; color: #f1f5f9; }
+  .tasks-store-select { background: #1e293b; color: #e2e8f0; border: 1px solid #475569; border-radius: 8px; padding: 10px 14px; font-size: 15px; min-width: 220px; cursor: pointer; }
+  .tasks-store-select:focus { border-color: #38bdf8; outline: none; }
+
+  .tasks-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 14px; }
+  .task-card { background: #1e293b; border-radius: 10px; padding: 18px 16px; border: 1px solid #334155; display: flex; flex-direction: column; min-height: 140px; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+  .task-card:hover { border-color: #38bdf8; box-shadow: 0 0 0 1px #38bdf8; }
+  .task-card-title { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
+  .task-card-date { font-size: 22px; font-weight: 300; color: #94a3b8; }
+  .task-card-date.warn { color: #f59e0b; }
+  .task-card-date.critical { color: #ef4444; }
+  .task-card-sub { font-size: 12px; color: #64748b; margin-top: 4px; }
+  .task-card-action { margin-top: auto; padding-top: 12px; font-size: 13px; color: #38bdf8; }
+
+  .task-card-count { font-size: 28px; font-weight: 700; color: #e2e8f0; }
+  .task-card-msg { font-size: 12px; color: #64748b; margin-top: 4px; line-height: 1.4; }
+
+  /* Bottom two-column layout */
+  .tasks-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .tasks-section { background: #1e293b; border-radius: 10px; padding: 20px; border: 1px solid #334155; }
+  .tasks-section-title { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 16px; }
+
+  .settle-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #293548; }
+  .settle-row:last-child { border-bottom: none; }
+  .settle-name { font-size: 14px; color: #e2e8f0; }
+  .settle-status { font-size: 12px; color: #64748b; }
+  .settle-btn { padding: 6px 18px; border-radius: 20px; border: 1px solid #38bdf8; background: transparent; color: #38bdf8; font-size: 13px; cursor: pointer; font-weight: 600; }
+  .settle-btn:hover { background: #38bdf8; color: #0f172a; }
+
+  .report-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #293548; }
+  .report-row:last-child { border-bottom: none; }
+  .report-label { font-size: 14px; color: #e2e8f0; }
+  .report-btns { display: flex; gap: 8px; }
+  .report-date-btn { padding: 5px 14px; border-radius: 20px; border: 1px solid #38bdf8; background: transparent; color: #38bdf8; font-size: 12px; cursor: pointer; }
+  .report-date-btn:hover { background: rgba(56,189,248,0.1); }
+
+  /* Task edit modal */
+  .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+  .modal-box { background: #1e293b; border-radius: 12px; padding: 24px; width: 360px; max-width: 90vw; border: 1px solid #475569; }
+  .modal-box h3 { color: #f8fafc; margin-bottom: 16px; font-size: 16px; }
+  .modal-box label { display: block; font-size: 13px; color: #94a3b8; margin-bottom: 4px; margin-top: 12px; }
+  .modal-box input, .modal-box textarea { width: 100%; padding: 10px; background: #0f172a; border: 1px solid #475569; border-radius: 8px; color: #e2e8f0; font-size: 14px; box-sizing: border-box; }
+  .modal-box textarea { height: 60px; resize: vertical; }
+  .modal-btns { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; }
+  .modal-btns button { padding: 8px 16px; border-radius: 8px; border: none; font-size: 13px; cursor: pointer; font-weight: 600; }
+  .modal-btns .save-btn { background: #38bdf8; color: #0f172a; }
+  .modal-btns .cancel-btn { background: #334155; color: #e2e8f0; }
+
+  @media (max-width: 900px) {
+    .tasks-row { grid-template-columns: repeat(2, 1fr); }
+    .tasks-bottom { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .store-grid { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: repeat(3, 1fr); }
+    .metric .value { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>POS Live</h1>
+  <div class="status"><span class="live-dot" id="liveDot"></span><span id="statusText">Connecting...</span></div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-tab="today">Today</div>
+  <div class="tab" data-tab="history">History</div>
+  <div class="tab" data-tab="items">Items</div>
+  <div class="tab" data-tab="tasks">Tasks</div>
+</div>
+
+<div class="content" id="content"></div>
+
+<script>
+const API = window.location.origin;
+const STORE_NAMES = {
+  '10064461': '801 S Main St',
+  '7413': 'Amiya Express',
+  '77573764': 'Amiya Express 2',
+};
+let currentTab = 'today';
+let selectedStore = 'all';
+let selectedRange = 7;
+let refreshTimer = null;
+
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentTab = tab.dataset.tab;
+    loadTab();
+  });
+});
+
+function fmt(n) {
+  if (n === null || n === undefined) return '$0.00';
+  return '$' + Number(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function fmtNum(n) {
+  if (n === null || n === undefined) return '0';
+  return Number(n).toLocaleString();
+}
+
+function timeAgo(isoStr) {
+  if (!isoStr) return '';
+  const diff = (Date.now() - new Date(isoStr).getTime()) / 1000;
+  if (diff < 60) return 'just now';
+  if (diff < 3600) return Math.floor(diff/60) + 'm ago';
+  if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
+  return Math.floor(diff/86400) + 'd ago';
+}
+
+async function loadToday() {
+  try {
+    const resp = await fetch(`${API}/api/today`);
+    const data = await resp.json();
+
+    let html = '<div class="store-grid">';
+
+    const storeOrder = ['77573764', '7413', '10064461'];
+    for (const sid of storeOrder) {
+      const s = data[sid] || { name: sid, transactions: 0, items: 0, item_revenue: 0, fuel_gallons: 0, fuel_revenue: 0, total_revenue: 0, recent: [], top_items: [] };
+
+      html += `
+        <div class="store-card">
+          <h2>${s.name} <span class="updated">${timeAgo(s.updated)}</span></h2>
+          <div class="metrics">
+            <div class="metric"><div class="value">${fmtNum(s.transactions)}</div><div class="label">Transactions</div></div>
+            <div class="metric"><div class="value green">${fmt(s.item_revenue)}</div><div class="label">Merch Sales</div></div>
+            <div class="metric"><div class="value amber">${fmt(s.fuel_revenue)}</div><div class="label">Fuel Sales</div></div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><div class="value">${fmtNum(s.items)}</div><div class="label">Items Sold</div></div>
+            <div class="metric"><div class="value">${fmtNum(s.unique_upcs)}</div><div class="label">Unique Items</div></div>
+            <div class="metric"><div class="value green">${fmt(s.total_revenue)}</div><div class="label">Total Rev</div></div>
+          </div>`;
+
+      // Recent transactions
+      if (s.recent && s.recent.length > 0) {
+        html += '<div class="recent"><h3>Recent Transactions</h3>';
+        for (const t of s.recent.slice(0, 5)) {
+          const items_desc = t.items_desc || t.tender || '';
+          html += `<div class="txn"><span class="time">${t.event_time || ''}</span><span class="items">${items_desc}</span><span class="amount">${fmt(t.total)}</span></div>`;
+        }
+        html += '</div>';
+      }
+
+      // Top items
+      if (s.top_items && s.top_items.length > 0) {
+        html += '<div class="top-items"><h3>Top Items Today</h3>';
+        s.top_items.slice(0, 10).forEach((item, i) => {
+          html += `<div class="item-row"><span class="rank">${i+1}.</span><span class="desc">${item.description || item.scan_code}</span><span class="qty">${fmtNum(item.total_qty)}</span><span class="amt">${fmt(item.total_amount)}</span></div>`;
+        });
+        html += '</div>';
+      }
+
+      html += '</div>';
+    }
+
+    html += '</div>';
+    document.getElementById('content').innerHTML = html;
+    document.getElementById('statusText').textContent = 'Live';
+    document.getElementById('liveDot').style.background = '#22c55e';
+  } catch (e) {
+    document.getElementById('statusText').textContent = 'Offline';
+    document.getElementById('liveDot').style.background = '#ef4444';
+  }
+}
+
+async function loadHistory() {
+  try {
+    const resp = await fetch(`${API}/api/dashboard?days=${selectedRange}`);
+    const data = await resp.json();
+
+    let html = '';
+
+    // Store filter
+    html += '<div class="store-filter">';
+    html += `<button class="store-btn ${selectedStore==='all'?'active':''}" onclick="setStore('all')">All Stores</button>`;
+    for (const [sid, name] of Object.entries({'77573764':'Amiya Express 2','7413':'Amiya Express','10064461':'801 S Main St'})) {
+      html += `<button class="store-btn ${selectedStore===sid?'active':''}" onclick="setStore('${sid}')">${name}</button>`;
+    }
+    html += '</div>';
+
+    // Range filter
+    html += '<div class="range-btns">';
+    for (const d of [7, 14, 30, 90]) {
+      html += `<button class="range-btn ${selectedRange===d?'active':''}" onclick="setRange(${d})">${d}d</button>`;
+    }
+    html += `<input type="date" id="historyFrom" style="background:#1e293b;color:#e2e8f0;border:1px solid #475569;border-radius:6px;padding:4px 8px;font-size:12px;margin-left:8px;" onchange="loadCustomRange()">`;
+    html += `<input type="date" id="historyTo" style="background:#1e293b;color:#e2e8f0;border:1px solid #475569;border-radius:6px;padding:4px 8px;font-size:12px;margin-left:4px;" onchange="loadCustomRange()">`;
+    html += '</div>';
+
+    // Table
+    html += '<table class="history-table"><thead><tr><th>Date</th><th>Store</th><th>Txns</th><th>Items</th><th>Merch $</th><th>Fuel Gal</th><th>Fuel $</th><th>Total $</th></tr></thead><tbody>';
+
+    // Collect all rows
+    let allRows = [];
+    for (const [sid, store] of Object.entries(data)) {
+      if (selectedStore !== 'all' && selectedStore !== sid) continue;
+      for (const day of store.days) {
+        allRows.push({ ...day, store_id: sid, store_name: store.name });
+      }
+    }
+    allRows.sort((a, b) => b.date.localeCompare(a.date) || a.store_name.localeCompare(b.store_name));
+
+    if (allRows.length === 0) {
+      html += '<tr><td colspan="8" class="no-data">No data yet</td></tr>';
+    }
+
+    for (const r of allRows) {
+      html += `<tr>
+        <td>${r.date}</td><td>${r.store_name}</td>
+        <td>${fmtNum(r.transactions)}</td><td>${fmtNum(r.items)}</td>
+        <td>${fmt(r.item_revenue)}</td><td>${fmtNum(r.fuel_gallons)}</td>
+        <td>${fmt(r.fuel_revenue)}</td><td>${fmt(r.total_revenue)}</td>
+      </tr>`;
+    }
+
+    html += '</tbody></table>';
+    document.getElementById('content').innerHTML = html;
+  } catch (e) {
+    document.getElementById('content').innerHTML = '<div class="no-data">Error loading data</div>';
+  }
+}
+
+async function loadItems() {
+  let html = '';
+
+  // Store filter
+  html += '<div class="store-filter">';
+  const stores = {'77573764':'Amiya Express 2','7413':'Amiya Express','10064461':'801 S Main St'};
+  const itemStore = selectedStore === 'all' ? '77573764' : selectedStore;
+  for (const [sid, name] of Object.entries(stores)) {
+    html += `<button class="store-btn ${itemStore===sid?'active':''}" onclick="setStore('${sid}')">${name}</button>`;
+  }
+  html += '</div>';
+
+  // Range filter
+  html += '<div class="range-btns">';
+  for (const d of [1, 7, 14, 30, 90]) {
+    html += `<button class="range-btn ${selectedRange===d?'active':''}" onclick="setRange(${d})">${d === 1 ? 'Today' : d+'d'}</button>`;
+  }
+  html += `<input type="date" id="itemsFrom" style="background:#1e293b;color:#e2e8f0;border:1px solid #475569;border-radius:6px;padding:4px 8px;font-size:12px;margin-left:8px;" onchange="loadItemsCustomRange()">`;
+  html += `<input type="date" id="itemsTo" style="background:#1e293b;color:#e2e8f0;border:1px solid #475569;border-radius:6px;padding:4px 8px;font-size:12px;margin-left:4px;" onchange="loadItemsCustomRange()">`;
+  html += '</div>';
+
+  // Search box
+  html += `<div style="margin-bottom:12px;">
+    <input type="text" id="itemSearch" placeholder="Search by name or UPC..."
+      style="width:100%;max-width:400px;background:#1e293b;color:#e2e8f0;border:1px solid #475569;border-radius:8px;padding:10px 14px;font-size:15px;"
+      oninput="filterItemsTable()">
+  </div>`;
+
+  // Use saved date range if available
+  let itemsUrl;
+  let dateLabel = '';
+  if (window._itemsFrom && window._itemsTo) {
+    itemsUrl = `${API}/api/store/${itemStore}/items?from_date=${window._itemsFrom}&to_date=${window._itemsTo}`;
+    dateLabel = `${window._itemsFrom} to ${window._itemsTo}`;
+  } else {
+    const today = new Date().toISOString().split('T')[0];
+    itemsUrl = `${API}/api/store/${itemStore}/items?date_str=${today}&days=${selectedRange}`;
+    const from = new Date(Date.now() - (selectedRange-1)*86400000).toISOString().split('T')[0];
+    dateLabel = selectedRange === 1 ? today : `${from} to ${today}`;
+  }
+
+  html += `<div style="color:#64748b;font-size:12px;margin:8px 0;">Showing: ${dateLabel}</div>`;
+
+  try {
+    const resp = await fetch(itemsUrl);
+    const items = await resp.json();
+    window._allItems = items;
+    window._itemStore = itemStore;
+
+    html += `<div style="color:#94a3b8;font-size:13px;margin-bottom:8px;">${items.length} items found</div>`;
+    html += `<table class="history-table"><thead><tr><th>#</th><th>UPC</th><th>Description</th><th>Qty</th><th>Revenue</th><th>Avg Price</th></tr></thead><tbody id="itemsTableBody">`;
+
+    if (items.length === 0) {
+      html += '<tr><td colspan="6" class="no-data">No items for this date range</td></tr>';
+    }
+
+    items.forEach((item, i) => {
+      html += `<tr style="cursor:pointer;" onclick="loadItemDetail('${itemStore}','${item.scan_code}')"><td>${i+1}</td><td>${item.scan_code}</td><td>${item.description}</td><td>${fmtNum(item.qty)}</td><td>${fmt(item.amount)}</td><td>${fmt(item.avg_price)}</td></tr>`;
+    });
+
+    html += '</tbody></table>';
+  } catch (e) {
+    html += '<div class="no-data">Error loading items</div>';
+  }
+
+  document.getElementById('content').innerHTML = html;
+}
+
+function setStore(s) { selectedStore = s; loadTab(); }
+function setRange(d) { selectedRange = d; window._itemsFrom = null; window._itemsTo = null; loadTab(); }
+
+async function loadItemDetail(storeId, scanCode) {
+  const content = document.getElementById('content');
+  content.innerHTML = '<div style="padding:20px;color:#64748b;">Loading item detail...</div>';
+
+  try {
+    const resp = await fetch(`${API}/api/store/${storeId}/item/${scanCode}?days=365`);
+    const data = await resp.json();
+
+    const storeName = STORE_NAMES[storeId] || storeId;
+
+    let html = `
+      <div style="padding:12px 0;">
+        <button onclick="loadItems()" style="background:#334155;color:#e2e8f0;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px;">← Back to Items</button>
+      </div>
+      <div class="item-detail-card">
+        <div class="item-detail-name">${data.description}</div>
+        <div class="item-detail-sub">UPC: ${data.scan_code} | ${storeName}</div>
+        <div class="item-stats">
+          <div><div class="item-stat-label">Total Sold</div><div class="item-stat-value">${fmtNum(data.total_qty)}</div></div>
+          <div><div class="item-stat-label">Revenue</div><div class="item-stat-value green">${fmt(data.total_revenue)}</div></div>
+          <div><div class="item-stat-label">Avg Price</div><div class="item-stat-value">${fmt(data.avg_price)}</div></div>
+          <div><div class="item-stat-label">Avg / Day</div><div class="item-stat-value">${data.avg_daily}</div></div>
+          <div><div class="item-stat-label">Days Sold</div><div class="item-stat-value">${data.days_sold}</div></div>
+          <div><div class="item-stat-label">First Sold</div><div class="item-stat-value" style="font-size:14px;">${data.first_sold || 'N/A'}</div></div>
+          <div><div class="item-stat-label">Last Sold</div><div class="item-stat-value" style="font-size:14px;">${data.last_sold || 'N/A'}</div></div>
+        </div>
+      </div>
+
+      <h3 style="color:#94a3b8;margin-bottom:12px;font-size:16px;">Daily Sales History</h3>
+      <table class="history-table">
+        <thead><tr>
+          <th>Date</th><th>Qty Sold</th><th>Revenue</th><th>Avg Price</th><th>Transactions</th>
+        </tr></thead>
+        <tbody>`;
+
+    if (data.daily.length === 0) {
+      html += '<tr><td colspan="5" class="no-data">No daily data</td></tr>';
+    }
+
+    for (const d of data.daily) {
+      html += `<tr style="cursor:pointer;" onclick="loadDateTransactions('${storeId}','${scanCode}','${d.date}','${data.description}')">
+        <td>${d.date}</td>
+        <td>${fmtNum(d.qty)}</td>
+        <td>${fmt(d.revenue)}</td>
+        <td>${fmt(d.avg_price)}</td>
+        <td>${d.transactions}</td>
+      </tr>`;
+    }
+
+    html += '</tbody></table>';
+    content.innerHTML = html;
+  } catch (e) {
+    content.innerHTML = `<div style="color:#ef4444;padding:20px;">Error: ${e.message}</div>`;
+  }
+}
+
+async function loadDateTransactions(storeId, scanCode, onDate, itemName) {
+  const content = document.getElementById('content');
+  content.innerHTML = '<div style="padding:20px;color:#64748b;">Loading transactions...</div>';
+
+  try {
+    const resp = await fetch(`${API}/api/store/${storeId}/item/${scanCode}/transactions?on_date=${onDate}`);
+    const txns = await resp.json();
+
+    let html = `
+      <div style="padding:12px 0;">
+        <button onclick="loadItemDetail('${storeId}','${scanCode}')" style="background:#334155;color:#e2e8f0;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px;">← Back to ${itemName}</button>
+      </div>
+      <div class="item-detail-card">
+        <div class="item-detail-name">${itemName}</div>
+        <div class="item-detail-sub">UPC: ${scanCode} | ${onDate} | ${txns.length} transactions</div>
+      </div>`;
+
+    if (txns.length === 0) {
+      html += '<div class="no-data">No transactions found</div>';
+    }
+
+    for (const t of txns) {
+      // Parse basket items
+      const allItems = (t.all_items || '').split(', ').filter(i => i.trim());
+      const otherItems = allItems.filter(i => !i.includes(itemName));
+
+      html += `<div class="txn-card">
+        <div class="txn-card-header">
+          <div class="txn-card-time">${t.time || 'N/A'}</div>
+          <div class="txn-card-total">${fmt(t.txn_total)}</div>
+        </div>
+        <div class="txn-card-meta">
+          <span>💳 ${t.tender}</span>
+          <span>📍 Register ${t.register}</span>
+          <span>👤 Cashier ${t.cashier || 'N/A'}</span>
+        </div>
+        <div class="txn-card-item-highlight">
+          <div class="item-name">${itemName} × ${fmtNum(t.item_qty)}</div>
+          <div class="item-detail">${fmt(t.item_amount)} (${fmt(t.item_price)} each)</div>
+        </div>`;
+
+      if (otherItems.length > 0) {
+        html += `<div class="txn-card-basket">
+          <div class="txn-card-basket-title">Also in basket (${otherItems.length} items)</div>`;
+        for (const item of otherItems) {
+          const parts = item.split(' x');
+          const name = parts[0] || item;
+          const qty = parts[1] || '';
+          html += `<div class="txn-card-basket-item">
+            <span class="name">${name}</span>
+            <span class="qty-price">× ${qty}</span>
+          </div>`;
+        }
+        html += '</div>';
+      }
+
+      html += '</div>';
+    }
+
+    content.innerHTML = html;
+  } catch (e) {
+    content.innerHTML = `<div style="color:#ef4444;padding:20px;">Error: ${e.message}</div>`;
+  }
+}
+
+function filterItemsTable() {
+  const query = (document.getElementById('itemSearch')?.value || '').toLowerCase();
+  const tbody = document.getElementById('itemsTableBody');
+  if (!tbody || !window._allItems) return;
+
+  const items = window._allItems;
+  const store = window._itemStore;
+  const filtered = query ? items.filter(i =>
+    i.description.toLowerCase().includes(query) || i.scan_code.includes(query)
+  ) : items;
+
+  let html = '';
+  if (filtered.length === 0) {
+    html = '<tr><td colspan="6" class="no-data">No matching items</td></tr>';
+  }
+  filtered.forEach((item, i) => {
+    html += `<tr style="cursor:pointer;" onclick="loadItemDetail('${store}','${item.scan_code}')"><td>${i+1}</td><td>${item.scan_code}</td><td>${item.description}</td><td>${fmtNum(item.qty)}</td><td>${fmt(item.amount)}</td><td>${fmt(item.avg_price)}</td></tr>`;
+  });
+  tbody.innerHTML = html;
+}
+
+function loadItemsCustomRange() {
+  const from = document.getElementById('itemsFrom')?.value;
+  const to = document.getElementById('itemsTo')?.value;
+  if (from && to) {
+    window._itemsFrom = from;
+    window._itemsTo = to;
+    loadItems();
+  }
+}
+
+function loadCustomRange() {
+  const from = document.getElementById('historyFrom')?.value;
+  const to = document.getElementById('historyTo')?.value;
+  if (from && to) {
+    // Calculate days between dates
+    const diff = Math.ceil((new Date(to) - new Date(from)) / (1000*60*60*24)) + 1;
+    selectedRange = diff;
+    // Reload with custom from/to
+    loadHistoryCustom(from, to);
+  }
+}
+
+async function loadHistoryCustom(fromDate, toDate) {
+  try {
+    const resp = await fetch(`${API}/api/dashboard?from_date=${fromDate}&to_date=${toDate}`);
+    const data = await resp.json();
+
+    let html = '<div class="store-btns">';
+    html += `<button class="store-btn ${selectedStore==='all'?'active':''}" onclick="setStore('all')">All Stores</button>`;
+    for (const [sid, name] of Object.entries(STORE_NAMES)) {
+      html += `<button class="store-btn ${selectedStore===sid?'active':''}" onclick="setStore('${sid}')">${name}</button>`;
+    }
+    html += '</div>';
+    html += '<div class="range-btns">';
+    for (const d of [7, 14, 30, 90]) {
+      html += `<button class="range-btn" onclick="setRange(${d})">${d}d</button>`;
+    }
+    html += `<input type="date" id="historyFrom" value="${fromDate}" style="background:#1e293b;color:#e2e8f0;border:1px solid #475569;border-radius:6px;padding:4px 8px;font-size:12px;margin-left:8px;" onchange="loadCustomRange()">`;
+    html += `<input type="date" id="historyTo" value="${toDate}" style="background:#1e293b;color:#e2e8f0;border:1px solid #475569;border-radius:6px;padding:4px 8px;font-size:12px;margin-left:4px;" onchange="loadCustomRange()">`;
+    html += '</div>';
+
+    html += '<table class="history-table"><thead><tr><th>Date</th><th>Store</th><th>Txns</th><th>Items</th><th>Merch $</th><th>Fuel Gal</th><th>Fuel $</th><th>Total $</th></tr></thead><tbody>';
+
+    let allDays = [];
+    for (const [sid, store] of Object.entries(data)) {
+      if (selectedStore !== 'all' && selectedStore !== sid) continue;
+      for (const day of (store.days || [])) {
+        allDays.push({...day, store_id: sid, store_name: store.name});
+      }
+    }
+    allDays.sort((a,b) => b.date.localeCompare(a.date));
+
+    if (allDays.length === 0) {
+      html += '<tr><td colspan="8" style="text-align:center;color:#64748b;">No data for selected range</td></tr>';
+    }
+    for (const d of allDays) {
+      html += `<tr><td>${d.date}</td><td>${d.store_name}</td><td>${d.transactions}</td><td>${d.items}</td><td>$${d.item_revenue.toFixed(2)}</td><td>${d.fuel_gallons.toFixed(1)}</td><td>$${d.fuel_revenue.toFixed(2)}</td><td>$${d.total_revenue.toFixed(2)}</td></tr>`;
+    }
+    html += '</tbody></table>';
+    document.getElementById('content').innerHTML = html;
+  } catch(e) {
+    document.getElementById('content').innerHTML = `<div style="color:#ef4444;padding:20px;">Error: ${e.message}</div>`;
+  }
+}
+
+let tasksStore = '77573764'; // default to Amiya Express 2
+
+async function loadTasks() {
+  const content = document.getElementById('content');
+  content.innerHTML = '<div style="padding:20px;color:#64748b;">Loading tasks...</div>';
+
+  try {
+    const resp = await fetch(`${API}/api/tasks`);
+    const data = await resp.json();
+
+    const store = data[tasksStore];
+    if (!store) { content.innerHTML = '<div class="no-data">No task data</div>'; return; }
+
+    const today = new Date(); today.setHours(0,0,0,0);
+    function daysSince(d) { if (!d) return null; return Math.floor((today - new Date(d+'T00:00:00')) / 86400000); }
+    function fmtD(d) {
+      if (!d) return '';
+      const dt = new Date(d+'T00:00:00');
+      const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return m[dt.getMonth()] + '  ' + dt.getDate();
+    }
+    function dateClass(days, warn, crit) {
+      if (days === null) return '';
+      if (days <= warn) return '';
+      if (days <= crit) return 'warn';
+      return 'critical';
+    }
+
+    let html = '';
+
+    // Header with store dropdown
+    html += `<div class="tasks-header">
+      <span class="tasks-title">Critical Tasks Dashboard</span>
+      <select class="tasks-store-select" onchange="tasksStore=this.value;loadTasks();">`;
+    for (const [sid, name] of Object.entries(STORE_NAMES)) {
+      html += `<option value="${sid}" ${sid===tasksStore?'selected':''}>${name}</option>`;
+    }
+    html += `</select></div>`;
+
+    // Row 1: Day Report, Scratch Off, Gas, Grocery, Bank
+    const row1 = [
+      {key:'day_report', label:'Day Report', sub:'Last Daily Entry', action:'Enter Daily Reports'},
+      {key:'scratch_off', label:'Scratch Off', sub:'Last scratch off', action:'Enter Lottery Data'},
+      {key:'gas', label:'Gas', sub:'Last Gas Delivery', action:'Enter Gas Info'},
+      {key:'grocery', label:'Grocery', sub:'Last Purchase', action:'Enter Purchase Info'},
+      {key:'bank', label:'Bank', sub:'Last Reconciled', action:'Enter Bank Entries'},
+    ];
+
+    html += '<div class="tasks-row">';
+    for (const r of row1) {
+      const t = store.tasks[r.key] || {};
+      const days = daysSince(t.last_date);
+      const cls = dateClass(days, t.warn_days||2, t.critical_days||5);
+      const dateStr = fmtD(t.last_date);
+      html += `<div class="task-card" onclick="editTask('${tasksStore}','${r.key}','${r.label}','${t.last_date||''}','${t.last_value||''}')">
+        <div class="task-card-title">${r.label}</div>
+        <div class="task-card-date ${cls}">${dateStr || '&mdash;'}</div>
+        <div class="task-card-sub">${r.sub}</div>
+        <div class="task-card-action">${r.action} &#9662;</div>
+      </div>`;
+    }
+    html += '</div>';
+
+    // Row 2: Price Book, Price Changes, Promotions, Unprocessed Batch, Gas Price
+    html += '<div class="tasks-row">';
+
+    // Price Book Items
+    const pb = store.tasks['price_book'] || {};
+    const pbDays = daysSince(pb.last_date);
+    const pbCls = dateClass(pbDays, pb.warn_days||7, pb.critical_days||30);
+    html += `<div class="task-card" onclick="editTask('${tasksStore}','price_book','Price Book Items','${pb.last_date||''}','${pb.last_value||''}')">
+      <div class="task-card-title">Price Book Items</div>
+      <div class="task-card-date ${pbCls}">${fmtD(pb.last_date) || '&mdash;'}</div>
+      <div class="task-card-sub">${pb.last_value ? '@ '+pb.last_value : ''}</div>
+      <div class="task-card-sub">Last change requested</div>
+      <div class="task-card-action">Add/Update Items</div>
+    </div>`;
+
+    // Price Changes not sent
+    const pc = store.tasks['price_changes'] || {};
+    html += `<div class="task-card" onclick="editTask('${tasksStore}','price_changes','Price Changes not sent','${pc.last_date||''}','${pc.last_value||'0'}')">
+      <div class="task-card-title">Price Changes not sent</div>
+      <div class="task-card-count">${pc.last_value || '0'}</div>
+      <div class="task-card-msg">Items waiting to be sent</div>
+      <div class="task-card-action">Send To POS</div>
+    </div>`;
+
+    // Promotions
+    const pr = store.tasks['promotions'] || {};
+    html += `<div class="task-card" onclick="editTask('${tasksStore}','promotions','Promotions','${pr.last_date||''}','${pr.last_value||'0'}')">
+      <div class="task-card-title">Promotions</div>
+      <div class="task-card-count">${pr.last_value || '0'}</div>
+      <div class="task-card-msg">Active promotions</div>
+      <div class="task-card-action">View Promotions</div>
+    </div>`;
+
+    // Unprocessed Batch
+    const ub = store.tasks['unprocessed_batch'] || {};
+    html += `<div class="task-card" onclick="editTask('${tasksStore}','unprocessed_batch','Unprocessed Batch','${ub.last_date||''}','${ub.last_value||''}')">
+      <div class="task-card-title">Unprocessed Batch</div>
+      <div class="task-card-msg" style="margin-top:8px;">${ub.last_value || 'It looks like you do not have any unprocessed batches.'}</div>
+      <div class="task-card-action">View Batches</div>
+    </div>`;
+
+    // Gas Price
+    const gp = store.tasks['gas_price'] || {};
+    const gpDays = daysSince(gp.last_date);
+    const gpCls = dateClass(gpDays, gp.warn_days||7, gp.critical_days||14);
+    html += `<div class="task-card" onclick="editTask('${tasksStore}','gas_price','Gas Price','${gp.last_date||''}','${gp.last_value||''}')">
+      <div class="task-card-title">Gas Price</div>
+      <div class="task-card-date ${gpCls}">${fmtD(gp.last_date) || '&mdash;'}</div>
+      <div class="task-card-sub">Last Gas Price Change</div>
+      <div class="task-card-action">Update Gas Price</div>
+    </div>`;
+
+    html += '</div>';
+
+    // Bottom two columns: Settlements + Reports
+    html += '<div class="tasks-bottom">';
+
+    // Enter Settlements
+    html += '<div class="tasks-section"><div class="tasks-section-title">Enter Settlements</div>';
+    const settlements = [
+      {key:'settle_credit', label:'Credit card 2'},
+      {key:'settle_food', label:'Food stamps'},
+      {key:'settle_lottery', label:'Lottery lotto'},
+    ];
+    for (const s of settlements) {
+      const st = store.tasks[s.key] || {};
+      const settledText = st.last_date ? 'Last Settled On ' + fmtD(st.last_date) : 'Last Settled On Never';
+      html += `<div class="settle-row">
+        <div>
+          <div class="settle-name">${s.label}</div>
+          <div class="settle-status">${settledText}</div>
+        </div>
+        <button class="settle-btn" onclick="editTask('${tasksStore}','${s.key}','${s.label}','${st.last_date||''}','${st.last_value||''}')">Settle</button>
+      </div>`;
+    }
+    html += '</div>';
+
+    // Reports
+    html += '<div class="tasks-section"><div class="tasks-section-title">Reports</div>';
+    // Recent Day Reports
+    const dr = store.tasks['day_report'] || {};
+    html += `<div class="report-row">
+      <div class="report-label">Recent Day Reports</div>
+      <div class="report-btns">`;
+    if (dr.last_date) {
+      const d1 = new Date(dr.last_date+'T00:00:00');
+      const d2 = new Date(d1); d2.setDate(d2.getDate()-1);
+      html += `<span class="report-date-btn">${(d1.getMonth()+1)}/${d1.getDate()}/${d1.getFullYear()}</span>`;
+      html += `<span class="report-date-btn">${(d2.getMonth()+1)}/${d2.getDate()}/${d2.getFullYear()}</span>`;
+    }
+    html += `</div></div>`;
+
+    // Recent Scratch Off Reports
+    const so = store.tasks['scratch_off'] || {};
+    html += `<div class="report-row">
+      <div class="report-label">Recent Scratch Off Reports</div>
+      <div class="report-btns">`;
+    if (so.last_date) {
+      const s1 = new Date(so.last_date+'T00:00:00');
+      const s2 = new Date(s1); s2.setDate(s2.getDate()-1);
+      html += `<span class="report-date-btn">${(s1.getMonth()+1)}/${s1.getDate()}/${s1.getFullYear()}</span>`;
+      html += `<span class="report-date-btn">${(s2.getMonth()+1)}/${s2.getDate()}/${s2.getFullYear()}</span>`;
+    }
+    html += `</div></div>`;
+
+    html += `<div class="report-row">
+      <div class="report-label">Tank Reports</div>
+      <div class="report-btns"><span class="report-date-btn">View Report</span></div>
+    </div>`;
+    html += `<div class="report-row">
+      <div class="report-label">Local customer accounts</div>
+      <div class="report-btns"><span class="report-date-btn">View Report</span></div>
+    </div>`;
+    html += '</div></div>';
+
+    content.innerHTML = html;
+  } catch (e) {
+    content.innerHTML = `<div style="color:#ef4444;padding:20px;">Error: ${e.message}</div>`;
+  }
+}
+
+function editTask(storeId, taskKey, label, currentDate, currentValue) {
+  const today = new Date().toISOString().split('T')[0];
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay';
+  modal.innerHTML = `<div class="modal-box">
+    <h3>Update: ${label}</h3>
+    <div style="color:#64748b;font-size:12px;margin-bottom:8px;">${STORE_NAMES[storeId] || storeId}</div>
+    <label>Date</label>
+    <input type="date" id="taskDate" value="${currentDate || today}">
+    <label>Value (count, notes, etc.)</label>
+    <input type="text" id="taskValue" value="${currentValue}" placeholder="Optional">
+    <label>Notes</label>
+    <textarea id="taskNotes" placeholder="Optional notes..."></textarea>
+    <div class="modal-btns">
+      <button class="cancel-btn" onclick="this.closest('.modal-overlay').remove()">Cancel</button>
+      <button class="save-btn" onclick="saveTask('${storeId}','${taskKey}')">Save</button>
+    </div>
+  </div>`;
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+  document.body.appendChild(modal);
+}
+
+async function saveTask(storeId, taskKey) {
+  const dateVal = document.getElementById('taskDate').value;
+  const value = document.getElementById('taskValue').value;
+  const notes = document.getElementById('taskNotes').value;
+
+  try {
+    await fetch(`${API}/api/tasks/update`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        store_id: storeId,
+        task_key: taskKey,
+        last_date: dateVal || null,
+        last_value: value,
+        notes: notes,
+      }),
+    });
+    document.querySelector('.modal-overlay')?.remove();
+    loadTasks();
+  } catch (e) {
+    alert('Error saving: ' + e.message);
+  }
+}
+
+function loadTab() {
+  clearInterval(refreshTimer);
+  if (currentTab === 'today') {
+    loadToday();
+    refreshTimer = setInterval(loadToday, 30000);
+  } else if (currentTab === 'history') {
+    loadHistory();
+  } else if (currentTab === 'items') {
+    loadItems();
+  } else if (currentTab === 'tasks') {
+    loadTasks();
+  }
+}
+
+// Start
+loadTab();
+</script>
+</body>
+</html>
