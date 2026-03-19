@@ -282,6 +282,18 @@ let currentPage = 'tasks';
 let selectedRange = 7;
 
 function $(id) { return document.getElementById(id); }
+async function fetchRetry(url, retries=2) {
+  let lastErr;
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const r = await fetch(url);
+      if (r.ok) return r;
+      lastErr = new Error('HTTP ' + r.status);
+    } catch(e) { lastErr = e; }
+    if (i < retries) await new Promise(r => setTimeout(r, 1000));
+  }
+  throw lastErr;
+}
 function fmt(n) { return '$' + Number(n||0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 function fmtN(n) { return Number(n||0).toLocaleString(); }
 function fmtD(d) { if (!d) return ''; const dt=new Date(d+'T00:00:00'); const m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; return m[dt.getMonth()]+' '+dt.getDate(); }
@@ -307,6 +319,7 @@ function switchStore(sid) {
   $('storeAccountDisplay').textContent = 'Account #: ' + s.account;
   $('storeDropdown').value = sid;
   ltxDate = '';
+  liveDate = '';
   loadPage();
 }
 
@@ -338,7 +351,7 @@ async function loadTasks() {
   const pc = $('pageContent');
   pc.innerHTML = '<div class="page-title">&#127968; Critical Tasks Dashboard</div><div id="dc"><div style="text-align:center;padding:40px;color:#999;">Loading...</div></div>';
   try {
-    const data = await (await fetch(`${API}/api/tasks`)).json();
+    const data = await (await fetchRetry(`${API}/api/tasks`)).json();
     const store = data[currentStore];
     if (!store) { $('dc').innerHTML = '<div style="text-align:center;padding:40px;color:#999;">No data</div>'; return; }
     let h = '';
@@ -461,7 +474,7 @@ async function fetchLiveData() {
     $('txnList').innerHTML = h;
 
     // Load sales summary
-    const sumData = await (await fetch(`${API}/api/sales-summary?on_date=${liveDate}`)).json();
+    const sumData = await (await fetchRetry(`${API}/api/sales-summary?on_date=${liveDate}`)).json();
     let s = '<div class="section-box"><div class="section-title">Sales and Inventory Summary</div>';
     s += '<table class="data-table"><thead><tr><th>Store Name</th><th class="num">Total Sales</th><th class="num">Grocery Sales</th><th class="num">Gas (Vol)</th><th class="num">No Sale</th><th class="num">Void</th><th class="num">Refunds</th></tr></thead><tbody>';
     for (const st of sumData.stores) {
@@ -482,7 +495,7 @@ async function showTxnDetail(txnId) {
   const panel = $('txnDetail');
   panel.innerHTML = '<div class="section-title">Transaction Detail</div><div style="color:#999;padding:20px;text-align:center;">Loading...</div>';
   try {
-    const t = await (await fetch(`${API}/api/transaction/${txnId}`)).json();
+    const t = await (await fetchRetry(`${API}/api/transaction/${txnId}`)).json();
     let h = '<div class="section-title">Transaction Detail</div>';
     h += `<div style="text-align:center;margin-bottom:16px;">
       <div style="font-size:16px;font-weight:600;">${t.store_name}</div>
@@ -535,7 +548,7 @@ async function loadHistory() {
   pc.innerHTML = h;
 
   try {
-    const data = await (await fetch(`${API}/api/dashboard?days=${selectedRange}`)).json();
+    const data = await (await fetchRetry(`${API}/api/dashboard?days=${selectedRange}`)).json();
     const store = data[currentStore];
     if (!store || !store.days || store.days.length === 0) { $('hTable').innerHTML = '<div style="color:#999;padding:20px;text-align:center;">No data for selected range</div>'; return; }
 
@@ -554,7 +567,7 @@ async function loadHistoryRange() {
   const from=$('hFrom')?.value, to=$('hTo')?.value;
   if (!from||!to) return;
   try {
-    const data = await (await fetch(`${API}/api/dashboard?from_date=${from}&to_date=${to}`)).json();
+    const data = await (await fetchRetry(`${API}/api/dashboard?from_date=${from}&to_date=${to}`)).json();
     const store = data[currentStore];
     if (!store||!store.days.length) { $('hTable').innerHTML='<div style="color:#999;padding:20px;text-align:center;">No data</div>'; return; }
     let t='<div class="section-box"><table class="data-table"><thead><tr><th>Date</th><th class="num">Txns</th><th class="num">Items</th><th class="num">Merch $</th><th class="num">Fuel Gal</th><th class="num">Fuel $</th><th class="num">Total $</th></tr></thead><tbody>';
@@ -577,7 +590,7 @@ async function loadItems() {
 
   try {
     const today = new Date().toISOString().split('T')[0];
-    const items = await (await fetch(`${API}/api/store/${currentStore}/items?date_str=${today}&days=${selectedRange}`)).json();
+    const items = await (await fetchRetry(`${API}/api/store/${currentStore}/items?date_str=${today}&days=${selectedRange}`)).json();
     window._allItems = items;
     renderItems(items);
   } catch(e) { $('iTable').innerHTML=`<div style="color:red">Error: ${e.message}</div>`; }
@@ -671,7 +684,7 @@ async function lookupUpc(upc) {
 
   for (const code of variations) {
     try {
-      const resp = await fetch(`${API}/api/store/${currentStore}/item/${code}?days=365`);
+      const resp = await fetchRetry(`${API}/api/store/${currentStore}/item/${code}?days=365`);
       if (resp.ok) {
         const data = await resp.json();
         if (data && data.days_sold > 0) {
@@ -705,7 +718,7 @@ async function loadItemDetail(storeId, scanCode) {
   const pc = $('pageContent');
   pc.innerHTML = '<div style="padding:20px;color:#999;">Loading item detail...</div>';
   try {
-    const data = await (await fetch(`${API}/api/store/${storeId}/item/${scanCode}?days=365`)).json();
+    const data = await (await fetchRetry(`${API}/api/store/${storeId}/item/${scanCode}?days=365`)).json();
     let h = `<div style="margin-bottom:12px"><button class="filter-btn" onclick="loadItems()" style="cursor:pointer">&#8592; Back to All Items</button></div>`;
 
     // Item summary card
@@ -739,7 +752,7 @@ async function loadDateTxns(storeId, scanCode, onDate, itemName) {
   const pc = $('pageContent');
   pc.innerHTML = '<div style="padding:20px;color:#999;">Loading transactions...</div>';
   try {
-    const txns = await (await fetch(`${API}/api/store/${storeId}/item/${scanCode}/transactions?on_date=${onDate}`)).json();
+    const txns = await (await fetchRetry(`${API}/api/store/${storeId}/item/${scanCode}/transactions?on_date=${onDate}`)).json();
     let h = `<div style="margin-bottom:12px;display:flex;gap:8px;">
       <button class="filter-btn" onclick="loadItemDetail('${storeId}','${scanCode}')" style="cursor:pointer">&#8592; Back to ${itemName}</button>
       <button class="filter-btn" onclick="loadItems()" style="cursor:pointer">&#8592; All Items</button>
@@ -793,7 +806,7 @@ async function loadLiveTxn() {
   if (!ltxDate) {
     // Find most recent date with data
     try {
-      const d = await (await fetch(`${API}/api/transactions?limit=1&store_id=${currentStore}`)).json();
+      const d = await (await fetchRetry(`${API}/api/transactions?limit=1&store_id=${currentStore}`)).json();
       ltxDate = d.date || new Date().toISOString().split('T')[0];
     } catch(e) { ltxDate = new Date().toISOString().split('T')[0]; }
   }
@@ -827,7 +840,7 @@ let ltxAllTxns = [];
 
 async function fetchLtxList() {
   try {
-    const data = await (await fetch(`${API}/api/transactions?on_date=${ltxDate}&limit=200&store_id=${currentStore}`)).json();
+    const data = await (await fetchRetry(`${API}/api/transactions?on_date=${ltxDate}&limit=200&store_id=${currentStore}`)).json();
     ltxAllTxns = data.transactions || [];
     ltxDate = data.date;
     if ($('ltxDatePicker')) $('ltxDatePicker').value = ltxDate;
@@ -871,7 +884,7 @@ async function showReceipt(txnId) {
   const pc = $('pageContent');
   pc.innerHTML = '<div style="padding:20px;color:#999;text-align:center;">Loading receipt...</div>';
   try {
-    const t = await (await fetch(`${API}/api/transaction/${txnId}`)).json();
+    const t = await (await fetchRetry(`${API}/api/transaction/${txnId}`)).json();
 
     let h = `<div style="margin-bottom:14px;">
       <button class="filter-btn" onclick="loadLiveTxn()" style="cursor:pointer;">&#8592; Back to Transactions</button>
