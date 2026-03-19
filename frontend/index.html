@@ -443,9 +443,9 @@ async function fetchLiveData() {
   const typeFilter = ($('liveTypeFilter')||{}).value || '';
   const limitFilter = ($('liveLimitFilter')||{}).value || '50';
 
-  let url = `${API}/api/transactions?limit=${limitFilter}`;
+  var activeStore = storeFilter || currentStore;
+  let url = `${API}/api/transactions?limit=${limitFilter}&store_id=${activeStore}`;
   if (liveDate) url += `&on_date=${liveDate}`;
-  if (storeFilter) url += `&store_id=${storeFilter}`;
   if (typeFilter) url += `&event_type=${typeFilter}`;
 
   try {
