@@ -288,9 +288,10 @@ async function fetchRetry(url, retries=2) {
     try {
       const r = await fetch(url);
       if (r.ok) return r;
+      if (r.status === 401) { window.location = '/login'; return r; }
       lastErr = new Error('HTTP ' + r.status);
     } catch(e) { lastErr = e; }
-    if (i < retries) await new Promise(r => setTimeout(r, 1000));
+    if (i < retries) await new Promise(function(res) { setTimeout(res, 1000); });
   }
   throw lastErr;
 }
@@ -438,9 +439,9 @@ function changeDate(delta) {
 }
 
 async function fetchLiveData() {
-  const storeFilter = $('liveStoreFilter')?.value || '';
-  const typeFilter = $('liveTypeFilter')?.value || '';
-  const limitFilter = $('liveLimitFilter')?.value || '50';
+  const storeFilter = ($('liveStoreFilter')||{}).value || '';
+  const typeFilter = ($('liveTypeFilter')||{}).value || '';
+  const limitFilter = ($('liveLimitFilter')||{}).value || '50';
 
   let url = `${API}/api/transactions?limit=${limitFilter}`;
   if (liveDate) url += `&on_date=${liveDate}`;
@@ -564,7 +565,7 @@ async function loadHistory() {
 }
 
 async function loadHistoryRange() {
-  const from=$('hFrom')?.value, to=$('hTo')?.value;
+  const from=($('hFrom')||{}).value, to=($('hTo')||{}).value;
   if (!from||!to) return;
   try {
     const data = await (await fetchRetry(`${API}/api/dashboard?from_date=${from}&to_date=${to}`)).json();
@@ -708,7 +709,7 @@ async function lookupUpc(upc) {
 }
 
 function filterItems() {
-  const q = ($('itemSearch')?.value||'').toLowerCase();
+  const q = (($('itemSearch')||{}).value||'').toLowerCase();
   if (!window._allItems) return;
   const filtered = q ? window._allItems.filter(i => i.description.toLowerCase().includes(q) || i.scan_code.includes(q)) : window._allItems;
   renderItems(filtered);
@@ -724,7 +725,7 @@ async function loadItemDetail(storeId, scanCode) {
     // Item summary card
     h += `<div class="section-box" style="margin-bottom:16px">
       <div style="font-size:22px;font-weight:700;color:#333">${data.description}</div>
-      <div style="color:#999;margin-top:4px;font-size:14px;">UPC: <span style="color:#1a73e8;font-weight:500;">${data.scan_code}</span> &nbsp;|&nbsp; ${STORES[storeId]?.name||storeId}</div>
+      <div style="color:#999;margin-top:4px;font-size:14px;">UPC: <span style="color:#1a73e8;font-weight:500;">${data.scan_code}</span> &nbsp;|&nbsp; ${(STORES[storeId]||{}).name||storeId}</div>
       <div style="display:flex;gap:32px;margin-top:20px;flex-wrap:wrap">
         <div><div style="color:#999;font-size:11px;text-transform:uppercase;">Total Sold</div><div style="font-size:26px;font-weight:700;color:#1a73e8">${fmtN(data.total_qty)}</div></div>
         <div><div style="color:#999;font-size:11px;text-transform:uppercase;">Revenue</div><div style="font-size:26px;font-weight:700;color:#27ae60">${fmt(data.total_revenue)}</div></div>
@@ -849,7 +850,7 @@ async function fetchLtxList() {
 }
 
 function filterLtxList() {
-  const q = ($('ltxSearch')?.value || '').toLowerCase();
+  const q = (($('ltxSearch')||{}).value || '').toLowerCase();
   const filtered = q ? ltxAllTxns.filter(t => t.store_name.toLowerCase().includes(q) || t.items_desc.toLowerCase().includes(q) || t.tender.toLowerCase().includes(q) || String(t.total).includes(q)) : ltxAllTxns;
   renderLtxList(filtered);
 }
@@ -946,7 +947,7 @@ function editTask(storeId, taskKey, label, currentDate, currentValue) {
   const today = new Date().toISOString().split('T')[0];
   const modal = document.createElement('div');
   modal.className = 'modal-overlay';
-  modal.innerHTML = `<div class="modal-box"><h3>${label}</h3><div class="modal-store">${STORES[storeId]?.name||storeId}</div><label>Date</label><input type="date" id="taskDate" value="${currentDate||today}"><label>Value</label><input type="text" id="taskValue" value="${currentValue}" placeholder="Count, time, notes..."><label>Notes</label><textarea id="taskNotes" placeholder="Optional notes..."></textarea><div class="modal-btns"><button class="btn-cancel" onclick="this.closest('.modal-overlay').remove()">Cancel</button><button class="btn-save" onclick="saveTask('${storeId}','${taskKey}')">Save</button></div></div>`;
+  modal.innerHTML = `<div class="modal-box"><h3>${label}</h3><div class="modal-store">${(STORES[storeId]||{}).name||storeId}</div><label>Date</label><input type="date" id="taskDate" value="${currentDate||today}"><label>Value</label><input type="text" id="taskValue" value="${currentValue}" placeholder="Count, time, notes..."><label>Notes</label><textarea id="taskNotes" placeholder="Optional notes..."></textarea><div class="modal-btns"><button class="btn-cancel" onclick="this.closest('.modal-overlay').remove()">Cancel</button><button class="btn-save" onclick="saveTask('${storeId}','${taskKey}')">Save</button></div></div>`;
   modal.addEventListener('click', e => { if(e.target===modal) modal.remove(); });
   document.body.appendChild(modal);
 }
@@ -954,7 +955,7 @@ function editTask(storeId, taskKey, label, currentDate, currentValue) {
 async function saveTask(storeId, taskKey) {
   try {
     await fetch(`${API}/api/tasks/update`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({store_id:storeId, task_key:taskKey, last_date:$('taskDate').value||null, last_value:$('taskValue').value, notes:$('taskNotes').value}) });
-    document.querySelector('.modal-overlay')?.remove();
+    var mo=document.querySelector('.modal-overlay'); if(mo) mo.remove();
     loadTasks();
   } catch(e) { alert('Error: '+e.message); }
 }
