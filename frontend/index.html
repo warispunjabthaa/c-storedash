@@ -591,15 +591,30 @@ async function loadItems() {
 
   try {
     const today = new Date().toISOString().split('T')[0];
-    const items = await (await fetchRetry(`${API}/api/store/${currentStore}/items?date_str=${today}&days=${selectedRange}`)).json();
+    var items = await (await fetchRetry(`${API}/api/store/${currentStore}/items?date_str=${today}&days=${selectedRange}`)).json();
+    // If no items found with recent dates, try the store's full date range
+    if (items.length === 0 && selectedRange <= 90) {
+      var status = await (await fetchRetry(`${API}/api/status`)).json();
+      var storeStatus = status.find(function(s) { return s.store_id === currentStore; });
+      if (storeStatus && storeStatus.last_date) {
+        items = await (await fetchRetry(`${API}/api/store/${currentStore}/items?from_date=${storeStatus.first_date}&to_date=${storeStatus.last_date}`)).json();
+        if (items.length > 0) {
+          $('iTable').innerHTML = '<div style="color:#e67e22;font-size:12px;margin-bottom:8px;">No recent data. Showing all items from ' + storeStatus.first_date + ' to ' + storeStatus.last_date + '</div>';
+          window._allItems = items;
+          renderItems(items, true);
+          return;
+        }
+      }
+    }
     window._allItems = items;
     renderItems(items);
-  } catch(e) { $('iTable').innerHTML=`<div style="color:red">Error: ${e.message}</div>`; }
+  } catch(e) { $('iTable').innerHTML='<div style="color:red">Error: ' + e.message + '</div>'; }
 }
 
-function renderItems(items) {
+function renderItems(items, append) {
   if (!items.length) { $('iTable').innerHTML='<div style="color:#999;padding:20px;text-align:center;">No items for this period</div>'; return; }
-  let t = `<div style="color:#999;font-size:12px;margin-bottom:8px;">${items.length} items found</div>`;
+  var existing = append ? $('iTable').innerHTML : '';
+  var t = existing + '<div style="color:#999;font-size:12px;margin-bottom:8px;">' + items.length + ' items found</div>';
   t += '<div class="section-box"><table class="data-table"><thead><tr><th>#</th><th>UPC</th><th>Description</th><th class="num">Total Qty Sold</th><th class="num">Total Revenue</th><th class="num">Avg Price</th></tr></thead><tbody>';
   items.forEach((item,i) => {
     t += `<tr style="cursor:pointer" onclick="loadItemDetail('${currentStore}','${item.scan_code}')" onmouseover="this.style.background='#eef4ff'" onmouseout="this.style.background=''"><td>${i+1}</td><td style="color:#1a73e8;font-weight:500;">${item.scan_code}</td><td>${item.description}</td><td class="num" style="font-weight:600;color:#1a73e8;">${fmtN(item.qty)}</td><td class="num" style="font-weight:600;color:#27ae60;">${fmt(item.amount)}</td><td class="num">${fmt(item.avg_price)}</td></tr>`;
