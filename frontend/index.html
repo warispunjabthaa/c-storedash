@@ -590,30 +590,33 @@ async function loadItems() {
   pc.innerHTML = h;
 
   try {
-    const today = new Date().toISOString().split('T')[0];
-    var items = await (await fetchRetry(`${API}/api/store/${currentStore}/items?date_str=${today}&days=${selectedRange}`)).json();
-    // If no items found with recent dates, try the store's full date range
-    if (items.length === 0 && selectedRange <= 90) {
-      var status = await (await fetchRetry(`${API}/api/status`)).json();
-      var storeStatus = status.find(function(s) { return s.store_id === currentStore; });
-      if (storeStatus && storeStatus.last_date) {
-        items = await (await fetchRetry(`${API}/api/store/${currentStore}/items?from_date=${storeStatus.first_date}&to_date=${storeStatus.last_date}`)).json();
-        if (items.length > 0) {
-          $('iTable').innerHTML = '<div style="color:#e67e22;font-size:12px;margin-bottom:8px;">No recent data. Showing all items from ' + storeStatus.first_date + ' to ' + storeStatus.last_date + '</div>';
-          window._allItems = items;
-          renderItems(items, true);
-          return;
-        }
-      }
+    // First get store's actual date range
+    var statusResp = await (await fetchRetry(API + '/api/status')).json();
+    var storeInfo = null;
+    for (var si = 0; si < statusResp.length; si++) {
+      if (statusResp[si].store_id === currentStore) { storeInfo = statusResp[si]; break; }
+    }
+    var items;
+    if (storeInfo && storeInfo.last_date) {
+      // Calculate from_date based on selectedRange from last_date
+      var endDate = storeInfo.last_date;
+      var startDate = new Date(endDate + 'T00:00:00');
+      startDate.setDate(startDate.getDate() - selectedRange + 1);
+      var fromStr = startDate.toISOString().split('T')[0];
+      items = await (await fetchRetry(API + '/api/store/' + currentStore + '/items?from_date=' + fromStr + '&to_date=' + endDate)).json();
+      var rangeNote = '<div style="color:#666;font-size:12px;margin-bottom:8px;">Data from ' + fromStr + ' to ' + endDate + '</div>';
+      $('iTable').innerHTML = rangeNote;
+    } else {
+      items = [];
     }
     window._allItems = items;
-    renderItems(items);
+    renderItems(items, true);
   } catch(e) { $('iTable').innerHTML='<div style="color:red">Error: ' + e.message + '</div>'; }
 }
 
 function renderItems(items, append) {
-  if (!items.length) { $('iTable').innerHTML='<div style="color:#999;padding:20px;text-align:center;">No items for this period</div>'; return; }
-  var existing = append ? $('iTable').innerHTML : '';
+  if (!items.length) { if (!append) $('iTable').innerHTML='<div style="color:#999;padding:20px;text-align:center;">No items for this period</div>'; return; }
+  var existing = append ? ($('iTable').innerHTML || '') : '';
   var t = existing + '<div style="color:#999;font-size:12px;margin-bottom:8px;">' + items.length + ' items found</div>';
   t += '<div class="section-box"><table class="data-table"><thead><tr><th>#</th><th>UPC</th><th>Description</th><th class="num">Total Qty Sold</th><th class="num">Total Revenue</th><th class="num">Avg Price</th></tr></thead><tbody>';
   items.forEach((item,i) => {
