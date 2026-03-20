@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TransactionVision</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg-dark: #0d0d1a;
+  --bg-panel: #141428;
+  --bg-card: #1a1a35;
+  --bg-card-hover: #22224a;
+  --bg-input: #0f0f22;
+  --border: #2a2a4a;
+  --accent: #00d4aa;
+  --accent-dim: rgba(0,212,170,0.15);
+  --accent-glow: rgba(0,212,170,0.4);
+  --red: #ff4757;
+  --red-dim: rgba(255,71,87,0.15);
+  --green: #2ed573;
+  --green-dim: rgba(46,213,115,0.15);
+  --yellow: #ffa502;
+  --text: #e8e8f0;
+  --text-dim: #8888aa;
+  --text-muted: #555577;
+}
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg-dark); color: var(--text); overflow: hidden; height: 100vh; }
+/* TOP BAR */
+.topbar { display: flex; align-items: center; gap: 12px; padding: 8px 16px; background: var(--bg-panel); border-bottom: 1px solid var(--border); height: 56px; flex-shrink: 0; }
+.topbar .logo { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.topbar .logo svg { width: 22px; height: 22px; }
+.topbar .spacer { flex: 1; }
+.date-nav { display: flex; align-items: center; gap: 4px; }
+.date-nav button { background: var(--bg-card); border: 1px solid var(--border); color: var(--text); width: 30px; height: 30px; border-radius: 6px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.date-nav button:hover { background: var(--bg-card-hover); border-color: var(--accent); }
+.date-nav input[type="date"] { background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 4px 10px; border-radius: 6px; font-size: 13px; height: 30px; }
+select, .topbar select { background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 4px 10px; border-radius: 6px; font-size: 13px; height: 30px; cursor: pointer; }
+.stats-group { display: flex; gap: 16px; align-items: center; }
+.stat-box { text-align: center; }
+.stat-box .stat-val { font-size: 16px; font-weight: 700; color: var(--accent); }
+.stat-box .stat-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
+.btn-stream { background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.btn-stream:hover { border-color: var(--accent); }
+.btn-stream .dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; }
+.btn-stream .dot.connected { background: var(--green); }
+/* MAIN LAYOUT */
+.main { display: flex; height: calc(100vh - 56px); }
+/* LEFT PANEL */
+.left-panel { width: 280px; min-width: 280px; background: var(--bg-panel); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+.search-box { padding: 10px; }
+.search-box input { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 8px; font-size: 13px; }
+.search-box input::placeholder { color: var(--text-muted); }
+.search-box input:focus { outline: none; border-color: var(--accent); }
+.filter-tabs { display: flex; padding: 0 10px; gap: 2px; }
+.filter-tabs button { flex: 1; background: none; border: none; color: var(--text-dim); font-size: 12px; font-weight: 600; padding: 6px 0; cursor: pointer; border-bottom: 2px solid transparent; }
+.filter-tabs button.active { color: var(--accent); border-bottom-color: var(--accent); }
+.filter-tabs button:hover { color: var(--text); }
+.list-info { padding: 6px 12px; font-size: 11px; color: var(--text-dim); display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.txn-list { flex: 1; overflow-y: auto; padding: 4px 8px; }
+.txn-list::-webkit-scrollbar { width: 6px; }
+.txn-list::-webkit-scrollbar-track { background: var(--bg-panel); }
+.txn-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.txn-card { padding: 10px 12px; margin-bottom: 4px; background: var(--bg-card); border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.15s; }
+.txn-card:hover { background: var(--bg-card-hover); }
+.txn-card.selected { border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
+.txn-card .txn-top { display: flex; justify-content: space-between; align-items: baseline; }
+.txn-card .txn-amount { font-size: 18px; font-weight: 700; }
+.txn-card .txn-amount.sale { color: var(--green); }
+.txn-card .txn-amount.void { color: var(--red); }
+.txn-card .txn-amount.refund { color: var(--yellow); }
+.txn-card .txn-time { font-size: 12px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+.txn-card .txn-store { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.txn-card .txn-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* CENTER PANEL */
+.center-panel { flex: 1; display: flex; flex-direction: column; background: var(--bg-dark); min-width: 0; }
+.histogram { height: 50px; padding: 4px 16px; display: flex; align-items: flex-end; gap: 2px; background: var(--bg-panel); border-bottom: 1px solid var(--border); }
+.histogram .hist-bar { flex: 1; background: var(--accent-dim); border-radius: 2px 2px 0 0; min-height: 2px; cursor: pointer; transition: background 0.15s; position: relative; }
+.histogram .hist-bar:hover { background: var(--accent); }
+.histogram .hist-bar .hist-label { display: none; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: var(--bg-card); color: var(--text); padding: 2px 6px; border-radius: 4px; font-size: 10px; white-space: nowrap; pointer-events: none; }
+.histogram .hist-bar:hover .hist-label { display: block; }
+.video-area { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; background: #000; }
+.video-area video { width: 100%; height: 100%; object-fit: contain; }
+.no-stream { display: flex; flex-direction: column; align-items: center; gap: 16px; color: var(--text-dim); }
+.no-stream svg { width: 64px; height: 64px; opacity: 0.3; }
+.no-stream .btn-connect { background: var(--accent); color: var(--bg-dark); border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.no-stream .btn-connect:hover { opacity: 0.85; }
+.video-controls { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--bg-panel); border-top: 1px solid var(--border); }
+.video-controls button { background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; }
+.video-controls button:hover { border-color: var(--accent); }
+.video-controls .time-display { font-size: 12px; color: var(--text-dim); font-variant-numeric: tabular-nums; margin-left: auto; }
+.timeline-bar { height: 24px; background: var(--bg-input); position: relative; cursor: pointer; }
+.timeline-bar .timeline-marker { position: absolute; top: 4px; width: 6px; height: 16px; background: var(--accent); border-radius: 3px; transform: translateX(-50%); cursor: pointer; opacity: 0.7; }
+.timeline-bar .timeline-marker:hover { opacity: 1; transform: translateX(-50%) scaleY(1.2); }
+.timeline-bar .timeline-marker.void { background: var(--red); }
+.timeline-bar .timeline-pos { position: absolute; top: 0; height: 100%; width: 2px; background: #fff; pointer-events: none; }
+/* RIGHT PANEL */
+.right-panel { width: 340px; min-width: 340px; background: var(--bg-panel); border-left: 1px solid var(--border); display: flex; flex-direction: column; }
+.receipt-header { padding: 12px 16px; font-size: 13px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border); }
+.receipt-body { flex: 1; overflow-y: auto; padding: 16px; }
+.receipt-body::-webkit-scrollbar { width: 6px; }
+.receipt-body::-webkit-scrollbar-track { background: var(--bg-panel); }
+.receipt-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.receipt-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-muted); gap: 8px; }
+.receipt-placeholder svg { width: 48px; height: 48px; opacity: 0.3; }
+.receipt-content { font-family: 'Courier New', Courier, monospace; font-size: 12px; line-height: 1.5; white-space: pre; color: var(--text); }
+.receipt-content .receipt-total { font-size: 28px; font-weight: 700; color: var(--accent); font-family: -apple-system, sans-serif; }
+.receipt-content .receipt-total.void { color: var(--red); }
+.receipt-content .receipt-meta { font-size: 12px; color: var(--text-dim); font-family: -apple-system, sans-serif; margin-bottom: 12px; }
+.receipt-content .receipt-status { display: inline-block; background: var(--green-dim); color: var(--green); padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; font-family: -apple-system, sans-serif; margin-bottom: 12px; }
+.receipt-content .receipt-status.void { background: var(--red-dim); color: var(--red); }
+.receipt-content .receipt-pre { font-family: 'Courier New', Courier, monospace; font-size: 12px; line-height: 1.6; white-space: pre; background: var(--bg-card); padding: 12px; border-radius: 8px; overflow-x: auto; }
+/* MODAL */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
+.modal-overlay.active { display: flex; }
+.modal { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 12px; padding: 24px; width: 480px; max-width: 90vw; }
+.modal h2 { color: var(--accent); font-size: 18px; margin-bottom: 16px; }
+.modal label { display: block; font-size: 12px; color: var(--text-dim); margin-bottom: 4px; margin-top: 12px; }
+.modal input[type="text"], .modal input[type="number"] { width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 6px; font-size: 13px; }
+.modal input:focus { outline: none; border-color: var(--accent); }
+.modal .modal-actions { display: flex; gap: 8px; margin-top: 20px; justify-content: flex-end; }
+.modal .modal-actions button { padding: 8px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); }
+.modal .btn-save { background: var(--accent); color: var(--bg-dark); border-color: var(--accent); }
+.modal .btn-cancel { background: var(--bg-card); color: var(--text); }
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .right-panel { width: 280px; min-width: 280px; }
+}
+@media (max-width: 900px) {
+  .main { flex-direction: column; overflow-y: auto; }
+  .left-panel { width: 100%; min-width: 0; max-height: 240px; border-right: none; border-bottom: 1px solid var(--border); }
+  .center-panel { min-height: 300px; }
+  .right-panel { width: 100%; min-width: 0; max-height: 400px; border-left: none; border-top: 1px solid var(--border); }
+  .topbar { flex-wrap: wrap; height: auto; gap: 8px; padding: 8px 12px; }
+  .stats-group { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    TransactionVision
+  </div>
+
+  <div class="date-nav">
+    <button onclick="changeDate(-1)" title="Previous day">&laquo;</button>
+    <input type="date" id="datePicker" onchange="onDateChange()">
+    <button onclick="changeDate(1)" title="Next day">&raquo;</button>
+  </div>
+
+  <select id="storeFilter" onchange="loadTransactions()">
+    <option value="">All Stores</option>
+    <option value="10064461">801 S Main St</option>
+    <option value="7413">Amiya Express</option>
+    <option value="77573764">Amiya Express 2</option>
+  </select>
+
+  <select id="typeFilter" onchange="loadTransactions()">
+    <option value="">All Types</option>
+    <option value="sale">Sale</option>
+    <option value="void">Void</option>
+    <option value="refund">Refund</option>
+  </select>
+
+  <div class="spacer"></div>
+
+  <div class="stats-group">
+    <div class="stat-box">
+      <div class="stat-val" id="statSales">$0</div>
+      <div class="stat-label">Sales</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val" id="statTxns">0</div>
+      <div class="stat-label">Txns</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val" id="statVoids">0</div>
+      <div class="stat-label">Voids</div>
+    </div>
+  </div>
+
+  <button class="btn-stream" onclick="openStreamConfig()">
+    <span class="dot" id="streamDot"></span>
+    STREAM CONFIG
+  </button>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search item, UPC, cashier..." oninput="filterList()">
+    </div>
+    <div class="filter-tabs">
+      <button class="active" data-filter="all" onclick="setTab(this)">All</button>
+      <button data-filter="sale" onclick="setTab(this)">Sales</button>
+      <button data-filter="void" onclick="setTab(this)">Void</button>
+      <button data-filter="fuel" onclick="setTab(this)">Fuel</button>
+    </div>
+    <div class="list-info">
+      <span id="listShowing">Showing: 0</span>
+      <span id="listTotal">Total: $0.00</span>
+    </div>
+    <div class="txn-list" id="txnList"></div>
+  </div>
+
+  <!-- CENTER PANEL -->
+  <div class="center-panel">
+    <div class="histogram" id="histogram"></div>
+    <div class="video-area" id="videoArea">
+      <div class="no-stream" id="noStream">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="M17 9l5-3v12l-5-3z"/></svg>
+        <div>No stream connected</div>
+        <button class="btn-connect" onclick="openStreamConfig()">Connect Lorex Stream</button>
+      </div>
+      <video id="videoPlayer" style="display:none" playsinline></video>
+    </div>
+    <div class="video-controls" id="videoControls" style="display:none">
+      <button onclick="seekVideo(-30)">-30s</button>
+      <button onclick="seekVideo(-10)">-10s</button>
+      <button onclick="togglePlay()" id="btnPlay">&#9654;</button>
+      <button onclick="seekVideo(10)">+10s</button>
+      <button onclick="seekVideo(30)">+30s</button>
+      <span class="time-display" id="timeDisplay">00:00:00</span>
+    </div>
+    <div class="timeline-bar" id="timelineBar" onclick="onTimelineClick(event)">
+      <div class="timeline-pos" id="timelinePos" style="left:0"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <div class="receipt-header">Receipt Detail</div>
+    <div class="receipt-body" id="receiptBody">
+      <div class="receipt-placeholder" id="receiptPlaceholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        Select a transaction
+      </div>
+      <div class="receipt-content" id="receiptContent" style="display:none"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- STREAM CONFIG MODAL -->
+<div class="modal-overlay" id="streamModal">
+  <div class="modal">
+    <h2>Stream Configuration</h2>
+    <label>HLS Stream URL</label>
+    <input type="text" id="streamUrl" placeholder="http://QNAP_IP:1984/api/stream.m3u8?src=amiya2_register">
+    <label>Video Time Offset (seconds)</label>
+    <input type="number" id="streamOffset" value="0" placeholder="e.g., -5 if video is 5s behind POS">
+    <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">Positive = video is ahead of POS time. Negative = video is behind.</p>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeStreamConfig()">Cancel</button>
+      <button class="btn-save" onclick="saveStreamConfig()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── State ──
+const STORE_NAMES = {'10064461': '801 S Main St', '7413': 'Amiya Express', '77573764': 'Amiya Express 2'};
+let allTransactions = [];
+let filteredTransactions = [];
+let selectedTxnId = null;
+let activeTab = 'all';
+let hls = null;
+let autoRefreshTimer = null;
+
+// ── Init ──
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date().toISOString().slice(0, 10);
+  document.getElementById('datePicker').value = today;
+  loadTransactions();
+  updateStreamDot();
+  setupAutoRefresh();
+});
+
+// ── Date Navigation ──
+function changeDate(delta) {
+  const picker = document.getElementById('datePicker');
+  const d = new Date(picker.value + 'T12:00:00');
+  d.setDate(d.getDate() + delta);
+  picker.value = d.toISOString().slice(0, 10);
+  onDateChange();
+}
+
+function onDateChange() {
+  loadTransactions();
+  setupAutoRefresh();
+}
+
+function setupAutoRefresh() {
+  if (autoRefreshTimer) clearInterval(autoRefreshTimer);
+  const today = new Date().toISOString().slice(0, 10);
+  const selected = document.getElementById('datePicker').value;
+  if (selected === today) {
+    autoRefreshTimer = setInterval(() => loadTransactions(true), 60000);
+  }
+}
+
+// ── Load Transactions ──
+async function loadTransactions(silent = false) {
+  const onDate = document.getElementById('datePicker').value;
+  const storeId = document.getElementById('storeFilter').value;
+  const eventType = document.getElementById('typeFilter').value;
+
+  let url = `/api/transactions?on_date=${onDate}&limit=200`;
+  if (storeId) url += `&store_id=${storeId}`;
+  if (eventType) url += `&event_type=${eventType}`;
+
+  try {
+    const resp = await fetch(url);
+    if (resp.status === 401) { window.location.href = '/login'; return; }
+    const data = await resp.json();
+    allTransactions = data.transactions || [];
+    updateStats();
+    buildHistogram();
+    filterList();
+    buildTimelineMarkers();
+  } catch (e) {
+    if (!silent) console.error('Failed to load transactions:', e);
+  }
+}
+
+// ── Stats ──
+function updateStats() {
+  const sales = allTransactions.filter(t => t.event_type === 'sale');
+  const voids = allTransactions.filter(t => t.event_type === 'void');
+  const salesTotal = sales.reduce((s, t) => s + t.total, 0);
+  const voidsTotal = voids.reduce((s, t) => s + Math.abs(t.total), 0);
+
+  document.getElementById('statSales').textContent = '$' + salesTotal.toFixed(0);
+  document.getElementById('statTxns').textContent = allTransactions.length;
+  document.getElementById('statVoids').textContent = voids.length + (voidsTotal > 0 ? ' / $' + voidsTotal.toFixed(0) : '');
+}
+
+// ── Histogram ──
+function buildHistogram() {
+  const container = document.getElementById('histogram');
+  container.innerHTML = '';
+  const hourCounts = new Array(24).fill(0);
+
+  for (const t of allTransactions) {
+    const hour = parseTimeHour(t.time);
+    if (hour >= 0 && hour < 24) hourCounts[hour]++;
+  }
+
+  const maxCount = Math.max(...hourCounts, 1);
+
+  for (let h = 0; h < 24; h++) {
+    const bar = document.createElement('div');
+    bar.className = 'hist-bar';
+    const pct = (hourCounts[h] / maxCount) * 100;
+    bar.style.height = Math.max(pct, 4) + '%';
+    if (hourCounts[h] > 0) bar.style.background = 'var(--accent)';
+    bar.title = `${formatHour(h)}: ${hourCounts[h]} txns`;
+    const label = document.createElement('span');
+    label.className = 'hist-label';
+    label.textContent = `${formatHour(h)}: ${hourCounts[h]}`;
+    bar.appendChild(label);
+    bar.addEventListener('click', () => scrollToHour(h));
+    container.appendChild(bar);
+  }
+}
+
+function parseTimeHour(timeStr) {
+  if (!timeStr) return -1;
+  // Handle "HH:MM:SS AM/PM" or "HH:MM:SS"
+  const match = timeStr.match(/^(\d{1,2}):(\d{2})/);
+  if (!match) return -1;
+  let h = parseInt(match[1]);
+  if (/PM/i.test(timeStr) && h < 12) h += 12;
+  if (/AM/i.test(timeStr) && h === 12) h = 0;
+  return h;
+}
+
+function formatHour(h) {
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const hh = h % 12 || 12;
+  return hh + ' ' + ampm;
+}
+
+function scrollToHour(h) {
+  const list = document.getElementById('txnList');
+  const cards = list.querySelectorAll('.txn-card');
+  for (const card of cards) {
+    const txnId = parseInt(card.dataset.id);
+    const txn = filteredTransactions.find(t => t.id === txnId);
+    if (txn && parseTimeHour(txn.time) === h) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      break;
+    }
+  }
+}
+
+// ── Filter & Render List ──
+function setTab(btn) {
+  document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeTab = btn.dataset.filter;
+  filterList();
+}
+
+function filterList() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  filteredTransactions = allTransactions.filter(t => {
+    if (activeTab === 'sale' && t.event_type !== 'sale') return false;
+    if (activeTab === 'void' && t.event_type !== 'void') return false;
+    if (activeTab === 'fuel' && !(t.items_desc || '').toLowerCase().includes('fuel')) return false;
+    if (search) {
+      const hay = [t.items_desc, t.store_name, t.cashier_id, t.transaction_id, t.tender, String(t.total)].join(' ').toLowerCase();
+      if (!hay.includes(search)) return false;
+    }
+    return true;
+  });
+
+  renderList();
+}
+
+function renderList() {
+  const container = document.getElementById('txnList');
+  const total = filteredTransactions.reduce((s, t) => s + Math.abs(t.total), 0);
+  document.getElementById('listShowing').textContent = `Showing: ${filteredTransactions.length}`;
+  document.getElementById('listTotal').textContent = `Total: $${total.toFixed(2)}`;
+
+  container.innerHTML = filteredTransactions.map(t => {
+    const typeClass = t.event_type === 'void' ? 'void' : t.event_type === 'refund' ? 'refund' : 'sale';
+    const sign = t.event_type === 'void' ? '-' : '';
+    const selected = t.id === selectedTxnId ? ' selected' : '';
+    const desc = t.items_desc ? t.items_desc.split(',')[0].trim() : (t.event_type || 'Transaction');
+    return `<div class="txn-card${selected}" data-id="${t.id}" onclick="selectTransaction(${t.id})">
+      <div class="txn-top">
+        <span class="txn-amount ${typeClass}">${sign}$${Math.abs(t.total).toFixed(2)}</span>
+        <span class="txn-time">${t.time || ''}</span>
+      </div>
+      <div class="txn-store">${t.store_name}</div>
+      <div class="txn-desc">${escHtml(desc)}</div>
+    </div>`;
+  }).join('');
+}
+
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ── Select Transaction ──
+async function selectTransaction(id) {
+  selectedTxnId = id;
+  renderList();
+  document.getElementById('receiptPlaceholder').style.display = 'none';
+  document.getElementById('receiptContent').style.display = 'block';
+  document.getElementById('receiptContent').innerHTML = '<div style="color:var(--text-dim);padding:20px;">Loading...</div>';
+
+  try {
+    const resp = await fetch(`/api/transaction/${id}`);
+    const t = await resp.json();
+    renderReceipt(t);
+    seekVideoToTransaction(t);
+  } catch (e) {
+    document.getElementById('receiptContent').innerHTML = '<div style="color:var(--red)">Failed to load</div>';
+  }
+}
+
+// ── Render Receipt ──
+function renderReceipt(t) {
+  const isVoid = t.event_type === 'void';
+  const totalClass = isVoid ? 'void' : '';
+  const statusText = isVoid ? 'VOID' : 'CLOSED';
+  const statusClass = isVoid ? 'void' : '';
+
+  // Format date
+  const dateObj = new Date(t.date + 'T12:00:00');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const dateStr = `${dateObj.getDate()} ${months[dateObj.getMonth()]}`;
+
+  // Build items
+  let itemLines = '';
+  let subtotal = 0;
+  for (const item of t.items) {
+    const desc = (item.description || 'Item').padEnd(25).slice(0, 25);
+    const qty = item.qty;
+    const amt = item.amount.toFixed(2);
+    const price = item.price.toFixed(2);
+    subtotal += item.amount;
+
+    if (qty !== 1) {
+      itemLines += ` ${String(qty).padStart(2)} ${desc} ${price.padStart(8)}  ${amt.padStart(8)}\n`;
+    } else {
+      itemLines += `  1 ${desc} ${price.padStart(8)}  ${amt.padStart(8)}\n`;
+    }
+    if (item.scan_code) {
+      itemLines += `   (${item.scan_code})\n`;
+    }
+  }
+
+  // Fuel lines
+  for (const f of t.fuel) {
+    itemLines += `    ${(f.grade || 'Fuel').padEnd(22)} ${f.amount.toFixed(2).padStart(8)}\n`;
+    itemLines += `    ${f.gallons.toFixed(3)} gal @ $${f.ppg.toFixed(3)}/gal\n`;
+    subtotal += f.amount;
+  }
+
+  const total = t.total;
+  const tax = total - subtotal;
+  const taxAmt = Math.max(tax, 0);
+
+  // Parse tender
+  const tenderName = (t.tender || 'CASH').toUpperCase();
+  const change = tenderName === 'CASH' ? Math.max(0, parseFloat(t.total) > 0 ? 0 : 0) : 0;
+
+  // Build receipt text
+  const storeName = t.store_name || STORE_NAMES[t.store_id] || t.store_id;
+
+  let receiptPre = '';
+  receiptPre += `Transaction: ${t.transaction_id || '-'}`.padEnd(26) + `Register: ${t.register || '-'}\n`;
+  receiptPre += `Employee: ${t.cashier || '-'}\n`;
+  receiptPre += `\n`;
+  receiptPre += itemLines;
+  receiptPre += `\n`;
+  receiptPre += `${'Subtotal:'.padStart(36)}  $${subtotal.toFixed(2).padStart(7)}\n`;
+  if (taxAmt > 0.001) {
+    receiptPre += `${'Tax:'.padStart(36)}  $${taxAmt.toFixed(2).padStart(7)}\n`;
+  }
+  receiptPre += `${'Total:'.padStart(36)}  $${total.toFixed(2).padStart(7)}\n`;
+  receiptPre += `\n`;
+  receiptPre += `${'Payments Tendered:'.padStart(36)}\n`;
+  receiptPre += `${tenderName.padStart(36)}  $${total.toFixed(2).padStart(7)}\n`;
+
+  const html = `
+    <div class="receipt-total ${totalClass}">$ ${Math.abs(total).toFixed(2)}</div>
+    <div class="receipt-meta">${t.time || ''} EDT - ${dateStr}<br>${storeName}</div>
+    <div class="receipt-status ${statusClass}">${statusText}</div>
+    <div class="receipt-pre">${escHtml(receiptPre)}</div>
+  `;
+
+  document.getElementById('receiptContent').innerHTML = html;
+}
+
+// ── Timeline ──
+function buildTimelineMarkers() {
+  const bar = document.getElementById('timelineBar');
+  bar.querySelectorAll('.timeline-marker').forEach(m => m.remove());
+
+  for (const t of allTransactions) {
+    const secs = parseTimeToSeconds(t.time);
+    if (secs < 0) continue;
+    const pct = (secs / 86400) * 100;
+    const marker = document.createElement('div');
+    marker.className = 'timeline-marker' + (t.event_type === 'void' ? ' void' : '');
+    marker.style.left = pct + '%';
+    marker.title = `${t.time} - $${t.total.toFixed(2)}`;
+    marker.addEventListener('click', (e) => { e.stopPropagation(); selectTransaction(t.id); });
+    bar.appendChild(marker);
+  }
+}
+
+function parseTimeToSeconds(timeStr) {
+  if (!timeStr) return -1;
+  const match = timeStr.match(/^(\d{1,2}):(\d{2}):?(\d{2})?\s*(AM|PM)?/i);
+  if (!match) return -1;
+  let h = parseInt(match[1]);
+  const m = parseInt(match[2]);
+  const s = parseInt(match[3] || '0');
+  const ampm = (match[4] || '').toUpperCase();
+  if (ampm === 'PM' && h < 12) h += 12;
+  if (ampm === 'AM' && h === 12) h = 0;
+  return h * 3600 + m * 60 + s;
+}
+
+function onTimelineClick(e) {
+  const bar = document.getElementById('timelineBar');
+  const rect = bar.getBoundingClientRect();
+  const pct = (e.clientX - rect.left) / rect.width;
+  const secs = pct * 86400;
+  if (hls && videoPlayer) {
+    videoPlayer.currentTime = secs;
+  }
+}
+
+// ── Video / HLS ──
+const videoPlayer = document.getElementById('videoPlayer');
+
+function loadStream() {
+  const config = getStreamConfig();
+  if (!config.url) return;
+
+  document.getElementById('noStream').style.display = 'none';
+  videoPlayer.style.display = 'block';
+  document.getElementById('videoControls').style.display = 'flex';
+
+  if (hls) { hls.destroy(); hls = null; }
+
+  if (Hls.isSupported()) {
+    hls = new Hls({ enableWorker: true, lowLatencyMode: true });
+    hls.loadSource(config.url);
+    hls.attachMedia(videoPlayer);
+    hls.on(Hls.Events.MANIFEST_PARSED, () => videoPlayer.play().catch(() => {}));
+    hls.on(Hls.Events.ERROR, (_, data) => {
+      if (data.fatal) {
+        console.error('HLS error:', data);
+      }
+    });
+  } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+    videoPlayer.src = config.url;
+    videoPlayer.addEventListener('loadedmetadata', () => videoPlayer.play().catch(() => {}));
+  }
+
+  updateStreamDot();
+}
+
+function seekVideo(delta) {
+  if (videoPlayer) videoPlayer.currentTime += delta;
+}
+
+function togglePlay() {
+  if (!videoPlayer) return;
+  if (videoPlayer.paused) {
+    videoPlayer.play().catch(() => {});
+    document.getElementById('btnPlay').innerHTML = '&#9646;&#9646;';
+  } else {
+    videoPlayer.pause();
+    document.getElementById('btnPlay').innerHTML = '&#9654;';
+  }
+}
+
+function seekVideoToTransaction(t) {
+  if (!hls || !videoPlayer || !t.time) return;
+  const config = getStreamConfig();
+  const offset = parseFloat(config.offset) || 0;
+  const secs = parseTimeToSeconds(t.time);
+  if (secs >= 0) {
+    videoPlayer.currentTime = secs + offset;
+    videoPlayer.play().catch(() => {});
+  }
+}
+
+// Update time display
+setInterval(() => {
+  if (videoPlayer && !videoPlayer.paused) {
+    const s = Math.floor(videoPlayer.currentTime);
+    const hh = String(Math.floor(s / 3600)).padStart(2, '0');
+    const mm = String(Math.floor((s % 3600) / 60)).padStart(2, '0');
+    const ss = String(s % 60).padStart(2, '0');
+    document.getElementById('timeDisplay').textContent = `${hh}:${mm}:${ss}`;
+
+    // Update timeline position
+    const pct = (videoPlayer.currentTime / 86400) * 100;
+    document.getElementById('timelinePos').style.left = Math.min(pct, 100) + '%';
+  }
+}, 500);
+
+// ── Stream Config ──
+function getStreamConfig() {
+  try {
+    return JSON.parse(localStorage.getItem('txvision_stream') || '{}');
+  } catch { return {}; }
+}
+
+function openStreamConfig() {
+  const config = getStreamConfig();
+  document.getElementById('streamUrl').value = config.url || '';
+  document.getElementById('streamOffset').value = config.offset || 0;
+  document.getElementById('streamModal').classList.add('active');
+}
+
+function closeStreamConfig() {
+  document.getElementById('streamModal').classList.remove('active');
+}
+
+function saveStreamConfig() {
+  const url = document.getElementById('streamUrl').value.trim();
+  const offset = document.getElementById('streamOffset').value;
+  localStorage.setItem('txvision_stream', JSON.stringify({ url, offset }));
+  closeStreamConfig();
+  if (url) {
+    loadStream();
+  } else {
+    if (hls) { hls.destroy(); hls = null; }
+    videoPlayer.style.display = 'none';
+    document.getElementById('noStream').style.display = 'flex';
+    document.getElementById('videoControls').style.display = 'none';
+  }
+  updateStreamDot();
+}
+
+function updateStreamDot() {
+  const config = getStreamConfig();
+  const dot = document.getElementById('streamDot');
+  if (config.url) {
+    dot.classList.add('connected');
+  } else {
+    dot.classList.remove('connected');
+  }
+}
+
+// Auto-load stream on page load if configured
+setTimeout(() => {
+  const config = getStreamConfig();
+  if (config.url) loadStream();
+}, 500);
+</script>
+
+</body>
+</html>

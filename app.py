@@ -870,6 +870,13 @@ async def seed_tasks(request: Request, _=Depends(check_auth)):
     return {'seeded': len(seed_data)}
 
 
+@app.get("/txvision", response_class=HTMLResponse)
+async def txvision(request: Request):
+    if not request.session.get('authenticated'):
+        return RedirectResponse('/login', status_code=302)
+    return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'txvision.html'))
+
+
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     if not request.session.get('authenticated'):
