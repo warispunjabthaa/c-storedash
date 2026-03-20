@@ -110,6 +110,21 @@ async def lifespan(app: FastAPI):
                 updated_at TIMESTAMP DEFAULT NOW(),
                 UNIQUE(store_id, task_key)
             );
+
+            CREATE TABLE IF NOT EXISTS upc_products (
+                id SERIAL PRIMARY KEY,
+                upc TEXT NOT NULL,
+                description TEXT NOT NULL DEFAULT '',
+                price NUMERIC(10,2) DEFAULT 0,
+                category TEXT DEFAULT '',
+                store_id TEXT NOT NULL,
+                scanned_by TEXT DEFAULT '',
+                status TEXT DEFAULT 'pending',
+                created_at TIMESTAMP DEFAULT NOW(),
+                UNIQUE(upc, store_id)
+            );
+            CREATE INDEX IF NOT EXISTS idx_upc_store ON upc_products(store_id);
+            CREATE INDEX IF NOT EXISTS idx_upc_status ON upc_products(status);
         """)
 
         # Seed stores
@@ -868,6 +883,105 @@ async def seed_tasks(request: Request, _=Depends(check_auth)):
                     updated_at = NOW()
             """, sid, key, bdate, val, notes)
     return {'seeded': len(seed_data)}
+
+
+@app.get("/api/upc")
+async def list_upc(request: Request, store_id: str = None, status: str = None,
+                   _=Depends(check_api_or_session)):
+    """List scanned UPC products."""
+    p = await get_pool()
+    conditions = []
+    params = []
+    idx = 1
+    if store_id:
+        conditions.append(f"store_id = ${idx}")
+        params.append(store_id)
+        idx += 1
+    if status:
+        conditions.append(f"status = ${idx}")
+        params.append(status)
+        idx += 1
+    where = "WHERE " + " AND ".join(conditions) if conditions else ""
+    async with p.acquire() as conn:
+        rows = await conn.fetch(f"""
+            SELECT id, upc, description, price, category, store_id, scanned_by,
+                   status, created_at
+            FROM upc_products {where}
+            ORDER BY created_at DESC
+        """, *params)
+    return [{
+        'id': r['id'], 'upc': r['upc'], 'description': r['description'],
+        'price': float(r['price']), 'category': r['category'],
+        'store_id': r['store_id'], 'store_name': STORE_NAMES.get(r['store_id'], r['store_id']),
+        'scanned_by': r['scanned_by'], 'status': r['status'],
+        'created_at': r['created_at'].isoformat() if r['created_at'] else '',
+    } for r in rows]
+
+
+@app.post("/api/upc")
+async def add_upc(request: Request, _=Depends(check_api_or_session)):
+    """Add a scanned UPC product."""
+    body = await request.json()
+    upc = body['upc'].strip()
+    store_id = body['store_id']
+    description = body.get('description', '')
+    price = float(body.get('price', 0))
+    category = body.get('category', '')
+    scanned_by = body.get('scanned_by', '')
+
+    if not upc or not store_id:
+        raise HTTPException(status_code=400, detail="UPC and store_id are required")
+
+    p = await get_pool()
+    async with p.acquire() as conn:
+        row = await conn.fetchrow("""
+            INSERT INTO upc_products (upc, description, price, category, store_id, scanned_by)
+            VALUES ($1, $2, $3, $4, $5, $6)
+            ON CONFLICT (upc, store_id) DO UPDATE SET
+                description = CASE WHEN $2 = '' THEN upc_products.description ELSE $2 END,
+                price = CASE WHEN $3 = 0 THEN upc_products.price ELSE $3 END,
+                category = CASE WHEN $4 = '' THEN upc_products.category ELSE $4 END,
+                scanned_by = CASE WHEN $6 = '' THEN upc_products.scanned_by ELSE $6 END,
+                created_at = NOW()
+            RETURNING id, upc, description, price, status
+        """, upc, description, price, category, store_id, scanned_by)
+    return {'ok': True, 'id': row['id'], 'upc': row['upc'],
+            'description': row['description'], 'price': float(row['price']),
+            'status': row['status']}
+
+
+@app.put("/api/upc/{upc_id}")
+async def update_upc(upc_id: int, request: Request, _=Depends(check_auth)):
+    """Update a UPC product (admin only)."""
+    body = await request.json()
+    p = await get_pool()
+    async with p.acquire() as conn:
+        await conn.execute("""
+            UPDATE upc_products SET
+                description = COALESCE($2, description),
+                price = COALESCE($3, price),
+                category = COALESCE($4, category),
+                status = COALESCE($5, status)
+            WHERE id = $1
+        """, upc_id, body.get('description'), float(body['price']) if 'price' in body else None,
+            body.get('category'), body.get('status'))
+    return {'ok': True}
+
+
+@app.delete("/api/upc/{upc_id}")
+async def delete_upc(upc_id: int, request: Request, _=Depends(check_auth)):
+    """Delete a UPC product (admin only)."""
+    p = await get_pool()
+    async with p.acquire() as conn:
+        await conn.execute("DELETE FROM upc_products WHERE id = $1", upc_id)
+    return {'ok': True}
+
+
+@app.get("/scanner", response_class=HTMLResponse)
+async def scanner_page(request: Request):
+    if not request.session.get('authenticated'):
+        return RedirectResponse('/login', status_code=302)
+    return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'scanner.html'))
 
 
 @app.get("/txvision", response_class=HTMLResponse)

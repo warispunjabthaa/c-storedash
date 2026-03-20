@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>UPC Scanner - C-Store</title>
+<script src="https://unpkg.com/@zxing/library@0.20.0"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+.header { background: #1e293b; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #334155; }
+.header h1 { font-size: 18px; color: #38bdf8; }
+.header a { color: #94a3b8; text-decoration: none; font-size: 14px; }
+.header a:hover { color: #e2e8f0; }
+
+.tabs { display: flex; background: #1e293b; border-bottom: 1px solid #334155; }
+.tab { flex: 1; padding: 12px; text-align: center; cursor: pointer; color: #94a3b8; font-size: 14px; font-weight: 600; border-bottom: 3px solid transparent; transition: all 0.2s; }
+.tab.active { color: #38bdf8; border-bottom-color: #38bdf8; background: #0f172a; }
+
+.panel { display: none; padding: 16px; }
+.panel.active { display: block; }
+
+/* Scanner panel */
+#video-container { position: relative; width: 100%; max-width: 500px; margin: 0 auto 16px; border-radius: 12px; overflow: hidden; background: #000; }
+#video-container video { width: 100%; display: block; }
+.scan-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 30%; border: 2px solid #38bdf8; border-radius: 8px; box-shadow: 0 0 0 9999px rgba(0,0,0,0.4); }
+.scan-line { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #38bdf8; animation: scan 2s linear infinite; }
+@keyframes scan { 0%{top:0} 50%{top:100%} 100%{top:0} }
+
+#camera-btn { width: 100%; max-width: 500px; margin: 0 auto 12px; display: block; padding: 14px; background: #38bdf8; color: #0f172a; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; }
+#camera-btn:hover { background: #7dd3fc; }
+#camera-btn.stop { background: #ef4444; color: white; }
+#camera-btn.stop:hover { background: #f87171; }
+
+/* Image upload */
+.upload-zone { max-width: 500px; margin: 0 auto 16px; border: 2px dashed #475569; border-radius: 12px; padding: 40px 20px; text-align: center; cursor: pointer; transition: border-color 0.2s; }
+.upload-zone:hover, .upload-zone.dragover { border-color: #38bdf8; }
+.upload-zone p { color: #94a3b8; margin-bottom: 8px; }
+.upload-zone .icon { font-size: 48px; margin-bottom: 12px; }
+#file-input { display: none; }
+#preview-img { max-width: 100%; max-height: 300px; border-radius: 8px; margin-top: 12px; display: none; }
+
+/* Manual entry */
+.manual-form { max-width: 500px; margin: 0 auto; }
+
+/* Shared form elements */
+label { display: block; font-size: 13px; color: #94a3b8; margin-bottom: 4px; margin-top: 12px; }
+input, select { width: 100%; padding: 12px; background: #1e293b; border: 1px solid #475569; border-radius: 8px; color: #e2e8f0; font-size: 15px; }
+input:focus, select:focus { border-color: #38bdf8; outline: none; }
+select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+
+.result-box { max-width: 500px; margin: 16px auto; background: #1e293b; border-radius: 12px; padding: 16px; display: none; }
+.result-box.show { display: block; }
+.result-box .upc-code { font-size: 28px; font-weight: 700; color: #38bdf8; text-align: center; letter-spacing: 2px; margin-bottom: 12px; word-break: break-all; }
+.result-box .format { font-size: 12px; color: #64748b; text-align: center; margin-bottom: 16px; }
+
+.submit-btn { width: 100%; padding: 14px; background: #22c55e; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 16px; }
+.submit-btn:hover { background: #16a34a; }
+.submit-btn:disabled { background: #475569; cursor: not-allowed; }
+
+/* History */
+.history-list { max-width: 600px; margin: 0 auto; }
+.history-item { background: #1e293b; border-radius: 10px; padding: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+.history-item .upc { font-size: 16px; font-weight: 700; color: #38bdf8; }
+.history-item .desc { font-size: 13px; color: #94a3b8; margin-top: 2px; }
+.history-item .meta { font-size: 12px; color: #64748b; margin-top: 4px; }
+.status-badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.status-badge.pending { background: #fbbf24; color: #0f172a; }
+.status-badge.approved { background: #22c55e; color: white; }
+.status-badge.rejected { background: #ef4444; color: white; }
+
+.empty-state { text-align: center; padding: 60px 20px; color: #64748b; }
+
+/* Toast */
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 12px 24px; border-radius: 10px; font-weight: 600; z-index: 999; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.toast.error { background: #ef4444; }
+.toast.show { display: block; animation: slideUp 0.3s ease; }
+@keyframes slideUp { from { transform: translateX(-50%) translateY(20px); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+
+/* Filters */
+.filters { display: flex; gap: 8px; max-width: 600px; margin: 0 auto 16px; flex-wrap: wrap; }
+.filters select { flex: 1; min-width: 120px; padding: 10px; font-size: 13px; }
+
+@media (max-width: 480px) {
+  .header h1 { font-size: 16px; }
+  .tab { font-size: 12px; padding: 10px 6px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>UPC Scanner</h1>
+  <a href="/">Dashboard</a>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-tab="scan">Camera</div>
+  <div class="tab" data-tab="upload">Upload Photo</div>
+  <div class="tab" data-tab="manual">Manual</div>
+  <div class="tab" data-tab="history">History</div>
+</div>
+
+<!-- Camera Scan Panel -->
+<div class="panel active" id="panel-scan">
+  <div id="video-container">
+    <video id="video" playsinline></video>
+    <div class="scan-overlay"><div class="scan-line"></div></div>
+  </div>
+  <button id="camera-btn" onclick="toggleCamera()">Start Camera</button>
+  <div class="result-box" id="scan-result">
+    <div class="upc-code" id="scan-upc"></div>
+    <div class="format" id="scan-format"></div>
+    <label>Store</label>
+    <select id="scan-store"></select>
+    <label>Description</label>
+    <input id="scan-desc" placeholder="Product name (optional)">
+    <label>Price</label>
+    <input id="scan-price" type="number" step="0.01" placeholder="0.00 (optional)">
+    <label>Category</label>
+    <input id="scan-cat" placeholder="e.g. Beverages, Snacks (optional)">
+    <label>Your Name</label>
+    <input id="scan-name" placeholder="Who scanned this?">
+    <button class="submit-btn" onclick="submitUPC('scan')">Upload to Cloud</button>
+  </div>
+</div>
+
+<!-- Upload Photo Panel -->
+<div class="panel" id="panel-upload">
+  <div class="upload-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+    <div class="icon">&#128247;</div>
+    <p>Tap to take photo or choose from gallery</p>
+    <p style="font-size:12px">or drag & drop an image here</p>
+  </div>
+  <input type="file" id="file-input" accept="image/*" capture="environment">
+  <img id="preview-img">
+  <div class="result-box" id="upload-result">
+    <div class="upc-code" id="upload-upc"></div>
+    <div class="format" id="upload-format"></div>
+    <label>Store</label>
+    <select id="upload-store"></select>
+    <label>Description</label>
+    <input id="upload-desc" placeholder="Product name (optional)">
+    <label>Price</label>
+    <input id="upload-price" type="number" step="0.01" placeholder="0.00 (optional)">
+    <label>Category</label>
+    <input id="upload-cat" placeholder="e.g. Beverages, Snacks (optional)">
+    <label>Your Name</label>
+    <input id="upload-name" placeholder="Who scanned this?">
+    <button class="submit-btn" onclick="submitUPC('upload')">Upload to Cloud</button>
+  </div>
+</div>
+
+<!-- Manual Entry Panel -->
+<div class="panel" id="panel-manual">
+  <div class="manual-form">
+    <label>UPC / Barcode Number</label>
+    <input id="manual-upc" placeholder="Enter UPC code" inputmode="numeric">
+    <label>Store</label>
+    <select id="manual-store"></select>
+    <label>Description</label>
+    <input id="manual-desc" placeholder="Product name (optional)">
+    <label>Price</label>
+    <input id="manual-price" type="number" step="0.01" placeholder="0.00 (optional)">
+    <label>Category</label>
+    <input id="manual-cat" placeholder="e.g. Beverages, Snacks (optional)">
+    <label>Your Name</label>
+    <input id="manual-name" placeholder="Who scanned this?">
+    <button class="submit-btn" onclick="submitUPC('manual')">Upload to Cloud</button>
+  </div>
+</div>
+
+<!-- History Panel -->
+<div class="panel" id="panel-history">
+  <div class="filters">
+    <select id="hist-store" onchange="loadHistory()">
+      <option value="">All Stores</option>
+    </select>
+    <select id="hist-status" onchange="loadHistory()">
+      <option value="">All Status</option>
+      <option value="pending">Pending</option>
+      <option value="approved">Approved</option>
+      <option value="rejected">Rejected</option>
+    </select>
+  </div>
+  <div class="history-list" id="history-list">
+    <div class="empty-state">No scanned items yet</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const STORES = {
+  '10064461': '801 S Main St',
+  '7413': 'Amiya Express',
+  '77573764': 'Amiya Express 2'
+};
+
+let codeReader = null;
+let cameraActive = false;
+
+// Populate store dropdowns
+function populateStores() {
+  document.querySelectorAll('select[id$="-store"]').forEach(sel => {
+    if (sel.id === 'hist-store') return;
+    sel.innerHTML = '';
+    for (const [id, name] of Object.entries(STORES)) {
+      sel.innerHTML += `<option value="${id}">${name}</option>`;
+    }
+  });
+  const histSel = document.getElementById('hist-store');
+  for (const [id, name] of Object.entries(STORES)) {
+    histSel.innerHTML += `<option value="${id}">${name}</option>`;
+  }
+}
+
+// Tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    if (tab.dataset.tab === 'history') loadHistory();
+    if (tab.dataset.tab !== 'scan' && cameraActive) stopCamera();
+  });
+});
+
+// Camera scanning
+function toggleCamera() {
+  if (cameraActive) { stopCamera(); return; }
+  startCamera();
+}
+
+async function startCamera() {
+  const btn = document.getElementById('camera-btn');
+  const video = document.getElementById('video');
+  try {
+    codeReader = new ZXing.BrowserMultiFormatReader();
+    btn.textContent = 'Stop Camera';
+    btn.classList.add('stop');
+    cameraActive = true;
+
+    await codeReader.decodeFromVideoDevice(null, video, (result, err) => {
+      if (result) {
+        const text = result.getText();
+        const format = result.getBarcodeFormat();
+        document.getElementById('scan-upc').textContent = text;
+        document.getElementById('scan-format').textContent = formatName(format);
+        document.getElementById('scan-result').classList.add('show');
+        stopCamera();
+        showToast('Barcode detected!');
+      }
+    });
+  } catch (e) {
+    showToast('Camera error: ' + e.message, true);
+    stopCamera();
+  }
+}
+
+function stopCamera() {
+  if (codeReader) { codeReader.reset(); }
+  cameraActive = false;
+  const btn = document.getElementById('camera-btn');
+  btn.textContent = 'Start Camera';
+  btn.classList.remove('stop');
+}
+
+// Image upload / capture
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+
+['dragenter', 'dragover'].forEach(e => {
+  dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.add('dragover'); });
+});
+['dragleave', 'drop'].forEach(e => {
+  dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.remove('dragover'); });
+});
+dropZone.addEventListener('drop', ev => {
+  const file = ev.dataTransfer.files[0];
+  if (file) processImage(file);
+});
+fileInput.addEventListener('change', () => {
+  if (fileInput.files[0]) processImage(fileInput.files[0]);
+});
+
+async function processImage(file) {
+  const preview = document.getElementById('preview-img');
+  const url = URL.createObjectURL(file);
+  preview.src = url;
+  preview.style.display = 'block';
+
+  try {
+    const reader = new ZXing.BrowserMultiFormatReader();
+    const img = new Image();
+    img.src = url;
+    await new Promise(r => img.onload = r);
+
+    // Create canvas to pass image data
+    const canvas = document.createElement('canvas');
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+
+    const result = await reader.decodeFromImage(img);
+    const text = result.getText();
+    const format = result.getBarcodeFormat();
+    document.getElementById('upload-upc').textContent = text;
+    document.getElementById('upload-format').textContent = formatName(format);
+    document.getElementById('upload-result').classList.add('show');
+    showToast('Barcode detected from image!');
+  } catch (e) {
+    showToast('Could not detect barcode in image. Try a clearer photo or enter manually.', true);
+  }
+}
+
+// Submit UPC
+async function submitUPC(prefix) {
+  const upc = prefix === 'manual'
+    ? document.getElementById('manual-upc').value.trim()
+    : document.getElementById(prefix + '-upc').textContent.trim();
+
+  if (!upc) { showToast('No UPC code to submit', true); return; }
+
+  const storeId = document.getElementById(prefix + '-store').value;
+  const description = document.getElementById(prefix + '-desc').value.trim();
+  const price = parseFloat(document.getElementById(prefix + '-price').value) || 0;
+  const category = document.getElementById(prefix + '-cat').value.trim();
+  const scannedBy = document.getElementById(prefix + '-name').value.trim();
+
+  try {
+    const res = await fetch('/api/upc', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ upc, store_id: storeId, description, price, category, scanned_by: scannedBy })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      showToast('UPC ' + upc + ' uploaded!');
+      // Clear form
+      if (prefix === 'manual') document.getElementById('manual-upc').value = '';
+      document.getElementById(prefix + '-desc').value = '';
+      document.getElementById(prefix + '-price').value = '';
+      document.getElementById(prefix + '-cat').value = '';
+      if (prefix !== 'manual') {
+        document.getElementById(prefix + '-result').classList.remove('show');
+      }
+    } else {
+      showToast(data.detail || 'Upload failed', true);
+    }
+  } catch (e) {
+    showToast('Network error: ' + e.message, true);
+  }
+}
+
+// History
+async function loadHistory() {
+  const store = document.getElementById('hist-store').value;
+  const status = document.getElementById('hist-status').value;
+  let url = '/api/upc?';
+  if (store) url += 'store_id=' + store + '&';
+  if (status) url += 'status=' + status;
+
+  try {
+    const res = await fetch(url);
+    const items = await res.json();
+    const list = document.getElementById('history-list');
+    if (!items.length) {
+      list.innerHTML = '<div class="empty-state">No scanned items found</div>';
+      return;
+    }
+    list.innerHTML = items.map(item => `
+      <div class="history-item">
+        <div>
+          <div class="upc">${item.upc}</div>
+          <div class="desc">${item.description || 'No description'} ${item.price ? '- $' + item.price.toFixed(2) : ''}</div>
+          <div class="meta">${item.store_name} | ${item.scanned_by || 'Unknown'} | ${new Date(item.created_at).toLocaleDateString()}</div>
+        </div>
+        <span class="status-badge ${item.status}">${item.status}</span>
+      </div>
+    `).join('');
+  } catch (e) {
+    showToast('Failed to load history', true);
+  }
+}
+
+// Helpers
+function formatName(fmt) {
+  const names = { 11: 'UPC-A', 12: 'UPC-E', 5: 'EAN-13', 6: 'EAN-8', 9: 'CODE-128', 7: 'CODE-39', 10: 'CODE-93', 15: 'QR Code', 1: 'CODABAR', 14: 'ITF', 17: 'DATA MATRIX' };
+  return names[fmt] || 'Barcode';
+}
+
+function showToast(msg, isError) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isError ? ' error' : '');
+  setTimeout(() => t.className = 'toast', 3000);
+}
+
+// Persist employee name across tabs
+document.querySelectorAll('input[id$="-name"]').forEach(input => {
+  input.value = localStorage.getItem('scanner_name') || '';
+  input.addEventListener('change', () => {
+    localStorage.setItem('scanner_name', input.value);
+    document.querySelectorAll('input[id$="-name"]').forEach(i => i.value = input.value);
+  });
+});
+
+// Init
+populateStores();
+</script>
+</body>
+</html>
