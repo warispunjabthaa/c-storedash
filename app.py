@@ -146,7 +146,7 @@ button:hover { background: #7dd3fc; }
 <body><div class="login-box">
 <h1>POS Live</h1>
 {error}
-<form method="POST" action="/login">
+<form method="POST" action="{login_action}">
 <input name="username" placeholder="Username" required>
 <input name="password" type="password" placeholder="Password" required>
 <button type="submit">Sign In</button>
@@ -155,16 +155,21 @@ button:hover { background: #7dd3fc; }
 
 
 @app.get("/login")
-async def login_page():
-    return HTMLResponse(LOGIN_PAGE.replace('{error}', ''))
+async def login_page(request: Request):
+    next_url = request.query_params.get('next', '/')
+    page = LOGIN_PAGE.replace('{error}', '').replace('{login_action}', f'/login?next={next_url}')
+    return HTMLResponse(page)
 
 
 @app.post("/login")
 async def login(request: Request, username: str = Form(...), password: str = Form(...)):
     if username == AUTH_USERNAME and password == AUTH_PASSWORD:
         request.session['authenticated'] = True
-        return RedirectResponse('/', status_code=302)
-    return HTMLResponse(LOGIN_PAGE.replace('{error}', '<div class="error">Invalid credentials</div>'), status_code=401)
+        next_url = request.query_params.get('next', '/')
+        return RedirectResponse(next_url, status_code=302)
+    next_url = request.query_params.get('next', '/')
+    page = LOGIN_PAGE.replace('{error}', '<div class="error">Invalid credentials</div>').replace('{login_action}', f'/login?next={next_url}')
+    return HTMLResponse(page, status_code=401)
 
 
 @app.get("/logout")
@@ -873,14 +878,14 @@ async def seed_tasks(request: Request, _=Depends(check_auth)):
 @app.get("/txvision", response_class=HTMLResponse)
 async def txvision(request: Request):
     if not request.session.get('authenticated'):
-        return RedirectResponse('/login', status_code=302)
+        return RedirectResponse('/login?next=/txvision', status_code=302)
     return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'txvision.html'))
 
 
 @app.get("/coke", response_class=HTMLResponse)
 async def coke_order(request: Request):
     if not request.session.get('authenticated'):
-        return RedirectResponse('/login', status_code=302)
+        return RedirectResponse('/login?next=/coke', status_code=302)
     return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'coke.html'))
 
 @app.get("/coke_scan_data.js")
