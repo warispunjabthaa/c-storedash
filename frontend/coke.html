@@ -24,7 +24,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .page.active { display: block; }
 
 /* Scan page */
-#scanner-box { width: 100%; max-width: 400px; margin: 0 auto; display: none; border-radius: 8px; overflow: hidden; }
+#scanner-box { width: 100%; max-width: 500px; margin: 0 auto; display: none; border-radius: 8px; overflow: hidden; min-height: 300px; }
 .scan-btn { background: var(--blue); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; cursor: pointer; width: 100%; margin-bottom: 12px; }
 .scan-btn.active { background: var(--accent); }
 .input-row { display: flex; gap: 8px; margin-bottom: 12px; }
@@ -182,11 +182,12 @@ function toggleScanner() {
   scanner = new Html5Qrcode("scanner-box");
   scanner.start(
     { facingMode: "environment" },
-    { fps: 10, qrbox: { width: 280, height: 100 },
+    { fps: 15, qrbox: { width: 300, height: 150 },
+      aspectRatio: 1.0,
       formatsToSupport: [
         Html5QrcodeSupportedFormats.UPC_A, Html5QrcodeSupportedFormats.UPC_E,
         Html5QrcodeSupportedFormats.EAN_13, Html5QrcodeSupportedFormats.EAN_8,
-        Html5QrcodeSupportedFormats.CODE_128
+        Html5QrcodeSupportedFormats.CODE_128, Html5QrcodeSupportedFormats.CODE_39
       ]
     },
     (code) => {
