@@ -138,17 +138,25 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 const upcLookup = {};
 const upcLookupNoCheck = {};
 COKE_ITEMS.forEach(item => {
+  // Index by sellable_upc
   if (item.sellable_upc) {
     upcLookup[item.sellable_upc] = item;
-    // Also index without leading zeros (various lengths)
     const stripped = item.sellable_upc.replace(/^0+/, '');
     upcLookupNoCheck[stripped] = item;
-    // Try adding check digit stripped version
     if (item.sellable_upc.length >= 12) {
       upcLookup[item.sellable_upc.slice(0, -1)] = item;
     }
     if (item.sellable_upc.length >= 11) {
       upcLookup[item.sellable_upc.slice(0, 11)] = item;
+    }
+  }
+  // Also index by coke_upc (case/pack UPC)
+  if (item.coke_upc && !upcLookup[item.coke_upc]) {
+    upcLookup[item.coke_upc] = item;
+    const stripped = item.coke_upc.replace(/^0+/, '');
+    upcLookupNoCheck[stripped] = item;
+    if (item.coke_upc.length >= 12) {
+      upcLookup[item.coke_upc.slice(0, -1)] = item;
     }
   }
 });
