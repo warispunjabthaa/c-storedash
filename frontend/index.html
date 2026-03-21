@@ -31,7 +31,13 @@
   .sidebar-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; color: #c5cad3; font-size: 13px; cursor: pointer; text-decoration: none; transition: background 0.15s; }
   .sidebar-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
   .sidebar-item.active { background: rgba(255,255,255,0.12); color: #fff; }
-  .sidebar-item .arrow { font-size: 10px; color: #8a94a6; }
+  .sidebar-item .arrow { font-size: 10px; color: #8a94a6; transition: transform 0.2s; }
+  .sidebar-item.expanded .arrow { transform: rotate(90deg); }
+  .submenu { display: none; background: rgba(0,0,0,0.15); }
+  .submenu.open { display: block; }
+  .submenu-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px 8px 32px; color: #9ca3b0; font-size: 12px; cursor: pointer; text-decoration: none; transition: background 0.15s; }
+  .submenu-item:hover { background: rgba(255,255,255,0.06); color: #fff; }
+  .submenu-item .sub-arrow { font-size: 9px; color: #6b7280; }
 
   /* === MAIN CONTENT === */
   .main { margin-left: 185px; margin-top: 50px; padding: 24px 28px; min-height: calc(100vh - 50px); }
@@ -241,13 +247,99 @@
     <a class="sidebar-item" data-page="livetxn" onclick="navigateTo('livetxn')">Live Transactions</a>
     <a class="sidebar-item" href="/coke" style="color:#e94560;">Coke Ordering <span class="arrow">&#9656;</span></a>
     <a class="sidebar-item" href="/txvision" style="color:#00d4aa;">TransactionVision <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" data-page="history" onclick="navigateTo('history')">Day Closing <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" onclick="navigateTo('items')">Grocery <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" onclick="navigateTo('livedata')">Gas <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" onclick="return false;">Lottery/Lotto <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" onclick="return false;">Tender Types <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" data-page="reports" onclick="navigateTo('reports')">Report Center <span class="arrow">&#9656;</span></a>
-    <a class="sidebar-item" onclick="return false;">Price Book <span class="arrow">&#9656;</span></a>
+
+    <a class="sidebar-item" onclick="toggleSubmenu(this)">Day Closing <span class="arrow">&#9656;</span></a>
+    <div class="submenu">
+      <a class="submenu-item" data-page="history" onclick="navigateTo('history')">Dashboard</a>
+      <a class="submenu-item" onclick="return false;">Store</a>
+      <a class="submenu-item" onclick="return false;">Deli</a>
+      <a class="submenu-item" onclick="return false;">Check Cashing</a>
+      <a class="submenu-item" onclick="return false;">Reports <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Settings <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">QuickBook Integration</a>
+    </div>
+
+    <a class="sidebar-item" onclick="toggleSubmenu(this)">Grocery <span class="arrow">&#9656;</span></a>
+    <div class="submenu">
+      <a class="submenu-item" onclick="navigateTo('items')">Dashboard</a>
+      <a class="submenu-item" onclick="return false;">Purchases <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Inventory Adjustments</a>
+      <a class="submenu-item" onclick="return false;">Track Non Scanned Items <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Reports <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Settings</a>
+      <a class="submenu-item" onclick="return false;">Rebate Management <span class="sub-arrow">&#9656;</span></a>
+    </div>
+
+    <a class="sidebar-item" onclick="toggleSubmenu(this)">Gas <span class="arrow">&#9656;</span></a>
+    <div class="submenu">
+      <a class="submenu-item" onclick="navigateTo('livedata')">Dashboard</a>
+      <a class="submenu-item" onclick="return false;">Delivery</a>
+      <a class="submenu-item" onclick="return false;">Payments</a>
+      <a class="submenu-item" onclick="return false;">Inventory Adjustments</a>
+      <a class="submenu-item" onclick="return false;">Tank Reports</a>
+      <a class="submenu-item" onclick="return false;">Reports</a>
+      <a class="submenu-item" onclick="return false;">Fuel Expenses</a>
+      <a class="submenu-item" onclick="return false;">Settings</a>
+      <a class="submenu-item" onclick="return false;">Gas Price</a>
+    </div>
+
+    <a class="sidebar-item" onclick="toggleSubmenu(this)">Lottery/Lotto <span class="arrow">&#9656;</span></a>
+    <div class="submenu">
+      <a class="submenu-item" onclick="return false;">Dashboard</a>
+      <a class="submenu-item" onclick="return false;">Confirm</a>
+      <a class="submenu-item" onclick="return false;">Activate</a>
+      <a class="submenu-item" onclick="return false;">Day/Shift Closing</a>
+      <a class="submenu-item" onclick="return false;">Settle Packs</a>
+      <a class="submenu-item" onclick="return false;">Return Packs</a>
+      <a class="submenu-item" onclick="return false;">Games</a>
+      <a class="submenu-item" onclick="return false;">Pack History</a>
+      <a class="submenu-item" onclick="return false;">Lotto Settlements</a>
+      <a class="submenu-item" onclick="return false;">Reports <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Settings</a>
+    </div>
+
+    <a class="sidebar-item" onclick="toggleSubmenu(this)">Tender Types <span class="arrow">&#9656;</span></a>
+    <div class="submenu">
+      <a class="submenu-item" onclick="return false;">Dashboard</a>
+      <a class="submenu-item" onclick="return false;">Credit Card <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">EBT/Foodstamp <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Fleet Card <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Customer Accounts</a>
+      <a class="submenu-item" onclick="return false;">Other Tenders <span class="sub-arrow">&#9656;</span></a>
+    </div>
+
+    <a class="sidebar-item" onclick="toggleSubmenu(this)">Report Center <span class="arrow">&#9656;</span></a>
+    <div class="submenu">
+      <a class="submenu-item" data-page="reports" onclick="navigateTo('reports')">Net Worth</a>
+      <a class="submenu-item" onclick="return false;">POS Reports <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Profits</a>
+      <a class="submenu-item" onclick="return false;">Day Closing <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Grocery <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Gas</a>
+      <a class="submenu-item" onclick="return false;">Lottery/Lotto</a>
+      <a class="submenu-item" onclick="return false;">Services <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Tender Types</a>
+      <a class="submenu-item" onclick="return false;">Expenses CPA</a>
+      <a class="submenu-item" onclick="return false;">Other Income CPA</a>
+      <a class="submenu-item" onclick="return false;">Other Entries <span class="sub-arrow">&#9656;</span></a>
+    </div>
+
+    <a class="sidebar-item" onclick="toggleSubmenu(this)">Price Book <span class="arrow">&#9656;</span></a>
+    <div class="submenu">
+      <a class="submenu-item" onclick="return false;">Dashboard</a>
+      <a class="submenu-item" onclick="return false;">Items</a>
+      <a class="submenu-item" onclick="return false;">Bulk Update</a>
+      <a class="submenu-item" onclick="return false;">Promotions</a>
+      <a class="submenu-item" onclick="return false;">Monitoring</a>
+      <a class="submenu-item" onclick="return false;">Purchase <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Rebate Management <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Inventory by Item <span class="sub-arrow">&#9656;</span></a>
+      <a class="submenu-item" onclick="return false;">Price Groups</a>
+      <a class="submenu-item" onclick="return false;">Send to POS</a>
+      <a class="submenu-item" onclick="return false;">Gas Price</a>
+      <a class="submenu-item" onclick="return false;">Print shelf labels</a>
+    </div>
+
     <a class="sidebar-item" onclick="return false;">Store Settings</a>
   </div>
 </div>
@@ -277,6 +369,15 @@ const STORES = {
 let currentStore = '77573764';
 let currentPage = 'tasks';
 let selectedRange = 7;
+
+function toggleSubmenu(el) {
+  const submenu = el.nextElementSibling;
+  if (!submenu || !submenu.classList.contains('submenu')) return;
+  const isOpen = submenu.classList.contains('open');
+  // Close all other submenus
+  document.querySelectorAll('.submenu.open').forEach(s => { s.classList.remove('open'); s.previousElementSibling.classList.remove('expanded'); });
+  if (!isOpen) { submenu.classList.add('open'); el.classList.add('expanded'); }
+}
 
 function $(id) { return document.getElementById(id); }
 async function fetchRetry(url, retries=2) {
