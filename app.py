@@ -877,6 +877,16 @@ async def txvision(request: Request):
     return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'txvision.html'))
 
 
+@app.get("/coke", response_class=HTMLResponse)
+async def coke_order(request: Request):
+    if not request.session.get('authenticated'):
+        return RedirectResponse('/login', status_code=302)
+    return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'coke.html'))
+
+@app.get("/coke_scan_data.js")
+async def coke_data():
+    return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'coke_scan_data.js'))
+
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     if not request.session.get('authenticated'):
