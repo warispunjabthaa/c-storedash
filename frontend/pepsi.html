@@ -60,7 +60,7 @@
         .scan-input { width: 100%; padding: 14px; border: 2px dashed #004B93; border-radius: 10px; font-size: 18px; text-align: center; outline: none; background: #f0f6ff; }
         .scan-result { margin-top: 12px; }
 
-        #scanner-box { width: 100%; max-width: 500px; margin: 0 auto 12px; display: none; border-radius: 10px; overflow: hidden; min-height: 280px; }
+        #scanner-box { width: 100%; max-width: 500px; margin: 0 auto 12px; display: none; border-radius: 10px; overflow: hidden; min-height: 350px; }
         .scanner-btn { width: 100%; padding: 12px; background: #004B93; color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; margin-bottom: 12px; }
         .scanner-btn.active { background: #c5221f; }
 
@@ -130,14 +130,16 @@
         document.getElementById('scannerToggle').classList.add('active');
 
         scanner = new Html5Qrcode("scanner-box");
+        const boxWidth = Math.min(window.innerWidth - 60, 350);
         scanner.start(
             { facingMode: "environment" },
-            { fps: 15, qrbox: { width: 300, height: 150 },
+            { fps: 20, qrbox: { width: boxWidth, height: Math.floor(boxWidth * 0.4) },
               aspectRatio: 1.0,
               formatsToSupport: [
                 Html5QrcodeSupportedFormats.UPC_A, Html5QrcodeSupportedFormats.UPC_E,
                 Html5QrcodeSupportedFormats.EAN_13, Html5QrcodeSupportedFormats.EAN_8,
-                Html5QrcodeSupportedFormats.CODE_128, Html5QrcodeSupportedFormats.CODE_39
+                Html5QrcodeSupportedFormats.CODE_128, Html5QrcodeSupportedFormats.CODE_39,
+                Html5QrcodeSupportedFormats.ITF
               ]
             },
             (code) => {
@@ -150,7 +152,7 @@
             },
             () => {}
         ).then(() => { scanning = true; }).catch(err => {
-            document.getElementById('scanner-box').innerHTML = '<div style="padding:20px;text-align:center;color:#999">Camera not available</div>';
+            document.getElementById('scanner-box').innerHTML = '<div style="padding:20px;text-align:center;color:#c5221f;">Camera error: ' + err + '<br><br>Make sure you allow camera access and are using HTTPS.</div>';
         });
     }
 
@@ -251,15 +253,26 @@
     });
 
     function handleScan(upc) {
-        // Try matching by UPC
-        let match = PEPSI_ITEMS.find(i => i.pepsi_upc === upc || i.sellable_upc === upc);
+        // Try matching by UPC (check all UPC fields)
+        let match = PEPSI_ITEMS.find(i => i.upc === upc || i.pepsi_upc === upc || i.sellable_upc === upc);
 
         // Try without check digit
         if (!match && upc.length >= 11) {
             const trimmed = upc.substring(0, upc.length - 1);
             match = PEPSI_ITEMS.find(i =>
+                (i.upc && i.upc.startsWith(trimmed)) ||
                 (i.pepsi_upc && i.pepsi_upc.startsWith(trimmed)) ||
                 (i.sellable_upc && i.sellable_upc.startsWith(trimmed))
+            );
+        }
+
+        // Try with leading zero added/removed
+        if (!match) {
+            const withZero = '0' + upc;
+            const noZero = upc.replace(/^0+/, '');
+            match = PEPSI_ITEMS.find(i =>
+                i.upc === withZero || i.upc === noZero ||
+                i.pepsi_upc === withZero || i.pepsi_upc === noZero
             );
         }
 
@@ -277,8 +290,9 @@
                         <div class="details">${match.pkg_size} | ${match.case_qty}ct | ${match.category}</div>
                         <div style="margin-top:4px">
                             <span class="sku-badge">SKU ${match.sku}</span>
-                            ${match.pepsi_upc ? `<span class="upc-badge">UPC ${match.pepsi_upc}</span>` : ''}
+                            ${(match.upc || match.pepsi_upc) ? `<span class="upc-badge">UPC ${match.upc || match.pepsi_upc}</span>` : ''}
                         </div>
+                        <div style="margin-top:4px;font-size:11px;color:#666;">Scanned: ${upc}</div>
                     </div>
                     <div class="qty-controls">
                         <input type="number" class="qty-input" id="scanQty" value="1" min="1">
@@ -286,10 +300,15 @@
                     </div>
                 </div>`;
         } else {
-            resultDiv.innerHTML = `<div class="product-card" style="border: 2px solid #c5221f;"><div class="info"><div class="name" style="color:#c5221f">No match for: ${upc}</div><div class="details">Try searching by name below</div></div></div>`;
+            resultDiv.innerHTML = `
+                <div class="product-card" style="border: 2px solid #c5221f;">
+                    <div class="info">
+                        <div class="name" style="color:#c5221f">No match for: ${upc}</div>
+                        <div class="details">This barcode was scanned successfully but no product matched.<br>Try searching by name below, or this item may need to be added to the catalog.</div>
+                    </div>
+                </div>`;
         }
         document.getElementById('scanInput').value = '';
-        document.getElementById('scanInput').focus();
     }
 
     // Render catalog
