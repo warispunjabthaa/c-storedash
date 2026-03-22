@@ -35,6 +35,8 @@
         .product-card .sku-badge { background: #e8f0fe; color: #004B93; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
         .product-card .upc-badge { background: #e6f4ea; color: #137333; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 4px; }
         .product-card .no-upc { background: #fce8e6; color: #c5221f; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 4px; }
+        .product-card .verified-badge { background: #e6f4ea; color: #137333; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        .product-card .unverified-badge { background: #fff3e0; color: #e65100; padding: 2px 8px; border-radius: 4px; font-size: 10px; }
 
         .qty-controls { display: flex; align-items: center; gap: 6px; }
         .qty-btn { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #004B93; background: white; color: #004B93; font-size: 18px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; }
@@ -167,13 +169,14 @@
 
     // State
     let order = [];
-    let activeCategory = 'All';
-    const categories = ['All', ...new Set(PEPSI_ITEMS.map(i => i.category))];
+    let activeCategory = 'Verified';
+    const categories = ['Verified', 'All', ...new Set(PEPSI_ITEMS.filter(i => i.category).map(i => i.category))];
 
-    // Init
+    // Init - show verified items first
     function init() {
         renderFilters();
-        renderCatalog(PEPSI_ITEMS);
+        const verified = PEPSI_ITEMS.filter(i => i.verified);
+        renderCatalog(verified.length ? verified : PEPSI_ITEMS);
     }
 
     // Tabs
@@ -216,7 +219,9 @@
     // Search
     function searchCatalog(query) {
         let items = PEPSI_ITEMS;
-        if (activeCategory !== 'All') {
+        if (activeCategory === 'Verified') {
+            items = items.filter(i => i.verified);
+        } else if (activeCategory !== 'All') {
             items = items.filter(i => i.category === activeCategory);
         }
         if (query && query.length >= 2) {
@@ -374,14 +379,16 @@
     function renderProductCard(item) {
         const existing = order.find(o => o.sku === item.sku);
         const existingQty = existing ? existing.qty : 0;
+        const verified = item.verified ? '<span class="verified-badge">Verified</span>' : '<span class="unverified-badge">Unverified SKU</span>';
         return `
-        <div class="product-card">
+        <div class="product-card" ${item.verified ? 'style="border-left: 3px solid #137333;"' : ''}>
             <div class="info">
                 <div class="name">${item.name}</div>
-                <div class="details">${item.pkg_size || ''} ${item.case_qty ? '| ' + item.case_qty + 'ct' : ''} | ${item.category}</div>
+                <div class="details">${item.pkg_size || ''} ${item.case_qty ? '| ' + item.case_qty + 'ct' : ''} | ${item.category || ''}</div>
                 <div style="margin-top:4px">
                     <span class="sku-badge">SKU ${item.sku}</span>
-                    ${(item.upc || item.pepsi_upc) ? `<span class="upc-badge">${(item.upc || item.pepsi_upc)}</span>` : '<span class="no-upc">No UPC</span>'}
+                    ${(item.upc || item.pepsi_upc) ? `<span class="upc-badge">${(item.upc || item.pepsi_upc)}</span>` : ''}
+                    ${verified}
                 </div>
             </div>
             <div style="margin-top:8px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
@@ -518,6 +525,14 @@
     // Export - PepsiCo cart upload format (Sku,Quantity,Name,Package size)
     function exportForUpload() {
         if (!order.length) return;
+
+        const unverified = order.filter(i => !i.verified);
+        if (unverified.length > 0) {
+            const names = unverified.map(i => `  ${i.sku} - ${i.name}`).join('\n');
+            if (!confirm(`Warning: ${unverified.length} item(s) have unverified SKUs and may be rejected by PepsiCo:\n\n${names}\n\nExport anyway?`)) {
+                return;
+            }
+        }
 
         let csv = 'Sku,Quantity,Name,Package size\n';
         for (const item of order) {
