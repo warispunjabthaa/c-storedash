@@ -325,7 +325,7 @@
                     <div class="details">${item.pkg_size || ''} ${item.case_qty ? '| ' + item.case_qty + 'ct' : ''} | ${item.category}</div>
                     <div style="margin-top:4px">
                         <span class="sku-badge">SKU ${item.sku}</span>
-                        ${item.pepsi_upc ? `<span class="upc-badge">${item.pepsi_upc}</span>` : '<span class="no-upc">No UPC</span>'}
+                        ${(item.upc || item.pepsi_upc) ? `<span class="upc-badge">${(item.upc || item.pepsi_upc)}</span>` : '<span class="no-upc">No UPC</span>'}
                     </div>
                 </div>
                 <div class="qty-controls">
@@ -412,7 +412,7 @@
 
         let csv = 'SKU,Product,Package,Case Qty,Order Qty,UPC\n';
         for (const item of order) {
-            csv += `"${item.sku}","${item.name}","${item.pkg_size}","${item.case_qty}","${item.qty}","${item.pepsi_upc || ''}"\n`;
+            csv += `"${item.sku}","${item.name}","${item.pkg_size}","${item.case_qty}","${item.qty}","${(item.upc || item.pepsi_upc) || ''}"\n`;
         }
 
         const blob = new Blob([csv], { type: 'text/csv' });
