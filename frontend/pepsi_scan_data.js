@@ -170,66 +170,6 @@ const PEPSI_ITEMS = [
     "verified": true
   },
   {
-    "name": "Mountain Dew",
-    "sku": "3120",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000100499",
-    "full_name": "Mountain Dew - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (4/6 Packs)",
-    "sku": "3017",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000000133",
-    "full_name": "Pepsi (4/6 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper",
-    "sku": "3660",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000083408",
-    "full_name": "Diet Dr Pepper - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Caffeine Free Pepsi",
-    "sku": "3194",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000004926",
-    "full_name": "Caffeine Free Pepsi - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "3685",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000082401",
-    "full_name": "Dr Pepper - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "3683",
-    "category": "Soft Drinks",
-    "pkg_size": "16oz Bottle",
-    "case_qty": "24",
-    "upc": "078000082401",
-    "full_name": "Dr Pepper - 16oz Bottle (24ct)",
-    "verified": false
-  },
-  {
     "name": "Schweppes Ginger Ale",
     "sku": "3811",
     "category": "Soft Drinks",
@@ -237,7 +177,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000206456",
     "full_name": "Schweppes Ginger Ale - 10oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Wild Cherry",
@@ -247,107 +187,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000005596",
     "full_name": "Pepsi Wild Cherry - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (Premix)",
-    "sku": "5240",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Tank",
-    "case_qty": "1",
-    "upc": "012000400247",
-    "full_name": "Pepsi (Premix) - 5gal Tank (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper (Fountain)",
-    "sku": "3689",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "054900710545",
-    "full_name": "Dr Pepper (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (Fountain)",
-    "sku": "5247",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000400063",
-    "full_name": "Diet Pepsi (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "5689",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "20",
-    "upc": "012000002304",
-    "full_name": "Pepsi - 12oz Can (20ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew (Fountain)",
-    "sku": "5252",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000400094",
-    "full_name": "Mountain Dew (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "5867",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000002311",
-    "full_name": "Diet Pepsi - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "5876",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000001345",
-    "full_name": "Diet Mountain Dew - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "5866",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000002304",
-    "full_name": "Pepsi - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "5877",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000100499",
-    "full_name": "Mountain Dew - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "8729",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000002311",
-    "full_name": "Diet Pepsi - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi",
@@ -357,237 +197,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000002304",
     "full_name": "Pepsi - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Root Beer (Fountain)",
-    "sku": "15089",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000404085",
-    "full_name": "Mug Root Beer (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (Fountain)",
-    "sku": "5242",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000400032",
-    "full_name": "Pepsi (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (24pk Cube)",
-    "sku": "16789",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000000539",
-    "full_name": "Diet Pepsi (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (24pk Cube)",
-    "sku": "16788",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000000171",
-    "full_name": "Pepsi (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper (24pk Cube)",
-    "sku": "17207",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000082104",
-    "full_name": "Dr Pepper (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew (24pk Cube)",
-    "sku": "19117",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000001703",
-    "full_name": "Diet Mountain Dew (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper (24pk Cube)",
-    "sku": "19459",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000083101",
-    "full_name": "Diet Dr Pepper (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew (Cube)",
-    "sku": "16791",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000000881",
-    "full_name": "Mountain Dew (Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper",
-    "sku": "19519",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000083408",
-    "full_name": "Diet Dr Pepper - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "19553",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000082401",
-    "full_name": "Dr Pepper - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Root Beer",
-    "sku": "19685",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000009105",
-    "full_name": "Mug Root Beer - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (36pk Cube)",
-    "sku": "19716",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000100109",
-    "full_name": "Pepsi (36pk Cube) - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry",
-    "sku": "31104",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000005596",
-    "full_name": "Pepsi Wild Cherry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "32448",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000100499",
-    "full_name": "Mountain Dew - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "32575",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000206456",
-    "full_name": "Schweppes Ginger Ale - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "32765",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000206456",
-    "full_name": "Schweppes Ginger Ale - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper (Fountain)",
-    "sku": "33352",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "054900720513",
-    "full_name": "Diet Dr Pepper (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry (Fountain)",
-    "sku": "34018",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000608902",
-    "full_name": "Pepsi Wild Cherry (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew (Fountain)",
-    "sku": "33937",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000402517",
-    "full_name": "Diet Mountain Dew (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper (36pk Cube)",
-    "sku": "58488",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "078000804690",
-    "full_name": "Dr Pepper (36pk Cube) - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "59942",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000812620",
-    "full_name": "Pepsi - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "59956",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000014703",
-    "full_name": "Mountain Dew - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Code Red",
-    "sku": "66562",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000809989",
-    "full_name": "Mountain Dew Code Red - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Code Red",
@@ -597,27 +207,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000809989",
     "full_name": "Mountain Dew Code Red - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "82037",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000014703",
-    "full_name": "Mountain Dew - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "82039",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000812620",
-    "full_name": "Pepsi - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi (2/12 Packs)",
@@ -627,17 +217,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000809941",
     "full_name": "Pepsi (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (2/12 Packs)",
-    "sku": "83775",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000809958",
-    "full_name": "Diet Pepsi (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew (2/12 Packs)",
@@ -647,7 +227,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000809965",
     "full_name": "Mountain Dew (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Code Red",
@@ -657,7 +237,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000809989",
     "full_name": "Mountain Dew Code Red - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Diet Mountain Dew (2/12 Packs)",
@@ -667,7 +247,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000809972",
     "full_name": "Diet Mountain Dew (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Wild Cherry (2/12 Packs)",
@@ -677,7 +257,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000809996",
     "full_name": "Pepsi Wild Cherry (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mug Root Beer (2/12 Packs)",
@@ -687,7 +267,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000810008",
     "full_name": "Mug Root Beer (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mug Root Beer Zero Sugar",
@@ -697,57 +277,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000810077",
     "full_name": "Mug Root Beer Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi Wild Cherry (2/12 Packs)",
-    "sku": "83797",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000810176",
-    "full_name": "Diet Pepsi Wild Cherry (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper (2/12 Packs)",
-    "sku": "84940",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000082166",
-    "full_name": "Dr Pepper (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper (2/12 Packs)",
-    "sku": "84941",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000083163",
-    "full_name": "Diet Dr Pepper (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Live Wire",
-    "sku": "85028",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000811319",
-    "full_name": "Mountain Dew Live Wire - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Live Wire (2/12 Packs)",
-    "sku": "85332",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000811821",
-    "full_name": "Mountain Dew Live Wire (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Schweppes Ginger Ale (2/12 Packs)",
@@ -757,87 +287,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000206166",
     "full_name": "Schweppes Ginger Ale (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "86609",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000812620",
-    "full_name": "Pepsi - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (4/6 Packs)",
-    "sku": "87672",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000504051",
-    "full_name": "Pepsi (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "88717",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000003189",
-    "full_name": "Diet Mountain Dew - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "88718",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000082456",
-    "full_name": "Dr Pepper - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper (36pk Cube)",
-    "sku": "88896",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "078000804706",
-    "full_name": "Diet Dr Pepper (36pk Cube) - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper",
-    "sku": "92327",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000003888",
-    "full_name": "Diet Dr Pepper - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "94636",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000014703",
-    "full_name": "Mountain Dew - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Zero Sugar",
-    "sku": "102979",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000018817",
-    "full_name": "Pepsi Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Zero Sugar",
@@ -847,17 +297,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000018817",
     "full_name": "Pepsi Zero Sugar - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Zero Sugar (24pk Cube)",
-    "sku": "103877",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000024498",
-    "full_name": "Pepsi Zero Sugar (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Zero Sugar (2/12 Packs)",
@@ -867,37 +307,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000018794",
     "full_name": "Pepsi Zero Sugar (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "105444",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "078000082456",
-    "full_name": "Dr Pepper - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "105526",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000003189",
-    "full_name": "Diet Mountain Dew - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "105528",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000082456",
-    "full_name": "Dr Pepper - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Voltage Raspberry Citrus (2/12 Packs)",
@@ -907,47 +317,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000028656",
     "full_name": "Mountain Dew Voltage Raspberry Citrus (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Voltage Raspberry Citrus",
-    "sku": "106751",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000028625",
-    "full_name": "Mountain Dew Voltage Raspberry Citrus - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry",
-    "sku": "109525",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000098167",
-    "full_name": "Dr Pepper Cherry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry",
-    "sku": "109533",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000098167",
-    "full_name": "Dr Pepper Cherry - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Made With Real Sugar",
-    "sku": "120068",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000030659",
-    "full_name": "Pepsi Made With Real Sugar - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Made With Real Sugar (2/12 Packs)",
@@ -957,87 +327,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000030680",
     "full_name": "Pepsi Made With Real Sugar (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange (Fountain)",
-    "sku": "120133",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "088500901263",
-    "full_name": "Crush Orange (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "120341",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000015946",
-    "full_name": "Diet Mountain Dew - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "120342",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000140945",
-    "full_name": "Mountain Dew - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper",
-    "sku": "120346",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "078000083316",
-    "full_name": "Diet Dr Pepper - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "121348",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000003963",
-    "full_name": "Schweppes Ginger Ale - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Zero Sugar (4/6 Packs)",
-    "sku": "121347",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000031960",
-    "full_name": "Pepsi Zero Sugar (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "125007",
-    "category": "Soft Drinks",
-    "pkg_size": "16oz Bottle",
-    "case_qty": "24",
-    "upc": "012000002946",
-    "full_name": "Pepsi - 16oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "125011",
-    "category": "Soft Drinks",
-    "pkg_size": "16oz Bottle",
-    "case_qty": "24",
-    "upc": "012000140945",
-    "full_name": "Mountain Dew - 16oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew",
@@ -1047,7 +337,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000140945",
     "full_name": "Mountain Dew - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Grape",
@@ -1057,17 +347,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000013566",
     "full_name": "Crush Grape - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Grape",
-    "sku": "133045",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000013566",
-    "full_name": "Crush Grape - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Orange",
@@ -1077,7 +357,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "078000013252",
     "full_name": "Crush Orange - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Grape",
@@ -1087,7 +367,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "078000013566",
     "full_name": "Crush Grape - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Orange",
@@ -1097,37 +377,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000013252",
     "full_name": "Crush Orange - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange (Cube)",
-    "sku": "133073",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000013092",
-    "full_name": "Crush Orange (Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange",
-    "sku": "133064",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000013252",
-    "full_name": "Crush Orange - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Strawberry",
-    "sku": "133102",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000013696",
-    "full_name": "Crush Strawberry - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Pineapple",
@@ -1137,7 +387,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "078000014167",
     "full_name": "Crush Pineapple - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Strawberry",
@@ -1147,7 +397,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000013696",
     "full_name": "Crush Strawberry - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Orange Zero Sugar",
@@ -1157,27 +407,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000013894",
     "full_name": "Crush Orange Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange",
-    "sku": "133205",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000013252",
-    "full_name": "Crush Orange - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Strawberry",
-    "sku": "133107",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000013696",
-    "full_name": "Crush Strawberry - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Kickstart Orange Citrus",
@@ -1187,37 +417,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000110443",
     "full_name": "Mountain Dew Kickstart Orange Citrus - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Kickstart Black Cherry",
-    "sku": "142070",
-    "category": "Soft Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000043000",
-    "full_name": "Mountain Dew Kickstart Black Cherry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry (4/6 Packs)",
-    "sku": "143890",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000811197",
-    "full_name": "Pepsi Wild Cherry (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "144370",
-    "category": "Soft Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "078000082395",
-    "full_name": "Dr Pepper - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Wild Cherry",
@@ -1227,57 +427,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000140709",
     "full_name": "Pepsi Wild Cherry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Flavor Works Strawberry Flavor Shots",
-    "sku": "149029",
-    "category": "Soft Drinks",
-    "pkg_size": "1gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000043239",
-    "full_name": "Flavor Works Strawberry Flavor Shots - 1gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Flavor Works Cherry Flavor Shots",
-    "sku": "149028",
-    "category": "Soft Drinks",
-    "pkg_size": "1gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000043222",
-    "full_name": "Flavor Works Cherry Flavor Shots - 1gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Flavor Works Vanilla Flavor Shots",
-    "sku": "149030",
-    "category": "Soft Drinks",
-    "pkg_size": "1gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000043215",
-    "full_name": "Flavor Works Vanilla Flavor Shots - 1gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Root Beer",
-    "sku": "149623",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000811425",
-    "full_name": "Mug Root Beer - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Flavor Works Lemon Flavor Shots",
-    "sku": "149031",
-    "category": "Soft Drinks",
-    "pkg_size": "1gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000043246",
-    "full_name": "Flavor Works Lemon Flavor Shots - 1gal Bag In Box (1ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi",
@@ -1287,7 +437,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000002946",
     "full_name": "Pepsi - 1.25l Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew",
@@ -1297,17 +447,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000140945",
     "full_name": "Mountain Dew - 1.25l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "151578",
-    "category": "Soft Drinks",
-    "pkg_size": "1.25l Bottle",
-    "case_qty": "12",
-    "upc": "078000082395",
-    "full_name": "Dr Pepper - 1.25l Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi",
@@ -1317,87 +457,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000002946",
     "full_name": "Pepsi - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew (4/6 Packs)",
-    "sku": "3149",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000001666",
-    "full_name": "Diet Mountain Dew (4/6 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Big Red (Fountain)",
-    "sku": "3499",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "071817000552",
-    "full_name": "Big Red (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange (Fountain)",
-    "sku": "3609",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "088500901263",
-    "full_name": "Crush Orange (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper (Fountain)",
-    "sku": "3664",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "054900720476",
-    "full_name": "Diet Dr Pepper (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper (4/6 Packs)",
-    "sku": "3677",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000003154",
-    "full_name": "Dr Pepper (4/6 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Zero Sugar Ginger Ale",
-    "sku": "3803",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000207460",
-    "full_name": "Schweppes Zero Sugar Ginger Ale - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Squirt",
-    "sku": "3986",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000016406",
-    "full_name": "Squirt - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Raspberry Ginger Ale",
-    "sku": "4768",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000215465",
-    "full_name": "Schweppes Raspberry Ginger Ale - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi",
@@ -1407,27 +467,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000000171",
     "full_name": "Pepsi - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Root Beer (Fountain)",
-    "sku": "5265",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000400117",
-    "full_name": "Mug Root Beer (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew (Fountain)",
-    "sku": "5144",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000400629",
-    "full_name": "Diet Mountain Dew (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Diet Mountain Dew",
@@ -1437,7 +477,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000107351",
     "full_name": "Diet Mountain Dew - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew",
@@ -1447,17 +487,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000008498",
     "full_name": "Mountain Dew - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "6110",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000000171",
-    "full_name": "Pepsi - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew",
@@ -1467,47 +497,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000008498",
     "full_name": "Mountain Dew - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "6430",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000082456",
-    "full_name": "Dr Pepper - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper",
-    "sku": "7460",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000083408",
-    "full_name": "Diet Dr Pepper - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "7107",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000082456",
-    "full_name": "Dr Pepper - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Squirt",
-    "sku": "7865",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000016406",
-    "full_name": "Squirt - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Wild Cherry",
@@ -1517,7 +507,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000009907",
     "full_name": "Pepsi Wild Cherry - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mug Root Beer",
@@ -1527,17 +517,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000009105",
     "full_name": "Mug Root Beer - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "18453",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000000171",
-    "full_name": "Pepsi - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Schweppes Ginger Ale",
@@ -1547,177 +527,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000206401",
     "full_name": "Schweppes Ginger Ale - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Squirt (24pk Cube)",
-    "sku": "19677",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000016109",
-    "full_name": "Squirt (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (36pk)",
-    "sku": "19789",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000100109",
-    "full_name": "Pepsi (36pk) - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale (Fountain)",
-    "sku": "19951",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "088500901652",
-    "full_name": "Schweppes Ginger Ale (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale (24pk Cube)",
-    "sku": "30042",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000206104",
-    "full_name": "Schweppes Ginger Ale (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry (Fountain)",
-    "sku": "30930",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000400186",
-    "full_name": "Pepsi Wild Cherry (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Big Red",
-    "sku": "31284",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "071817000378",
-    "full_name": "Big Red - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Big Red",
-    "sku": "31535",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "071817000378",
-    "full_name": "Big Red - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry (24pk Cube)",
-    "sku": "31853",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000107986",
-    "full_name": "Pepsi Wild Cherry (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "32238",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000000171",
-    "full_name": "Pepsi - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "32240",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000008498",
-    "full_name": "Mountain Dew - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew (Fountain)",
-    "sku": "32372",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000402500",
-    "full_name": "Mountain Dew (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (Fountain)",
-    "sku": "32719",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000402463",
-    "full_name": "Pepsi (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "32721",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000107351",
-    "full_name": "Diet Mountain Dew - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (Fountain)",
-    "sku": "32973",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000402470",
-    "full_name": "Diet Pepsi (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "34637",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000000171",
-    "full_name": "Pepsi - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry",
-    "sku": "60977",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000009907",
-    "full_name": "Pepsi Wild Cherry - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "61689",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000107351",
-    "full_name": "Diet Mountain Dew - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Code Red",
@@ -1727,87 +537,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000002243",
     "full_name": "Mountain Dew Code Red - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Code Red (Fountain)",
-    "sku": "67938",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000101366",
-    "full_name": "Mountain Dew Code Red (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (4/6 Packs)",
-    "sku": "81295",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000504051",
-    "full_name": "Pepsi (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew (4/6 Packs)",
-    "sku": "81299",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000504082",
-    "full_name": "Mountain Dew (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "81302",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000107351",
-    "full_name": "Diet Mountain Dew - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry (4/6 Packs)",
-    "sku": "84355",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000811197",
-    "full_name": "Pepsi Wild Cherry (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Squirt (2/12 Packs)",
-    "sku": "84952",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000016161",
-    "full_name": "Squirt (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Big Red (2/12 Packs)",
-    "sku": "88971",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "071817033291",
-    "full_name": "Big Red (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (2/12 Packs)",
-    "sku": "88991",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000809941",
-    "full_name": "Pepsi (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Schweppes Zero Sugar Ginger Ale",
@@ -1817,37 +547,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000009859",
     "full_name": "Schweppes Zero Sugar Ginger Ale - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Manzanita Sol Apple (2/12 Packs)",
-    "sku": "95085",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000013225",
-    "full_name": "Manzanita Sol Apple (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Manzanita Sol Apple",
-    "sku": "95086",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000013812",
-    "full_name": "Manzanita Sol Apple - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Manzanita Sol Apple",
-    "sku": "95087",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000013812",
-    "full_name": "Manzanita Sol Apple - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Live Wire",
@@ -1857,27 +557,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000811319",
     "full_name": "Mountain Dew Live Wire - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Code Red",
-    "sku": "99801",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000003622",
-    "full_name": "Mountain Dew Code Red - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "A&W Cream Soda (2/12 Packs)",
-    "sku": "101222",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000054163",
-    "full_name": "A&W Cream Soda (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Diet Mountain Dew",
@@ -1887,7 +567,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000015946",
     "full_name": "Diet Mountain Dew - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi",
@@ -1897,7 +577,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000014260",
     "full_name": "Pepsi - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew",
@@ -1907,17 +587,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000015939",
     "full_name": "Mountain Dew - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "102181",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "078000082746",
-    "full_name": "Dr Pepper - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Zero Sugar",
@@ -1927,47 +597,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000018800",
     "full_name": "Pepsi Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Citrus Cherry LTO",
-    "sku": "103883",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000010361",
-    "full_name": "Mountain Dew Citrus Cherry LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Manzanita Sol Apple (Fountain)",
-    "sku": "103871",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000023194",
-    "full_name": "Manzanita Sol Apple (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Citrus Cherry LTO",
-    "sku": "104223",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000010361",
-    "full_name": "Mountain Dew Citrus Cherry LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Code Red",
-    "sku": "105527",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000003622",
-    "full_name": "Mountain Dew Code Red - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Voltage Raspberry Citrus",
@@ -1977,147 +607,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000028625",
     "full_name": "Mountain Dew Voltage Raspberry Citrus - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper",
-    "sku": "107723",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "078000083743",
-    "full_name": "Diet Dr Pepper - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "107724",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "078000009767",
-    "full_name": "Schweppes Ginger Ale - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry",
-    "sku": "109524",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000098402",
-    "full_name": "Dr Pepper Cherry - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry",
-    "sku": "109526",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000098402",
-    "full_name": "Dr Pepper Cherry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Manzanita Sol Apple",
-    "sku": "120199",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000013812",
-    "full_name": "Manzanita Sol Apple - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Strawberry (Fountain)",
-    "sku": "120564",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "088500902079",
-    "full_name": "Crush Strawberry (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Made With Real Sugar",
-    "sku": "122683",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000030659",
-    "full_name": "Pepsi Made With Real Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Zero Sugar Ginger Ale",
-    "sku": "122762",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000009859",
-    "full_name": "Schweppes Zero Sugar Ginger Ale - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Zero Sugar (Fountain)",
-    "sku": "122799",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000033520",
-    "full_name": "Pepsi Zero Sugar (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper (Fountain)",
-    "sku": "125682",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "054900720476",
-    "full_name": "Diet Dr Pepper (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Zero Sugar Ginger Ale",
-    "sku": "126658",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000009859",
-    "full_name": "Schweppes Zero Sugar Ginger Ale - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "126657",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000009767",
-    "full_name": "Schweppes Ginger Ale - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Big Red (24pk Cube)",
-    "sku": "127852",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "071817043290",
-    "full_name": "Big Red (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Raspberry Ginger Ale (2/12 Packs)",
-    "sku": "129034",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000215168",
-    "full_name": "Schweppes Raspberry Ginger Ale (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Grape",
@@ -2127,7 +617,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000013528",
     "full_name": "Crush Grape - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Orange",
@@ -2137,17 +627,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000013252",
     "full_name": "Crush Orange - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange (36pk Cube)",
-    "sku": "133074",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "078000013108",
-    "full_name": "Crush Orange (36pk Cube) - 12oz Can (36ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Peach",
@@ -2157,27 +637,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000014075",
     "full_name": "Crush Peach - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Peach",
-    "sku": "133079",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000014075",
-    "full_name": "Crush Peach - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange",
-    "sku": "133075",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000013252",
-    "full_name": "Crush Orange - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Peach",
@@ -2187,37 +647,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000014075",
     "full_name": "Crush Peach - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Peach",
-    "sku": "133083",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000014075",
-    "full_name": "Crush Peach - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Pineapple",
-    "sku": "133090",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000014112",
-    "full_name": "Crush Pineapple - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Strawberry",
-    "sku": "133105",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000017434",
-    "full_name": "Crush Strawberry - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Baja Blast",
@@ -2227,17 +657,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000130274",
     "full_name": "Mountain Dew Baja Blast - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Blast",
-    "sku": "142909",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000130274",
-    "full_name": "Mountain Dew Baja Blast - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Baja Blast (2/12 Packs)",
@@ -2247,7 +667,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000130328",
     "full_name": "Mountain Dew Baja Blast (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Orange",
@@ -2257,47 +677,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "078000029635",
     "full_name": "Crush Orange - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Grape",
-    "sku": "149523",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000019353",
-    "full_name": "Crush Grape - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Strawberry",
-    "sku": "149526",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000017434",
-    "full_name": "Crush Strawberry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "150083",
-    "category": "Soft Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "078000002133",
-    "full_name": "Schweppes Ginger Ale - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Voltage Raspberry Citrus",
-    "sku": "150106",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000418969",
-    "full_name": "Mountain Dew Voltage Raspberry Citrus - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Orange",
@@ -2307,7 +687,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "078000029635",
     "full_name": "Crush Orange - 1.25l Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Grape",
@@ -2317,37 +697,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "078000019353",
     "full_name": "Crush Grape - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew (2/12 Packs)",
-    "sku": "157835",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000809965",
-    "full_name": "Mountain Dew (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Kosher",
-    "sku": "160638",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000163463",
-    "full_name": "Pepsi Kosher - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi Kosher",
-    "sku": "160643",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000163470",
-    "full_name": "Diet Pepsi Kosher - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Schweppes Ginger Ale",
@@ -2357,187 +707,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "078000002133",
     "full_name": "Schweppes Ginger Ale - 1.25l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Big Blue",
-    "sku": "138264",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "071817000712",
-    "full_name": "Big Blue - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "133629",
-    "category": "Soft Drinks",
-    "pkg_size": "16oz Bottle",
-    "case_qty": "24",
-    "upc": "078000002133",
-    "full_name": "Schweppes Ginger Ale - 16oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "120343",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000162008",
-    "full_name": "Pepsi - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew (4/6 Packs)",
-    "sku": "87668",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000504082",
-    "full_name": "Mountain Dew (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "161894",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000162008",
-    "full_name": "Pepsi - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "160589",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000162008",
-    "full_name": "Pepsi - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "160590",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000171970",
-    "full_name": "Diet Pepsi - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "160593",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000002133",
-    "full_name": "Schweppes Ginger Ale - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "160591",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000162022",
-    "full_name": "Mountain Dew - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Made With Real Sugar",
-    "sku": "160826",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000163159",
-    "full_name": "Pepsi Made With Real Sugar - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange",
-    "sku": "162822",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000029635",
-    "full_name": "Crush Orange - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (Sleek Can)",
-    "sku": "161655",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "012000163784",
-    "full_name": "Pepsi (Sleek Can) - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "164380",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000162008",
-    "full_name": "Pepsi - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "160140",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000162022",
-    "full_name": "Mountain Dew - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew (2/18 Packs)",
-    "sku": "107720",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000029202",
-    "full_name": "Mountain Dew (2/18 Packs) - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "160137",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000162008",
-    "full_name": "Pepsi - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (36pk Cube)",
-    "sku": "166190",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000171802",
-    "full_name": "Diet Pepsi (36pk Cube) - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry",
-    "sku": "162820",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000170577",
-    "full_name": "Pepsi Wild Cherry - 7.5oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Diet Pepsi (2/12 Packs)",
@@ -2547,27 +717,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000171864",
     "full_name": "Diet Pepsi (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166134",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000171970",
-    "full_name": "Diet Pepsi - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (24pk Cube)",
-    "sku": "166188",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000171857",
-    "full_name": "Diet Pepsi (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Diet Pepsi",
@@ -2577,37 +727,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000171970",
     "full_name": "Diet Pepsi - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (4/6 Packs)",
-    "sku": "166180",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000008054",
-    "full_name": "Diet Pepsi (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166100",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000171970",
-    "full_name": "Diet Pepsi - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (4/6 Packs)",
-    "sku": "166018",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000008054",
-    "full_name": "Diet Pepsi (4/6 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Caffeine Free Diet Pepsi (2/12 Packs)",
@@ -2617,17 +737,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000172090",
     "full_name": "Caffeine Free Diet Pepsi (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi Wild Cherry (2/12 Packs)",
-    "sku": "165985",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000172342",
-    "full_name": "Diet Pepsi Wild Cherry (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Diet Pepsi",
@@ -2637,47 +747,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000171796",
     "full_name": "Diet Pepsi - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (2/12 Packs)",
-    "sku": "166102",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000171864",
-    "full_name": "Diet Pepsi (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166341",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000171796",
-    "full_name": "Diet Pepsi - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166132",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000171796",
-    "full_name": "Diet Pepsi - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (36pk Cube)",
-    "sku": "166185",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000171802",
-    "full_name": "Diet Pepsi (36pk Cube) - 12oz Can (36ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Diet Pepsi",
@@ -2687,67 +757,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000171796",
     "full_name": "Diet Pepsi - 1.25l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi (4/6 Packs)",
-    "sku": "166171",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000171956",
-    "full_name": "Diet Pepsi (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166070",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000171796",
-    "full_name": "Diet Pepsi - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166105",
-    "category": "Soft Drinks",
-    "pkg_size": "16oz Bottle",
-    "case_qty": "24",
-    "upc": "012000171796",
-    "full_name": "Diet Pepsi - 16oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi Wild Cherry",
-    "sku": "165983",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000172373",
-    "full_name": "Diet Pepsi Wild Cherry - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166131",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000171796",
-    "full_name": "Diet Pepsi - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Caffeine Free Diet Pepsi",
-    "sku": "165998",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000172328",
-    "full_name": "Caffeine Free Diet Pepsi - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Zero Sugar Wild Cherry (2/12 Packs)",
@@ -2757,37 +767,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000171765",
     "full_name": "Pepsi Zero Sugar Wild Cherry (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Zero Sugar Wild Cherry",
-    "sku": "165408",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000172588",
-    "full_name": "Pepsi Zero Sugar Wild Cherry - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166168",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000171796",
-    "full_name": "Diet Pepsi - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper (2/18 Packs)",
-    "sku": "107909",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "078000082081",
-    "full_name": "Dr Pepper (2/18 Packs) - 12oz Can (36ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Baja Blast",
@@ -2797,7 +777,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000172663",
     "full_name": "Mountain Dew Baja Blast - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Watermelon",
@@ -2807,127 +787,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000031195",
     "full_name": "Crush Watermelon - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "166209",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000025396",
-    "full_name": "Pepsi - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "166210",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000811630",
-    "full_name": "Mountain Dew - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Watermelon",
-    "sku": "166585",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000031195",
-    "full_name": "Crush Watermelon - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166211",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000171796",
-    "full_name": "Diet Pepsi - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi (2/18 Packs)",
-    "sku": "107722",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000029226",
-    "full_name": "Pepsi (2/18 Packs) - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "167429",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000811630",
-    "full_name": "Mountain Dew - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "5358",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "30",
-    "upc": "012000025396",
-    "full_name": "Pepsi - 12oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Code Red",
-    "sku": "142417",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000102059",
-    "full_name": "Mountain Dew Code Red - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "167427",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000025396",
-    "full_name": "Pepsi - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Zero Sugar",
-    "sku": "167911",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000183072",
-    "full_name": "Pepsi Zero Sugar - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "167428",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000033148",
-    "full_name": "Diet Mountain Dew - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "166165",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "012000171796",
-    "full_name": "Diet Pepsi - 24oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Kickstart Pineapple Orange Mango",
@@ -2937,57 +797,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000183287",
     "full_name": "Mountain Dew Kickstart Pineapple Orange Mango - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "32945",
-    "category": "Soft Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "078000082616",
-    "full_name": "Dr Pepper - 24oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Kickstart Black Cherry",
-    "sku": "169715",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "18",
-    "upc": "012000183331",
-    "full_name": "Mountain Dew Kickstart Black Cherry - 12oz Can (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Kickstart Pineapple Orange Mango",
-    "sku": "169718",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "18",
-    "upc": "012000183287",
-    "full_name": "Mountain Dew Kickstart Pineapple Orange Mango - 12oz Can (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Kickstart Orange Citrus",
-    "sku": "169716",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "18",
-    "upc": "012000183300",
-    "full_name": "Mountain Dew Kickstart Orange Citrus - 12oz Can (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "165343",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000171796",
-    "full_name": "Diet Pepsi - 7.5oz Can (30ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Zero Sugar",
@@ -2997,47 +807,7 @@ const PEPSI_ITEMS = [
     "case_qty": "30",
     "upc": "012000183072",
     "full_name": "Pepsi Zero Sugar - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "120345",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "078000206746",
-    "full_name": "Schweppes Ginger Ale - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Zero Sugar Ginger Ale",
-    "sku": "163750",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000030204",
-    "full_name": "Schweppes Zero Sugar Ginger Ale - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Zero Sugar",
-    "sku": "173688",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000192722",
-    "full_name": "Mountain Dew Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Zero Sugar",
-    "sku": "173615",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000192722",
-    "full_name": "Mountain Dew Zero Sugar - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Zero Sugar",
@@ -3047,47 +817,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000192722",
     "full_name": "Mountain Dew Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper & Cream Soda",
-    "sku": "173644",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000033519",
-    "full_name": "Dr Pepper & Cream Soda - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper & Cream Soda",
-    "sku": "173689",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000033519",
-    "full_name": "Dr Pepper & Cream Soda - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper & Cream Soda",
-    "sku": "173643",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000033519",
-    "full_name": "Dr Pepper & Cream Soda - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper & Cream Soda",
-    "sku": "173645",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000033519",
-    "full_name": "Dr Pepper & Cream Soda - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Zero Sugar",
@@ -3097,7 +827,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000192722",
     "full_name": "Mountain Dew Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Zero Sugar Wild Cherry",
@@ -3107,17 +837,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000170751",
     "full_name": "Pepsi Zero Sugar Wild Cherry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Zero Sugar (24pk Cube)",
-    "sku": "173551",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000192746",
-    "full_name": "Mountain Dew Zero Sugar (24pk Cube) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Baja Blast Zero Sugar",
@@ -3127,47 +847,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000183386",
     "full_name": "Mountain Dew Baja Blast Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Zero Sugar",
-    "sku": "167464",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "30",
-    "upc": "012000388385",
-    "full_name": "Pepsi Zero Sugar - 12oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Zero Sugar",
-    "sku": "192475",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000192722",
-    "full_name": "Mountain Dew Zero Sugar - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Zero Sugar Wild Cherry",
-    "sku": "193033",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000170751",
-    "full_name": "Pepsi Zero Sugar Wild Cherry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Blast Zero Sugar",
-    "sku": "169697",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000183386",
-    "full_name": "Mountain Dew Baja Blast Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Baja Blast Zero Sugar",
@@ -3177,17 +857,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000183386",
     "full_name": "Mountain Dew Baja Blast Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale",
-    "sku": "169280",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "078000031478",
-    "full_name": "Schweppes Ginger Ale - 7.5oz Can (30ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Crush Orange",
@@ -3197,17 +867,7 @@ const PEPSI_ITEMS = [
     "case_qty": "30",
     "upc": "078000031461",
     "full_name": "Crush Orange - 12oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Blast",
-    "sku": "171481",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000205149",
-    "full_name": "Mountain Dew Baja Blast - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Baja Blast",
@@ -3217,257 +877,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000205149",
     "full_name": "Mountain Dew Baja Blast - 1.25l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Major Melon",
-    "sku": "197723",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000205026",
-    "full_name": "Mountain Dew Major Melon - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry Zero Sugar",
-    "sku": "198645",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000035384",
-    "full_name": "Dr Pepper Cherry Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Zero Sugar",
-    "sku": "198644",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000035285",
-    "full_name": "Dr Pepper Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Zero Sugar",
-    "sku": "198643",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000035285",
-    "full_name": "Dr Pepper Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry Zero Sugar",
-    "sku": "198641",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000035384",
-    "full_name": "Dr Pepper Cherry Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Zero Sugar",
-    "sku": "198640",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000035285",
-    "full_name": "Dr Pepper Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper & Cream Soda Zero Sugar",
-    "sku": "198642",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000035421",
-    "full_name": "Dr Pepper & Cream Soda Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Zero Sugar",
-    "sku": "198649",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000035285",
-    "full_name": "Dr Pepper Zero Sugar - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Zero Sugar",
-    "sku": "198651",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000035285",
-    "full_name": "Dr Pepper Zero Sugar - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Mango",
-    "sku": "197954",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000206078",
-    "full_name": "Pepsi Mango - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry",
-    "sku": "201000",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000315763",
-    "full_name": "Pepsi Wild Cherry - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "196322",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000100109",
-    "full_name": "Pepsi - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange",
-    "sku": "169294",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "078000031461",
-    "full_name": "Crush Orange - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "201993",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000171802",
-    "full_name": "Diet Pepsi - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Sparkling Fruit Punch LTO",
-    "sku": "202308",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000035872",
-    "full_name": "Crush Sparkling Fruit Punch LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Sparkling Fruit Punch",
-    "sku": "202310",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000035803",
-    "full_name": "Crush Sparkling Fruit Punch - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Cranberry Raspberry Ginger Ale LTO",
-    "sku": "202687",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000394160",
-    "full_name": "Schweppes Cranberry Raspberry Ginger Ale LTO - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Cranberry Raspberry Ginger Ale LTO",
-    "sku": "202685",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000394160",
-    "full_name": "Schweppes Cranberry Raspberry Ginger Ale LTO - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Manzanita Sol Apple (Cube)",
-    "sku": "104046",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000025457",
-    "full_name": "Manzanita Sol Apple (Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "205539",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000100109",
-    "full_name": "Pepsi - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi",
-    "sku": "205541",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000171802",
-    "full_name": "Diet Pepsi - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "205542",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "36",
-    "upc": "012000100499",
-    "full_name": "Mountain Dew - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Spark",
-    "sku": "204605",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000211775",
-    "full_name": "Mountain Dew Spark - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Zero Sugar (Cube)",
-    "sku": "159175",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000024498",
-    "full_name": "Pepsi Zero Sugar (Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry Zero Sugar",
-    "sku": "209836",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000221521",
-    "full_name": "Starry Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starry Zero Sugar",
@@ -3477,27 +887,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000221521",
     "full_name": "Starry Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry Zero Sugar",
-    "sku": "320132",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000221521",
-    "full_name": "Starry Zero Sugar - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry Zero Sugar",
-    "sku": "320268",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000221521",
-    "full_name": "Starry Zero Sugar - 7.5oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starry Zero Sugar",
@@ -3507,47 +897,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000221521",
     "full_name": "Starry Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry (Fountain)",
-    "sku": "320081",
-    "category": "Soft Drinks",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000221989",
-    "full_name": "Starry (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry (Fountain)",
-    "sku": "320082",
-    "category": "Soft Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000221989",
-    "full_name": "Starry (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry",
-    "sku": "209812",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000230233",
-    "full_name": "Starry - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry (4/6 Packs)",
-    "sku": "209833",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000221507",
-    "full_name": "Starry (4/6 Packs) - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starry (2/12 Packs)",
@@ -3557,17 +907,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000221606",
     "full_name": "Starry (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry",
-    "sku": "209835",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000230233",
-    "full_name": "Starry - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starry",
@@ -3577,7 +917,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000230233",
     "full_name": "Starry - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starry",
@@ -3587,17 +927,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000230233",
     "full_name": "Starry - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper & Cream Soda",
-    "sku": "192325",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000033540",
-    "full_name": "Dr Pepper & Cream Soda - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Baja Blast",
@@ -3607,97 +937,7 @@ const PEPSI_ITEMS = [
     "case_qty": "36",
     "upc": "012000130335",
     "full_name": "Mountain Dew Baja Blast - 12oz Can (36ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Strawberries & Cream",
-    "sku": "320285",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000037678",
-    "full_name": "Dr Pepper Strawberries & Cream - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Strawberries & Cream",
-    "sku": "320267",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000037678",
-    "full_name": "Dr Pepper Strawberries & Cream - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Strawberries & Cream",
-    "sku": "320271",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000037678",
-    "full_name": "Dr Pepper Strawberries & Cream - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "166208",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "078000002041",
-    "full_name": "Dr Pepper - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "92746",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000192425",
-    "full_name": "Pepsi - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Made With Real Sugar",
-    "sku": "173510",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000192524",
-    "full_name": "Pepsi Made With Real Sugar - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Root Beer",
-    "sku": "320332",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000222436",
-    "full_name": "Mug Root Beer - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry",
-    "sku": "320330",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000223266",
-    "full_name": "Pepsi Wild Cherry - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew",
-    "sku": "92748",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000230219",
-    "full_name": "Mountain Dew - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Diet Pepsi",
@@ -3707,7 +947,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000173622",
     "full_name": "Diet Pepsi - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starry",
@@ -3717,27 +957,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000230233",
     "full_name": "Starry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "208614",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000141379",
-    "full_name": "Diet Mountain Dew - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry",
-    "sku": "320768",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000223266",
-    "full_name": "Pepsi Wild Cherry - 7.5oz Can (30ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi",
@@ -3747,27 +967,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000192425",
     "full_name": "Pepsi - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry",
-    "sku": "322092",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000230233",
-    "full_name": "Starry - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange",
-    "sku": "322289",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000029635",
-    "full_name": "Crush Orange - 7.5oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Schweppes Ginger Ale",
@@ -3777,7 +977,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000002133",
     "full_name": "Schweppes Ginger Ale - 7.5oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Schweppes Ginger Ale Zero Sugar",
@@ -3787,17 +987,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000029659",
     "full_name": "Schweppes Ginger Ale Zero Sugar - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Blast",
-    "sku": "145310",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000130335",
-    "full_name": "Mountain Dew Baja Blast - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew",
@@ -3807,7 +997,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000230219",
     "full_name": "Mountain Dew - 7.5oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Zero Sugar",
@@ -3817,57 +1007,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000230189",
     "full_name": "Pepsi Zero Sugar - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "173499",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "012000192425",
-    "full_name": "Pepsi - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper",
-    "sku": "322288",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000002041",
-    "full_name": "Dr Pepper - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Root Beer Zero Sugar",
-    "sku": "205397",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000001406",
-    "full_name": "Mug Root Beer Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Root Beer Zero Sugar",
-    "sku": "31240",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000001406",
-    "full_name": "Mug Root Beer Zero Sugar - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Root Beer Zero Sugar",
-    "sku": "4755",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000106965",
-    "full_name": "Mug Root Beer Zero Sugar - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Made with Real Sugar",
@@ -3877,327 +1017,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000230196",
     "full_name": "Pepsi Made with Real Sugar - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "320393",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000003462",
-    "full_name": "Pepsi - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Creamy Coconut LTO",
-    "sku": "323213",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000038774",
-    "full_name": "Dr Pepper Creamy Coconut LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Pepsi Kosher",
-    "sku": "165118",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000172267",
-    "full_name": "Diet Pepsi Kosher - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Zero Creamy Coconut LTO",
-    "sku": "323214",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000038736",
-    "full_name": "Dr Pepper Zero Creamy Coconut LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Peach",
-    "sku": "323171",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000231094",
-    "full_name": "Pepsi Peach - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Peach",
-    "sku": "323123",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000231094",
-    "full_name": "Pepsi Peach - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Peach",
-    "sku": "323122",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000231094",
-    "full_name": "Pepsi Peach - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Lime",
-    "sku": "170349",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000184161",
-    "full_name": "Pepsi Lime - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Creamy Coconut LTO",
-    "sku": "323215",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000038774",
-    "full_name": "Dr Pepper Creamy Coconut LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Lime",
-    "sku": "170350",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000184161",
-    "full_name": "Pepsi Lime - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Creamy Coconut Zero Sugar LTO",
-    "sku": "323212",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000038750",
-    "full_name": "Dr Pepper Creamy Coconut Zero Sugar LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Ginger Ale Zero Sugar",
-    "sku": "321392",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "078000037937",
-    "full_name": "Schweppes Ginger Ale Zero Sugar - 7.5oz Can (30ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Creamy Coconut LTO",
-    "sku": "323558",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000038774",
-    "full_name": "Dr Pepper Creamy Coconut LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Star Spangled Splash LTO",
-    "sku": "323590",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000231308",
-    "full_name": "Mountain Dew Star Spangled Splash LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Star Spangled Splash LTO",
-    "sku": "323588",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000231308",
-    "full_name": "Mountain Dew Star Spangled Splash LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Big Red Zero Sugar (2/12 Packs)",
-    "sku": "96461",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "071817033307",
-    "full_name": "Big Red Zero Sugar (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry",
-    "sku": "322090",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000230202",
-    "full_name": "Pepsi Wild Cherry - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Sparkling Fruit Punch LTO",
-    "sku": "323855",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000035858",
-    "full_name": "Crush Sparkling Fruit Punch LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew VooDew Zero Sugar LTO",
-    "sku": "324099",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000240041",
-    "full_name": "Mountain Dew VooDew Zero Sugar LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew VooDew LTO",
-    "sku": "324092",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000240034",
-    "full_name": "Mountain Dew VooDew LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew VooDew LTO",
-    "sku": "324093",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000240034",
-    "full_name": "Mountain Dew VooDew LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew VooDew Zero Sugar LTO",
-    "sku": "324098",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000240041",
-    "full_name": "Mountain Dew VooDew Zero Sugar LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew VooDew Zero Sugar",
-    "sku": "324097",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000240065",
-    "full_name": "Mountain Dew VooDew Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Root Beer",
-    "sku": "322094",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000230257",
-    "full_name": "Mug Root Beer - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Blast",
-    "sku": "150391",
-    "category": "Soft Drinks",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000240140",
-    "full_name": "Mountain Dew Baja Blast - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew VooDew LTO",
-    "sku": "324096",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000240034",
-    "full_name": "Mountain Dew VooDew LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry Zero Sugar Cranberry Blizz LTO",
-    "sku": "324834",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "012000240294",
-    "full_name": "Starry Zero Sugar Cranberry Blizz LTO - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry Zero Sugar Cranberry Blizz LTO",
-    "sku": "324847",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000240294",
-    "full_name": "Starry Zero Sugar Cranberry Blizz LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starry Zero Sugar Cranberry Blizz LTO",
-    "sku": "324849",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000240294",
-    "full_name": "Starry Zero Sugar Cranberry Blizz LTO - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper",
-    "sku": "324122",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000026672",
-    "full_name": "Diet Dr Pepper - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Cranberry Raspberry Ginger Ale LTO",
-    "sku": "324957",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000661828",
-    "full_name": "Schweppes Cranberry Raspberry Ginger Ale LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Dr Pepper",
-    "sku": "320428",
-    "category": "Soft Drinks",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "30",
-    "upc": "078000026672",
-    "full_name": "Diet Dr Pepper - 7.5oz Can (30ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Baja Blast",
@@ -4207,37 +1027,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000240140",
     "full_name": "Mountain Dew Baja Blast - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Strawberries & Cream",
-    "sku": "322769",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "078000038699",
-    "full_name": "Dr Pepper Strawberries & Cream - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Zero (Cube)",
-    "sku": "209520",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000035582",
-    "full_name": "Dr Pepper Zero (Cube) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Blast",
-    "sku": "324186",
-    "category": "Soft Drinks",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000240140",
-    "full_name": "Mountain Dew Baja Blast - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Zero Sugar Wild Cherry and Cream",
@@ -4247,57 +1037,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000240584",
     "full_name": "Pepsi Zero Sugar Wild Cherry and Cream - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Zero Sugar Blackberry",
-    "sku": "325366",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000040500",
-    "full_name": "Dr Pepper Zero Sugar Blackberry - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Blackberry",
-    "sku": "325365",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000040371",
-    "full_name": "Dr Pepper Blackberry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Blackberry",
-    "sku": "325367",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000040371",
-    "full_name": "Dr Pepper Blackberry - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Blackberry",
-    "sku": "325372",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000040586",
-    "full_name": "Dr Pepper Blackberry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Wild Cherry and Cream LTO",
-    "sku": "325519",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000240805",
-    "full_name": "Pepsi Wild Cherry and Cream LTO - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Wild Cherry and Cream",
@@ -4307,7 +1047,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000240829",
     "full_name": "Pepsi Wild Cherry and Cream - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Zero Sugar",
@@ -4317,7 +1057,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000030321",
     "full_name": "Pepsi Zero Sugar - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pepsi Wild Cherry Zero Sugar",
@@ -4327,57 +1067,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000172564",
     "full_name": "Pepsi Wild Cherry Zero Sugar - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi",
-    "sku": "34707",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000001291",
-    "full_name": "Pepsi - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Cabo Citrus LTO",
-    "sku": "325813",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000240775",
-    "full_name": "Mountain Dew Baja Cabo Citrus LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Cabo Citrus LTO",
-    "sku": "325812",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000240775",
-    "full_name": "Mountain Dew Baja Cabo Citrus LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Cabo Citrus LTO",
-    "sku": "325810",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000240775",
-    "full_name": "Mountain Dew Baja Cabo Citrus LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Cabo Citrus Zero Sugar LTO",
-    "sku": "325815",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000250637",
-    "full_name": "Mountain Dew Baja Cabo Citrus Zero Sugar LTO - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew Kickstart Fruit Punch",
@@ -4387,477 +1077,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000110467",
     "full_name": "Mountain Dew Kickstart Fruit Punch - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Creamy Coconut Zero Sugar LTO",
-    "sku": "323559",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000038750",
-    "full_name": "Dr Pepper Creamy Coconut Zero Sugar LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Summer Freeze Zero Sugar LTO",
-    "sku": "320772",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000223105",
-    "full_name": "Mountain Dew Summer Freeze Zero Sugar LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Summer Freeze LTO",
-    "sku": "320637",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000223068",
-    "full_name": "Mountain Dew Summer Freeze LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Crush Orange",
-    "sku": "321457",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "078000013030",
-    "full_name": "Crush Orange - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Doc Pop",
-    "sku": "328081",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063710521",
-    "full_name": "poppi Doc Pop - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Classic Cola",
-    "sku": "328087",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063710293",
-    "full_name": "poppi Classic Cola - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Grape",
-    "sku": "328088",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063710392",
-    "full_name": "poppi Grape - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Doc Pop",
-    "sku": "328095",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "810063710521",
-    "full_name": "poppi Doc Pop - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Lemon Lime",
-    "sku": "328101",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063710316",
-    "full_name": "poppi Lemon Lime - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Root Beer",
-    "sku": "328104",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063710323",
-    "full_name": "poppi Root Beer - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Orange Cream",
-    "sku": "328105",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063710880",
-    "full_name": "poppi Orange Cream - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Wild Berry",
-    "sku": "328112",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063711078",
-    "full_name": "poppi Wild Berry - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Alpine Blast",
-    "sku": "328129",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063711702",
-    "full_name": "poppi Alpine Blast - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Watermelon",
-    "sku": "328138",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "709586514832",
-    "full_name": "poppi Watermelon - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi orange",
-    "sku": "328137",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "724190812877",
-    "full_name": "poppi orange - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Cream Soda",
-    "sku": "328142",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063711481",
-    "full_name": "poppi Cream Soda - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Ginger Lime",
-    "sku": "328141",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "709586514870",
-    "full_name": "poppi Ginger Lime - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Strawberry Lemon",
-    "sku": "328143",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "709586514856",
-    "full_name": "poppi Strawberry Lemon - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Raspberry Rose",
-    "sku": "328145",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "709586514894",
-    "full_name": "poppi Raspberry Rose - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Cherry Limeade",
-    "sku": "328084",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063710071",
-    "full_name": "poppi Cherry Limeade - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Cherry Cola",
-    "sku": "328108",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063711054",
-    "full_name": "poppi Cherry Cola - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Ginger Fizz LTO",
-    "sku": "328136",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063712051",
-    "full_name": "poppi Ginger Fizz LTO - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Prebiotic Cola LTO",
-    "sku": "331264",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000250606",
-    "full_name": "Pepsi Prebiotic Cola LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Prebiotic Cola Cherry Vanilla LTO",
-    "sku": "331281",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000250613",
-    "full_name": "Pepsi Prebiotic Cola Cherry Vanilla LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Cabo Citrus Zero Sugar LTO",
-    "sku": "331226",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000250637",
-    "full_name": "Mountain Dew Baja Cabo Citrus Zero Sugar LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Cabo Citrus Zero Sugar LTO",
-    "sku": "331230",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000250637",
-    "full_name": "Mountain Dew Baja Cabo Citrus Zero Sugar LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Cabo Citrus Zero LTO",
-    "sku": "331231",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000250637",
-    "full_name": "Mountain Dew Baja Cabo Citrus Zero LTO - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry",
-    "sku": "330901",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000098402",
-    "full_name": "Dr Pepper Cherry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry Zero Sugar",
-    "sku": "330897",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000035384",
-    "full_name": "Dr Pepper Cherry Zero Sugar - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry",
-    "sku": "330896",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000098402",
-    "full_name": "Dr Pepper Cherry - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Cherry",
-    "sku": "330914",
-    "category": "Soft Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000098402",
-    "full_name": "Dr Pepper Cherry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "poppi Shirley Temple",
-    "sku": "339017",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810063712471",
-    "full_name": "poppi Shirley Temple - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Real Sugar",
-    "sku": "325400",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000240652",
-    "full_name": "Pepsi Real Sugar - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Real Sugar",
-    "sku": "325390",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Long Neck",
-    "case_qty": "24",
-    "upc": "012000240652",
-    "full_name": "Pepsi Real Sugar - 12oz Long Neck (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Cream Soda Real Sugar",
-    "sku": "328019",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Long Neck",
-    "case_qty": "24",
-    "upc": "012000250385",
-    "full_name": "Mug Cream Soda Real Sugar - 12oz Long Neck (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mug Cream Soda Real Sugar",
-    "sku": "328020",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000250385",
-    "full_name": "Mug Cream Soda Real Sugar - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Baja Blast Real Sugar",
-    "sku": "328022",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000250361",
-    "full_name": "Mountain Dew Baja Blast Real Sugar - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Real Sugar",
-    "sku": "331067",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "078000045956",
-    "full_name": "Dr Pepper Real Sugar - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Real Sugar",
-    "sku": "331068",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "078000045956",
-    "full_name": "Dr Pepper Real Sugar - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Manzanita Sol Apple Real Sugar",
-    "sku": "331164",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Long Neck",
-    "case_qty": "24",
-    "upc": "012000250675",
-    "full_name": "Manzanita Sol Apple Real Sugar - 12oz Long Neck (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Manzanita Sol Apple Real Sugar",
-    "sku": "331165",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Long Neck",
-    "case_qty": "24",
-    "upc": "012000250675",
-    "full_name": "Manzanita Sol Apple Real Sugar - 12oz Long Neck (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Prebiotic Cola",
-    "sku": "331277",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "012000250552",
-    "full_name": "Pepsi Prebiotic Cola - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Prebiotic Cola Cherry Vanilla",
-    "sku": "331283",
-    "category": "Soft Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "012000250576",
-    "full_name": "Pepsi Prebiotic Cola Cherry Vanilla - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Diet Mountain Dew",
-    "sku": "82035",
-    "category": "Soft Drinks",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000107375",
-    "full_name": "Diet Mountain Dew - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Cool Attitudes Alert",
-    "sku": "95459",
-    "category": "Energy Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "782269250036",
-    "full_name": "Cool Attitudes Alert - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Energy Original",
-    "sku": "120721",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "24",
-    "upc": "818094000109",
-    "full_name": "Rockstar Energy Original - 16oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Energy Original",
-    "sku": "120742",
-    "category": "Energy Drinks",
-    "pkg_size": "24oz Can",
-    "case_qty": "12",
-    "upc": "818094000109",
-    "full_name": "Rockstar Energy Original - 24oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Mountain Dew AMP Original",
@@ -4867,17 +1087,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000016431",
     "full_name": "Mountain Dew AMP Original - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Energy Sugar Free",
-    "sku": "120743",
-    "category": "Energy Drinks",
-    "pkg_size": "24oz Can",
-    "case_qty": "12",
-    "upc": "818094000420",
-    "full_name": "Rockstar Energy Sugar Free - 24oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Rockstar Energy Sugar Free",
@@ -4887,7 +1097,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "818094000420",
     "full_name": "Rockstar Energy Sugar Free - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Rockstar Punched Fruit Punch",
@@ -4897,7 +1107,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "818094005746",
     "full_name": "Rockstar Punched Fruit Punch - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Rockstar Energy Original",
@@ -4907,7 +1117,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "818094000109",
     "full_name": "Rockstar Energy Original - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Rockstar Pure Zero Silver Ice",
@@ -4917,47 +1127,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "818094008198",
     "full_name": "Rockstar Pure Zero Silver Ice - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Xdurance Kiwi Strawberry",
-    "sku": "198598",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "818094005920",
-    "full_name": "Rockstar Xdurance Kiwi Strawberry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Punched Hardcore Apple",
-    "sku": "198615",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "818094005906",
-    "full_name": "Rockstar Punched Hardcore Apple - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Punched Lime Freeze",
-    "sku": "198655",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "818094005876",
-    "full_name": "Rockstar Punched Lime Freeze - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Pure Zero Tangerine Mango Guava Strawberry",
-    "sku": "198661",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "818094005838",
-    "full_name": "Rockstar Pure Zero Tangerine Mango Guava Strawberry - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Rockstar Recovery Lemonade",
@@ -4967,7 +1137,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "818094005784",
     "full_name": "Rockstar Recovery Lemonade - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Rockstar Recovery Orangeade",
@@ -4977,7 +1147,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "818094005791",
     "full_name": "Rockstar Recovery Orangeade - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Rockstar Energy Boom Whipped Strawberry",
@@ -4987,27 +1157,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "818094005890",
     "full_name": "Rockstar Energy Boom Whipped Strawberry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Pure Zero Fruit Punch",
-    "sku": "198657",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "818094005814",
-    "full_name": "Rockstar Pure Zero Fruit Punch - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Energy Sugar Free",
-    "sku": "137858",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "20",
-    "upc": "818094000420",
-    "full_name": "Rockstar Energy Sugar Free - 16oz Can (20ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Orange",
@@ -5017,7 +1167,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000047905",
     "full_name": "Gatorade Gatorlyte Orange - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Cherry Lime",
@@ -5027,67 +1177,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000049008",
     "full_name": "Gatorade Gatorlyte Cherry Lime - 20oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Pure Zero Lim\u00f3n Pepino",
-    "sku": "198799",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "818094004954",
-    "full_name": "Rockstar Pure Zero Lim\u00f3n Pepino - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Pure Zero Silver Ice",
-    "sku": "200763",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "24",
-    "upc": "818094008198",
-    "full_name": "Rockstar Pure Zero Silver Ice - 16oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Recovery Orangeade (6/4 Packs)",
-    "sku": "200764",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "24",
-    "upc": "818094008242",
-    "full_name": "Rockstar Recovery Orangeade (6/4 Packs) - 16oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Energy OG Flavor",
-    "sku": "202555",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "818094008587",
-    "full_name": "Rockstar Energy OG Flavor - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Punched Watermelon",
-    "sku": "206638",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "818094009713",
-    "full_name": "Rockstar Punched Watermelon - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Energy Original",
-    "sku": "137857",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "20",
-    "upc": "818094000109",
-    "full_name": "Rockstar Energy Original - 16oz Can (20ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Fuji Apple Pear",
@@ -5097,7 +1187,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392010398",
     "full_name": "CELSIUS Sparkling Fuji Apple Pear - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Orange",
@@ -5107,7 +1197,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392000313",
     "full_name": "CELSIUS Sparkling Orange - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Wild Berry",
@@ -5117,7 +1207,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392000429",
     "full_name": "CELSIUS Sparkling Wild Berry - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Watermelon",
@@ -5127,7 +1217,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392003628",
     "full_name": "CELSIUS Sparkling Watermelon - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Grape Rush",
@@ -5137,7 +1227,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392000917",
     "full_name": "CELSIUS Sparkling Grape Rush - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Kiwi Guava",
@@ -5147,7 +1237,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392010145",
     "full_name": "CELSIUS Sparkling Kiwi Guava - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Peach Vibe",
@@ -5157,7 +1247,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392010190",
     "full_name": "CELSIUS Sparkling Peach Vibe - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Tropical Vibe",
@@ -5167,7 +1257,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392021394",
     "full_name": "CELSIUS Sparkling Tropical Vibe - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Mango Passionfruit",
@@ -5177,7 +1267,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392021431",
     "full_name": "CELSIUS Sparkling Mango Passionfruit - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Arctic Vibe",
@@ -5187,17 +1277,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392021417",
     "full_name": "CELSIUS Sparkling Arctic Vibe - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Raspberry Acai Green Tea",
-    "sku": "320180",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "889392010022",
-    "full_name": "CELSIUS Raspberry Acai Green Tea - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Peach Mango Green Tea",
@@ -5207,127 +1287,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392010015",
     "full_name": "CELSIUS Peach Mango Green Tea - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Sparkling Orange (6/4 Packs)",
-    "sku": "320096",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "889392000412",
-    "full_name": "CELSIUS Sparkling Orange (6/4 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Sparkling Peach Vibe (6/4 Packs)",
-    "sku": "320103",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "889392010381",
-    "full_name": "CELSIUS Sparkling Peach Vibe (6/4 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Sparkling Wild Berry",
-    "sku": "320099",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "889392000429",
-    "full_name": "CELSIUS Sparkling Wild Berry - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Sparkling Fuji Apple Pear",
-    "sku": "320129",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "889392010398",
-    "full_name": "CELSIUS Sparkling Fuji Apple Pear - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Sparkling Tropical Vibe (6/4 Packs)",
-    "sku": "320158",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "889392010312",
-    "full_name": "CELSIUS Sparkling Tropical Vibe (6/4 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Sparkling Kiwi Guava",
-    "sku": "320130",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "889392010169",
-    "full_name": "CELSIUS Sparkling Kiwi Guava - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Sparkling Lemon Lime",
-    "sku": "320244",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "889392000788",
-    "full_name": "CELSIUS Sparkling Lemon Lime - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Fantasy Vibe",
-    "sku": "320228",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "889392000597",
-    "full_name": "CELSIUS Fantasy Vibe - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Recovery Strawberry Lemonade",
-    "sku": "320019",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000230714",
-    "full_name": "Rockstar Recovery Strawberry Lemonade - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Punched Strawberry Peach",
-    "sku": "209351",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000220920",
-    "full_name": "Rockstar Punched Strawberry Peach - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Variety Pack",
-    "sku": "320195",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "889392000931",
-    "full_name": "CELSIUS Variety Pack - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Sparkling Oasis Vibe",
-    "sku": "321291",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "889392000900",
-    "full_name": "CELSIUS Sparkling Oasis Vibe - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Green Apple Cherry",
@@ -5337,17 +1297,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392000863",
     "full_name": "CELSIUS Sparkling Green Apple Cherry - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Celsius Variety Pack",
-    "sku": "320258",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "852481007012",
-    "full_name": "Celsius Variety Pack - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Essentials Blue Crush",
@@ -5357,7 +1307,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "852480007112",
     "full_name": "CELSIUS Essentials Blue Crush - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Essentials Dragonberry",
@@ -5367,27 +1317,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "852480007860",
     "full_name": "CELSIUS Essentials Dragonberry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Essentials Orangesicle",
-    "sku": "322534",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "852480007884",
-    "full_name": "CELSIUS Essentials Orangesicle - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Essentials Cherry Limeade",
-    "sku": "322530",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "852480007822",
-    "full_name": "CELSIUS Essentials Cherry Limeade - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Cosmic Vibe",
@@ -5397,17 +1327,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392001204",
     "full_name": "CELSIUS Cosmic Vibe - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Sparkling Raspberry Peach",
-    "sku": "322416",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "889392001303",
-    "full_name": "CELSIUS Sparkling Raspberry Peach - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Fizz-Free Blue Razz Lemonade",
@@ -5417,47 +1337,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392001396",
     "full_name": "CELSIUS Fizz-Free Blue Razz Lemonade - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Astro Vibe",
-    "sku": "322418",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "889392001341",
-    "full_name": "CELSIUS Astro Vibe - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Galaxy Vibe",
-    "sku": "322419",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "889392001327",
-    "full_name": "CELSIUS Galaxy Vibe - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Recovery Strawberry Lemonade",
-    "sku": "322432",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000230714",
-    "full_name": "Rockstar Recovery Strawberry Lemonade - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Focus Orange Pineapple",
-    "sku": "322458",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "012000230493",
-    "full_name": "Rockstar Focus Orange Pineapple - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Rockstar Recovery Berryade",
@@ -5467,27 +1347,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000230431",
     "full_name": "Rockstar Recovery Berryade - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Focus Lemon Lime",
-    "sku": "322467",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "012000230479",
-    "full_name": "Rockstar Focus Lemon Lime - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Focus White Peach",
-    "sku": "322470",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "012000230455",
-    "full_name": "Rockstar Focus White Peach - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Watermelon Lemonade",
@@ -5497,7 +1357,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392001563",
     "full_name": "CELSIUS Sparkling Watermelon Lemonade - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Kiwi Strawberry",
@@ -5507,7 +1367,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392001549",
     "full_name": "CELSIUS Kiwi Strawberry - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Cherry Cola",
@@ -5517,7 +1377,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392001709",
     "full_name": "CELSIUS Sparkling Cherry Cola - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Retro Vibe",
@@ -5527,7 +1387,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392001723",
     "full_name": "CELSIUS Sparkling Retro Vibe - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Strawberry Passionfruit",
@@ -5537,7 +1397,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392001761",
     "full_name": "CELSIUS Sparkling Strawberry Passionfruit - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Mango Lemonade",
@@ -5547,17 +1407,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392001785",
     "full_name": "CELSIUS Sparkling Mango Lemonade - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Punched Pineapple",
-    "sku": "325406",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000240607",
-    "full_name": "Rockstar Punched Pineapple - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Rockstar Energy Boom Pina Colada",
@@ -5567,7 +1417,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000240621",
     "full_name": "Rockstar Energy Boom Pina Colada - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Sparkling Playa Vibe",
@@ -5577,7 +1427,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392001747",
     "full_name": "CELSIUS Sparkling Playa Vibe - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Iced Energy Tropical Peach",
@@ -5587,7 +1437,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098100100997",
     "full_name": "Starbucks Iced Energy Tropical Peach - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Iced Energy Watermelon Twist",
@@ -5597,7 +1447,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098100101017",
     "full_name": "Starbucks Iced Energy Watermelon Twist - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Iced Energy Blueberry Lemonade",
@@ -5607,7 +1457,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098100101031",
     "full_name": "Starbucks Iced Energy Blueberry Lemonade - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Essentials Grape Slush",
@@ -5617,7 +1467,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "852480007280",
     "full_name": "CELSIUS Essentials Grape Slush - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Essentials Watermelon Ice",
@@ -5627,7 +1477,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "852480007273",
     "full_name": "CELSIUS Essentials Watermelon Ice - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Dragon Fruit Lime",
@@ -5637,7 +1487,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392002379",
     "full_name": "CELSIUS Dragon Fruit Lime - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "CELSIUS Pink Lemonade",
@@ -5647,17 +1497,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "889392002355",
     "full_name": "CELSIUS Pink Lemonade - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "CELSIUS Spritz Vibe LTO",
-    "sku": "327810",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "889392002393",
-    "full_name": "CELSIUS Spritz Vibe LTO - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Dream Float",
@@ -5667,7 +1507,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030514077",
     "full_name": "Alani Nu Dream Float - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Watermelon Wave",
@@ -5677,7 +1517,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030510482",
     "full_name": "Alani Nu Watermelon Wave - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Hawaiian Shaved Ice",
@@ -5687,7 +1527,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "850645008387",
     "full_name": "Alani Nu Hawaiian Shaved Ice - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Juicy Peach",
@@ -5697,7 +1537,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030513827",
     "full_name": "Alani Nu Juicy Peach - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Orange Kiss",
@@ -5707,7 +1547,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "850645008363",
     "full_name": "Alani Nu Orange Kiss - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Pink Slush",
@@ -5717,7 +1557,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030518501",
     "full_name": "Alani Nu Pink Slush - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Breezeberry",
@@ -5727,7 +1567,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030511052",
     "full_name": "Alani Nu Breezeberry - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Cotton Candy",
@@ -5737,7 +1577,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030519171",
     "full_name": "Alani Nu Cotton Candy - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Cherry Twist",
@@ -5747,7 +1587,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030518082",
     "full_name": "Alani Nu Cherry Twist - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Cherry Slush",
@@ -5757,7 +1597,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030512257",
     "full_name": "Alani Nu Cherry Slush - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Cosmic Stardust",
@@ -5767,7 +1607,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030510024",
     "full_name": "Alani Nu Cosmic Stardust - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Blue Slush",
@@ -5777,7 +1617,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030510154",
     "full_name": "Alani Nu Blue Slush - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Sherbet Swirl",
@@ -5787,7 +1627,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030519157",
     "full_name": "Alani Nu Sherbet Swirl - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Alani Nu Strawberry Sunrise",
@@ -5797,7 +1637,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "810030519133",
     "full_name": "Alani Nu Strawberry Sunrise - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Iced Energy Strawberry Kiwi",
@@ -5807,37 +1647,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098100101239",
     "full_name": "Starbucks Iced Energy Strawberry Kiwi - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Rockstar Punched Blackberry",
-    "sku": "330850",
-    "category": "Energy Drinks",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000250453",
-    "full_name": "Rockstar Punched Blackberry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Alani Nu Cherry Bomb LTO",
-    "sku": "333519",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810175041698",
-    "full_name": "Alani Nu Cherry Bomb LTO - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Alani Nu Lime Slush LTO",
-    "sku": "333511",
-    "category": "Energy Drinks",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "810175041650",
-    "full_name": "Alani Nu Lime Slush LTO - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Freeze",
@@ -5847,17 +1657,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000135190",
     "full_name": "Gatorade Glacier Freeze - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Fierce Grape",
-    "sku": "85532",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000135169",
-    "full_name": "Gatorade Fierce Grape - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Orange",
@@ -5867,17 +1667,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000204100",
     "full_name": "Gatorade Orange - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Orange (Fountain)",
-    "sku": "89963",
-    "category": "Sports Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "052000331035",
-    "full_name": "Gatorade Orange (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Cool Blue",
@@ -5887,7 +1677,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000103939",
     "full_name": "Gatorade Cool Blue - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Cool Blue",
@@ -5897,7 +1687,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000103939",
     "full_name": "Gatorade Cool Blue - 24oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lemon Lime",
@@ -5907,7 +1697,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000129342",
     "full_name": "Gatorade Lemon Lime - 24oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fruit Punch",
@@ -5917,7 +1707,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000135138",
     "full_name": "Gatorade Fruit Punch - 24oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Muscle Milk Genuine Chocolate",
@@ -5927,57 +1717,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "876063002011",
     "full_name": "Muscle Milk Genuine Chocolate - 14oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Muscle Milk Genuine Vanilla Cr\u00e8me",
-    "sku": "109764",
-    "category": "Sports Drinks",
-    "pkg_size": "14oz Bottle",
-    "case_qty": "12",
-    "upc": "876063002028",
-    "full_name": "Muscle Milk Genuine Vanilla Cr\u00e8me - 14oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Muscle Milk Genuine Strawberries 'N Cr\u00e8me",
-    "sku": "109768",
-    "category": "Sports Drinks",
-    "pkg_size": "14oz Bottle",
-    "case_qty": "12",
-    "upc": "876063002097",
-    "full_name": "Muscle Milk Genuine Strawberries 'N Cr\u00e8me - 14oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade G2 Fruit Punch",
-    "sku": "127766",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000204056",
-    "full_name": "Gatorade G2 Fruit Punch - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lemon Lime",
-    "sku": "130369",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000129342",
-    "full_name": "Gatorade Lemon Lime - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Fruit Punch",
-    "sku": "130370",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000135138",
-    "full_name": "Gatorade Fruit Punch - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fruit Punch",
@@ -5987,7 +1727,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000135138",
     "full_name": "Gatorade Fruit Punch - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Orange",
@@ -5997,7 +1737,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000204100",
     "full_name": "Gatorade Orange - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fierce Grape",
@@ -6007,7 +1747,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000135169",
     "full_name": "Gatorade Fierce Grape - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lemon Lime",
@@ -6017,17 +1757,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000129342",
     "full_name": "Gatorade Lemon Lime - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade G2 Fruit Punch",
-    "sku": "133945",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000204056",
-    "full_name": "Gatorade G2 Fruit Punch - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Freeze",
@@ -6037,7 +1767,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000135190",
     "full_name": "Gatorade Glacier Freeze - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Cool Blue",
@@ -6047,7 +1777,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000103939",
     "full_name": "Gatorade Cool Blue - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fierce Strawberry",
@@ -6057,27 +1787,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000135282",
     "full_name": "Gatorade Fierce Strawberry - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade G2 Glacier Freeze",
-    "sku": "135318",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000120066",
-    "full_name": "Gatorade G2 Glacier Freeze - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Cool Blue",
-    "sku": "135942",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000103939",
-    "full_name": "Gatorade Cool Blue - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Cherry",
@@ -6087,7 +1797,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000103670",
     "full_name": "Gatorade Glacier Cherry - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Muscle Milk Pro Advanced Nutrition Knockout Chocolate",
@@ -6097,7 +1807,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "876063002806",
     "full_name": "Muscle Milk Pro Advanced Nutrition Knockout Chocolate - 14oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Muscle Milk Pro Advanced Nutrition Intense Vanilla",
@@ -6107,7 +1817,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "876063002813",
     "full_name": "Muscle Milk Pro Advanced Nutrition Intense Vanilla - 14oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fierce Green Apple",
@@ -6117,7 +1827,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000104110",
     "full_name": "Gatorade Fierce Green Apple - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fierce Blue Cherry",
@@ -6127,7 +1837,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000104103",
     "full_name": "Gatorade Fierce Blue Cherry - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Cherry",
@@ -6137,17 +1847,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000103670",
     "full_name": "Gatorade Glacier Cherry - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Glacier Cherry",
-    "sku": "148332",
-    "category": "Sports Drinks",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "24",
-    "upc": "052000103670",
-    "full_name": "Gatorade Glacier Cherry - 24oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Arctic Blitz",
@@ -6157,57 +1857,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000010299",
     "full_name": "Gatorade Arctic Blitz - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Icy Charge",
-    "sku": "153754",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000010282",
-    "full_name": "Gatorade Icy Charge - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Fruit Punch (Fountain)",
-    "sku": "87252",
-    "category": "Sports Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "052000331011",
-    "full_name": "Gatorade Fruit Punch (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lemon Lime (Fountain)",
-    "sku": "89964",
-    "category": "Sports Drinks",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "052000331028",
-    "full_name": "Gatorade Lemon Lime (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Powders Variety Pack",
-    "sku": "90704",
-    "category": "Sports Drinks",
-    "pkg_size": "21oz Bag",
-    "case_qty": "32",
-    "upc": "052000337099",
-    "full_name": "Gatorade Powders Variety Pack - 21oz Bag (32ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade G2 Fruit Punch",
-    "sku": "104850",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000204056",
-    "full_name": "Gatorade G2 Fruit Punch - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lemon Lime",
@@ -6217,7 +1867,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000129342",
     "full_name": "Gatorade Lemon Lime - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Orange",
@@ -6227,17 +1877,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000204100",
     "full_name": "Gatorade Orange - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Orange",
-    "sku": "130368",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000204100",
-    "full_name": "Gatorade Orange - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Berry",
@@ -6247,27 +1887,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000128574",
     "full_name": "Gatorade Berry - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Orange",
-    "sku": "130816",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000129373",
-    "full_name": "Gatorade Orange - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Berry",
-    "sku": "130817",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000128574",
-    "full_name": "Gatorade Berry - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lime Cucumber",
@@ -6277,27 +1897,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000133264",
     "full_name": "Gatorade Lime Cucumber - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Tropical Mango",
-    "sku": "133950",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000135213",
-    "full_name": "Gatorade Tropical Mango - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lime Cucumber",
-    "sku": "135292",
-    "category": "Sports Drinks",
-    "pkg_size": "32oz Bottle",
-    "case_qty": "12",
-    "upc": "052000133264",
-    "full_name": "Gatorade Lime Cucumber - 32oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fruit Punch",
@@ -6307,17 +1907,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000129366",
     "full_name": "Gatorade Fruit Punch - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Glacier Freeze",
-    "sku": "135788",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000041651",
-    "full_name": "Gatorade Glacier Freeze - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lemon Lime",
@@ -6327,7 +1917,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000337761",
     "full_name": "Gatorade Lemon Lime - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Freeze",
@@ -6337,7 +1927,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000041651",
     "full_name": "Gatorade Glacier Freeze - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Orange",
@@ -6347,7 +1937,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000129373",
     "full_name": "Gatorade Orange - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Cherry",
@@ -6357,17 +1947,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000103120",
     "full_name": "Gatorade Glacier Cherry - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lime Cucumber",
-    "sku": "151859",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000133264",
-    "full_name": "Gatorade Lime Cucumber - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Cherry",
@@ -6377,7 +1957,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000048391",
     "full_name": "Gatorade Zero Glacier Cherry - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Lemon Lime",
@@ -6387,7 +1967,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000043174",
     "full_name": "Gatorade Zero Lemon Lime - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Orange",
@@ -6397,7 +1977,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000043181",
     "full_name": "Gatorade Zero Orange - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Cherry",
@@ -6407,7 +1987,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000048391",
     "full_name": "Gatorade Zero Glacier Cherry - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Freeze",
@@ -6417,7 +1997,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000041651",
     "full_name": "Gatorade Glacier Freeze - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lemon Lime (3/8 Packs)",
@@ -6427,7 +2007,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000208054",
     "full_name": "Gatorade Lemon Lime (3/8 Packs) - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Orange (3/8 Packs)",
@@ -6437,7 +2017,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000208078",
     "full_name": "Gatorade Orange (3/8 Packs) - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fruit Punch (3/8 Packs)",
@@ -6447,7 +2027,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000208061",
     "full_name": "Gatorade Fruit Punch (3/8 Packs) - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Freeze",
@@ -6457,7 +2037,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043280",
     "full_name": "Gatorade Zero Glacier Freeze - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Berry",
@@ -6467,7 +2047,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000043143",
     "full_name": "Gatorade Zero Berry - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Freeze",
@@ -6477,7 +2057,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000043280",
     "full_name": "Gatorade Zero Glacier Freeze - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Fruit Punch",
@@ -6487,7 +2067,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000042337",
     "full_name": "Gatorade Zero Fruit Punch - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Muscle Milk Pro Advanced Nutrition Slammin Strawberry",
@@ -6497,7 +2077,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "876063007160",
     "full_name": "Muscle Milk Pro Advanced Nutrition Slammin Strawberry - 14oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Grape",
@@ -6507,37 +2087,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000044270",
     "full_name": "Gatorade Zero Grape - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Super Shake Chocolate",
-    "sku": "172537",
-    "category": "Sports Drinks",
-    "pkg_size": "11.16oz Bottle",
-    "case_qty": "12",
-    "upc": "052000044621",
-    "full_name": "Gatorade Super Shake Chocolate - 11.16oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lemon Lime",
-    "sku": "166176",
-    "category": "Sports Drinks",
-    "pkg_size": "1gal Jug",
-    "case_qty": "4",
-    "upc": "052000337761",
-    "full_name": "Gatorade Lemon Lime - 1gal Jug (4ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Fruit Punch",
-    "sku": "166174",
-    "category": "Sports Drinks",
-    "pkg_size": "1gal Jug",
-    "case_qty": "4",
-    "upc": "052000129366",
-    "full_name": "Gatorade Fruit Punch - 1gal Jug (4ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fruit Punch",
@@ -6547,7 +2097,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000129366",
     "full_name": "Gatorade Fruit Punch - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Cool Blue (3/8 Packs)",
@@ -6557,7 +2107,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000208443",
     "full_name": "Gatorade Cool Blue (3/8 Packs) - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Freeze (3/8 Packs)",
@@ -6567,17 +2117,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043334",
     "full_name": "Gatorade Zero Glacier Freeze (3/8 Packs) - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Variety Pack",
-    "sku": "193614",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "18",
-    "upc": "052000046458",
-    "full_name": "Gatorade Zero Variety Pack - 12oz Bottle (18ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Freeze",
@@ -6587,7 +2127,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000041651",
     "full_name": "Gatorade Glacier Freeze - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fierce Grape",
@@ -6597,7 +2137,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000208429",
     "full_name": "Gatorade Fierce Grape - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Cool Blue",
@@ -6607,17 +2147,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000047042",
     "full_name": "Gatorade Zero Cool Blue - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Glacier Cherry",
-    "sku": "197784",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000048391",
-    "full_name": "Gatorade Zero Glacier Cherry - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Strawberry Kiwi",
@@ -6627,7 +2157,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000047912",
     "full_name": "Gatorade Gatorlyte Strawberry Kiwi - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Orange",
@@ -6637,7 +2167,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043181",
     "full_name": "Gatorade Zero Orange - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Grape",
@@ -6647,7 +2177,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000044270",
     "full_name": "Gatorade Zero Grape - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Lemon Lime",
@@ -6657,7 +2187,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043174",
     "full_name": "Gatorade Zero Lemon Lime - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lime Cucumber",
@@ -6667,17 +2197,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000047677",
     "full_name": "Gatorade Lime Cucumber - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Glacier Freeze",
-    "sku": "135638",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000324860",
-    "full_name": "Gatorade Glacier Freeze - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Berry",
@@ -6687,7 +2207,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043457",
     "full_name": "Gatorade Zero Berry - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Cool Blue",
@@ -6697,7 +2217,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000122060",
     "full_name": "Gatorade Cool Blue - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Freeze",
@@ -6707,7 +2227,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043464",
     "full_name": "Gatorade Zero Glacier Freeze - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Fruit Punch",
@@ -6717,7 +2237,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000044287",
     "full_name": "Gatorade Zero Fruit Punch - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lime Cucumber",
@@ -6727,7 +2247,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000047677",
     "full_name": "Gatorade Lime Cucumber - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Fruit Punch (3/8 Packs)",
@@ -6737,7 +2257,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000044263",
     "full_name": "Gatorade Zero Fruit Punch (3/8 Packs) - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Cherry",
@@ -6747,7 +2267,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000102451",
     "full_name": "Gatorade Glacier Cherry - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Grape",
@@ -6757,7 +2277,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000044294",
     "full_name": "Gatorade Zero Grape - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Glacier Cherry",
@@ -6767,7 +2287,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000102451",
     "full_name": "Gatorade Glacier Cherry - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Cherry (3/8 Packs)",
@@ -6777,7 +2297,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043198",
     "full_name": "Gatorade Zero Glacier Cherry (3/8 Packs) - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Cherry (4/6 Packs)",
@@ -6787,7 +2307,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043440",
     "full_name": "Gatorade Zero Glacier Cherry (4/6 Packs) - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Cool Blue (4/6 Packs)",
@@ -6797,7 +2317,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000041668",
     "full_name": "Gatorade Cool Blue (4/6 Packs) - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Orange",
@@ -6807,7 +2327,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043433",
     "full_name": "Gatorade Zero Orange - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Watermelon",
@@ -6817,7 +2337,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000050622",
     "full_name": "Gatorade Gatorlyte Watermelon - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Mixed Berry",
@@ -6827,17 +2347,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000050820",
     "full_name": "Gatorade Gatorlyte Mixed Berry - 20oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Lime Cucumber",
-    "sku": "203378",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000050295",
-    "full_name": "Gatorade Zero Lime Cucumber - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Muscle Milk Pro Advanced Nutrition Chocolate Peanut Butter",
@@ -6847,7 +2357,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000051179",
     "full_name": "Muscle Milk Pro Advanced Nutrition Chocolate Peanut Butter - 14oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Freeze",
@@ -6857,7 +2367,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043464",
     "full_name": "Gatorade Zero Glacier Freeze - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Orange",
@@ -6867,7 +2377,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043433",
     "full_name": "Gatorade Zero Orange - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Cool Blue",
@@ -6877,7 +2387,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000047103",
     "full_name": "Gatorade Zero Cool Blue - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Strawberry Kiwi",
@@ -6887,7 +2397,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000044034",
     "full_name": "Gatorade Zero Strawberry Kiwi - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Lemon Lime Zero",
@@ -6897,7 +2407,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000052862",
     "full_name": "Gatorade Gatorlyte Lemon Lime Zero - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Lime Cucumber",
@@ -6907,7 +2417,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000052879",
     "full_name": "Gatorade Gatorlyte Lime Cucumber - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Strawberry Kiwi Zero",
@@ -6917,17 +2427,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000052855",
     "full_name": "Gatorade Gatorlyte Strawberry Kiwi Zero - 20oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade FIT Blackberry Raspberry",
-    "sku": "209503",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000053036",
-    "full_name": "Gatorade FIT Blackberry Raspberry - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Cherry",
@@ -6937,7 +2437,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000043396",
     "full_name": "Gatorade Zero Glacier Cherry - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Cool Blue",
@@ -6947,7 +2447,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000047103",
     "full_name": "Gatorade Zero Cool Blue - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fierce Blue Cherry",
@@ -6957,7 +2457,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000104127",
     "full_name": "Gatorade Fierce Blue Cherry - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Frost Riptide Rush",
@@ -6967,97 +2467,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000208092",
     "full_name": "Gatorade Frost Riptide Rush - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade All Stars Berry",
-    "sku": "136718",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "18",
-    "upc": "052000123258",
-    "full_name": "Gatorade All Stars Berry - 12oz Bottle (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Strawberry Kiwi",
-    "sku": "170539",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000044034",
-    "full_name": "Gatorade Zero Strawberry Kiwi - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Variety Pack",
-    "sku": "134803",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "18",
-    "upc": "052000123241",
-    "full_name": "Gatorade Variety Pack - 12oz Bottle (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Frost Arctic Blitz",
-    "sku": "157095",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000010275",
-    "full_name": "Gatorade Frost Arctic Blitz - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Variety Pack",
-    "sku": "173509",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "18",
-    "upc": "052000043693",
-    "full_name": "Gatorade Zero Variety Pack - 12oz Bottle (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Lime Cucumber",
-    "sku": "203379",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000050295",
-    "full_name": "Gatorade Zero Lime Cucumber - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Glacier Freeze",
-    "sku": "85527",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "1",
-    "upc": "052000324860",
-    "full_name": "Gatorade Glacier Freeze - 20oz Wide Mouth (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Lemon Lime",
-    "sku": "168879",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000043372",
-    "full_name": "Gatorade Zero Lemon Lime - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lime Cucumber",
-    "sku": "197611",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000047677",
-    "full_name": "Gatorade Lime Cucumber - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Glacier Freeze",
@@ -7067,7 +2477,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000054996",
     "full_name": "Gatorade Gatorlyte Glacier Freeze - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Watermelon Splash",
@@ -7077,27 +2487,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000055047",
     "full_name": "Gatorade Zero Watermelon Splash - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Apple Burst",
-    "sku": "321987",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000055030",
-    "full_name": "Gatorade Zero Apple Burst - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Watermelon Splash",
-    "sku": "321988",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000055061",
-    "full_name": "Gatorade Zero Watermelon Splash - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Apple Burst",
@@ -7107,7 +2497,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000055030",
     "full_name": "Gatorade Zero Apple Burst - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Fruit Punch Zero",
@@ -7117,7 +2507,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000055009",
     "full_name": "Gatorade Gatorlyte Fruit Punch Zero - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Muscle Milk Plant Protein Chocolate",
@@ -7127,37 +2517,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000055238",
     "full_name": "Muscle Milk Plant Protein Chocolate - 14oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Muscle Milk Plant Protein Caramel Vanilla",
-    "sku": "322153",
-    "category": "Sports Drinks",
-    "pkg_size": "14oz Bottle",
-    "case_qty": "12",
-    "upc": "052000055245",
-    "full_name": "Muscle Milk Plant Protein Caramel Vanilla - 14oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lightning Blast",
-    "sku": "323176",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000057980",
-    "full_name": "Gatorade Lightning Blast - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Midnight Ice",
-    "sku": "323177",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000058024",
-    "full_name": "Gatorade Midnight Ice - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Orange",
@@ -7167,7 +2527,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000057300",
     "full_name": "Gatorade Orange - 11.6oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Fruit Punch",
@@ -7177,7 +2537,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000309034",
     "full_name": "Gatorade Fruit Punch - 11.6oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lemon Lime",
@@ -7187,57 +2547,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000009019",
     "full_name": "Gatorade Lemon Lime - 11.6oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Variety Pack",
-    "sku": "324866",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "12",
-    "upc": "052000058871",
-    "full_name": "Gatorade Variety Pack - 20oz Wide Mouth (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Fruit Punch",
-    "sku": "326022",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000042337",
-    "full_name": "Gatorade Zero Fruit Punch - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Cool Blue",
-    "sku": "326030",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000047042",
-    "full_name": "Gatorade Zero Cool Blue - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Lemon Lime",
-    "sku": "326029",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000043372",
-    "full_name": "Gatorade Zero Lemon Lime - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Glacier Cherry",
-    "sku": "325992",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Wide Mouth",
-    "case_qty": "24",
-    "upc": "052000043198",
-    "full_name": "Gatorade Zero Glacier Cherry - 20oz Wide Mouth (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Pineapple Mango",
@@ -7247,7 +2557,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000063547",
     "full_name": "Gatorade Gatorlyte Pineapple Mango - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Mashups Lemon Lime Orange",
@@ -7257,7 +2567,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000063424",
     "full_name": "Gatorade Mashups Lemon Lime Orange - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Mashups Cool Blue Fruit Punch",
@@ -7267,17 +2577,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000063400",
     "full_name": "Gatorade Mashups Cool Blue Fruit Punch - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Mashups Glacier Freeze Glacier Cherry",
-    "sku": "325846",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000064735",
-    "full_name": "Gatorade Mashups Glacier Freeze Glacier Cherry - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Gatorlyte Tropical Coconut",
@@ -7287,7 +2587,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000066081",
     "full_name": "Gatorade Gatorlyte Tropical Coconut - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Zero Glacier Freeze",
@@ -7297,7 +2597,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000057140",
     "full_name": "Gatorade Zero Glacier Freeze - 24oz Cap (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Orange",
@@ -7307,7 +2607,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000057300",
     "full_name": "Gatorade Orange - 24oz Cap (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lower Sugar Rain Berry",
@@ -7317,7 +2617,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000068016",
     "full_name": "Gatorade Lower Sugar Rain Berry - 28oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lower Sugar Lemonade",
@@ -7327,47 +2627,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000067958",
     "full_name": "Gatorade Lower Sugar Lemonade - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lower Sugar Glacier Cherry",
-    "sku": "331001",
-    "category": "Sports Drinks",
-    "pkg_size": "28oz Bottle",
-    "case_qty": "15",
-    "upc": "052000067835",
-    "full_name": "Gatorade Lower Sugar Glacier Cherry - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lower Sugar Lemonade",
-    "sku": "331002",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000067958",
-    "full_name": "Gatorade Lower Sugar Lemonade - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lower Sugar Fruit Punch",
-    "sku": "331003",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000067996",
-    "full_name": "Gatorade Lower Sugar Fruit Punch - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lower Sugar Rain Berry",
-    "sku": "331004",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000068016",
-    "full_name": "Gatorade Lower Sugar Rain Berry - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lower Sugar Fruit Punch",
@@ -7377,17 +2637,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "052000067996",
     "full_name": "Gatorade Lower Sugar Fruit Punch - 28oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lower Sugar Glacier Cherry",
-    "sku": "331017",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000067835",
-    "full_name": "Gatorade Lower Sugar Glacier Cherry - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lower Sugar Lemonade",
@@ -7397,27 +2647,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000067958",
     "full_name": "Gatorade Lower Sugar Lemonade - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lower Sugar Rain Berry",
-    "sku": "331032",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000068016",
-    "full_name": "Gatorade Lower Sugar Rain Berry - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lower Sugar Fruit Punch",
-    "sku": "331027",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000067996",
-    "full_name": "Gatorade Lower Sugar Fruit Punch - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lower Sugar Fruit Punch",
@@ -7427,17 +2657,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000067996",
     "full_name": "Gatorade Lower Sugar Fruit Punch - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Lower Sugar Lemonade",
-    "sku": "331050",
-    "category": "Sports Drinks",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "052000067958",
-    "full_name": "Gatorade Lower Sugar Lemonade - 12oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Lower Sugar Rain Berry",
@@ -7447,37 +2667,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000068016",
     "full_name": "Gatorade Lower Sugar Rain Berry - 20oz Wide Mouth (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Orange",
-    "sku": "331120",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "052000057300",
-    "full_name": "Gatorade Orange - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Gatorade Zero Glacier Freeze",
-    "sku": "331170",
-    "category": "Sports Drinks",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "052000057140",
-    "full_name": "Gatorade Zero Glacier Freeze - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Juice Tyme Sour (Fountain)",
-    "sku": "56701",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "879877000068",
-    "full_name": "Juice Tyme Sour (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Ocean Spray Cranberry",
@@ -7487,267 +2677,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000021367",
     "full_name": "Ocean Spray Cranberry - 15.2oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Lemonade (Fountain)",
-    "sku": "93826",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000016196",
-    "full_name": "Tropicana Lemonade (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Fruit Punch (Fountain)",
-    "sku": "93950",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000016226",
-    "full_name": "Tropicana Fruit Punch (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemonade",
-    "sku": "123243",
-    "category": "Juices & Lemonade",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000034015",
-    "full_name": "Brisk Iced Tea Lemonade - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Orange Juice",
-    "sku": "123367",
-    "category": "Juices & Lemonade",
-    "pkg_size": "15.2oz Bottle",
-    "case_qty": "12",
-    "upc": "012000071744",
-    "full_name": "Dole Orange Juice - 15.2oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Fruit Punch",
-    "sku": "125429",
-    "category": "Juices & Lemonade",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000567513",
-    "full_name": "Brisk Fruit Punch - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Pink Lemonade",
-    "sku": "127370",
-    "category": "Juices & Lemonade",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000384196",
-    "full_name": "Brisk Pink Lemonade - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Golden Pineapple 30% Juice",
-    "sku": "134311",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000212857",
-    "full_name": "Dole Golden Pineapple 30% Juice - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Cranberry 15% Juice",
-    "sku": "134322",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000212789",
-    "full_name": "Dole Cranberry 15% Juice - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Orange 100% Juice",
-    "sku": "134317",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000212796",
-    "full_name": "Dole Orange 100% Juice - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Apple 100% Juice",
-    "sku": "134323",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000212772",
-    "full_name": "Dole Apple 100% Juice - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemonade (Fountain)",
-    "sku": "143413",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000112010",
-    "full_name": "Brisk Iced Tea Lemonade (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Hawaiian Punch Fruit Juicy Red",
-    "sku": "6906",
-    "category": "Juices & Lemonade",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "078000004021",
-    "full_name": "Hawaiian Punch Fruit Juicy Red - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Hawaiian Punch Fruit Juicy Red",
-    "sku": "19684",
-    "category": "Juices & Lemonade",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000004021",
-    "full_name": "Hawaiian Punch Fruit Juicy Red - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Citrus Springs Bloody Mary Flavor Shot",
-    "sku": "61820",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "782269102632",
-    "full_name": "Citrus Springs Bloody Mary Flavor Shot - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Hawaiian Punch Fruit Juicey Red (2/12 Packs)",
-    "sku": "84954",
-    "category": "Juices & Lemonade",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000040524",
-    "full_name": "Hawaiian Punch Fruit Juicey Red (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Orange Juice",
-    "sku": "90402",
-    "category": "Juices & Lemonade",
-    "pkg_size": "10oz Bottle",
-    "case_qty": "24",
-    "upc": "048500000007",
-    "full_name": "Tropicana Orange Juice - 10oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Apple",
-    "sku": "90403",
-    "category": "Juices & Lemonade",
-    "pkg_size": "10oz Bottle",
-    "case_qty": "24",
-    "upc": "048500000496",
-    "full_name": "Tropicana Apple - 10oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Orange Juice",
-    "sku": "92728",
-    "category": "Juices & Lemonade",
-    "pkg_size": "32oz Bottle",
-    "case_qty": "12",
-    "upc": "048500000007",
-    "full_name": "Tropicana Orange Juice - 32oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Ruby Red Grapefruit",
-    "sku": "92729",
-    "category": "Juices & Lemonade",
-    "pkg_size": "32oz Bottle",
-    "case_qty": "12",
-    "upc": "048500000021",
-    "full_name": "Tropicana Ruby Red Grapefruit - 32oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Apple",
-    "sku": "92730",
-    "category": "Juices & Lemonade",
-    "pkg_size": "32oz Bottle",
-    "case_qty": "12",
-    "upc": "048500000496",
-    "full_name": "Tropicana Apple - 32oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Light Lemonade (Fountain)",
-    "sku": "93820",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000016127",
-    "full_name": "Tropicana Light Lemonade (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pink Lemonade (Fountain)",
-    "sku": "93822",
-    "category": "Juices & Lemonade",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000016158",
-    "full_name": "Tropicana Pink Lemonade (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Cranberry Cocktail",
-    "sku": "92731",
-    "category": "Juices & Lemonade",
-    "pkg_size": "32oz Bottle",
-    "case_qty": "12",
-    "upc": "048500006726",
-    "full_name": "Tropicana Cranberry Cocktail - 32oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Lemonade (Fountain)",
-    "sku": "93825",
-    "category": "Juices & Lemonade",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000016196",
-    "full_name": "Tropicana Lemonade (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pink Lemonade (Fountain)",
-    "sku": "93823",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000016158",
-    "full_name": "Tropicana Pink Lemonade (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Fruit Punch (Fountain)",
-    "sku": "93951",
-    "category": "Juices & Lemonade",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000016226",
-    "full_name": "Tropicana Fruit Punch (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Iced Tea Lemonade",
@@ -7757,17 +2687,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000034015",
     "full_name": "Brisk Iced Tea Lemonade - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Lemonade",
-    "sku": "125430",
-    "category": "Juices & Lemonade",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000101908",
-    "full_name": "Brisk Lemonade - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Fruit Punch",
@@ -7777,7 +2697,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000567513",
     "full_name": "Brisk Fruit Punch - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Lemonade",
@@ -7787,17 +2707,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000101908",
     "full_name": "Brisk Lemonade - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Fruit Punch",
-    "sku": "125567",
-    "category": "Juices & Lemonade",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000567513",
-    "full_name": "Brisk Fruit Punch - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Pink Lemonade",
@@ -7807,7 +2717,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000384196",
     "full_name": "Brisk Pink Lemonade - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Naked Strawberry Banana Machine",
@@ -7817,7 +2727,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "082592194152",
     "full_name": "Naked Strawberry Banana Machine - 15.2oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Naked Blue Machine",
@@ -7827,7 +2737,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "082592727152",
     "full_name": "Naked Blue Machine - 15.2oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Naked Green Machine",
@@ -7837,177 +2747,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "082592720153",
     "full_name": "Naked Green Machine - 15.2oz Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Home Style Orange Juice",
-    "sku": "129446",
-    "category": "Juices & Lemonade",
-    "pkg_size": "89oz Bottle",
-    "case_qty": "6",
-    "upc": "048500018538",
-    "full_name": "Tropicana Pure Premium Home Style Orange Juice - 89oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Home Style Orange Juice",
-    "sku": "131361",
-    "category": "Juices & Lemonade",
-    "pkg_size": "14oz Carton",
-    "case_qty": "12",
-    "upc": "048500018538",
-    "full_name": "Tropicana Pure Premium Home Style Orange Juice - 14oz Carton (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Apple 100% Juice - 1G BIB (3PK)",
-    "sku": "134315",
-    "category": "Juices & Lemonade",
-    "pkg_size": "1gal Bag In Box",
-    "case_qty": "3",
-    "upc": "012000212567",
-    "full_name": "Dole Apple 100% Juice - 1G BIB (3PK) - 1gal Bag In Box (3ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Cranberry 15% Juice - 1G BIB (3PK)",
-    "sku": "134318",
-    "category": "Juices & Lemonade",
-    "pkg_size": "1gal Bag In Box",
-    "case_qty": "3",
-    "upc": "012000212574",
-    "full_name": "Dole Cranberry 15% Juice - 1G BIB (3PK) - 1gal Bag In Box (3ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Orange 100% Juice - 1G BIB (3PK)",
-    "sku": "134319",
-    "category": "Juices & Lemonade",
-    "pkg_size": "1gal Bag In Box",
-    "case_qty": "3",
-    "upc": "012000212581",
-    "full_name": "Dole Orange 100% Juice - 1G BIB (3PK) - 1gal Bag In Box (3ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Grape 100% Juice",
-    "sku": "148904",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000142055",
-    "full_name": "Dole Grape 100% Juice - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Royal Hawaiian Cranberry Juice",
-    "sku": "161194",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "087475652620",
-    "full_name": "Royal Hawaiian Cranberry Juice - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Royal Hawaiian Pineapple Juice",
-    "sku": "161193",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "087475742628",
-    "full_name": "Royal Hawaiian Pineapple Juice - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Sparkling Probiotic Lemon Ginger",
-    "sku": "167574",
-    "category": "Juices & Lemonade",
-    "pkg_size": "15.2oz Bottle",
-    "case_qty": "6",
-    "upc": "853311003006",
-    "full_name": "KeVita Sparkling Probiotic Lemon Ginger - 15.2oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Sparkling Probiotic Lemon Cayenne",
-    "sku": "167573",
-    "category": "Juices & Lemonade",
-    "pkg_size": "15.2oz Bottle",
-    "case_qty": "6",
-    "upc": "853311003303",
-    "full_name": "KeVita Sparkling Probiotic Lemon Cayenne - 15.2oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Sparkling Probiotic Mango Coconut",
-    "sku": "167575",
-    "category": "Juices & Lemonade",
-    "pkg_size": "15.2oz Bottle",
-    "case_qty": "6",
-    "upc": "853311003044",
-    "full_name": "KeVita Sparkling Probiotic Mango Coconut - 15.2oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Sparkling Probiotic Strawberry Acai Coconut",
-    "sku": "167578",
-    "category": "Juices & Lemonade",
-    "pkg_size": "15.2oz Bottle",
-    "case_qty": "6",
-    "upc": "853311003051",
-    "full_name": "KeVita Sparkling Probiotic Strawberry Acai Coconut - 15.2oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Orange Juice Light",
-    "sku": "168534",
-    "category": "Juices & Lemonade",
-    "pkg_size": "52oz Bottle",
-    "case_qty": "6",
-    "upc": "048500202913",
-    "full_name": "Tropicana Orange Juice Light - 52oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Orange Juice Low Acid",
-    "sku": "168527",
-    "category": "Juices & Lemonade",
-    "pkg_size": "52oz Bottle",
-    "case_qty": "6",
-    "upc": "048500202814",
-    "full_name": "Tropicana Pure Premium Orange Juice Low Acid - 52oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Calcium Orange Juice",
-    "sku": "168530",
-    "category": "Juices & Lemonade",
-    "pkg_size": "52oz Bottle",
-    "case_qty": "6",
-    "upc": "048500202777",
-    "full_name": "Tropicana Pure Premium Calcium Orange Juice - 52oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Orange Juice Grovestand Calcium",
-    "sku": "168529",
-    "category": "Juices & Lemonade",
-    "pkg_size": "52oz Bottle",
-    "case_qty": "6",
-    "upc": "048500202784",
-    "full_name": "Tropicana Pure Premium Orange Juice Grovestand Calcium - 52oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Cranberry Cocktail",
-    "sku": "94069",
-    "category": "Juices & Lemonade",
-    "pkg_size": "10oz Bottle",
-    "case_qty": "24",
-    "upc": "048500008386",
-    "full_name": "Tropicana Cranberry Cocktail - 10oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Dole Ruby Red Grapefruit 100% Juice",
@@ -8017,67 +2757,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000182822",
     "full_name": "Dole Ruby Red Grapefruit 100% Juice - 15.2oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Peach Orchard",
-    "sku": "135395",
-    "category": "Juices & Lemonade",
-    "pkg_size": "59oz Carton",
-    "case_qty": "8",
-    "upc": "048500021040",
-    "full_name": "Tropicana Peach Orchard - 59oz Carton (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Twister Strawberry Kiwi",
-    "sku": "173937",
-    "category": "Juices & Lemonade",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000193194",
-    "full_name": "Twister Strawberry Kiwi - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Viva Sol Horchata",
-    "sku": "193796",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "817785023946",
-    "full_name": "Viva Sol Horchata - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Viva Sol Jamaica",
-    "sku": "193791",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "817785023984",
-    "full_name": "Viva Sol Jamaica - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Viva Sol Pina",
-    "sku": "193793",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "817785023953",
-    "full_name": "Viva Sol Pina - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Lemonade",
-    "sku": "192735",
-    "category": "Juices & Lemonade",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000064524",
-    "full_name": "Dole Lemonade - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Dole Lemonade",
@@ -8087,7 +2767,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000064524",
     "full_name": "Dole Lemonade - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Dole Strawberry Lemonade",
@@ -8097,17 +2777,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000064531",
     "full_name": "Dole Strawberry Lemonade - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Strawberry Lemonade",
-    "sku": "192738",
-    "category": "Juices & Lemonade",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000064531",
-    "full_name": "Dole Strawberry Lemonade - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Dole Strawberry Lemonade",
@@ -8117,47 +2787,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000064531",
     "full_name": "Dole Strawberry Lemonade - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Dole Lemonade",
-    "sku": "174224",
-    "category": "Juices & Lemonade",
-    "pkg_size": "2l Bottle",
-    "case_qty": "8",
-    "upc": "012000064524",
-    "full_name": "Dole Lemonade - 2l Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Viva Sol Melon",
-    "sku": "193797",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "817785023960",
-    "full_name": "Viva Sol Melon - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Naked Juice Kale Blazer",
-    "sku": "145997",
-    "category": "Juices & Lemonade",
-    "pkg_size": "64oz Bottle",
-    "case_qty": "6",
-    "upc": "082592634030",
-    "full_name": "Naked Juice Kale Blazer - 64oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Naked Rainbow Machine",
-    "sku": "197517",
-    "category": "Juices & Lemonade",
-    "pkg_size": "15.2oz Bottle",
-    "case_qty": "8",
-    "upc": "082592011480",
-    "full_name": "Naked Rainbow Machine - 15.2oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Dole Tropical Fruit Punch",
@@ -8167,127 +2797,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000190063",
     "full_name": "Dole Tropical Fruit Punch - 15.2oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Neon Zebra Whiskey Sour Mix",
-    "sku": "197692",
-    "category": "Juices & Lemonade",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000205781",
-    "full_name": "Neon Zebra Whiskey Sour Mix - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Neon Zebra Strawberry Daiquiri Mix",
-    "sku": "197694",
-    "category": "Juices & Lemonade",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000205750",
-    "full_name": "Neon Zebra Strawberry Daiquiri Mix - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Neon Zebra Mojito Mix",
-    "sku": "197697",
-    "category": "Juices & Lemonade",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000205729",
-    "full_name": "Neon Zebra Mojito Mix - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Neon Zebra Margarita Mix",
-    "sku": "197699",
-    "category": "Juices & Lemonade",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000205613",
-    "full_name": "Neon Zebra Margarita Mix - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Neon Zebra Strawberry Daiquiri Mixer",
-    "sku": "202415",
-    "category": "Juices & Lemonade",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "012000205750",
-    "full_name": "Neon Zebra Strawberry Daiquiri Mixer - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Citrus Springs Pineapple Juice",
-    "sku": "61819",
-    "category": "Juices & Lemonade",
-    "pkg_size": "2gal Bag In Box",
-    "case_qty": "1",
-    "upc": "782269101628",
-    "full_name": "Citrus Springs Pineapple Juice - 2gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Fresh Watermelon Lime",
-    "sku": "208367",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "037597510032",
-    "full_name": "Fresh Watermelon Lime - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Fresh Lemonade",
-    "sku": "208364",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "037597510049",
-    "full_name": "Fresh Lemonade - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Craft Mango Lemonade",
-    "sku": "320628",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "817785026671",
-    "full_name": "Pure Craft Mango Lemonade - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Craft Strawberry Watermelon",
-    "sku": "320636",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "817785026664",
-    "full_name": "Pure Craft Strawberry Watermelon - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Craft Homestyle Lemonade",
-    "sku": "320633",
-    "category": "Juices & Lemonade",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "817785026657",
-    "full_name": "Pure Craft Homestyle Lemonade - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Zero Sugar Summer Splash Punch",
-    "sku": "321204",
-    "category": "Juices & Lemonade",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "12",
-    "upc": "048500205112",
-    "full_name": "Tropicana Zero Sugar Summer Splash Punch - 12oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "KeVita Sparkling Lemonade with Prebiotics Strawberry",
@@ -8297,7 +2807,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "197857000014",
     "full_name": "KeVita Sparkling Lemonade with Prebiotics Strawberry - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "KeVita Sparkling Lemonade with Prebiotics Mango",
@@ -8307,267 +2817,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "197857000021",
     "full_name": "KeVita Sparkling Lemonade with Prebiotics Mango - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Bundaberg Lemonade",
-    "sku": "323286",
-    "category": "Juices & Lemonade",
-    "pkg_size": "375ml Bottle",
-    "case_qty": "24",
-    "upc": "079373000849",
-    "full_name": "Bundaberg Lemonade - 375ml Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Apple",
-    "sku": "323552",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500205983",
-    "full_name": "Tropicana Apple - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Cranberry Cocktail",
-    "sku": "323551",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500205990",
-    "full_name": "Tropicana Cranberry Cocktail - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Grape",
-    "sku": "323553",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206003",
-    "full_name": "Tropicana Grape - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Original Orange Juice",
-    "sku": "323554",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206034",
-    "full_name": "Tropicana Pure Premium Original Orange Juice - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Orange Juice No Pulp with Calcium",
-    "sku": "323556",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206058",
-    "full_name": "Tropicana Orange Juice No Pulp with Calcium - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Home Style Orange Juice",
-    "sku": "323555",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206027",
-    "full_name": "Tropicana Pure Premium Home Style Orange Juice - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pineapple Mango",
-    "sku": "324113",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500205877",
-    "full_name": "Tropicana Pineapple Mango - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Classic Lemonade",
-    "sku": "324112",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206133",
-    "full_name": "Tropicana Classic Lemonade - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Island Punch",
-    "sku": "324115",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206126",
-    "full_name": "Tropicana Island Punch - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Caribbean Sunset",
-    "sku": "324114",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206119",
-    "full_name": "Tropicana Caribbean Sunset - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pina Colada",
-    "sku": "324116",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206157",
-    "full_name": "Tropicana Pina Colada - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Lively Lemonade Zero Sugar",
-    "sku": "324117",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206188",
-    "full_name": "Tropicana Lively Lemonade Zero Sugar - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Raspberry Lemonade",
-    "sku": "324118",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206164",
-    "full_name": "Tropicana Raspberry Lemonade - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Strawberry Limeade",
-    "sku": "324119",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206171",
-    "full_name": "Tropicana Strawberry Limeade - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Summer Splash Punch Zero Sugar",
-    "sku": "324121",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206195",
-    "full_name": "Tropicana Summer Splash Punch Zero Sugar - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Fruit Punch Zero Sugar",
-    "sku": "324131",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205945",
-    "full_name": "Tropicana Fruit Punch Zero Sugar - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Some Pulp",
-    "sku": "324157",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205679",
-    "full_name": "Tropicana Pure Premium Some Pulp - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Orange Juice",
-    "sku": "324162",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205716",
-    "full_name": "Tropicana Pure Premium Orange Juice - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pineapple Mango",
-    "sku": "324125",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205877",
-    "full_name": "Tropicana Pineapple Mango - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Lemonade Zero Sugar",
-    "sku": "324136",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205952",
-    "full_name": "Tropicana Lemonade Zero Sugar - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Lemonade",
-    "sku": "324126",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205860",
-    "full_name": "Tropicana Lemonade - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Orange Low Acid",
-    "sku": "324159",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205686",
-    "full_name": "Tropicana Pure Premium Orange Low Acid - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Grapefruit",
-    "sku": "324163",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205754",
-    "full_name": "Tropicana Pure Premium Grapefruit - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Orange Juice Lots of Pulp",
-    "sku": "324156",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205648",
-    "full_name": "Tropicana Orange Juice Lots of Pulp - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Strawberry Peach",
-    "sku": "324129",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205914",
-    "full_name": "Tropicana Strawberry Peach - 46oz Bottle (6ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Pure Premium Orange Juice",
@@ -8577,57 +2827,7 @@ const PEPSI_ITEMS = [
     "case_qty": "6",
     "upc": "048500205716",
     "full_name": "Tropicana Pure Premium Orange Juice - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Peach Pineapple",
-    "sku": "324128",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205884",
-    "full_name": "Tropicana Peach Pineapple - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pure Premium Orange Tangerine",
-    "sku": "324160",
-    "category": "Juices & Lemonade",
-    "pkg_size": "46oz Bottle",
-    "case_qty": "6",
-    "upc": "048500205747",
-    "full_name": "Tropicana Pure Premium Orange Tangerine - 46oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Probiotic Refresher Sparkling Mojita Lime Mint Coconut",
-    "sku": "322705",
-    "category": "Juices & Lemonade",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "197857000090",
-    "full_name": "KeVita Probiotic Refresher Sparkling Mojita Lime Mint Coconut - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Priobiotic Refresher Sparkling Strawberry Acai Coconut",
-    "sku": "322701",
-    "category": "Juices & Lemonade",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "197857000052",
-    "full_name": "KeVita Priobiotic Refresher Sparkling Strawberry Acai Coconut - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Probiotic Refresher Sparkling Lemon Ginger",
-    "sku": "322700",
-    "category": "Juices & Lemonade",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "197857000045",
-    "full_name": "KeVita Probiotic Refresher Sparkling Lemon Ginger - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "KeVita Probiotic Refresher Sparkling Lemon Cayenne",
@@ -8637,17 +2837,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "197857000069",
     "full_name": "KeVita Probiotic Refresher Sparkling Lemon Cayenne - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Sparkling with Prebiotics Lemonade Classic",
-    "sku": "322840",
-    "category": "Juices & Lemonade",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "197857000007",
-    "full_name": "KeVita Sparkling with Prebiotics Lemonade Classic - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Pure Premium Original Orange Juice",
@@ -8657,7 +2847,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500206034",
     "full_name": "Tropicana Pure Premium Original Orange Juice - 11oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Pure Premium Calcium Orange Juice",
@@ -8667,7 +2857,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500206058",
     "full_name": "Tropicana Pure Premium Calcium Orange Juice - 11oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Pure Premium Homestyle Orange Juice",
@@ -8677,7 +2867,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500206027",
     "full_name": "Tropicana Pure Premium Homestyle Orange Juice - 11oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Cranberry Cocktail",
@@ -8687,7 +2877,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500205990",
     "full_name": "Tropicana Cranberry Cocktail - 11oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Apple",
@@ -8697,37 +2887,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500205983",
     "full_name": "Tropicana Apple - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Grape",
-    "sku": "325669",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206003",
-    "full_name": "Tropicana Grape - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Tropical Punch",
-    "sku": "325674",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206126",
-    "full_name": "Tropicana Tropical Punch - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Lively Lemonade",
-    "sku": "325671",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206133",
-    "full_name": "Tropicana Lively Lemonade - 11oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Raspberry Lemonade",
@@ -8737,7 +2897,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500206164",
     "full_name": "Tropicana Raspberry Lemonade - 11oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Pineapple Mango",
@@ -8747,27 +2907,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500206140",
     "full_name": "Tropicana Pineapple Mango - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Pina Colada",
-    "sku": "325676",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206157",
-    "full_name": "Tropicana Pina Colada - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Fruit Punch",
-    "sku": "325675",
-    "category": "Juices & Lemonade",
-    "pkg_size": "11oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206119",
-    "full_name": "Tropicana Fruit Punch - 11oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Fruit Punch Zero Sugar",
@@ -8777,7 +2917,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500206195",
     "full_name": "Tropicana Fruit Punch Zero Sugar - 11oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Strawberry Lemonade",
@@ -8787,7 +2927,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500206560",
     "full_name": "Tropicana Strawberry Lemonade - 11oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Tropicana Classic Lemonade",
@@ -8797,17 +2937,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500206553",
     "full_name": "Tropicana Classic Lemonade - 11oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemonade",
-    "sku": "325282",
-    "category": "Juices & Lemonade",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000190438",
-    "full_name": "Brisk Iced Tea Lemonade - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Dole Orange Blend",
@@ -8817,17 +2947,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "048500207000",
     "full_name": "Dole Orange Blend - 15.2oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Tropicana Juice Orange Blend",
-    "sku": "325961",
-    "category": "Juices & Lemonade",
-    "pkg_size": "32oz Bottle",
-    "case_qty": "12",
-    "upc": "048500206942",
-    "full_name": "Tropicana Juice Orange Blend - 32oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Naked Mighty Mango Machine",
@@ -8837,7 +2957,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "082592660152",
     "full_name": "Naked Mighty Mango Machine - 15.2oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Naked Double Berry Protein",
@@ -8847,7 +2967,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "082592012067",
     "full_name": "Naked Double Berry Protein - 15.2oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Naked Coco Gauff's Protein Pineapple Orange",
@@ -8857,227 +2977,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "082592012081",
     "full_name": "Naked Coco Gauff's Protein Pineapple Orange - 15.2oz Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Club Soda",
-    "sku": "3789",
-    "category": "Waters",
-    "pkg_size": "10oz Bottle",
-    "case_qty": "24",
-    "upc": "078000203455",
-    "full_name": "Schweppes Club Soda - 10oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Tonic Water",
-    "sku": "3838",
-    "category": "Waters",
-    "pkg_size": "10oz Bottle",
-    "case_qty": "24",
-    "upc": "078000218459",
-    "full_name": "Schweppes Tonic Water - 10oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Tonic Water (Fountain)",
-    "sku": "19621",
-    "category": "Waters",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "088500901508",
-    "full_name": "Schweppes Tonic Water (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Tonic Water Zero Sugar",
-    "sku": "30867",
-    "category": "Waters",
-    "pkg_size": "10oz Bottle",
-    "case_qty": "24",
-    "upc": "078000219456",
-    "full_name": "Schweppes Tonic Water Zero Sugar - 10oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Aquafina Water",
-    "sku": "31321",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000014208",
-    "full_name": "Aquafina Water - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Aquafina Water",
-    "sku": "32065",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000014208",
-    "full_name": "Aquafina Water - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Club Soda",
-    "sku": "32766",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000203455",
-    "full_name": "Schweppes Club Soda - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Tonic Water",
-    "sku": "32767",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000218459",
-    "full_name": "Schweppes Tonic Water - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Tonic Water Zero Sugar",
-    "sku": "32768",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000219456",
-    "full_name": "Schweppes Tonic Water Zero Sugar - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Grape",
-    "sku": "104842",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "052000707793",
-    "full_name": "Propel Grape - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Berry",
-    "sku": "104844",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "052000707779",
-    "full_name": "Propel Berry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Kiwi Strawberry",
-    "sku": "104843",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "052000707786",
-    "full_name": "Propel Kiwi Strawberry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Aquafina Water",
-    "sku": "121660",
-    "category": "Waters",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "24",
-    "upc": "012000014208",
-    "full_name": "Aquafina Water - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "SoBeWater Yumberry Pomegranate (Fountain)",
-    "sku": "138867",
-    "category": "Waters",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000110658",
-    "full_name": "SoBeWater Yumberry Pomegranate (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Vita Ice Cranberry",
-    "sku": "144004",
-    "category": "Waters",
-    "pkg_size": "17oz Bottle",
-    "case_qty": "12",
-    "upc": "028435398738",
-    "full_name": "Vita Ice Cranberry - 17oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Vita Ice Cucumber Lime",
-    "sku": "144005",
-    "category": "Waters",
-    "pkg_size": "17oz Bottle",
-    "case_qty": "12",
-    "upc": "028435398745",
-    "full_name": "Vita Ice Cucumber Lime - 17oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Vita Ice Lemonade",
-    "sku": "151787",
-    "category": "Waters",
-    "pkg_size": "17oz Bottle",
-    "case_qty": "12",
-    "upc": "028435398851",
-    "full_name": "Vita Ice Lemonade - 17oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Vita Ice Peach Mango",
-    "sku": "151800",
-    "category": "Waters",
-    "pkg_size": "17oz Bottle",
-    "case_qty": "12",
-    "upc": "028435398929",
-    "full_name": "Vita Ice Peach Mango - 17oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Vita Ice Pineapple Coconut",
-    "sku": "151802",
-    "category": "Waters",
-    "pkg_size": "17oz Bottle",
-    "case_qty": "12",
-    "upc": "028435398943",
-    "full_name": "Vita Ice Pineapple Coconut - 17oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Black Cherry Sparkling Seltzer Water",
-    "sku": "152397",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000202403",
-    "full_name": "Schweppes Black Cherry Sparkling Seltzer Water - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Lemon Lime Sparkling Seltzer Water",
-    "sku": "152421",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000209402",
-    "full_name": "Schweppes Lemon Lime Sparkling Seltzer Water - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Sparkling Seltzer Water",
-    "sku": "152494",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000214451",
-    "full_name": "Schweppes Sparkling Seltzer Water - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "LIFEWTR",
@@ -9087,7 +2987,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000161162",
     "full_name": "LIFEWTR - 1l Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "LIFEWTR",
@@ -9097,47 +2997,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000161162",
     "full_name": "LIFEWTR - 700ml Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Watermelon",
-    "sku": "159435",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "052000013580",
-    "full_name": "Propel Watermelon - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Black Cherry Sparkling Seltzer Water (3/8 Packs)",
-    "sku": "159745",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000029000",
-    "full_name": "Schweppes Black Cherry Sparkling Seltzer Water (3/8 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Canada Dry Tonic Water (4/6 Packs)",
-    "sku": "3550",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000001242",
-    "full_name": "Canada Dry Tonic Water (4/6 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Aquafina Water",
-    "sku": "30346",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000014208",
-    "full_name": "Aquafina Water - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Aquafina Water",
@@ -9147,7 +3007,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000014208",
     "full_name": "Aquafina Water - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Schweppes Club Soda",
@@ -9157,57 +3017,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "078000203455",
     "full_name": "Schweppes Club Soda - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Aquafina Water",
-    "sku": "31609",
-    "category": "Waters",
-    "pkg_size": "1.5l Bottle",
-    "case_qty": "12",
-    "upc": "012000014208",
-    "full_name": "Aquafina Water - 1.5l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Club Soda",
-    "sku": "32159",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "12",
-    "upc": "078000203455",
-    "full_name": "Schweppes Club Soda - 1l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Sparkling Seltzer Water",
-    "sku": "32837",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000214451",
-    "full_name": "Schweppes Sparkling Seltzer Water - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Sparkling Seltzer Water",
-    "sku": "39761",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "12",
-    "upc": "078000214451",
-    "full_name": "Schweppes Sparkling Seltzer Water - 1l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Lemon Lime Sparkling Seltzer Water",
-    "sku": "67735",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000209402",
-    "full_name": "Schweppes Lemon Lime Sparkling Seltzer Water - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Aquafina Water",
@@ -9217,17 +3027,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000014208",
     "full_name": "Aquafina Water - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Aquafina Water",
-    "sku": "96663",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000014208",
-    "full_name": "Aquafina Water - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Aquafina Water",
@@ -9237,177 +3037,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000014208",
     "full_name": "Aquafina Water - 12oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Aquafina Water Non Vendible",
-    "sku": "126670",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000001598",
-    "full_name": "Aquafina Water Non Vendible - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Black Cherry Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "137646",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000011357",
-    "full_name": "Schweppes Black Cherry Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Lemon Lime Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "137647",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000011333",
-    "full_name": "Schweppes Lemon Lime Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "137652",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000214161",
-    "full_name": "Schweppes Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Black Cherry Sparkling Seltzer Water",
-    "sku": "137738",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000202403",
-    "full_name": "Schweppes Black Cherry Sparkling Seltzer Water - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Orange Sparkling Seltzer Water",
-    "sku": "137741",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000213454",
-    "full_name": "Schweppes Orange Sparkling Seltzer Water - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Orange Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "137649",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000019636",
-    "full_name": "Schweppes Orange Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Raspberry Lime Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "142247",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000022285",
-    "full_name": "Schweppes Raspberry Lime Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Raspberry Lime Sparkling Seltzer Water",
-    "sku": "142251",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000022322",
-    "full_name": "Schweppes Raspberry Lime Sparkling Seltzer Water - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Raspberry Lime Sparkling Seltzer Water",
-    "sku": "142250",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000022322",
-    "full_name": "Schweppes Raspberry Lime Sparkling Seltzer Water - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Pomegranate Sparkling Seltzer Water",
-    "sku": "146661",
-    "category": "Waters",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "078000024876",
-    "full_name": "Schweppes Pomegranate Sparkling Seltzer Water - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Cranberry Lime Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "148503",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000024494",
-    "full_name": "Schweppes Cranberry Lime Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Cranberry Lime Sparkling Seltzer Water",
-    "sku": "148681",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000024517",
-    "full_name": "Schweppes Cranberry Lime Sparkling Seltzer Water - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Black Cherry Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "152390",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000011357",
-    "full_name": "Schweppes Black Cherry Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Raspberry Lime Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "152474",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000022285",
-    "full_name": "Schweppes Raspberry Lime Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Sparkling Seltzer Water",
-    "sku": "152492",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "078000214406",
-    "full_name": "Schweppes Sparkling Seltzer Water - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Lemon Lime Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "152423",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000011333",
-    "full_name": "Schweppes Lemon Lime Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "LIFEWTR",
@@ -9417,17 +3047,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000172489",
     "full_name": "LIFEWTR - 1l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Pink Grapefruit Sparkling Seltzer Water (2/12 Packs)",
-    "sku": "160777",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "078000028935",
-    "full_name": "Schweppes Pink Grapefruit Sparkling Seltzer Water (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "LIFEWTR",
@@ -9437,217 +3057,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000172489",
     "full_name": "LIFEWTR - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly cherry",
-    "sku": "165041",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000171451",
-    "full_name": "bubly cherry - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly mango (3/8 Packs)",
-    "sku": "165045",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000171505",
-    "full_name": "bubly mango (3/8 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly lemon (3/8 Packs)",
-    "sku": "165043",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000171437",
-    "full_name": "bubly lemon (3/8 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Strawberry Lemonade",
-    "sku": "164788",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "052000041538",
-    "full_name": "Propel Strawberry Lemonade - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "LIFEWTR",
-    "sku": "164766",
-    "category": "Waters",
-    "pkg_size": "500ml Bottle",
-    "case_qty": "24",
-    "upc": "012000172489",
-    "full_name": "LIFEWTR - 500ml Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly strawberry (24 Pack)",
-    "sku": "168058",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000171321",
-    "full_name": "bubly strawberry (24 Pack) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly lime (Fountain)",
-    "sku": "168250",
-    "category": "Waters",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000180163",
-    "full_name": "bubly lime (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly raspberry (Fountain)",
-    "sku": "168253",
-    "category": "Waters",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000180170",
-    "full_name": "bubly raspberry (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly raspberry (3/8 Packs)",
-    "sku": "168917",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000181177",
-    "full_name": "bubly raspberry (3/8 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Tonic Water",
-    "sku": "169282",
-    "category": "Waters",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000032413",
-    "full_name": "Schweppes Tonic Water - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Club Soda",
-    "sku": "169283",
-    "category": "Waters",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000032420",
-    "full_name": "Schweppes Club Soda - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Schweppes Tonic Water Zero Sugar",
-    "sku": "169293",
-    "category": "Waters",
-    "pkg_size": "7.5oz Can",
-    "case_qty": "24",
-    "upc": "078000032635",
-    "full_name": "Schweppes Tonic Water Zero Sugar - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly grapefruit",
-    "sku": "171853",
-    "category": "Waters",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000190872",
-    "full_name": "bubly grapefruit - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly lime",
-    "sku": "171884",
-    "category": "Waters",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000190889",
-    "full_name": "bubly lime - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly blackberry",
-    "sku": "173731",
-    "category": "Waters",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000192760",
-    "full_name": "bubly blackberry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly strawberry",
-    "sku": "171890",
-    "category": "Waters",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000190865",
-    "full_name": "bubly strawberry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly blueberry pomegranate",
-    "sku": "171846",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000190797",
-    "full_name": "bubly blueberry pomegranate - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Aquafina Water",
-    "sku": "194090",
-    "category": "Waters",
-    "pkg_size": "16oz Bottle",
-    "case_qty": "24",
-    "upc": "012000194580",
-    "full_name": "Aquafina Water - 16oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Immune Support Orange Raspberry",
-    "sku": "197197",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "052000047493",
-    "full_name": "Propel Immune Support Orange Raspberry - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Proud Source Water",
-    "sku": "194063",
-    "category": "Waters",
-    "pkg_size": "16oz Bottle",
-    "case_qty": "24",
-    "upc": "853303007005",
-    "full_name": "Proud Source Water - 16oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Proud Source Water",
-    "sku": "197976",
-    "category": "Waters",
-    "pkg_size": "750ml Wide Mouth",
-    "case_qty": "12",
-    "upc": "853303007005",
-    "full_name": "Proud Source Water - 750ml Wide Mouth (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Berry",
@@ -9657,7 +3067,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000707779",
     "full_name": "Propel Berry - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Kiwi Strawberry",
@@ -9667,7 +3077,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000707786",
     "full_name": "Propel Kiwi Strawberry - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Watermelon",
@@ -9677,17 +3087,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000013580",
     "full_name": "Propel Watermelon - 20oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Black Cherry",
-    "sku": "199657",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "12",
-    "upc": "052000046502",
-    "full_name": "Propel Black Cherry - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Peach",
@@ -9697,27 +3097,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000002966",
     "full_name": "Propel Peach - 20oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Mango",
-    "sku": "199659",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "12",
-    "upc": "052000042726",
-    "full_name": "Propel Mango - 20oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Immune Support Orange Raspberry",
-    "sku": "200914",
-    "category": "Waters",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "12",
-    "upc": "052000047806",
-    "full_name": "Propel Immune Support Orange Raspberry - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Strawberry Lemonade",
@@ -9727,7 +3107,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000041538",
     "full_name": "Propel Strawberry Lemonade - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "LIFEWTR (2/6 Packs)",
@@ -9737,77 +3117,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000170027",
     "full_name": "LIFEWTR (2/6 Packs) - 1l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly coconut pineapple",
-    "sku": "200409",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000206863",
-    "full_name": "bubly coconut pineapple - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Immune Support Lemon Blackberry",
-    "sku": "197171",
-    "category": "Waters",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "12",
-    "upc": "052000047813",
-    "full_name": "Propel Immune Support Lemon Blackberry - 24oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Immune Support Orange Raspberry",
-    "sku": "197172",
-    "category": "Waters",
-    "pkg_size": "24oz Bottle",
-    "case_qty": "12",
-    "upc": "052000047806",
-    "full_name": "Propel Immune Support Orange Raspberry - 24oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R twisted elix'r",
-    "sku": "201325",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600350",
-    "full_name": "BUBBL'R twisted elix'r - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R pitaya berry nect'r",
-    "sku": "201327",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600374",
-    "full_name": "BUBBL'R pitaya berry nect'r - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R cherry guava",
-    "sku": "201326",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600367",
-    "full_name": "BUBBL'R cherry guava - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R pomegranate acai refresh'r",
-    "sku": "201329",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600329",
-    "full_name": "BUBBL'R pomegranate acai refresh'r - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Berry",
@@ -9817,7 +3127,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000506334",
     "full_name": "Propel Berry - 1l Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Kiwi Strawberry",
@@ -9827,67 +3137,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000506402",
     "full_name": "Propel Kiwi Strawberry - 1l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R lemon lime twist'r",
-    "sku": "201332",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600381",
-    "full_name": "BUBBL'R lemon lime twist'r - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R triple berry breez'r",
-    "sku": "206281",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600282",
-    "full_name": "BUBBL'R triple berry breez'r - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R triple berry breez'r",
-    "sku": "206282",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "028435600282",
-    "full_name": "BUBBL'R triple berry breez'r - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Proud Source Sparkling Water",
-    "sku": "207368",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "853303007302",
-    "full_name": "Proud Source Sparkling Water - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Proud Source Water",
-    "sku": "207367",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "853303007296",
-    "full_name": "Proud Source Water - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly bellini bliss",
-    "sku": "207016",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000214301",
-    "full_name": "bubly bellini bliss - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Grape",
@@ -9897,97 +3147,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000512489",
     "full_name": "Propel Grape - 1l Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R tropical dream'r",
-    "sku": "320442",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600428",
-    "full_name": "BUBBL'R tropical dream'r - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R tropical dream'r",
-    "sku": "320443",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "028435600428",
-    "full_name": "BUBBL'R tropical dream'r - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly orange cream",
-    "sku": "209287",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000221026",
-    "full_name": "bubly orange cream - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Mango",
-    "sku": "168027",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000042726",
-    "full_name": "Propel Mango - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Immune Support Orange Raspberry",
-    "sku": "197173",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "052000047806",
-    "full_name": "Propel Immune Support Orange Raspberry - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Black Cherry",
-    "sku": "194306",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000046502",
-    "full_name": "Propel Black Cherry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Immune Support Orange Raspberry",
-    "sku": "197555",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000047806",
-    "full_name": "Propel Immune Support Orange Raspberry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Immune Support Pineapple Peach",
-    "sku": "203738",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000050486",
-    "full_name": "Propel Immune Support Pineapple Peach - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Immune Support Lemon Blackberry",
-    "sku": "197556",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000047813",
-    "full_name": "Propel Immune Support Lemon Blackberry - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Mango",
@@ -9997,17 +3157,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000042726",
     "full_name": "Propel Mango - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Immune Support Pineapple Peach",
-    "sku": "203520",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000050486",
-    "full_name": "Propel Immune Support Pineapple Peach - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Schweppes Club Soda",
@@ -10017,77 +3167,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000032420",
     "full_name": "Schweppes Club Soda - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Grape",
-    "sku": "128024",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000512489",
-    "full_name": "Propel Grape - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Berry",
-    "sku": "128022",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000506334",
-    "full_name": "Propel Berry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Grape",
-    "sku": "128023",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "052000512489",
-    "full_name": "Propel Grape - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Kiwi Strawberry",
-    "sku": "128025",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "052000506402",
-    "full_name": "Propel Kiwi Strawberry - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Kiwi Strawberry",
-    "sku": "128026",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000506402",
-    "full_name": "Propel Kiwi Strawberry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R watermelon lime smash'r",
-    "sku": "323270",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "028435600466",
-    "full_name": "BUBBL'R watermelon lime smash'r - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R watermelon lime smash'r",
-    "sku": "323271",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600466",
-    "full_name": "BUBBL'R watermelon lime smash'r - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Water",
@@ -10097,7 +3177,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000054897",
     "full_name": "Gatorade Water - 1l Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Water",
@@ -10107,17 +3187,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000060959",
     "full_name": "Gatorade Water - 700ml Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly strawberry sunset",
-    "sku": "322683",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "",
-    "full_name": "bubly strawberry sunset - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Water",
@@ -10127,7 +3197,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000060959",
     "full_name": "Gatorade Water - 1l Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Schweppes Tonic Water Zero Sugar",
@@ -10137,57 +3207,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "078000032635",
     "full_name": "Schweppes Tonic Water Zero Sugar - 7.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R Wild Cherry Chiller",
-    "sku": "322538",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600367",
-    "full_name": "BUBBL'R Wild Cherry Chiller - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly grapefruit",
-    "sku": "165042",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000171475",
-    "full_name": "bubly grapefruit - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly blackberry (3/8 Packs)",
-    "sku": "168919",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000181191",
-    "full_name": "bubly blackberry (3/8 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly strawberry (3/8 Packs)",
-    "sku": "165047",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000171529",
-    "full_name": "bubly strawberry (3/8 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly lime",
-    "sku": "165044",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000171444",
-    "full_name": "bubly lime - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Lemon",
@@ -10197,27 +3217,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000506327",
     "full_name": "Propel Lemon - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Grape",
-    "sku": "324841",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "052000059489",
-    "full_name": "Propel Grape - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Kiwi Strawberry",
-    "sku": "324842",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "052000001716",
-    "full_name": "Propel Kiwi Strawberry - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Variety Pack",
@@ -10227,7 +3227,7 @@ const PEPSI_ITEMS = [
     "case_qty": "18",
     "upc": "052000046519",
     "full_name": "Propel Variety Pack - 16.9oz Bottle (18ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Energy Boost Passionfruit Guava",
@@ -10237,7 +3237,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000052749",
     "full_name": "Propel Energy Boost Passionfruit Guava - 20oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Gatorade Water",
@@ -10247,117 +3247,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "052000060959",
     "full_name": "Gatorade Water - 20oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R peach raspberry dazzl'r",
-    "sku": "325516",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600527",
-    "full_name": "BUBBL'R peach raspberry dazzl'r - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Energy Boost Passionfruit Guava",
-    "sku": "325560",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000052749",
-    "full_name": "Propel Energy Boost Passionfruit Guava - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Energy Boost Raspberry Green Tea",
-    "sku": "325559",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "052000052732",
-    "full_name": "Propel Energy Boost Raspberry Green Tea - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Energy Boost Raspberry Green Tea",
-    "sku": "325561",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000052732",
-    "full_name": "Propel Energy Boost Raspberry Green Tea - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Energy Boost Passionfruit Guava",
-    "sku": "325562",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "052000052749",
-    "full_name": "Propel Energy Boost Passionfruit Guava - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R orange dream freez'r LTO",
-    "sku": "326743",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600541",
-    "full_name": "BUBBL'R orange dream freez'r LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R orange dream freez'r LTO",
-    "sku": "326744",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "028435600541",
-    "full_name": "BUBBL'R orange dream freez'r LTO - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Black Cherry",
-    "sku": "128019",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000002843",
-    "full_name": "Propel Black Cherry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Lemon",
-    "sku": "128028",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000506327",
-    "full_name": "Propel Lemon - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Peach",
-    "sku": "128029",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000002850",
-    "full_name": "Propel Peach - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Propel Berry",
-    "sku": "120373",
-    "category": "Waters",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "052000001693",
-    "full_name": "Propel Berry - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Propel Kiwi Strawberry",
@@ -10367,137 +3257,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "052000001716",
     "full_name": "Propel Kiwi Strawberry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R fruit punch'r",
-    "sku": "331450",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "028435600589",
-    "full_name": "BUBBL'R fruit punch'r - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "BUBBL'R fruit punch'r",
-    "sku": "331451",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "028435600589",
-    "full_name": "BUBBL'R fruit punch'r - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly dragonfruit stardust LTO",
-    "sku": "331208",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000250521",
-    "full_name": "bubly dragonfruit stardust LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly cosmic swirl LTO",
-    "sku": "331207",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000250507",
-    "full_name": "bubly cosmic swirl LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "bubly meteor melon LTO",
-    "sku": "331209",
-    "category": "Waters",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000250545",
-    "full_name": "bubly meteor melon LTO - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Unsweetened (Fountain)",
-    "sku": "7537",
-    "category": "Coffees & Teas",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "041000010002",
-    "full_name": "Brisk Iced Tea Unsweetened (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Raspberry (Fountain)",
-    "sku": "16180",
-    "category": "Coffees & Teas",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "041000010309",
-    "full_name": "Brisk Iced Tea Raspberry (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Mocha (6/4 Packs)",
-    "sku": "32077",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "24",
-    "upc": "012000100925",
-    "full_name": "Frappuccino Mocha (6/4 Packs) - 9.5oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Coffee (6/4 Packs)",
-    "sku": "32078",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "24",
-    "upc": "012000101519",
-    "full_name": "Frappuccino Coffee (6/4 Packs) - 9.5oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Vanilla (6/4 Packs)",
-    "sku": "37091",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "24",
-    "upc": "012000101144",
-    "full_name": "Frappuccino Vanilla (6/4 Packs) - 9.5oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Mocha",
-    "sku": "57933",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "15",
-    "upc": "012000004520",
-    "full_name": "Frappuccino Mocha - 9.5oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Frappuccino Caramel (6/4 Packs)",
-    "sku": "62224",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "24",
-    "upc": "012000103681",
-    "full_name": "Starbucks Frappuccino Caramel (6/4 Packs) - 9.5oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemon",
-    "sku": "69294",
-    "category": "Coffees & Teas",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000202384",
-    "full_name": "Brisk Iced Tea Lemon - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Iced Tea Lemon",
@@ -10507,7 +3267,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000202384",
     "full_name": "Brisk Iced Tea Lemon - 2l Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Frappuccino Coffee",
@@ -10517,7 +3277,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000001802",
     "full_name": "Frappuccino Coffee - 13.7oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Frappuccino Mocha",
@@ -10527,7 +3287,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000004520",
     "full_name": "Frappuccino Mocha - 13.7oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Espresso & Cream",
@@ -10537,7 +3297,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000104510",
     "full_name": "Starbucks Espresso & Cream - 6.5oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Iced Tea Lemon (2/12 Packs)",
@@ -10547,17 +3307,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000810091",
     "full_name": "Brisk Iced Tea Lemon (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Raspberry (2/12 Packs)",
-    "sku": "83795",
-    "category": "Coffees & Teas",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000810152",
-    "full_name": "Brisk Iced Tea Raspberry (2/12 Packs) - 12oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Espresso & Cream",
@@ -10567,7 +3317,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000104510",
     "full_name": "Starbucks Espresso & Cream - 6.5oz Can (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Frappuccino Vanilla",
@@ -10577,17 +3327,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000813313",
     "full_name": "Frappuccino Vanilla - 13.7oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Zero Sugar Green Tea Citrus",
-    "sku": "92373",
-    "category": "Coffees & Teas",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000012792",
-    "full_name": "Lipton Zero Sugar Green Tea Citrus - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Zero Sugar Green Tea Citrus",
@@ -10597,17 +3337,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000012792",
     "full_name": "Lipton Zero Sugar Green Tea Citrus - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Green Tea Citrus",
-    "sku": "92375",
-    "category": "Coffees & Teas",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000012761",
-    "full_name": "Lipton Iced Green Tea Citrus - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Iced Green Tea Citrus",
@@ -10617,7 +3347,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000012761",
     "full_name": "Lipton Iced Green Tea Citrus - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Espresso & Cream Light",
@@ -10627,27 +3357,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000017544",
     "full_name": "Starbucks Espresso & Cream Light - 6.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Tea Peach",
-    "sku": "96848",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000112232",
-    "full_name": "Lipton Iced Tea Peach - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Tea Peach Zero Sugar",
-    "sku": "96849",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000017001",
-    "full_name": "Lipton Iced Tea Peach Zero Sugar - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Zero Sugar Green Tea Mixed Berry",
@@ -10657,17 +3367,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000017117",
     "full_name": "Lipton Zero Sugar Green Tea Mixed Berry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Tea Peach",
-    "sku": "96864",
-    "category": "Coffees & Teas",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000112232",
-    "full_name": "Lipton Iced Tea Peach - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Iced Tea White Raspberry",
@@ -10677,17 +3377,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000022241",
     "full_name": "Lipton Iced Tea White Raspberry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Doubleshot Energy Coffee",
-    "sku": "106007",
-    "category": "Coffees & Teas",
-    "pkg_size": "15oz Can",
-    "case_qty": "12",
-    "upc": "012000028472",
-    "full_name": "Starbucks Doubleshot Energy Coffee - 15oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Doubleshot Energy Coffee Mocha",
@@ -10697,17 +3387,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000028458",
     "full_name": "Starbucks Doubleshot Energy Coffee Mocha - 15oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemon",
-    "sku": "106086",
-    "category": "Coffees & Teas",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000202384",
-    "full_name": "Brisk Iced Tea Lemon - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Doubleshot Energy Coffee Vanilla",
@@ -10717,47 +3397,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000028496",
     "full_name": "Starbucks Doubleshot Energy Coffee Vanilla - 15oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Raspberry",
-    "sku": "106087",
-    "category": "Coffees & Teas",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000024528",
-    "full_name": "Brisk Iced Tea Raspberry - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Sweet Tea",
-    "sku": "122607",
-    "category": "Coffees & Teas",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000031878",
-    "full_name": "Brisk Sweet Tea - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Unsweetened Liquid Concentrate Dispensed Tea",
-    "sku": "126951",
-    "category": "Coffees & Teas",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000485336",
-    "full_name": "Lipton Unsweetened Liquid Concentrate Dispensed Tea - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Sweetened Liquid Concentrate Dispensed Tea",
-    "sku": "130042",
-    "category": "Coffees & Teas",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000513367",
-    "full_name": "Lipton Sweetened Liquid Concentrate Dispensed Tea - 3gal Bag In Box (1ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Doubleshot Energy White Chocolate",
@@ -10767,17 +3407,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000038488",
     "full_name": "Starbucks Doubleshot Energy White Chocolate - 15oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Raspberry",
-    "sku": "133242",
-    "category": "Coffees & Teas",
-    "pkg_size": "18.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000286223",
-    "full_name": "Pure Leaf Raspberry - 18.5oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Sweet Tea",
@@ -10787,7 +3417,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000286193",
     "full_name": "Pure Leaf Sweet Tea - 18.5oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Raspberry",
@@ -10797,7 +3427,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000286223",
     "full_name": "Pure Leaf Raspberry - 18.5oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Unsweetened",
@@ -10807,7 +3437,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000286209",
     "full_name": "Pure Leaf Unsweetened - 18.5oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Lemon",
@@ -10817,7 +3447,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000286186",
     "full_name": "Pure Leaf Lemon - 18.5oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Extra Sweet Tea",
@@ -10827,7 +3457,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000286179",
     "full_name": "Pure Leaf Extra Sweet Tea - 18.5oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Frappuccino Caramel",
@@ -10837,17 +3467,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000016721",
     "full_name": "Starbucks Frappuccino Caramel - 13.7oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Tea & Lemonade",
-    "sku": "141750",
-    "category": "Coffees & Teas",
-    "pkg_size": "18.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000042836",
-    "full_name": "Pure Leaf Tea & Lemonade - 18.5oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Unsweetened",
@@ -10857,7 +3477,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000142086",
     "full_name": "Pure Leaf Unsweetened - 64oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Sweet Tea",
@@ -10867,57 +3487,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000142079",
     "full_name": "Pure Leaf Sweet Tea - 64oz Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Lemon",
-    "sku": "148926",
-    "category": "Coffees & Teas",
-    "pkg_size": "64oz Bottle",
-    "case_qty": "8",
-    "upc": "012000142093",
-    "full_name": "Pure Leaf Lemon - 64oz Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Extra Sweet Tea",
-    "sku": "150649",
-    "category": "Coffees & Teas",
-    "pkg_size": "64oz Bottle",
-    "case_qty": "8",
-    "upc": "012000142475",
-    "full_name": "Pure Leaf Extra Sweet Tea - 64oz Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Vanilla",
-    "sku": "151215",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "15",
-    "upc": "012000045523",
-    "full_name": "Frappuccino Vanilla - 9.5oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Unsweetened Green Tea",
-    "sku": "154710",
-    "category": "Coffees & Teas",
-    "pkg_size": "18.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000046445",
-    "full_name": "Pure Leaf Unsweetened Green Tea - 18.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Unsweetened Lemon",
-    "sku": "154713",
-    "category": "Coffees & Teas",
-    "pkg_size": "18.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000046438",
-    "full_name": "Pure Leaf Unsweetened Lemon - 18.5oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Frappuccino White Chocolate Mocha",
@@ -10927,37 +3497,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000151095",
     "full_name": "Starbucks Frappuccino White Chocolate Mocha - 13.7oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Strawberry Melon (Fountain)",
-    "sku": "159079",
-    "category": "Coffees & Teas",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000161131",
-    "full_name": "Brisk Iced Tea Strawberry Melon (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Strawberry Melon",
-    "sku": "159493",
-    "category": "Coffees & Teas",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000034039",
-    "full_name": "Brisk Iced Tea Strawberry Melon - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Raspberry",
-    "sku": "159523",
-    "category": "Coffees & Teas",
-    "pkg_size": "64oz Bottle",
-    "case_qty": "8",
-    "upc": "012000161995",
-    "full_name": "Pure Leaf Raspberry - 64oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Espresso & Salted Caramel Cream",
@@ -10967,147 +3507,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000007293",
     "full_name": "Starbucks Espresso & Salted Caramel Cream - 6.5oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Dulce De Leche",
-    "sku": "159701",
-    "category": "Coffees & Teas",
-    "pkg_size": "13.7oz Bottle",
-    "case_qty": "12",
-    "upc": "012000162787",
-    "full_name": "Frappuccino Dulce De Leche - 13.7oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemon (Fountain)",
-    "sku": "7530",
-    "category": "Coffees & Teas",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "041000007866",
-    "full_name": "Brisk Iced Tea Lemon (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemon (Fountain)",
-    "sku": "7531",
-    "category": "Coffees & Teas",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "041000007866",
-    "full_name": "Brisk Iced Tea Lemon (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Unsweetened (Fountain)",
-    "sku": "7538",
-    "category": "Coffees & Teas",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "041000007231",
-    "full_name": "Brisk Iced Tea Unsweetened (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Raspberry (Fountain)",
-    "sku": "15086",
-    "category": "Coffees & Teas",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "041000010187",
-    "full_name": "Brisk Iced Tea Raspberry (Fountain) - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Coffee",
-    "sku": "32075",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000003554",
-    "full_name": "Frappuccino Coffee - 9.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Mocha",
-    "sku": "32076",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000006494",
-    "full_name": "Frappuccino Mocha - 9.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Sweet Tea (Fountain)",
-    "sku": "33188",
-    "category": "Coffees & Teas",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "041000010026",
-    "full_name": "Brisk Sweet Tea (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemon",
-    "sku": "69285",
-    "category": "Coffees & Teas",
-    "pkg_size": "12oz Can",
-    "case_qty": "24",
-    "upc": "012000202384",
-    "full_name": "Brisk Iced Tea Lemon - 12oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemon",
-    "sku": "81270",
-    "category": "Coffees & Teas",
-    "pkg_size": "20oz Bottle",
-    "case_qty": "24",
-    "upc": "012000202384",
-    "full_name": "Brisk Iced Tea Lemon - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Espresso & Cream",
-    "sku": "81687",
-    "category": "Coffees & Teas",
-    "pkg_size": "6.5oz Can",
-    "case_qty": "12",
-    "upc": "012000202933",
-    "full_name": "Starbucks Espresso & Cream - 6.5oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Zero Sugar Iced Tea Lemon",
-    "sku": "92372",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000012730",
-    "full_name": "Lipton Zero Sugar Iced Tea Lemon - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Green Tea Citrus",
-    "sku": "95206",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000012754",
-    "full_name": "Lipton Iced Green Tea Citrus - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Zero Sugar Green Tea Citrus",
-    "sku": "95207",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000012785",
-    "full_name": "Lipton Zero Sugar Green Tea Citrus - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Iced Green Tea Citrus",
@@ -11117,7 +3517,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000012754",
     "full_name": "Lipton Iced Green Tea Citrus - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Zero Sugar Green Tea Citrus",
@@ -11127,7 +3527,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000012785",
     "full_name": "Lipton Zero Sugar Green Tea Citrus - 20oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Iced Tea Lemon",
@@ -11137,17 +3537,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000202384",
     "full_name": "Brisk Iced Tea Lemon - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Raspberry",
-    "sku": "105518",
-    "category": "Coffees & Teas",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000024528",
-    "full_name": "Brisk Iced Tea Raspberry - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Sweet Tea",
@@ -11157,17 +3547,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000031878",
     "full_name": "Brisk Sweet Tea - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Strawberry Melon",
-    "sku": "123246",
-    "category": "Coffees & Teas",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "012000034039",
-    "full_name": "Brisk Iced Tea Strawberry Melon - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Half & Half Iced Tea Lemonade",
@@ -11177,47 +3557,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000387807",
     "full_name": "Lipton Half & Half Iced Tea Lemonade - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Zero Sugar Peach",
-    "sku": "134078",
-    "category": "Coffees & Teas",
-    "pkg_size": "18.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000286247",
-    "full_name": "Pure Leaf Zero Sugar Peach - 18.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Peach",
-    "sku": "134076",
-    "category": "Coffees & Teas",
-    "pkg_size": "18.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000286216",
-    "full_name": "Pure Leaf Peach - 18.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Honey Green Tea",
-    "sku": "137642",
-    "category": "Coffees & Teas",
-    "pkg_size": "18.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000041174",
-    "full_name": "Pure Leaf Honey Green Tea - 18.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Doubleshot Energy Hazelnut",
-    "sku": "141600",
-    "category": "Coffees & Teas",
-    "pkg_size": "15oz Can",
-    "case_qty": "12",
-    "upc": "012000042461",
-    "full_name": "Starbucks Doubleshot Energy Hazelnut - 15oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Iced Tea Peach",
@@ -11227,57 +3567,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000112232",
     "full_name": "Lipton Iced Tea Peach - 20oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Peach Liquid Concentrate Dispensed Tea",
-    "sku": "143412",
-    "category": "Coffees & Teas",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000130441",
-    "full_name": "Lipton Peach Liquid Concentrate Dispensed Tea - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Mocha Coconut",
-    "sku": "147591",
-    "category": "Coffees & Teas",
-    "pkg_size": "13.7oz Bottle",
-    "case_qty": "12",
-    "upc": "012000044786",
-    "full_name": "Frappuccino Mocha Coconut - 13.7oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Frappuccino Caramel",
-    "sku": "156108",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "15",
-    "upc": "012000152757",
-    "full_name": "Starbucks Frappuccino Caramel - 9.5oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Frappuccino Pumpkin Spice",
-    "sku": "157912",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "15",
-    "upc": "012000160172",
-    "full_name": "Starbucks Frappuccino Pumpkin Spice - 9.5oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Mocha",
-    "sku": "158168",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "15",
-    "upc": "012000100826",
-    "full_name": "Frappuccino Mocha - 9.5oz Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Iced Tea Strawberry Melon",
@@ -11287,7 +3577,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "012000161230",
     "full_name": "Brisk Iced Tea Strawberry Melon - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Doubleshot Energy Coffee Mocha",
@@ -11297,67 +3587,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000163241",
     "full_name": "Starbucks Doubleshot Energy Coffee Mocha - 11oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Doubleshot Energy Coffee Vanilla",
-    "sku": "160656",
-    "category": "Coffees & Teas",
-    "pkg_size": "11oz Can",
-    "case_qty": "24",
-    "upc": "012000163258",
-    "full_name": "Starbucks Doubleshot Energy Coffee Vanilla - 11oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemon",
-    "sku": "121349",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000811203",
-    "full_name": "Brisk Iced Tea Lemon - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Frappuccino Caramel",
-    "sku": "158167",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "15",
-    "upc": "012000002717",
-    "full_name": "Starbucks Frappuccino Caramel - 9.5oz Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Tea Kitchen Fresh Brewed Iced Tea",
-    "sku": "163717",
-    "category": "Coffees & Teas",
-    "pkg_size": "3oz Packet",
-    "case_qty": "32",
-    "upc": "012000170423",
-    "full_name": "Tea Kitchen Fresh Brewed Iced Tea - 3oz Packet (32ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Fresh Brewed Iced Tea",
-    "sku": "163718",
-    "category": "Coffees & Teas",
-    "pkg_size": "3oz Pod",
-    "case_qty": "32",
-    "upc": "041000376030",
-    "full_name": "Lipton Fresh Brewed Iced Tea - 3oz Pod (32ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Tea Peach",
-    "sku": "144297",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000205842",
-    "full_name": "Lipton Iced Tea Peach - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "KeVita Live Probiotics Pineapple Peach",
@@ -11367,7 +3597,7 @@ const PEPSI_ITEMS = [
     "case_qty": "6",
     "upc": "853311003600",
     "full_name": "KeVita Live Probiotics Pineapple Peach - 15.2oz Bottle (6ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "KeVita Live Probiotics Ginger",
@@ -11377,157 +3607,7 @@ const PEPSI_ITEMS = [
     "case_qty": "6",
     "upc": "853311003587",
     "full_name": "KeVita Live Probiotics Ginger - 15.2oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Live Probiotics Raspberry Lemon",
-    "sku": "167569",
-    "category": "Coffees & Teas",
-    "pkg_size": "15.2oz Bottle",
-    "case_qty": "6",
-    "upc": "853311003624",
-    "full_name": "KeVita Live Probiotics Raspberry Lemon - 15.2oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Live Probiotics Tart Cherry",
-    "sku": "167570",
-    "category": "Coffees & Teas",
-    "pkg_size": "15.2oz Bottle",
-    "case_qty": "6",
-    "upc": "853311003617",
-    "full_name": "KeVita Live Probiotics Tart Cherry - 15.2oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Half & Half Iced Tea Lemonade",
-    "sku": "125294",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000387852",
-    "full_name": "Lipton Half & Half Iced Tea Lemonade - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Tripleshot Energy French Vanilla",
-    "sku": "169444",
-    "category": "Coffees & Teas",
-    "pkg_size": "15oz Can",
-    "case_qty": "12",
-    "upc": "012000181313",
-    "full_name": "Starbucks Tripleshot Energy French Vanilla - 15oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Tripleshot Energy Caff\u00e8 Mocha",
-    "sku": "169443",
-    "category": "Coffees & Teas",
-    "pkg_size": "15oz Can",
-    "case_qty": "12",
-    "upc": "012000181290",
-    "full_name": "Starbucks Tripleshot Energy Caff\u00e8 Mocha - 15oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Lemon (2/6 Packs)",
-    "sku": "169097",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "",
-    "full_name": "Pure Leaf Lemon (2/6 Packs) - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Sweet Tea",
-    "sku": "169107",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000173189",
-    "full_name": "Pure Leaf Sweet Tea - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Peach",
-    "sku": "169092",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000181788",
-    "full_name": "Pure Leaf Peach - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Unsweetened",
-    "sku": "169094",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000173202",
-    "full_name": "Pure Leaf Unsweetened - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Raspberry (2/6 Packs)",
-    "sku": "169096",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000181702",
-    "full_name": "Pure Leaf Raspberry (2/6 Packs) - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Extra Sweet Tea (2/6 Packs)",
-    "sku": "169089",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000181641",
-    "full_name": "Pure Leaf Extra Sweet Tea (2/6 Packs) - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Sweet Tea",
-    "sku": "169287",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "18",
-    "upc": "012000173189",
-    "full_name": "Pure Leaf Sweet Tea - 16.9oz Bottle (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Unsweetened",
-    "sku": "169367",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "18",
-    "upc": "012000173202",
-    "full_name": "Pure Leaf Unsweetened - 16.9oz Bottle (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Mocha",
-    "sku": "89229",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000100826",
-    "full_name": "Frappuccino Mocha - 9.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Sweet Tea",
-    "sku": "165838",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000173189",
-    "full_name": "Pure Leaf Sweet Tea - 16.9oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Nitro Cold Brew Black",
@@ -11537,57 +3617,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000192869",
     "full_name": "Starbucks Nitro Cold Brew Black - 9.6oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Doubleshot Espresso Americano",
-    "sku": "173477",
-    "category": "Coffees & Teas",
-    "pkg_size": "6.5oz Can",
-    "case_qty": "24",
-    "upc": "012000192395",
-    "full_name": "Starbucks Doubleshot Espresso Americano - 6.5oz Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Unsweetened",
-    "sku": "165839",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000173202",
-    "full_name": "Pure Leaf Unsweetened - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Vanilla",
-    "sku": "37096",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "12",
-    "upc": "012000101151",
-    "full_name": "Frappuccino Vanilla - 9.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Tripleshot Energy Zero Sugar Vanilla",
-    "sku": "195878",
-    "category": "Coffees & Teas",
-    "pkg_size": "15oz Can",
-    "case_qty": "12",
-    "upc": "012000203084",
-    "full_name": "Starbucks Tripleshot Energy Zero Sugar Vanilla - 15oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Caramel Flan",
-    "sku": "198930",
-    "category": "Coffees & Teas",
-    "pkg_size": "13.7oz Bottle",
-    "case_qty": "12",
-    "upc": "012000205965",
-    "full_name": "Frappuccino Caramel Flan - 13.7oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Zero Sugar Green Tea Citrus",
@@ -11597,17 +3627,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000205828",
     "full_name": "Lipton Zero Sugar Green Tea Citrus - 64oz Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Tea Sweet Tea",
-    "sku": "197747",
-    "category": "Coffees & Teas",
-    "pkg_size": "64oz Bottle",
-    "case_qty": "8",
-    "upc": "012000205866",
-    "full_name": "Lipton Iced Tea Sweet Tea - 64oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Iced Tea Peach",
@@ -11617,7 +3637,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000205842",
     "full_name": "Lipton Iced Tea Peach - 64oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Iced Green Tea Citrus",
@@ -11627,97 +3647,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "012000205804",
     "full_name": "Lipton Iced Green Tea Citrus - 64oz Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Tea Texas Sweet Tea",
-    "sku": "198143",
-    "category": "Coffees & Teas",
-    "pkg_size": "64oz Bottle",
-    "case_qty": "8",
-    "upc": "012000205866",
-    "full_name": "Lipton Iced Tea Texas Sweet Tea - 64oz Bottle (8ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Raspberry",
-    "sku": "200204",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000206818",
-    "full_name": "Pure Leaf Raspberry - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Yachak Organic Yerba Mate Ultimate Mint",
-    "sku": "201347",
-    "category": "Coffees & Teas",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000207860",
-    "full_name": "Yachak Organic Yerba Mate Ultimate Mint - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Yachak Organic Yerba Mate Berry Blue",
-    "sku": "201342",
-    "category": "Coffees & Teas",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000207846",
-    "full_name": "Yachak Organic Yerba Mate Berry Blue - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Yachak Organic Yerba Mate Passion Fruit",
-    "sku": "201352",
-    "category": "Coffees & Teas",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000207884",
-    "full_name": "Yachak Organic Yerba Mate Passion Fruit - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Yachak Organic Yerba Mate Blackberry",
-    "sku": "201354",
-    "category": "Coffees & Teas",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000207907",
-    "full_name": "Yachak Organic Yerba Mate Blackberry - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Extra Sweet Tea",
-    "sku": "200205",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "12",
-    "upc": "012000206825",
-    "full_name": "Pure Leaf Extra Sweet Tea - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Zero Sugar Green Tea Pineapple Mango",
-    "sku": "206683",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000213366",
-    "full_name": "Lipton Zero Sugar Green Tea Pineapple Mango - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Frappuccino Oat Milk Dark Chocolate Brownie",
-    "sku": "204240",
-    "category": "Coffees & Teas",
-    "pkg_size": "13.7oz Bottle",
-    "case_qty": "12",
-    "upc": "012000210822",
-    "full_name": "Starbucks Frappuccino Oat Milk Dark Chocolate Brownie - 13.7oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Frappucinno Oatmilk Caramel Waffle Cookie",
@@ -11727,37 +3657,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000210808",
     "full_name": "Starbucks Frappucinno Oatmilk Caramel Waffle Cookie - 13.7oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Nitro Cold Brew Pumpkin Cream LTO",
-    "sku": "208006",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.6oz Can",
-    "case_qty": "12",
-    "upc": "012000220104",
-    "full_name": "Starbucks Nitro Cold Brew Pumpkin Cream LTO - 9.6oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "KeVita Sparkling Ginger Colada",
-    "sku": "196734",
-    "category": "Coffees & Teas",
-    "pkg_size": "15.2oz Bottle",
-    "case_qty": "6",
-    "upc": "836093911059",
-    "full_name": "KeVita Sparkling Ginger Colada - 15.2oz Bottle (6ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Blood Orange",
-    "sku": "205847",
-    "category": "Coffees & Teas",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "098000100738",
-    "full_name": "Brisk Blood Orange - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Blood Orange",
@@ -11767,7 +3667,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "098000100738",
     "full_name": "Brisk Blood Orange - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Doubleshot Energy Coffee Caramel",
@@ -11777,27 +3677,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "012000221767",
     "full_name": "Starbucks Doubleshot Energy Coffee Caramel - 15oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Paradise Drink",
-    "sku": "320467",
-    "category": "Coffees & Teas",
-    "pkg_size": "14oz Bottle",
-    "case_qty": "12",
-    "upc": "098100100119",
-    "full_name": "Starbucks Paradise Drink - 14oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Frappuccino Caramel",
-    "sku": "320493",
-    "category": "Coffees & Teas",
-    "pkg_size": "6.5oz Can",
-    "case_qty": "12",
-    "upc": "098100100072",
-    "full_name": "Starbucks Frappuccino Caramel - 6.5oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Brisk Blueberry Pomegranate",
@@ -11807,7 +3687,7 @@ const PEPSI_ITEMS = [
     "case_qty": "15",
     "upc": "098000100127",
     "full_name": "Brisk Blueberry Pomegranate - 1l Bottle (15ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Tripleshot Energy Rich Vanilla 0g Added Sugar",
@@ -11817,7 +3697,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098100100430",
     "full_name": "Starbucks Tripleshot Energy Rich Vanilla 0g Added Sugar - 11oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Tripleshot Energy Bold Mocha 0g Added Sugar",
@@ -11827,37 +3707,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098100100409",
     "full_name": "Starbucks Tripleshot Energy Bold Mocha 0g Added Sugar - 11oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Tripleshot Energy Dark Caramel 0g Added Sugar",
-    "sku": "322749",
-    "category": "Coffees & Teas",
-    "pkg_size": "11oz Can",
-    "case_qty": "12",
-    "upc": "098100100454",
-    "full_name": "Starbucks Tripleshot Energy Dark Caramel 0g Added Sugar - 11oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Iced Tea Extra Sweet",
-    "sku": "170817",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "18",
-    "upc": "012000184475",
-    "full_name": "Pure Leaf Iced Tea Extra Sweet - 16.9oz Bottle (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Cold Brew Salted Caramel Cream",
-    "sku": "322501",
-    "category": "Coffees & Teas",
-    "pkg_size": "11oz Can",
-    "case_qty": "12",
-    "upc": "098100100348",
-    "full_name": "Starbucks Cold Brew Salted Caramel Cream - 11oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Cold Brew Vanilla Sweet Cream",
@@ -11867,7 +3717,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098100100300",
     "full_name": "Starbucks Cold Brew Vanilla Sweet Cream - 11oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Blackberry",
@@ -11877,27 +3727,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098000100639",
     "full_name": "Pure Leaf Blackberry - 16.9oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Cold Brew Chocolate Cream",
-    "sku": "322503",
-    "category": "Coffees & Teas",
-    "pkg_size": "11oz Can",
-    "case_qty": "12",
-    "upc": "098100100324",
-    "full_name": "Starbucks Cold Brew Chocolate Cream - 11oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Blackberry",
-    "sku": "323002",
-    "category": "Coffees & Teas",
-    "pkg_size": "18.5oz Bottle",
-    "case_qty": "12",
-    "upc": "098000100639",
-    "full_name": "Pure Leaf Blackberry - 18.5oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Zero Sugar Sweet",
@@ -11907,7 +3737,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098000100356",
     "full_name": "Pure Leaf Zero Sugar Sweet - 16.9oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Zero Sugar Sweet",
@@ -11917,7 +3747,7 @@ const PEPSI_ITEMS = [
     "case_qty": "8",
     "upc": "098000100356",
     "full_name": "Pure Leaf Zero Sugar Sweet - 64oz Bottle (8ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Zero Sugar Sweet",
@@ -11927,37 +3757,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098000100356",
     "full_name": "Pure Leaf Zero Sugar Sweet - 18.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Tripleshot Energy Dark Caramel 0g Added Sugar",
-    "sku": "322743",
-    "category": "Coffees & Teas",
-    "pkg_size": "11oz Can",
-    "case_qty": "12",
-    "upc": "098100100454",
-    "full_name": "Starbucks Tripleshot Energy Dark Caramel 0g Added Sugar - 11oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Tripleshot Bold Mocha 0g Added Sugar",
-    "sku": "322742",
-    "category": "Coffees & Teas",
-    "pkg_size": "11oz Can",
-    "case_qty": "12",
-    "upc": "098100100416",
-    "full_name": "Starbucks Tripleshot Bold Mocha 0g Added Sugar - 11oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Tripleshot Energy Rich Vanilla 0g Added Sugar",
-    "sku": "322746",
-    "category": "Coffees & Teas",
-    "pkg_size": "11oz Can",
-    "case_qty": "12",
-    "upc": "098100100430",
-    "full_name": "Starbucks Tripleshot Energy Rich Vanilla 0g Added Sugar - 11oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Iced Tea White Raspberry",
@@ -11967,97 +3767,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "012000023354",
     "full_name": "Lipton Iced Tea White Raspberry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Tea Georgia Peach",
-    "sku": "199911",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000023118",
-    "full_name": "Lipton Iced Tea Georgia Peach - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Zero Sugar Green Tea Mixed Berry",
-    "sku": "106551",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "012000029110",
-    "full_name": "Lipton Zero Sugar Green Tea Mixed Berry - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Pink Drink (Club Pack)",
-    "sku": "323295",
-    "category": "Coffees & Teas",
-    "pkg_size": "8oz Bottle",
-    "case_qty": "12",
-    "upc": "098100100560",
-    "full_name": "Starbucks Pink Drink (Club Pack) - 8oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Blueberry Pomegranate",
-    "sku": "320865",
-    "category": "Coffees & Teas",
-    "pkg_size": "1l Bottle",
-    "case_qty": "15",
-    "upc": "098000100127",
-    "full_name": "Brisk Blueberry Pomegranate - 1l Bottle (15ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Blackberry",
-    "sku": "323294",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "18",
-    "upc": "098000100639",
-    "full_name": "Pure Leaf Blackberry - 16.9oz Bottle (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Lemon",
-    "sku": "192533",
-    "category": "Coffees & Teas",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000190377",
-    "full_name": "Brisk Iced Tea Lemon - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Blood Orange",
-    "sku": "325281",
-    "category": "Coffees & Teas",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "098000100738",
-    "full_name": "Brisk Blood Orange - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Sweet Tea",
-    "sku": "325284",
-    "category": "Coffees & Teas",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "012000190421",
-    "full_name": "Brisk Sweet Tea - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Brisk Iced Tea Strawberry Melon",
-    "sku": "325283",
-    "category": "Coffees & Teas",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "098000100714",
-    "full_name": "Brisk Iced Tea Strawberry Melon - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Fusions Pineapple Mango Lemonade Tea",
@@ -12067,7 +3777,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098000100905",
     "full_name": "Lipton Fusions Pineapple Mango Lemonade Tea - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Fusions Strawberry Lemonade Tea",
@@ -12077,97 +3787,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098000100882",
     "full_name": "Lipton Fusions Strawberry Lemonade Tea - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Frappuccino Lite Creamy Vanilla Gelato",
-    "sku": "325315",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "12",
-    "upc": "098100100775",
-    "full_name": "Starbucks Frappuccino Lite Creamy Vanilla Gelato - 9.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Frappuccino Lite Sea Salt Caramel Gelato",
-    "sku": "325314",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "12",
-    "upc": "098100100812",
-    "full_name": "Starbucks Frappuccino Lite Sea Salt Caramel Gelato - 9.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Frappuccino Lite Double Chocolate Gelato",
-    "sku": "325317",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "12",
-    "upc": "098100100843",
-    "full_name": "Starbucks Frappuccino Lite Double Chocolate Gelato - 9.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Zero Sugar Sweet",
-    "sku": "323668",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "18",
-    "upc": "098000100660",
-    "full_name": "Pure Leaf Zero Sugar Sweet - 16.9oz Bottle (18ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Sweet Tea",
-    "sku": "326124",
-    "category": "Coffees & Teas",
-    "pkg_size": "1.2gal Bag In Box",
-    "case_qty": "1",
-    "upc": "098000100998",
-    "full_name": "Pure Leaf Sweet Tea - 1.2gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Unsweetened",
-    "sku": "326125",
-    "category": "Coffees & Teas",
-    "pkg_size": "1.2gal Bag In Box",
-    "case_qty": "1",
-    "upc": "098000101001",
-    "full_name": "Pure Leaf Unsweetened - 1.2gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Tea Sweet Tea",
-    "sku": "325684",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "098000100943",
-    "full_name": "Lipton Iced Tea Sweet Tea - 16.9oz Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Black Tea Bags",
-    "sku": "337589",
-    "category": "Coffees & Teas",
-    "pkg_size": "3oz Bag",
-    "case_qty": "32",
-    "upc": "000000000000",
-    "full_name": "Lipton Black Tea Bags - 3oz Bag (32ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Iced Green Tea Citrus",
-    "sku": "325683",
-    "category": "Coffees & Teas",
-    "pkg_size": "16.9oz Bottle",
-    "case_qty": "24",
-    "upc": "098000100929",
-    "full_name": "Lipton Iced Green Tea Citrus - 16.9oz Bottle (24ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Lipton Fusions Peach Passion Fruit",
@@ -12177,17 +3797,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098000101377",
     "full_name": "Lipton Fusions Peach Passion Fruit - 16oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Lipton Fusions Peach Passion Fruit",
-    "sku": "332626",
-    "category": "Coffees & Teas",
-    "pkg_size": "16oz Can",
-    "case_qty": "12",
-    "upc": "098000101377",
-    "full_name": "Lipton Fusions Peach Passion Fruit - 16oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Mental Focus Raspberry",
@@ -12197,27 +3807,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098000101391",
     "full_name": "Pure Leaf Mental Focus Raspberry - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Mental Focus Raspberry",
-    "sku": "335232",
-    "category": "Coffees & Teas",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "098000101391",
-    "full_name": "Pure Leaf Mental Focus Raspberry - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Pure Leaf Mental Focus Peach",
-    "sku": "335233",
-    "category": "Coffees & Teas",
-    "pkg_size": "12oz Can",
-    "case_qty": "12",
-    "upc": "098000101421",
-    "full_name": "Pure Leaf Mental Focus Peach - 12oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Pure Leaf Mental Focus Peach",
@@ -12227,27 +3817,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098000101421",
     "full_name": "Pure Leaf Mental Focus Peach - 12oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Coffee Protein Cafe Classic",
-    "sku": "335436",
-    "category": "Coffees & Teas",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "12",
-    "upc": "098100101444",
-    "full_name": "Starbucks Coffee Protein Cafe Classic - 12oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Starbucks Coffee Protein Cafe Mocha",
-    "sku": "335445",
-    "category": "Coffees & Teas",
-    "pkg_size": "12oz Bottle",
-    "case_qty": "12",
-    "upc": "098100101482",
-    "full_name": "Starbucks Coffee Protein Cafe Mocha - 12oz Bottle (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Doubleshot Energy Zero Sugar French Vanilla",
@@ -12257,7 +3827,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098100101291",
     "full_name": "Starbucks Doubleshot Energy Zero Sugar French Vanilla - 15oz Can (12ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Starbucks Doubleshot Energy Zero Sugar Dark Chocolate",
@@ -12267,157 +3837,7 @@ const PEPSI_ITEMS = [
     "case_qty": "12",
     "upc": "098100101277",
     "full_name": "Starbucks Doubleshot Energy Zero Sugar Dark Chocolate - 15oz Can (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Frappuccino Lite Chocolate Hazelnut Gelato",
-    "sku": "331251",
-    "category": "Coffees & Teas",
-    "pkg_size": "9.5oz Bottle",
-    "case_qty": "12",
-    "upc": "098100101314",
-    "full_name": "Frappuccino Lite Chocolate Hazelnut Gelato - 9.5oz Bottle (12ct)",
-    "verified": false
-  },
-  {
-    "name": "Cool Attitudes Sour Flavor Shot",
-    "sku": "61821",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "782269103035",
-    "full_name": "Cool Attitudes Sour Flavor Shot - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Siberian Chill Cherry",
-    "sku": "134375",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "850233004012",
-    "full_name": "Siberian Chill Cherry - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Siberian Chill Blu Raz",
-    "sku": "134374",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "850233004005",
-    "full_name": "Siberian Chill Blu Raz - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Cool Attitudes Margarita",
-    "sku": "152045",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "782269205531",
-    "full_name": "Cool Attitudes Margarita - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Frozen Carbonated Beverage",
-    "sku": "6151",
-    "category": "Specialty Beverages",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000163920",
-    "full_name": "Pepsi Frozen Carbonated Beverage - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Frozen Carbonated Beverage",
-    "sku": "6153",
-    "category": "Specialty Beverages",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000011313",
-    "full_name": "Mountain Dew Frozen Carbonated Beverage - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Mountain Dew Frozen Carbonated Beverage",
-    "sku": "33071",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000011313",
-    "full_name": "Mountain Dew Frozen Carbonated Beverage - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Dr Pepper Frozen Carbonated Beverage",
-    "sku": "37955",
-    "category": "Specialty Beverages",
-    "pkg_size": "5gal Bag In Box",
-    "case_qty": "1",
-    "upc": "054900800055",
-    "full_name": "Dr Pepper Frozen Carbonated Beverage - 5gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Siberian Chill Strawberry Kiwi",
-    "sku": "134376",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "850233004074",
-    "full_name": "Siberian Chill Strawberry Kiwi - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Siberian Chill Orange Cream",
-    "sku": "134377",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "850233004043",
-    "full_name": "Siberian Chill Orange Cream - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Stubborn Soda Classic Root Beer (Fountain)",
-    "sku": "152152",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000150692",
-    "full_name": "Stubborn Soda Classic Root Beer (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Stubborn Soda Agave Vanilla Cream (Fountain)",
-    "sku": "152148",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000150685",
-    "full_name": "Stubborn Soda Agave Vanilla Cream (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Stubborn Soda Black Cherry Tarragon (Fountain)",
-    "sku": "152153",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000150630",
-    "full_name": "Stubborn Soda Black Cherry Tarragon (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Stubborn Soda Pineapple Cream (Fountain)",
-    "sku": "155897",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000151149",
-    "full_name": "Stubborn Soda Pineapple Cream (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Bundaberg Ginger Beer",
@@ -12427,37 +3847,7 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "079373000641",
     "full_name": "Bundaberg Ginger Beer - 375ml Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Bundaberg Root Beer",
-    "sku": "162475",
-    "category": "Specialty Beverages",
-    "pkg_size": "375ml Bottle",
-    "case_qty": "24",
-    "upc": "079373000221",
-    "full_name": "Bundaberg Root Beer - 375ml Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Fruit Works Blue Raspberry Frozen Carbonated Beverage",
-    "sku": "68581",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000105456",
-    "full_name": "Fruit Works Blue Raspberry Frozen Carbonated Beverage - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Pepsi Frozen Carbonated Beverage",
-    "sku": "161374",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000163920",
-    "full_name": "Pepsi Frozen Carbonated Beverage - 3gal Bag In Box (1ct)",
-    "verified": false
+    "verified": true
   },
   {
     "name": "Bundaberg Diet Ginger Beer",
@@ -12467,106 +3857,6 @@ const PEPSI_ITEMS = [
     "case_qty": "24",
     "upc": "079373000290",
     "full_name": "Bundaberg Diet Ginger Beer - 375ml Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Bundaberg Blood Orange",
-    "sku": "166043",
-    "category": "Specialty Beverages",
-    "pkg_size": "375ml Bottle",
-    "case_qty": "24",
-    "upc": "079373000351",
-    "full_name": "Bundaberg Blood Orange - 375ml Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Bundaberg Guava",
-    "sku": "166041",
-    "category": "Specialty Beverages",
-    "pkg_size": "375ml Bottle",
-    "case_qty": "24",
-    "upc": "079373000382",
-    "full_name": "Bundaberg Guava - 375ml Bottle (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Siberian Chill Dragons Blood",
-    "sku": "163818",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "850233004067",
-    "full_name": "Siberian Chill Dragons Blood - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Stubborn Soda Draft Cola (Fountain)",
-    "sku": "166838",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000173967",
-    "full_name": "Stubborn Soda Draft Cola (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Stubborn Soda Draft Cola Zero Sugar (Fountain)",
-    "sku": "166839",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "012000173974",
-    "full_name": "Stubborn Soda Draft Cola Zero Sugar (Fountain) - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Cool Attitudes Ginger Beer",
-    "sku": "170209",
-    "category": "Specialty Beverages",
-    "pkg_size": "2gal Bag In Box",
-    "case_qty": "1",
-    "upc": "782269303220",
-    "full_name": "Cool Attitudes Ginger Beer - 2gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Citrus Springs 100% Apple Juice",
-    "sku": "126225",
-    "category": "Specialty Beverages",
-    "pkg_size": "3gal Bag In Box",
-    "case_qty": "1",
-    "upc": "782269101932",
-    "full_name": "Citrus Springs 100% Apple Juice - 3gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Bundaberg Ginger Beer",
-    "sku": "171376",
-    "category": "Specialty Beverages",
-    "pkg_size": "200ml Can",
-    "case_qty": "24",
-    "upc": "079373000641",
-    "full_name": "Bundaberg Ginger Beer - 200ml Can (24ct)",
-    "verified": false
-  },
-  {
-    "name": "Citrus Springs Cranberry Juice",
-    "sku": "206892",
-    "category": "Specialty Beverages",
-    "pkg_size": "2gal Bag In Box",
-    "case_qty": "1",
-    "upc": "782269109020",
-    "full_name": "Citrus Springs Cranberry Juice - 2gal Bag In Box (1ct)",
-    "verified": false
-  },
-  {
-    "name": "Citrus Springs 100% Orange Juice",
-    "sku": "206891",
-    "category": "Specialty Beverages",
-    "pkg_size": "2gal Bag In Box",
-    "case_qty": "1",
-    "upc": "782269100324",
-    "full_name": "Citrus Springs 100% Orange Juice - 2gal Bag In Box (1ct)",
-    "verified": false
+    "verified": true
   }
 ];
