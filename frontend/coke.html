@@ -1,497 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<title>Coke Order Scanner</title>
-<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-<script src="coke_scan_data.js"></script>
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --bg: #1a1a2e; --card: #16213e; --accent: #e94560; --green: #00b894; --text: #f0f0f0; --muted: #a0a0b0; --blue: #0984e3; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding-bottom: 70px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Coke Scan-to-Order</title>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#004B93">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #333; }
 
-.header { background: var(--card); padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2a3a5e; position: sticky; top: 0; z-index: 100; }
-.header h1 { font-size: 17px; }
-.header .cart-badge { background: var(--accent); color: #fff; border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+        .header { background: linear-gradient(135deg, #004B93, #0066CC); color: white; padding: 12px 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .header h1 { font-size: 20px; font-weight: 700; }
+        .header .subtitle { font-size: 12px; opacity: 0.8; }
 
-.tabs { display: flex; background: var(--card); border-bottom: 1px solid #2a3a5e; }
-.tab { flex: 1; padding: 12px; text-align: center; font-size: 13px; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
-.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .tabs { display: flex; background: #003670; }
+        .tab { flex: 1; padding: 10px; text-align: center; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 13px; font-weight: 600; border-bottom: 3px solid transparent; transition: all 0.2s; }
+        .tab.active { color: white; border-bottom-color: #FFD100; background: rgba(255,255,255,0.1); }
 
-.page { display: none; padding: 16px; }
-.page.active { display: block; }
+        .search-bar { padding: 12px 16px; background: white; border-bottom: 1px solid #ddd; position: sticky; top: 56px; z-index: 99; }
+        .search-bar input { width: 100%; padding: 10px 14px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; transition: border-color 0.2s; }
+        .search-bar input:focus { border-color: #004B93; }
 
-/* Scan page */
-#scanner-box { width: 100%; max-width: 500px; margin: 0 auto; display: none; border-radius: 8px; overflow: hidden; min-height: 300px; }
-.scan-btn { background: var(--blue); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; cursor: pointer; width: 100%; margin-bottom: 12px; }
-.scan-btn.active { background: var(--accent); }
-.input-row { display: flex; gap: 8px; margin-bottom: 12px; }
-.input-row input { flex: 1; background: var(--card); border: 1px solid #2a3a5e; color: var(--text); padding: 10px 12px; border-radius: 8px; font-size: 14px; }
-.input-row button { background: var(--blue); color: #fff; border: none; padding: 10px 16px; border-radius: 8px; font-size: 14px; cursor: pointer; white-space: nowrap; }
+        .filter-row { padding: 8px 16px; background: #f8f9fa; display: flex; gap: 8px; overflow-x: auto; border-bottom: 1px solid #eee; }
+        .filter-btn { padding: 6px 14px; border-radius: 20px; border: 1px solid #ccc; background: white; font-size: 12px; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+        .filter-btn.active { background: #004B93; color: white; border-color: #004B93; }
 
-/* Item card */
-.item-card { background: var(--card); border-radius: 10px; padding: 14px; margin-bottom: 12px; border: 1px solid #2a3a5e; }
-.item-card.found { border-color: var(--green); }
-.item-card.not-found { border-color: var(--accent); }
-.item-header { display: flex; gap: 12px; align-items: center; }
-.item-img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; background: #0f1629; }
-.item-info { flex: 1; }
-.item-name { font-size: 14px; font-weight: 600; }
-.item-detail { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.item-price { font-size: 12px; color: var(--green); margin-top: 2px; }
+        .product-list { padding: 8px; }
+        .product-card { background: white; border-radius: 10px; padding: 14px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+        .product-card .img-wrap { width: 50px; height: 50px; border-radius: 8px; overflow: hidden; background: #f5f5f5; flex-shrink: 0; }
+        .product-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .product-card .info { flex: 1; min-width: 150px; }
+        .product-card .name { font-weight: 600; font-size: 15px; color: #1a1a1a; }
+        .product-card .details { font-size: 12px; color: #666; margin-top: 3px; }
+        .product-card .price { font-size: 12px; color: #137333; margin-top: 2px; font-weight: 600; }
+        .product-card .sku-badge { background: #e8f0fe; color: #004B93; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        .product-card .upc-badge { background: #e6f4ea; color: #137333; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 4px; }
+        .product-card .no-sku { background: #fff3e0; color: #e65100; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 4px; }
 
-.qty-row { display: flex; gap: 8px; margin-top: 10px; align-items: center; }
-.qty-row label { font-size: 12px; color: var(--muted); min-width: 70px; }
-.qty-row input { width: 60px; background: #0f1629; border: 1px solid #2a3a5e; color: var(--text); padding: 6px 8px; border-radius: 6px; font-size: 14px; text-align: center; }
-.qty-row .need { color: var(--accent); font-weight: 600; font-size: 14px; min-width: 30px; }
-.add-btn { background: var(--green); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; cursor: pointer; margin-left: auto; }
-.add-btn:disabled { background: #555; cursor: not-allowed; }
+        .controls-row { width: 100%; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
+        .controls-row label { font-size: 11px; color: #666; }
+        .qty-input { width: 45px; text-align: center; border: 1px solid #ddd; border-radius: 6px; padding: 4px; font-size: 14px; }
+        .need-val { font-weight: 700; color: #c5221f; min-width: 16px; }
+        .add-btn { background: #004B93; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .add-btn:active { background: #003670; }
 
-/* Order list */
-.order-item { background: var(--card); border-radius: 8px; padding: 12px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #2a3a5e; }
-.order-item .info { flex: 1; }
-.order-item .name { font-size: 13px; font-weight: 600; }
-.order-item .sub { font-size: 11px; color: var(--muted); }
-.order-item .qty-cases { font-size: 16px; font-weight: 700; color: var(--blue); min-width: 50px; text-align: center; }
-.order-item .remove { background: none; border: none; color: var(--accent); font-size: 18px; cursor: pointer; padding: 4px 8px; }
+        .qty-controls { display: flex; align-items: center; gap: 6px; }
+        .qty-btn { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #004B93; background: white; color: #004B93; font-size: 18px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .qty-btn:active { background: #004B93; color: white; }
 
-.summary-bar { background: var(--card); padding: 12px 16px; border-radius: 8px; margin-bottom: 12px; display: flex; justify-content: space-around; text-align: center; }
-.summary-bar .stat-val { font-size: 20px; font-weight: 700; color: var(--blue); }
-.summary-bar .stat-lbl { font-size: 11px; color: var(--muted); }
+        .order-panel { padding: 8px; }
+        .order-item { background: white; border-radius: 10px; padding: 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .order-item .info { flex: 1; }
+        .order-item .remove-btn { color: #c5221f; background: none; border: none; font-size: 20px; cursor: pointer; padding: 4px 8px; }
 
-.action-btn { width: 100%; padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; margin-bottom: 8px; }
-.action-btn.primary { background: var(--green); color: #fff; }
-.action-btn.secondary { background: var(--blue); color: #fff; }
-.action-btn.danger { background: var(--accent); color: #fff; }
+        .order-summary { background: white; padding: 16px; border-top: 2px solid #004B93; position: sticky; bottom: 0; }
+        .order-summary .total { font-size: 18px; font-weight: 700; color: #004B93; }
+        .export-btn { width: 100%; padding: 14px; background: #004B93; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 10px; }
+        .export-btn:active { background: #003670; }
+        .upload-btn { width: 100%; padding: 14px; background: #1565C0; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 8px; }
 
-/* Browse page */
-.search-input { width: 100%; background: var(--card); border: 1px solid #2a3a5e; color: var(--text); padding: 10px 12px; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
-.browse-item { background: var(--card); border-radius: 8px; padding: 10px 12px; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; cursor: pointer; border: 1px solid #2a3a5e; }
-.browse-item:active { border-color: var(--blue); }
-.browse-item img { width: 40px; height: 40px; border-radius: 6px; object-fit: cover; }
-.browse-item .bname { font-size: 13px; flex: 1; }
-.browse-item .bupc { font-size: 11px; color: var(--muted); }
+        .empty-state { text-align: center; padding: 40px 20px; color: #999; }
+        .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
 
-.empty { text-align: center; padding: 40px 20px; color: var(--muted); }
+        .scan-section { padding: 16px; }
+        .scan-input { width: 100%; padding: 14px; border: 2px dashed #004B93; border-radius: 10px; font-size: 18px; text-align: center; outline: none; background: #f0f6ff; }
+        .scan-result { margin-top: 12px; }
 
-/* Bottom nav */
-.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; display: flex; background: var(--card); border-top: 1px solid #2a3a5e; z-index: 100; }
-</style>
+        #scanner-box { width: 100%; max-width: 500px; margin: 0 auto 12px; display: none; border-radius: 10px; overflow: hidden; min-height: 350px; }
+        .scanner-btn { width: 100%; padding: 12px; background: #004B93; color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; margin-bottom: 12px; }
+        .scanner-btn.active { background: #333; }
+
+        .count-badge { background: #FFD100; color: #333; border-radius: 12px; padding: 2px 8px; font-size: 12px; font-weight: 700; margin-left: 6px; }
+
+        .hidden { display: none !important; }
+
+        @media (min-width: 768px) {
+            body { max-width: 600px; margin: 0 auto; }
+        }
+    </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Coke Scan-to-Order</h1>
+        <div class="subtitle">myCoke Portal | Scan & Build Orders</div>
+    </div>
 
-<div class="header">
-  <h1>Coke Order</h1>
-  <span class="cart-badge" id="cartBadge">0</span>
-</div>
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('scan')">Scan</div>
+        <div class="tab" onclick="showTab('catalog')">Catalog</div>
+        <div class="tab" onclick="showTab('order')">Order <span id="orderCount" class="count-badge hidden">0</span></div>
+    </div>
 
-<div class="tabs">
-  <div class="tab active" data-page="scan">Scan</div>
-  <div class="tab" data-page="order">Order</div>
-  <div class="tab" data-page="browse">Browse</div>
-</div>
-
-<!-- SCAN PAGE -->
-<div class="page active" id="page-scan">
-  <button class="scan-btn" id="scanToggle" onclick="toggleScanner()">Open Scanner</button>
-  <div id="scanner-box"></div>
-
-  <div class="input-row">
-    <input type="text" id="upcInput" placeholder="Enter or scan UPC" inputmode="numeric">
-    <button onclick="lookupUpc()">Look Up</button>
-  </div>
-  <div class="input-row">
-    <input type="text" id="nameInput" placeholder="Search by name">
-    <button onclick="searchName()">Search</button>
-  </div>
-
-  <div id="scanResult"></div>
-  <div id="searchResults"></div>
-</div>
-
-<!-- ORDER PAGE -->
-<div class="page" id="page-order">
-  <div class="summary-bar" id="orderSummary">
-    <div><div class="stat-val" id="totalItems">0</div><div class="stat-lbl">Items</div></div>
-    <div><div class="stat-val" id="totalCases">0</div><div class="stat-lbl">Cases</div></div>
-    <div><div class="stat-val" id="totalCost">$0</div><div class="stat-lbl">Est. Cost</div></div>
-  </div>
-  <div id="orderList"></div>
-  <div id="orderActions" style="display:none;">
-    <button class="action-btn primary" onclick="exportOrder()">Export Order CSV</button>
-    <button class="action-btn secondary" onclick="uploadOrder()">Upload to myCoke Cart</button>
-    <button class="action-btn danger" onclick="clearOrder()">Clear Order</button>
-  </div>
-</div>
-
-<!-- BROWSE PAGE -->
-<div class="page" id="page-browse">
-  <input type="text" class="search-input" id="browseSearch" placeholder="Filter items..." oninput="filterBrowse()">
-  <div id="browseList"></div>
-</div>
-
-<script>
-// --- Data ---
-// Build UPC lookup (sellable UPC -> item)
-const upcLookup = {};
-const upcLookupNoCheck = {};
-COKE_ITEMS.forEach(item => {
-  // Index by sellable_upc
-  if (item.sellable_upc) {
-    upcLookup[item.sellable_upc] = item;
-    const stripped = item.sellable_upc.replace(/^0+/, '');
-    upcLookupNoCheck[stripped] = item;
-    if (item.sellable_upc.length >= 12) {
-      upcLookup[item.sellable_upc.slice(0, -1)] = item;
-    }
-    if (item.sellable_upc.length >= 11) {
-      upcLookup[item.sellable_upc.slice(0, 11)] = item;
-    }
-  }
-  // Also index by coke_upc (case/pack UPC)
-  if (item.coke_upc && !upcLookup[item.coke_upc]) {
-    upcLookup[item.coke_upc] = item;
-    const stripped = item.coke_upc.replace(/^0+/, '');
-    upcLookupNoCheck[stripped] = item;
-    if (item.coke_upc.length >= 12) {
-      upcLookup[item.coke_upc.slice(0, -1)] = item;
-    }
-  }
-});
-
-// Order state
-let order = JSON.parse(localStorage.getItem('coke_order_v2') || '{}');
-
-// --- Tab Navigation ---
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById('page-' + tab.dataset.page).classList.add('active');
-    if (tab.dataset.page === 'order') renderOrder();
-    if (tab.dataset.page === 'browse') renderBrowse();
-    if (tab.dataset.page !== 'scan') stopScanner();
-  });
-});
-
-// --- Scanner ---
-let scanner = null;
-let scanning = false;
-
-function toggleScanner() {
-  if (scanning) { stopScanner(); return; }
-  document.getElementById('scanner-box').style.display = 'block';
-  document.getElementById('scanToggle').textContent = 'Close Scanner';
-  document.getElementById('scanToggle').classList.add('active');
-
-  scanner = new Html5Qrcode("scanner-box");
-  scanner.start(
-    { facingMode: "environment" },
-    { fps: 15, qrbox: { width: 300, height: 150 },
-      aspectRatio: 1.0,
-      formatsToSupport: [
-        Html5QrcodeSupportedFormats.UPC_A, Html5QrcodeSupportedFormats.UPC_E,
-        Html5QrcodeSupportedFormats.EAN_13, Html5QrcodeSupportedFormats.EAN_8,
-        Html5QrcodeSupportedFormats.CODE_128, Html5QrcodeSupportedFormats.CODE_39
-      ]
-    },
-    (code) => {
-      const now = Date.now();
-      if (code === scanner._lastCode && now - (scanner._lastTime || 0) < 3000) return;
-      scanner._lastCode = code;
-      scanner._lastTime = now;
-      document.getElementById('upcInput').value = code;
-      lookupUpc();
-    },
-    () => {}
-  ).then(() => { scanning = true; }).catch(err => {
-    document.getElementById('scanner-box').innerHTML = '<div style="padding:20px;text-align:center;color:var(--muted)">Camera not available</div>';
-  });
-}
-
-function stopScanner() {
-  if (scanner && scanning) try { scanner.stop(); } catch(e) {}
-  scanning = false;
-  document.getElementById('scanner-box').style.display = 'none';
-  document.getElementById('scanToggle').textContent = 'Open Scanner';
-  document.getElementById('scanToggle').classList.remove('active');
-}
-
-// --- UPC Lookup ---
-function findItem(upc) {
-  upc = upc.trim();
-  // Try exact match
-  if (upcLookup[upc]) return upcLookup[upc];
-  // Try padding to various lengths
-  for (let len of [8, 11, 12, 13, 14]) {
-    const padded = upc.padStart(len, '0');
-    if (upcLookup[padded]) return upcLookup[padded];
-  }
-  // Try stripped
-  const stripped = upc.replace(/^0+/, '');
-  if (upcLookupNoCheck[stripped]) return upcLookupNoCheck[stripped];
-  // Try without check digit
-  if (upc.length > 1) {
-    const noCheck = upc.slice(0, -1);
-    if (upcLookup[noCheck]) return upcLookup[noCheck];
-    const noCheckPad = noCheck.padStart(11, '0');
-    if (upcLookup[noCheckPad]) return upcLookup[noCheckPad];
-  }
-  return null;
-}
-
-function lookupUpc() {
-  const upc = document.getElementById('upcInput').value.trim();
-  if (!upc) return;
-  document.getElementById('searchResults').innerHTML = '';
-
-  const item = findItem(upc);
-  const div = document.getElementById('scanResult');
-
-  if (!item) {
-    div.innerHTML = `<div class="item-card not-found"><div class="item-name">Not Found</div><div class="item-detail">UPC: ${upc}</div><div class="item-detail" style="margin-top:8px">This UPC is not in the Coke product list.</div></div>`;
-    return;
-  }
-
-  renderItemCard(item, div);
-}
-
-function renderItemCard(item, container) {
-  const existingQty = order[item.sellable_upc] ? order[item.sellable_upc].order_cases : 0;
-  const imgSrc = item.image || `https://cir-api.c1nacloud.com/material/${item.coke_sku}?format=webp&direction=A1N1&unit=EA`;
-  const hasImg = item.image || item.coke_sku;
-
-  container.innerHTML = `
-    <div class="item-card found">
-      <div class="item-header">
-        ${hasImg ? `<img class="item-img" src="${imgSrc}" onerror="this.style.display='none'">` : ''}
-        <div class="item-info">
-          <div class="item-name">${item.name}</div>
-          <div class="item-detail">UPC: ${item.sellable_upc} ${item.coke_sku ? '| SKU: ' + item.coke_sku : ''}</div>
-          <div class="item-detail">${item.count_per_pack || ''} per case | ${item.oz}</div>
-          <div class="item-price">$${(item.case_cost || 0).toFixed(2)}/case | $${(item.per_item_cost || 0).toFixed(2)}/ea${item.retail_price ? ' | Retail $' + item.retail_price.toFixed(2) : ''}</div>
+    <!-- SCAN TAB -->
+    <div id="scanTab">
+        <div class="scan-section">
+            <button class="scanner-btn" id="scannerToggle" onclick="toggleScanner()">Open Barcode Scanner</button>
+            <div id="scanner-box"></div>
+            <input type="text" id="scanInput" class="scan-input" placeholder="Enter UPC or SKU..." inputmode="numeric">
+            <div id="scanResult" class="scan-result"></div>
         </div>
-      </div>
-      <div class="qty-row">
-        <label>On Hand:</label>
-        <input type="number" id="onHand" min="0" value="0" onchange="calcNeed()">
-        <label>Par:</label>
-        <input type="number" id="parLevel" min="0" value="${item.count_per_pack || 24}" onchange="calcNeed()">
-        <label>Need:</label>
-        <span class="need" id="needQty">0</span>
-      </div>
-      <div class="qty-row">
-        <label>Order Cases:</label>
-        <input type="number" id="orderCases" min="0" value="${existingQty}" style="width:80px;">
-        <button class="add-btn" onclick="addToOrder('${item.sellable_upc}')">
-          ${existingQty > 0 ? 'Update' : 'Add to Order'}
-        </button>
-      </div>
-      ${!item.coke_sku ? '<div class="item-detail" style="color:var(--accent);margin-top:8px;">No myCoke SKU mapped — manual order needed</div>' : ''}
-    </div>`;
-}
+        <div class="search-bar">
+            <input type="text" id="scanSearch" placeholder="Or search by product name..." oninput="searchScan(this.value)">
+        </div>
+        <div id="scanResults" class="product-list"></div>
+    </div>
 
-function calcNeed() {
-  const onHand = parseInt(document.getElementById('onHand').value) || 0;
-  const par = parseInt(document.getElementById('parLevel').value) || 0;
-  const need = Math.max(0, par - onHand);
-  document.getElementById('needQty').textContent = need;
-}
+    <!-- CATALOG TAB -->
+    <div id="catalogTab" class="hidden">
+        <div class="search-bar">
+            <input type="text" id="catalogSearch" placeholder="Search all 1,121 products..." oninput="searchCatalog(this.value)">
+        </div>
+        <div class="filter-row" id="filterRow"></div>
+        <div id="catalogList" class="product-list"></div>
+    </div>
 
-function addToOrder(upc) {
-  const item = findItem(upc);
-  if (!item) return;
+    <!-- ORDER TAB -->
+    <div id="orderTab" class="hidden">
+        <div id="orderList" class="order-panel"></div>
+        <div id="orderSummary" class="order-summary hidden">
+            <div class="total">Total: <span id="totalCases">0</span> cases | Est. $<span id="totalCost">0</span></div>
+            <button class="export-btn" onclick="exportOrder()">Export CSV</button>
+            <button class="upload-btn" onclick="uploadOrder()">Upload to myCoke Cart</button>
+        </div>
+    </div>
 
-  const cases = parseInt(document.getElementById('orderCases').value) || 0;
-  const onHand = parseInt(document.getElementById('onHand').value) || 0;
+    <script src="/coke_scan_data.js"></script>
+    <script src="/coke_data.js"></script>
+    <script>
+    // --- Barcode Scanner ---
+    let scanner = null;
+    let scanning = false;
 
-  if (cases <= 0) {
-    // Remove from order
-    delete order[upc];
-  } else {
-    order[upc] = {
-      name: item.name,
-      sellable_upc: item.sellable_upc,
-      coke_sku: item.coke_sku,
-      coke_name: item.coke_name,
-      count_per_pack: item.count_per_pack,
-      case_cost: item.case_cost,
-      per_item_cost: item.per_item_cost,
-      order_cases: cases,
-      on_hand: onHand,
-      image: item.image,
-    };
-  }
+    function toggleScanner() {
+        if (scanning) { stopScanner(); return; }
+        document.getElementById('scanner-box').style.display = 'block';
+        document.getElementById('scannerToggle').textContent = 'Close Scanner';
+        document.getElementById('scannerToggle').classList.add('active');
 
-  saveOrder();
-  updateBadge();
+        scanner = new Html5Qrcode("scanner-box");
+        const boxWidth = Math.min(window.innerWidth - 60, 350);
+        scanner.start(
+            { facingMode: "environment" },
+            { fps: 20, qrbox: { width: boxWidth, height: Math.floor(boxWidth * 0.4) },
+              aspectRatio: 1.0,
+              formatsToSupport: [
+                Html5QrcodeSupportedFormats.UPC_A, Html5QrcodeSupportedFormats.UPC_E,
+                Html5QrcodeSupportedFormats.EAN_13, Html5QrcodeSupportedFormats.EAN_8,
+                Html5QrcodeSupportedFormats.CODE_128, Html5QrcodeSupportedFormats.CODE_39,
+                Html5QrcodeSupportedFormats.ITF
+              ]
+            },
+            (code) => {
+                const now = Date.now();
+                if (code === scanner._lastCode && now - (scanner._lastTime || 0) < 3000) return;
+                scanner._lastCode = code;
+                scanner._lastTime = now;
+                document.getElementById('scanInput').value = code;
+                handleScan(code);
+            },
+            () => {}
+        ).then(() => { scanning = true; }).catch(err => {
+            document.getElementById('scanner-box').innerHTML = '<div style="padding:20px;text-align:center;color:#c5221f;">Camera error: ' + err + '<br><br>Make sure you allow camera access and are using HTTPS.</div>';
+        });
+    }
 
-  // Feedback
-  const btn = document.querySelector('.add-btn');
-  if (btn) {
-    const orig = btn.textContent;
-    btn.textContent = cases > 0 ? 'Added!' : 'Removed';
-    btn.style.background = cases > 0 ? 'var(--green)' : 'var(--accent)';
-    setTimeout(() => { btn.textContent = cases > 0 ? 'Update' : 'Add to Order'; btn.style.background = 'var(--green)'; }, 1000);
-  }
+    function stopScanner() {
+        if (scanner && scanning) try { scanner.stop(); } catch(e) {}
+        scanning = false;
+        document.getElementById('scanner-box').style.display = 'none';
+        document.getElementById('scannerToggle').textContent = 'Open Barcode Scanner';
+        document.getElementById('scannerToggle').classList.remove('active');
+    }
 
-  // Clear input for next scan
-  document.getElementById('upcInput').value = '';
-}
+    // --- Build UPC lookup from scan items ---
+    const upcLookup = {};
+    COKE_ITEMS.forEach(item => {
+        if (item.sellable_upc) {
+            upcLookup[item.sellable_upc] = item;
+            upcLookup[item.sellable_upc.replace(/^0+/, '')] = item;
+            if (item.sellable_upc.length >= 12) upcLookup[item.sellable_upc.slice(0, -1)] = item;
+            if (item.sellable_upc.length >= 11) upcLookup[item.sellable_upc.slice(0, 11)] = item;
+        }
+    });
 
-// --- Name Search ---
-function searchName() {
-  const q = document.getElementById('nameInput').value.trim().toLowerCase();
-  if (!q) return;
-  document.getElementById('scanResult').innerHTML = '';
+    // --- Build catalog with categories ---
+    function inferCategory(name) {
+        const n = name.toLowerCase();
+        if (/coca.cola|coke|diet coke/.test(n)) return 'Coca-Cola';
+        if (/sprite/.test(n)) return 'Sprite';
+        if (/fanta|crimson/.test(n)) return 'Fanta';
+        if (/dr[.\s]*pepper|pibb/.test(n)) return 'Dr Pepper';
+        if (/monster|reign|nos|java monster/.test(n)) return 'Energy';
+        if (/powerade/.test(n)) return 'Powerade';
+        if (/dasani|smartwater|topo chico|aha/.test(n)) return 'Water';
+        if (/minute maid|simply|hi-c|fairlife|fuze|honest/.test(n)) return 'Juice & Tea';
+        if (/gold peak|peace tea|dunkin/.test(n)) return 'Coffee & Tea';
+        if (/bodyarmor|body armor/.test(n)) return 'BodyArmor';
+        if (/mello yello|sun drop|fresca|barq/.test(n)) return 'Other Soda';
+        if (/vitamin/.test(n)) return 'VitaminWater';
+        return 'Other';
+    }
 
-  const matches = COKE_ITEMS.filter(item =>
-    item.name.toLowerCase().includes(q)
-  ).slice(0, 20);
+    // Build full catalog items list from COKE_PRODUCTS (1,121 items)
+    const CATALOG_ITEMS = (typeof COKE_PRODUCTS !== 'undefined' ? COKE_PRODUCTS : []).map(p => ({
+        ...p,
+        category: inferCategory(p.name),
+    }));
 
-  const div = document.getElementById('searchResults');
-  if (matches.length === 0) {
-    div.innerHTML = '<div class="empty">No matches</div>';
-    return;
-  }
+    // Also tag scan items with categories
+    COKE_ITEMS.forEach(item => {
+        item.category = inferCategory(item.coke_name || item.name);
+    });
 
-  div.innerHTML = matches.map(item => {
-    const imgSrc = item.image || (item.coke_sku ? `https://cir-api.c1nacloud.com/material/${item.coke_sku}?format=webp&direction=A1N1&unit=EA` : '');
-    return `<div class="browse-item" onclick="selectItem('${item.sellable_upc}')">
-      ${imgSrc ? `<img src="${imgSrc}" onerror="this.style.display='none'">` : ''}
-      <div class="bname">${item.name}<br><span class="bupc">${item.count_per_pack || ''} | $${(item.case_cost || 0).toFixed(2)}/case</span></div>
-      <div class="bupc">${item.sellable_upc || 'No UPC'}</div>
-    </div>`;
-  }).join('');
-}
+    const categories = ['All', ...new Set(CATALOG_ITEMS.map(i => i.category)).values()].sort((a, b) => {
+        if (a === 'All') return -1;
+        if (b === 'All') return 1;
+        return a.localeCompare(b);
+    });
 
-document.getElementById('nameInput').addEventListener('keyup', e => { if (e.key === 'Enter') searchName(); });
-document.getElementById('upcInput').addEventListener('keyup', e => { if (e.key === 'Enter') lookupUpc(); });
+    // --- State ---
+    let order = JSON.parse(localStorage.getItem('coke_order_v3') || '[]');
+    let activeCategory = 'All';
 
-function selectItem(upc) {
-  if (!upc) return;
-  document.getElementById('upcInput').value = upc;
-  document.getElementById('searchResults').innerHTML = '';
-  lookupUpc();
-}
+    // --- Tab Navigation ---
+    function showTab(tab) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('scanTab').classList.add('hidden');
+        document.getElementById('catalogTab').classList.add('hidden');
+        document.getElementById('orderTab').classList.add('hidden');
+        if (tab !== 'scan') stopScanner();
 
-// --- Order Management ---
-function saveOrder() { localStorage.setItem('coke_order_v2', JSON.stringify(order)); }
-function updateBadge() { document.getElementById('cartBadge').textContent = Object.keys(order).length; }
+        if (tab === 'scan') {
+            document.querySelectorAll('.tab')[0].classList.add('active');
+            document.getElementById('scanTab').classList.remove('hidden');
+            document.getElementById('scanInput').focus();
+        } else if (tab === 'catalog') {
+            document.querySelectorAll('.tab')[1].classList.add('active');
+            document.getElementById('catalogTab').classList.remove('hidden');
+        } else {
+            document.querySelectorAll('.tab')[2].classList.add('active');
+            document.getElementById('orderTab').classList.remove('hidden');
+            renderOrder();
+        }
+    }
 
-function renderOrder() {
-  const list = document.getElementById('orderList');
-  const actions = document.getElementById('orderActions');
-  const entries = Object.values(order);
+    // --- Filters ---
+    function renderFilters() {
+        document.getElementById('filterRow').innerHTML = categories.map(c =>
+            `<button class="filter-btn ${c === activeCategory ? 'active' : ''}" onclick="filterCategory('${c}')">${c}</button>`
+        ).join('');
+    }
 
-  if (entries.length === 0) {
-    list.innerHTML = '<div class="empty">No items in order.<br>Scan items to add them.</div>';
-    actions.style.display = 'none';
-    document.getElementById('totalItems').textContent = '0';
-    document.getElementById('totalCases').textContent = '0';
-    document.getElementById('totalCost').textContent = '$0';
-    return;
-  }
+    function filterCategory(cat) {
+        activeCategory = cat;
+        renderFilters();
+        searchCatalog(document.getElementById('catalogSearch').value);
+    }
 
-  actions.style.display = 'block';
+    // --- Search ---
+    function searchCatalog(query) {
+        let items = CATALOG_ITEMS;
+        if (activeCategory !== 'All') {
+            items = items.filter(i => i.category === activeCategory);
+        }
+        if (query && query.length >= 2) {
+            const q = query.toLowerCase();
+            items = items.filter(i =>
+                i.name.toLowerCase().includes(q) ||
+                (i.sku && i.sku.includes(q)) ||
+                (i.upc && i.upc.includes(q))
+            );
+        }
+        renderCatalog(items);
+    }
 
-  let totalCases = 0;
-  let totalCost = 0;
+    function searchScan(query) {
+        if (!query || query.length < 2) {
+            document.getElementById('scanResults').innerHTML = '';
+            return;
+        }
+        const q = query.toLowerCase();
+        const items = COKE_ITEMS.filter(i =>
+            i.name.toLowerCase().includes(q) ||
+            (i.coke_name && i.coke_name.toLowerCase().includes(q)) ||
+            (i.sellable_upc && i.sellable_upc.includes(q)) ||
+            (i.coke_sku && i.coke_sku.includes(q))
+        );
+        renderScanResults(items);
+    }
 
-  list.innerHTML = entries.map(e => {
-    totalCases += e.order_cases;
-    totalCost += (e.case_cost || 0) * e.order_cases;
-    const units = e.order_cases * (parseInt(e.count_per_pack) || 24);
-    return `<div class="order-item">
-      <div class="info">
-        <div class="name">${e.name}</div>
-        <div class="sub">${e.coke_sku || 'No SKU'} | ${units} units | $${((e.case_cost || 0) * e.order_cases).toFixed(2)}${!e.coke_sku ? ' | MANUAL' : ''}</div>
-      </div>
-      <div class="qty-cases">${e.order_cases}</div>
-      <button class="remove" onclick="removeItem('${e.sellable_upc}')">&times;</button>
-    </div>`;
-  }).join('');
+    // --- Scan ---
+    document.getElementById('scanInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const upc = this.value.trim();
+            if (upc) handleScan(upc);
+        }
+    });
 
-  document.getElementById('totalItems').textContent = entries.length;
-  document.getElementById('totalCases').textContent = totalCases;
-  document.getElementById('totalCost').textContent = '$' + totalCost.toFixed(0);
-}
+    function findItem(upc) {
+        upc = upc.trim();
+        if (upcLookup[upc]) return upcLookup[upc];
+        for (let len of [8, 11, 12, 13, 14]) {
+            const padded = upc.padStart(len, '0');
+            if (upcLookup[padded]) return upcLookup[padded];
+        }
+        const stripped = upc.replace(/^0+/, '');
+        if (upcLookup[stripped]) return upcLookup[stripped];
+        if (upc.length > 1) {
+            const noCheck = upc.slice(0, -1);
+            if (upcLookup[noCheck]) return upcLookup[noCheck];
+        }
+        // Also try matching by SKU in scan items
+        const bySku = COKE_ITEMS.find(i => i.coke_sku === upc || i.item_number === upc);
+        if (bySku) return bySku;
+        return null;
+    }
 
-function removeItem(upc) {
-  delete order[upc];
-  saveOrder();
-  updateBadge();
-  renderOrder();
-}
+    function handleScan(upc) {
+        document.getElementById('scanResults').innerHTML = '';
+        const item = findItem(upc);
+        const resultDiv = document.getElementById('scanResult');
 
-function clearOrder() {
-  if (!confirm('Clear entire order?')) return;
-  order = {};
-  saveOrder();
-  updateBadge();
-  renderOrder();
-}
+        if (item) {
+            const existing = order.find(o => o.sellable_upc === item.sellable_upc);
+            const existingQty = existing ? existing.order_cases : 0;
+            const imgSrc = item.image || (item.coke_sku ? `https://cir-api.c1nacloud.com/material/${item.coke_sku}?format=webp&direction=A1N1&unit=EA` : '');
+            resultDiv.innerHTML = `
+                <div class="product-card" style="border: 2px solid #004B93;">
+                    ${imgSrc ? `<div class="img-wrap"><img src="${imgSrc}" onerror="this.parentElement.style.display='none'"></div>` : ''}
+                    <div class="info">
+                        <div class="name">${item.name}</div>
+                        <div class="details">${item.oz || ''} | ${item.count_per_pack || ''}ct per case | ${item.category || ''}</div>
+                        <div class="price">${item.case_cost ? '$' + item.case_cost.toFixed(2) + '/case | $' + (item.per_item_cost || 0).toFixed(2) + '/ea' : ''}</div>
+                        <div style="margin-top:4px">
+                            ${item.coke_sku ? `<span class="sku-badge">SKU ${item.coke_sku}</span>` : '<span class="no-sku">No SKU</span>'}
+                            <span class="upc-badge">UPC ${item.sellable_upc}</span>
+                        </div>
+                        <div style="margin-top:2px;font-size:11px;color:#666;">${item.coke_name || ''}</div>
+                    </div>
+                    <div class="controls-row">
+                        <label>On Hand:</label>
+                        <input type="number" class="qty-input" id="scanOnHand" min="0" value="0" onchange="calcScanNeed()">
+                        <label>Par:</label>
+                        <input type="number" class="qty-input" id="scanPar" min="0" value="${item.count_per_pack || 24}" onchange="calcScanNeed()">
+                        <label>Need:</label>
+                        <span id="scanNeed" class="need-val">0</span>
+                    </div>
+                    <div class="controls-row">
+                        <label>Order Cases:</label>
+                        <input type="number" class="qty-input" id="scanQty" value="${existingQty}" min="0" style="width:50px;">
+                        <button class="add-btn" onclick="addFromScan('${item.sellable_upc}')">${existingQty > 0 ? 'Update' : 'Add to Order'}</button>
+                    </div>
+                </div>`;
+        } else {
+            resultDiv.innerHTML = `
+                <div class="product-card" style="border: 2px solid #c5221f;">
+                    <div class="info">
+                        <div class="name" style="color:#c5221f">No match for: ${upc}</div>
+                        <div class="details">This barcode was scanned but no product matched.<br>Try searching by name below, or check the Catalog tab.</div>
+                    </div>
+                </div>`;
+        }
+        document.getElementById('scanInput').value = '';
+    }
 
-function exportOrder() {
-  const entries = Object.values(order);
-  if (entries.length === 0) return;
+    function calcScanNeed() {
+        const oh = parseInt(document.getElementById('scanOnHand')?.value) || 0;
+        const par = parseInt(document.getElementById('scanPar')?.value) || 0;
+        document.getElementById('scanNeed').textContent = Math.max(0, par - oh);
+    }
 
-  let csv = 'SKU,Name,Cases,Units,CaseCost,TotalCost,SellableUPC,OnHand\n';
-  entries.forEach(e => {
-    const units = e.order_cases * (parseInt(e.count_per_pack) || 24);
-    csv += `${e.coke_sku},"${e.coke_name || e.name}",${e.order_cases},${units},${e.case_cost || 0},${((e.case_cost || 0) * e.order_cases).toFixed(2)},${e.sellable_upc},${e.on_hand || 0}\n`;
-  });
+    function addFromScan(upc) {
+        const item = findItem(upc);
+        if (!item) return;
+        const cases = parseInt(document.getElementById('scanQty')?.value) || 0;
+        const onHand = parseInt(document.getElementById('scanOnHand')?.value) || 0;
 
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `coke_order_${new Date().toISOString().split('T')[0]}.csv`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
+        if (cases <= 0) {
+            order = order.filter(o => o.sellable_upc !== item.sellable_upc);
+        } else {
+            const existing = order.find(o => o.sellable_upc === item.sellable_upc);
+            if (existing) {
+                existing.order_cases = cases;
+                existing.on_hand = onHand;
+            } else {
+                order.push({
+                    name: item.name, sellable_upc: item.sellable_upc,
+                    coke_sku: item.coke_sku, coke_name: item.coke_name,
+                    count_per_pack: item.count_per_pack, case_cost: item.case_cost,
+                    per_item_cost: item.per_item_cost, image: item.image,
+                    order_cases: cases, on_hand: onHand, oz: item.oz,
+                });
+            }
+        }
+        saveOrder();
+        updateOrderBadge();
+        // Feedback
+        const btn = event.target;
+        btn.textContent = cases > 0 ? 'Added!' : 'Removed';
+        btn.style.background = cases > 0 ? '#137333' : '#c5221f';
+        setTimeout(() => { btn.textContent = 'Update'; btn.style.background = '#004B93'; }, 800);
+    }
 
-function uploadOrder() {
-  // Export CSV first, then user runs upload script
-  exportOrder();
-  alert('CSV exported! To upload to myCoke cart:\n\n1. Move the CSV to D:\\store-inventory\\data\\imports\\\n2. Double-click coke_upload.bat\n3. Log in to myCoke when browser opens\n4. Press ENTER to start uploading');
-}
+    // --- Render scan search results ---
+    function renderScanResults(items) {
+        const container = document.getElementById('scanResults');
+        if (!items.length) {
+            container.innerHTML = '<div class="empty-state">No matches found</div>';
+            return;
+        }
+        const showing = items.slice(0, 30);
+        container.innerHTML = showing.map(item => {
+            const imgSrc = item.image || (item.coke_sku ? `https://cir-api.c1nacloud.com/material/${item.coke_sku}?format=webp&direction=A1N1&unit=EA` : '');
+            return `<div class="product-card" onclick="document.getElementById('scanInput').value='${item.sellable_upc}';handleScan('${item.sellable_upc}');document.getElementById('scanResults').innerHTML='';" style="cursor:pointer;">
+                ${imgSrc ? `<div class="img-wrap"><img src="${imgSrc}" onerror="this.parentElement.style.display='none'"></div>` : ''}
+                <div class="info">
+                    <div class="name">${item.name}</div>
+                    <div class="details">${item.oz || ''} | ${item.count_per_pack || ''}ct | $${(item.case_cost || 0).toFixed(2)}/case</div>
+                    <div style="margin-top:4px">
+                        ${item.coke_sku ? `<span class="sku-badge">SKU ${item.coke_sku}</span>` : '<span class="no-sku">No SKU</span>'}
+                        <span class="upc-badge">${item.sellable_upc}</span>
+                    </div>
+                </div>
+            </div>`;
+        }).join('') + (items.length > 30 ? `<div style="text-align:center;padding:8px;color:#999;font-size:12px;">${items.length - 30} more results...</div>` : '');
+    }
 
-// --- Browse ---
-function renderBrowse() {
-  filterBrowse();
-}
+    // --- Render catalog (full 1,121 products) ---
+    let catalogPage = 0;
+    const PAGE_SIZE = 50;
+    let currentCatalogItems = [];
 
-function filterBrowse() {
-  const q = (document.getElementById('browseSearch').value || '').toLowerCase();
-  const filtered = COKE_ITEMS.filter(item =>
-    !q || item.name.toLowerCase().includes(q) || (item.sellable_upc && item.sellable_upc.includes(q))
-  ).slice(0, 50);
+    function renderCatalog(items) {
+        const container = document.getElementById('catalogList');
+        if (!items.length) {
+            container.innerHTML = '<div class="empty-state"><div class="icon">&#128270;</div>No products found</div>';
+            return;
+        }
+        currentCatalogItems = items;
+        catalogPage = 0;
+        const pageItems = items.slice(0, PAGE_SIZE);
+        let html = `<div style="padding:4px 8px;font-size:12px;color:#666;">${items.length} products</div>`;
+        html += pageItems.map(item => renderCatalogCard(item)).join('');
+        if (items.length > PAGE_SIZE) {
+            html += `<button onclick="loadMoreCatalog()" style="width:100%;padding:12px;background:#004B93;color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin:8px 0;">Load More (${items.length - PAGE_SIZE} remaining)</button>`;
+        }
+        container.innerHTML = html;
+    }
 
-  const div = document.getElementById('browseList');
-  div.innerHTML = filtered.map(item => {
-    const imgSrc = item.image || (item.coke_sku ? `https://cir-api.c1nacloud.com/material/${item.coke_sku}?format=webp&direction=A1N1&unit=EA` : '');
-    const inOrder = order[item.sellable_upc] ? ' style="border-color:var(--green)"' : '';
-    return `<div class="browse-item"${inOrder} onclick="selectFromBrowse('${item.sellable_upc}')">
-      ${imgSrc ? `<img src="${imgSrc}" onerror="this.style.display='none'">` : ''}
-      <div class="bname">${item.name}<br><span class="bupc">${item.count_per_pack || ''} | $${(item.case_cost || 0).toFixed(2)}/case | $${(item.per_item_cost || 0).toFixed(2)}/ea</span></div>
-      ${order[item.sellable_upc] ? `<div style="color:var(--green);font-weight:700">${order[item.sellable_upc].order_cases}cs</div>` : ''}
-    </div>`;
-  }).join('');
-}
+    function loadMoreCatalog() {
+        catalogPage++;
+        const start = catalogPage * PAGE_SIZE;
+        const end = start + PAGE_SIZE;
+        const pageItems = currentCatalogItems.slice(start, end);
+        const container = document.getElementById('catalogList');
+        const btn = container.querySelector('button:last-child');
+        if (btn) btn.remove();
+        const div = document.createElement('div');
+        div.innerHTML = pageItems.map(item => renderCatalogCard(item)).join('');
+        container.appendChild(div);
+        const remaining = currentCatalogItems.length - end;
+        if (remaining > 0) {
+            const newBtn = document.createElement('button');
+            newBtn.onclick = loadMoreCatalog;
+            newBtn.style = 'width:100%;padding:12px;background:#004B93;color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin:8px 0;';
+            newBtn.textContent = `Load More (${remaining} remaining)`;
+            container.appendChild(newBtn);
+        }
+    }
 
-function selectFromBrowse(upc) {
-  if (!upc) return;
-  document.getElementById('upcInput').value = upc;
-  document.querySelector('[data-page=scan]').click();
-  setTimeout(lookupUpc, 100);
-}
+    function renderCatalogCard(item) {
+        const imgSrc = item.image || '';
+        const existing = order.find(o => o.coke_sku === item.sku);
+        const existingQty = existing ? existing.order_cases : 0;
+        const realUpc = item.upc && !item.upc.startsWith('00000') ? item.upc : '';
 
-// --- Init ---
-updateBadge();
-</script>
+        return `
+        <div class="product-card">
+            ${imgSrc ? `<div class="img-wrap"><img src="${imgSrc}" onerror="this.parentElement.style.display='none'"></div>` : ''}
+            <div class="info">
+                <div class="name">${item.name}</div>
+                <div class="details">${item.category}</div>
+                <div style="margin-top:4px">
+                    <span class="sku-badge">SKU ${item.sku}</span>
+                    ${realUpc ? `<span class="upc-badge">${realUpc}</span>` : ''}
+                </div>
+            </div>
+            <div class="controls-row">
+                <label>Cases:</label>
+                <input type="number" class="qty-input" id="catqty_${item.sku}" value="${existingQty}" min="0" style="width:50px;">
+                <button class="add-btn" onclick="addCatalogItem('${item.sku}')">${existingQty > 0 ? 'Update' : 'Add'}</button>
+            </div>
+        </div>`;
+    }
+
+    function addCatalogItem(sku) {
+        const catItem = CATALOG_ITEMS.find(i => i.sku === sku);
+        if (!catItem) return;
+        const cases = parseInt(document.getElementById('catqty_' + sku)?.value) || 0;
+
+        if (cases <= 0) {
+            order = order.filter(o => o.coke_sku !== sku);
+        } else {
+            const existing = order.find(o => o.coke_sku === sku);
+            if (existing) {
+                existing.order_cases = cases;
+            } else {
+                // Also check if this SKU exists in scan items for cost data
+                const scanItem = COKE_ITEMS.find(i => i.coke_sku === sku);
+                order.push({
+                    name: catItem.name,
+                    sellable_upc: scanItem?.sellable_upc || '',
+                    coke_sku: sku,
+                    coke_name: catItem.name,
+                    count_per_pack: scanItem?.count_per_pack || '',
+                    case_cost: scanItem?.case_cost || 0,
+                    per_item_cost: scanItem?.per_item_cost || 0,
+                    image: catItem.image,
+                    order_cases: cases,
+                    on_hand: 0,
+                    oz: '',
+                });
+            }
+        }
+        saveOrder();
+        updateOrderBadge();
+        const btn = event.target;
+        btn.textContent = cases > 0 ? 'Added!' : 'Removed';
+        btn.style.background = cases > 0 ? '#137333' : '#c5221f';
+        setTimeout(() => { btn.textContent = 'Update'; btn.style.background = '#004B93'; }, 800);
+    }
+
+    // --- Order Management ---
+    function saveOrder() { localStorage.setItem('coke_order_v3', JSON.stringify(order)); }
+
+    function updateOrderBadge() {
+        const badge = document.getElementById('orderCount');
+        const total = order.reduce((s, o) => s + (o.order_cases || 0), 0);
+        badge.textContent = total;
+        badge.classList.toggle('hidden', total === 0);
+    }
+
+    function renderOrder() {
+        const list = document.getElementById('orderList');
+        const summary = document.getElementById('orderSummary');
+
+        if (!order.length) {
+            list.innerHTML = '<div class="empty-state"><div class="icon">&#128230;</div>No items in order<br>Scan or browse to add products</div>';
+            summary.classList.add('hidden');
+            return;
+        }
+
+        list.innerHTML = order.map(item => `
+            <div class="order-item">
+                <div class="info">
+                    <div class="name">${item.name}</div>
+                    <div class="details">${item.coke_sku ? 'SKU ' + item.coke_sku : 'No SKU'} | ${item.oz || ''} | ${item.count_per_pack ? item.count_per_pack + 'ct' : ''} ${item.case_cost ? '| $' + item.case_cost.toFixed(2) + '/case' : ''}</div>
+                </div>
+                <div class="qty-controls">
+                    <button class="qty-btn" onclick="updateOrderQty('${item.coke_sku || item.sellable_upc}', ${(item.order_cases || 1) - 1})">-</button>
+                    <span style="font-weight:700;font-size:16px;min-width:24px;text-align:center;">${item.order_cases}</span>
+                    <button class="qty-btn" onclick="updateOrderQty('${item.coke_sku || item.sellable_upc}', ${(item.order_cases || 0) + 1})">+</button>
+                    <button class="remove-btn" onclick="removeFromOrder('${item.coke_sku || item.sellable_upc}')">&#10005;</button>
+                </div>
+            </div>
+        `).join('');
+
+        const totalCases = order.reduce((s, o) => s + (o.order_cases || 0), 0);
+        const totalCost = order.reduce((s, o) => s + (o.case_cost || 0) * (o.order_cases || 0), 0);
+        document.getElementById('totalCases').textContent = totalCases;
+        document.getElementById('totalCost').textContent = totalCost.toFixed(0);
+        summary.classList.remove('hidden');
+    }
+
+    function updateOrderQty(key, qty) {
+        const item = order.find(o => (o.coke_sku || o.sellable_upc) === key);
+        if (!item) return;
+        if (qty <= 0) {
+            removeFromOrder(key);
+            return;
+        }
+        item.order_cases = qty;
+        saveOrder();
+        updateOrderBadge();
+        renderOrder();
+    }
+
+    function removeFromOrder(key) {
+        order = order.filter(o => (o.coke_sku || o.sellable_upc) !== key);
+        saveOrder();
+        updateOrderBadge();
+        renderOrder();
+    }
+
+    function exportOrder() {
+        if (!order.length) return;
+        let csv = 'SKU,Name,Cases,Units,CaseCost,TotalCost,SellableUPC,OnHand\n';
+        order.forEach(e => {
+            const units = (e.order_cases || 0) * (parseInt(e.count_per_pack) || 24);
+            csv += `${e.coke_sku || ''},"${e.coke_name || e.name}",${e.order_cases},${units},${e.case_cost || 0},${((e.case_cost || 0) * e.order_cases).toFixed(2)},${e.sellable_upc || ''},${e.on_hand || 0}\n`;
+        });
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `coke_order_${new Date().toISOString().split('T')[0]}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    function uploadOrder() {
+        exportOrder();
+        alert('CSV exported! To upload to myCoke cart:\n\n1. Move the CSV to D:\\store-inventory\\data\\imports\\\n2. Double-click coke_upload.bat\n3. Log in to myCoke when browser opens\n4. Press ENTER to start uploading');
+    }
+
+    // --- Init ---
+    renderFilters();
+    searchCatalog('');
+    updateOrderBadge();
+    </script>
 </body>
 </html>

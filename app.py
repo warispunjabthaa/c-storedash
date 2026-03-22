@@ -889,8 +889,12 @@ async def coke_order(request: Request):
     return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'coke.html'))
 
 @app.get("/coke_scan_data.js")
-async def coke_data():
+async def coke_scan_data():
     return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'coke_scan_data.js'))
+
+@app.get("/coke_data.js")
+async def coke_catalog_data():
+    return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'coke_data.js'))
 
 @app.get("/pepsi", response_class=HTMLResponse)
 async def pepsi_order(request: Request):
