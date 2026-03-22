@@ -892,6 +892,16 @@ async def coke_order(request: Request):
 async def coke_data():
     return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'coke_scan_data.js'))
 
+@app.get("/pepsi", response_class=HTMLResponse)
+async def pepsi_order(request: Request):
+    if not request.session.get('authenticated'):
+        return RedirectResponse('/login?next=/pepsi', status_code=302)
+    return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'pepsi.html'))
+
+@app.get("/pepsi_scan_data.js")
+async def pepsi_data():
+    return FileResponse(os.path.join(os.path.dirname(__file__), 'frontend', 'pepsi_scan_data.js'))
+
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     if not request.session.get('authenticated'):

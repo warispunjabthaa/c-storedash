@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pepsi Scan-to-Order</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#004B93">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #333; }
+
+        .header { background: linear-gradient(135deg, #004B93, #0066CC); color: white; padding: 12px 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .header h1 { font-size: 20px; font-weight: 700; }
+        .header .subtitle { font-size: 12px; opacity: 0.8; }
+
+        .tabs { display: flex; background: #003670; }
+        .tab { flex: 1; padding: 10px; text-align: center; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 13px; font-weight: 600; border-bottom: 3px solid transparent; transition: all 0.2s; }
+        .tab.active { color: white; border-bottom-color: #FFD100; background: rgba(255,255,255,0.1); }
+
+        .search-bar { padding: 12px 16px; background: white; border-bottom: 1px solid #ddd; position: sticky; top: 56px; z-index: 99; }
+        .search-bar input { width: 100%; padding: 10px 14px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; transition: border-color 0.2s; }
+        .search-bar input:focus { border-color: #004B93; }
+
+        .filter-row { padding: 8px 16px; background: #f8f9fa; display: flex; gap: 8px; overflow-x: auto; border-bottom: 1px solid #eee; }
+        .filter-btn { padding: 6px 14px; border-radius: 20px; border: 1px solid #ccc; background: white; font-size: 12px; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+        .filter-btn.active { background: #004B93; color: white; border-color: #004B93; }
+
+        .product-list { padding: 8px; }
+        .product-card { background: white; border-radius: 10px; padding: 14px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 12px; }
+        .product-card .info { flex: 1; }
+        .product-card .name { font-weight: 600; font-size: 15px; color: #1a1a1a; }
+        .product-card .details { font-size: 12px; color: #666; margin-top: 3px; }
+        .product-card .sku-badge { background: #e8f0fe; color: #004B93; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        .product-card .upc-badge { background: #e6f4ea; color: #137333; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 4px; }
+        .product-card .no-upc { background: #fce8e6; color: #c5221f; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 4px; }
+
+        .qty-controls { display: flex; align-items: center; gap: 6px; }
+        .qty-btn { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #004B93; background: white; color: #004B93; font-size: 18px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .qty-btn:active { background: #004B93; color: white; }
+        .qty-input { width: 40px; text-align: center; border: 1px solid #ddd; border-radius: 6px; padding: 4px; font-size: 14px; }
+        .add-btn { background: #004B93; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .add-btn:active { background: #003670; }
+
+        .order-panel { padding: 8px; }
+        .order-item { background: white; border-radius: 10px; padding: 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .order-item .info { flex: 1; }
+        .order-item .remove-btn { color: #c5221f; background: none; border: none; font-size: 20px; cursor: pointer; padding: 4px 8px; }
+
+        .order-summary { background: white; padding: 16px; border-top: 2px solid #004B93; position: sticky; bottom: 0; }
+        .order-summary .total { font-size: 18px; font-weight: 700; color: #004B93; }
+        .export-btn { width: 100%; padding: 14px; background: #004B93; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 10px; }
+        .export-btn:active { background: #003670; }
+
+        .empty-state { text-align: center; padding: 40px 20px; color: #999; }
+        .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+
+        .scan-section { padding: 16px; }
+        .scan-input { width: 100%; padding: 14px; border: 2px dashed #004B93; border-radius: 10px; font-size: 18px; text-align: center; outline: none; background: #f0f6ff; }
+        .scan-result { margin-top: 12px; }
+
+        .count-badge { background: #FFD100; color: #333; border-radius: 12px; padding: 2px 8px; font-size: 12px; font-weight: 700; margin-left: 6px; }
+
+        .hidden { display: none !important; }
+
+        @media (min-width: 768px) {
+            body { max-width: 600px; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Pepsi Scan-to-Order</h1>
+        <div class="subtitle">PepsiCo Partners | Scan & Build Orders</div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('scan')">Scan</div>
+        <div class="tab" onclick="showTab('catalog')">Catalog</div>
+        <div class="tab" onclick="showTab('order')">Order <span id="orderCount" class="count-badge hidden">0</span></div>
+    </div>
+
+    <!-- SCAN TAB -->
+    <div id="scanTab">
+        <div class="scan-section">
+            <input type="text" id="scanInput" class="scan-input" placeholder="Scan barcode or enter UPC..." inputmode="numeric" autofocus>
+            <div id="scanResult" class="scan-result"></div>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="scanSearch" placeholder="Or search by product name..." oninput="searchScan(this.value)">
+        </div>
+        <div id="scanResults" class="product-list"></div>
+    </div>
+
+    <!-- CATALOG TAB -->
+    <div id="catalogTab" class="hidden">
+        <div class="search-bar">
+            <input type="text" id="catalogSearch" placeholder="Search products..." oninput="searchCatalog(this.value)">
+        </div>
+        <div class="filter-row" id="filterRow"></div>
+        <div id="catalogList" class="product-list"></div>
+    </div>
+
+    <!-- ORDER TAB -->
+    <div id="orderTab" class="hidden">
+        <div id="orderList" class="order-panel"></div>
+        <div id="orderSummary" class="order-summary hidden">
+            <div class="total">Total: <span id="totalCases">0</span> cases</div>
+            <button class="export-btn" onclick="exportOrder()">Export CSV</button>
+        </div>
+    </div>
+
+    <script src="/pepsi_scan_data.js"></script>
+    <script>
+    // State
+    let order = [];
+    let activeCategory = 'All';
+    const categories = ['All', ...new Set(PEPSI_ITEMS.map(i => i.category))];
+
+    // Init
+    function init() {
+        renderFilters();
+        renderCatalog(PEPSI_ITEMS);
+    }
+
+    // Tabs
+    function showTab(tab) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('scanTab').classList.add('hidden');
+        document.getElementById('catalogTab').classList.add('hidden');
+        document.getElementById('orderTab').classList.add('hidden');
+
+        if (tab === 'scan') {
+            document.querySelectorAll('.tab')[0].classList.add('active');
+            document.getElementById('scanTab').classList.remove('hidden');
+            document.getElementById('scanInput').focus();
+        } else if (tab === 'catalog') {
+            document.querySelectorAll('.tab')[1].classList.add('active');
+            document.getElementById('catalogTab').classList.remove('hidden');
+        } else {
+            document.querySelectorAll('.tab')[2].classList.add('active');
+            document.getElementById('orderTab').classList.remove('hidden');
+            renderOrder();
+        }
+    }
+
+    // Filters
+    function renderFilters() {
+        const row = document.getElementById('filterRow');
+        row.innerHTML = categories.map(c =>
+            `<button class="filter-btn ${c === activeCategory ? 'active' : ''}" onclick="filterCategory('${c}')">${c}</button>`
+        ).join('');
+    }
+
+    function filterCategory(cat) {
+        activeCategory = cat;
+        renderFilters();
+        const query = document.getElementById('catalogSearch').value;
+        searchCatalog(query);
+    }
+
+    // Search
+    function searchCatalog(query) {
+        let items = PEPSI_ITEMS;
+        if (activeCategory !== 'All') {
+            items = items.filter(i => i.category === activeCategory);
+        }
+        if (query && query.length >= 2) {
+            const q = query.toLowerCase();
+            items = items.filter(i =>
+                i.name.toLowerCase().includes(q) ||
+                i.sku.includes(q) ||
+                i.full_name.toLowerCase().includes(q) ||
+                (i.pepsi_upc && i.pepsi_upc.includes(q))
+            );
+        }
+        renderCatalog(items);
+    }
+
+    function searchScan(query) {
+        if (!query || query.length < 2) {
+            document.getElementById('scanResults').innerHTML = '';
+            return;
+        }
+        const q = query.toLowerCase();
+        const items = PEPSI_ITEMS.filter(i =>
+            i.name.toLowerCase().includes(q) ||
+            i.sku.includes(q) ||
+            i.full_name.toLowerCase().includes(q)
+        ).slice(0, 20);
+        renderCatalog(items, 'scanResults');
+    }
+
+    // Scan
+    document.getElementById('scanInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const upc = this.value.trim();
+            if (upc) handleScan(upc);
+        }
+    });
+
+    function handleScan(upc) {
+        // Try matching by UPC
+        let match = PEPSI_ITEMS.find(i => i.pepsi_upc === upc || i.sellable_upc === upc);
+
+        // Try without check digit
+        if (!match && upc.length >= 11) {
+            const trimmed = upc.substring(0, upc.length - 1);
+            match = PEPSI_ITEMS.find(i =>
+                (i.pepsi_upc && i.pepsi_upc.startsWith(trimmed)) ||
+                (i.sellable_upc && i.sellable_upc.startsWith(trimmed))
+            );
+        }
+
+        // Try by SKU
+        if (!match) {
+            match = PEPSI_ITEMS.find(i => i.sku === upc);
+        }
+
+        const resultDiv = document.getElementById('scanResult');
+        if (match) {
+            resultDiv.innerHTML = `
+                <div class="product-card" style="border: 2px solid #004B93;">
+                    <div class="info">
+                        <div class="name">${match.name}</div>
+                        <div class="details">${match.pkg_size} | ${match.case_qty}ct | ${match.category}</div>
+                        <div style="margin-top:4px">
+                            <span class="sku-badge">SKU ${match.sku}</span>
+                            ${match.pepsi_upc ? `<span class="upc-badge">UPC ${match.pepsi_upc}</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="qty-controls">
+                        <input type="number" class="qty-input" id="scanQty" value="1" min="1">
+                        <button class="add-btn" onclick="addToOrder('${match.sku}', parseInt(document.getElementById('scanQty').value))">Add</button>
+                    </div>
+                </div>`;
+        } else {
+            resultDiv.innerHTML = `<div class="product-card" style="border: 2px solid #c5221f;"><div class="info"><div class="name" style="color:#c5221f">No match for: ${upc}</div><div class="details">Try searching by name below</div></div></div>`;
+        }
+        document.getElementById('scanInput').value = '';
+        document.getElementById('scanInput').focus();
+    }
+
+    // Render catalog
+    function renderCatalog(items, containerId = 'catalogList') {
+        const container = document.getElementById(containerId);
+        if (!items.length) {
+            container.innerHTML = '<div class="empty-state"><div class="icon">🔍</div>No products found</div>';
+            return;
+        }
+        container.innerHTML = items.map(item => `
+            <div class="product-card">
+                <div class="info">
+                    <div class="name">${item.name}</div>
+                    <div class="details">${item.pkg_size || ''} ${item.case_qty ? '| ' + item.case_qty + 'ct' : ''} | ${item.category}</div>
+                    <div style="margin-top:4px">
+                        <span class="sku-badge">SKU ${item.sku}</span>
+                        ${item.pepsi_upc ? `<span class="upc-badge">${item.pepsi_upc}</span>` : '<span class="no-upc">No UPC</span>'}
+                    </div>
+                </div>
+                <div class="qty-controls">
+                    <input type="number" class="qty-input" id="qty_${item.sku}" value="1" min="1">
+                    <button class="add-btn" onclick="addToOrder('${item.sku}', parseInt(document.getElementById('qty_${item.sku}').value))">Add</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Order management
+    function addToOrder(sku, qty) {
+        const item = PEPSI_ITEMS.find(i => i.sku === sku);
+        if (!item) return;
+
+        const existing = order.find(o => o.sku === sku);
+        if (existing) {
+            existing.qty += qty;
+        } else {
+            order.push({ ...item, qty });
+        }
+        updateOrderBadge();
+        // Visual feedback
+        event.target.textContent = '✓';
+        event.target.style.background = '#137333';
+        setTimeout(() => { event.target.textContent = 'Add'; event.target.style.background = '#004B93'; }, 800);
+    }
+
+    function removeFromOrder(sku) {
+        order = order.filter(o => o.sku !== sku);
+        updateOrderBadge();
+        renderOrder();
+    }
+
+    function updateQty(sku, qty) {
+        const item = order.find(o => o.sku === sku);
+        if (item) {
+            item.qty = Math.max(1, qty);
+            updateOrderBadge();
+            renderOrder();
+        }
+    }
+
+    function updateOrderBadge() {
+        const badge = document.getElementById('orderCount');
+        const total = order.reduce((s, o) => s + o.qty, 0);
+        badge.textContent = total;
+        badge.classList.toggle('hidden', total === 0);
+    }
+
+    function renderOrder() {
+        const list = document.getElementById('orderList');
+        const summary = document.getElementById('orderSummary');
+
+        if (!order.length) {
+            list.innerHTML = '<div class="empty-state"><div class="icon">📦</div>No items in order<br>Scan or browse to add products</div>';
+            summary.classList.add('hidden');
+            return;
+        }
+
+        list.innerHTML = order.map(item => `
+            <div class="order-item">
+                <div class="info">
+                    <div class="name">${item.name}</div>
+                    <div class="details">${item.pkg_size} | SKU ${item.sku}</div>
+                </div>
+                <div class="qty-controls">
+                    <button class="qty-btn" onclick="updateQty('${item.sku}', ${item.qty - 1})">−</button>
+                    <span style="font-weight:700; font-size:16px; min-width:24px; text-align:center;">${item.qty}</span>
+                    <button class="qty-btn" onclick="updateQty('${item.sku}', ${item.qty + 1})">+</button>
+                    <button class="remove-btn" onclick="removeFromOrder('${item.sku}')">✕</button>
+                </div>
+            </div>
+        `).join('');
+
+        const totalCases = order.reduce((s, o) => s + o.qty, 0);
+        document.getElementById('totalCases').textContent = totalCases;
+        summary.classList.remove('hidden');
+    }
+
+    // Export
+    function exportOrder() {
+        if (!order.length) return;
+
+        let csv = 'SKU,Product,Package,Case Qty,Order Qty,UPC\n';
+        for (const item of order) {
+            csv += `"${item.sku}","${item.name}","${item.pkg_size}","${item.case_qty}","${item.qty}","${item.pepsi_upc || ''}"\n`;
+        }
+
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const date = new Date().toISOString().split('T')[0];
+        a.href = url;
+        a.download = `pepsi_order_${date}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    init();
+    </script>
+</body>
+</html>
