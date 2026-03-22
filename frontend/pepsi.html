@@ -113,7 +113,8 @@
         <div id="orderList" class="order-panel"></div>
         <div id="orderSummary" class="order-summary hidden">
             <div class="total">Total: <span id="totalCases">0</span> cases</div>
-            <button class="export-btn" onclick="exportOrder()">Export CSV</button>
+            <button class="export-btn" onclick="exportForUpload()">Export for PepsiCo Cart Upload</button>
+            <button class="export-btn" onclick="exportDetail()" style="background:#666;margin-top:6px;font-size:13px;padding:10px;">Export Full Detail CSV</button>
         </div>
     </div>
 
@@ -514,8 +515,20 @@
         summary.classList.remove('hidden');
     }
 
-    // Export
-    function exportOrder() {
+    // Export - PepsiCo cart upload format (Sku,Quantity,Name,Package size)
+    function exportForUpload() {
+        if (!order.length) return;
+
+        let csv = 'Sku,Quantity,Name,Package size\n';
+        for (const item of order) {
+            csv += `${item.sku},${item.qty},${item.name},${item.pkg_size.toLowerCase()}\n`;
+        }
+
+        downloadCSV(csv, 'pepsi_cart_upload');
+    }
+
+    // Export - full detail format
+    function exportDetail() {
         if (!order.length) return;
 
         let csv = 'SKU,Product,Package,Case Qty,Order Qty,On Hand,Par,UPC\n';
@@ -523,12 +536,16 @@
             csv += `"${item.sku}","${item.name}","${item.pkg_size}","${item.case_qty}","${item.qty}","${item.on_hand || 0}","${item.par || 0}","${(item.upc || item.pepsi_upc) || ''}"\n`;
         }
 
+        downloadCSV(csv, 'pepsi_order_detail');
+    }
+
+    function downloadCSV(csv, prefix) {
         const blob = new Blob([csv], { type: 'text/csv' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         const date = new Date().toISOString().split('T')[0];
         a.href = url;
-        a.download = `pepsi_order_${date}.csv`;
+        a.download = `${prefix}_${date}.csv`;
         a.click();
         URL.revokeObjectURL(url);
     }
